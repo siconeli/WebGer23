@@ -3,8 +3,8 @@ from django.db import models
 from django.contrib.auth import get_user_model
 
 class Base(models.Model): # Classe base, será herdada pelas outras classes
-    criado = models.DateField('Criado', auto_now_add=True)
-    alterado = models.DateField('Alterado', auto_now=True)
+    data_criacao = models.DateField('data_criação', auto_now_add=True)
+    data_alteracao = models.DateField('Alterado', auto_now=True)
     ativo = models.BooleanField('Ativo?', default=True)
 
     class Meta:
@@ -24,7 +24,7 @@ class ProcessoAdm(Base):
         ('Física', 'Física'), ('Jurídica', 'Jurídica'),
     )
 
-    usuario_criador = models.ForeignKey(get_user_model(), verbose_name='Usuário Criador', on_delete=models.CASCADE) # Usuário que criou o processo, utilizando chave primária com o get_user_model do django, para utilizar o usuário logado automaticamente
+    criador_processo_adm = models.ForeignKey(get_user_model(), verbose_name='Usuário Criador', on_delete=models.CASCADE) # Usuário que criou o processo, utilizando chave primária com o get_user_model do django, para utilizar o usuário logado automaticamente
     numero = models.CharField(unique=True, verbose_name='N°', max_length=10) # Número do processo
     municipio = models.CharField(max_length=50, choices=municipios, verbose_name='Município') # Município
     uf = models.CharField(max_length=2, choices=ufs) # UF 
