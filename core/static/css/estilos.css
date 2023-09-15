@@ -1,0 +1,34 @@
+body {
+    background-color: whitesmoke;
+    margin: 0;
+}
+
+/* Corpo do Menu */
+.container-fluid {
+    background-color: #0098DB;
+    /* background-color: black; */
+}
+
+#text-menu {
+    color: white;
+}
+
+/* Navbar lateral do menu */
+#offcanvasNavbar {
+    background-color: #0098DB;
+    /* background-color: black; */
+
+}
+
+/* Texto do navbar lateral do menu */
+#texto-navbar-menu {
+    color: white;
+}
+
+/* Imagem tela cheia da página principal */
+#pagina-principal {
+    width: 100vw;
+    height: 100vh;
+    background: url('../img/fundo.png');
+    background-size: cover;
+}

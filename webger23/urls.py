@@ -33,4 +33,4 @@ urlpatterns = [
 # Editar a Área Administrativa do Django
 admin.site.site_header = 'WebGer23' # Título da tela de Login
 admin.site.site_title = 'WebGer23' # Título da aba do navegador da tela de Login
-admin.site.index_title = 'Sistema de Gerenciamento de Processos' # Título da página principal após o login
+admin.site.index_title = 'Sistema Web Gerenciador de Processos' # Título da página principal após o login

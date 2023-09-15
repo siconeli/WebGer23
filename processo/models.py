@@ -1,5 +1,7 @@
 from django.db import models
 
+from django.contrib.auth import get_user_model
+
 class Base(models.Model): # Classe base, será herdada pelas outras classes
     criado = models.DateField('Criado', auto_now_add=True)
     alterado = models.DateField('Alterado', auto_now=True)
@@ -22,6 +24,7 @@ class ProcessoAdm(Base):
         ('Física', 'Física'), ('Jurídica', 'Jurídica'),
     )
 
+    user_create = models.ForeignKey(get_user_model(), verbose_name='Usuário Criador', on_delete=models.CASCADE) # Usuário que criou o processo
     numero = models.CharField(unique=True, verbose_name='N°', max_length=10) # Número do processo
     municipio = models.CharField(max_length=50, choices=municipios, verbose_name='Município') # Município
     uf = models.CharField(max_length=2, choices=ufs) # UF 

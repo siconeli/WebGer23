@@ -122,7 +122,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 # Configuração dos arquivos estáticos: css, js, imagens
-STATIC_URL = 'static/' # Usado durante o desenvolvimento
+STATIC_URL = '/static/' # Usado durante o desenvolvimento
 # STATIC_ROOT = str(BASE_DIR / 'staticfiles') # Usado durante a produção
 
 #================================================================================================================
