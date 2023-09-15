@@ -24,7 +24,7 @@ class ProcessoAdm(Base):
         ('Física', 'Física'), ('Jurídica', 'Jurídica'),
     )
 
-    user_create = models.ForeignKey(get_user_model(), verbose_name='Usuário Criador', on_delete=models.CASCADE) # Usuário que criou o processo
+    usuario_criador = models.ForeignKey(get_user_model(), verbose_name='Usuário Criador', on_delete=models.CASCADE) # Usuário que criou o processo, utilizando chave primária com o get_user_model do django, para utilizar o usuário logado automaticamente
     numero = models.CharField(unique=True, verbose_name='N°', max_length=10) # Número do processo
     municipio = models.CharField(max_length=50, choices=municipios, verbose_name='Município') # Município
     uf = models.CharField(max_length=2, choices=ufs) # UF 

@@ -30,7 +30,7 @@
 <body>
 
     {% block menu %}
-    <nav class="navbar fixed-top">
+      <nav class="navbar fixed-top">
         <div class="container-fluid">
               <img src="{% static 'img/pasta.png' %}" alt="" width="60">
             <!-- <h3 id="text-menu">Controle de Processos</h3> -->
@@ -56,10 +56,27 @@
                   </ul>
                 </li>
 
+                {% if request.user.is_authenticated %} <!--Se o usuário estiver logado(autenticado) mostrar opção 'Sair'-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="texto-navbar-menu" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="bi bi-person-check-fill"><!--ícone de usuário--></i>   {{ request.user }}
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="{% url 'index' %}">Logout</a></li> <!--logout-->
+                    </ul>
+                </li>
+
+                {% else %} <!-- Senão opção 'Entrar' -->
+
+                <a class="nav-link active" id="texto-navbar-menu" aria-current="page" href="{% url 'index' %}">Login</a> <!--login-->
+
+                {% endif %}
+                
+              </ul>
             </div>
           </div>
         </div>
-      </nav>      
+      </nav> 
     {% endblock %}
 
 
