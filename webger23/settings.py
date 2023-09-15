@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-l^j*v2e&&e@@21#+kd@5xdj7v#!e7-iwt%x(78e0=)7_2p+!%5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,6 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'core', # Aplicação core
+    'processo', # Aplicação Processo
+
+    'django_cleanup.apps.CleanupConfig', # Excluir arquivos da pasta de uploads após editar o registro e adicionar um novo arquivo.
+    'widget_tweaks', # Biblioteca Widget - Muito importante - Torna possível eu criar um formulário HTML próprio sincronizado com as Class Based Views.
 ]
 
 MIDDLEWARE = [
@@ -54,7 +60,7 @@ ROOT_URLCONF = 'webger23.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -103,9 +109,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
@@ -115,9 +121,29 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+# Configuração dos arquivos estáticos: css, js, imagens
+STATIC_URL = 'static/' # Usado durante o desenvolvimento
+# STATIC_ROOT = str(BASE_DIR / 'staticfiles') # Usado durante a produção
+
+#================================================================================================================
+# Arquivos de Media (Para salvar os arquivos em endereço local, na mesma máquina do código) (USAR DURANTE O DESENVOLVIMENTO)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = str(BASE_DIR / 'media') #cria a pasta 'media' para onde irão todos os arquivos enviados
+
+# Arquivos de Media (Para salvar os arquivos em um servidor externo, acessado via IP) (USAR DURANTE A PRODUÇÃO)
+# MEDIA_URL = '/uploads/' # Busca o arquivo na pasta uploads dentro do Servidor TrueNAS, quando é realizado um download.
+# MEDIA_ROOT = ('//10.0.0.55/Geral/') # Encaminha o arquivo para o Servidor TrueNAS, quando é realizado um upload.
+#================================================================================================================
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Configurações de autenticação padrão de login
+LOGIN_REDIRECT_URL = 'index'  # Redireciona para a url de nome 'index' após realizar o login
+LOGOUT_REDIRECT_URL = 'login' # Ao fazer o logout(sair), ira direcionar para a url de nome 'login'
+LOGIN_URL = 'login'  # Ao tentar acessar uma funcionalidade com permissão apenas para quem tem login, ira direcionar para a url de nome 'login'
