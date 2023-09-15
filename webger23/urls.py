@@ -15,9 +15,22 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+
 from django.urls import path, include
+
+from django.conf.urls.static import static
+
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('base.urls'))
-]
+    path('', include('core.urls')),
+    path('', include('processo.urls')),
+    path('', include('usuario.urls')),
+
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# Editar a Área Administrativa do Django
+admin.site.site_header = 'WebGer23' # Título da tela de Login
+admin.site.site_title = 'WebGer23' # Título da aba do navegador da tela de Login
+admin.site.index_title = 'Sistema de Gerenciamento de Processos' # Título da página principal após o login
