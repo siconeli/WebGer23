@@ -189,8 +189,8 @@
 
             // Função para aplicar máscara de CPF ou CNPJ de acordo com a seleção do campo select de 'Tipo pessoa'
             function aplicarMascara(){
-                var opcaoSelecionada = $('#pessoa').val();
-                var campoDoc = $('#doc');
+                var opcaoSelecionada = $('#tipo_pessoa').val();
+                var campoDoc = $('#documento');
 
                 if(opcaoSelecionada === 'Física'){
                     campoDoc.mask('000.000.000-00', {reverse: true});
@@ -201,7 +201,7 @@
             }
 
             aplicarMascara();
-            $('#pessoa').change(aplicarMascara);
+            $('#tipo_pessoa').change(aplicarMascara);
         })
     </script>
 {% endblock %}
