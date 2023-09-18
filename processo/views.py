@@ -22,18 +22,19 @@ class AndamentoAdmCreate(CreateView):
     model = AndamentoAdm
     template_name = 'processos/creates/andamento_adm_create.html'
     fields = ['data_andamento', 'andamento', 'dias', 'data_prazo', 'funcionario', 'data_recebimento', 'complemento', 'arquivo_1', 'arquivo_2', 'arquivo_3']
+    success_url = reverse_lazy('proc-adm-list')
 
     def form_valid(self, form):
         pk_processo = self.kwargs.get('pk')
-        
-        form.instance.processo = pk_processo
+
+        form.instance.processo_id = pk_processo
         return super().form_valid(form) 
     
     # Após realizar o create do andamento com sucesso, reverte para a lista de andamentos do processo 
-    def get_success_url(self):
-        processo_pk = self.kwargs.get('processo_pk') # Pega a PK do processo através da URL       
+    # def get_success_url(self):
+    #     processo_pk = self.kwargs.get('pk') # Pega a PK do processo através da URL       
 
-        return reverse('list-and-proc-adm', args=[processo_pk])
+    #     return reverse('proc-adm-list', args=[processo_pk])
 
 ###### UPDATE ######
 class ProcessoAdmUpdate(UpdateView):
