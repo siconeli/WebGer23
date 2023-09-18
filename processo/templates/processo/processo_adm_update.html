@@ -23,20 +23,7 @@
                     <h5>Processo</h5>
                     <hr>
                     <br>
-                    <div class="row">
-                        <div class="col">
-                            {% if form.pat.errors %} <!-- Se a validação 'unique' do atributo 'pat' retornar erro de registro já utilizado, irá abrir um alerta informando que o registro já existe-->
-                            <div class="alert alert-danger" role="alert" style="height: 50px; width: px;">
-                                <h6>{{ form.pat.errors }}</h6>
-                            </div>
-                            {% endif %}
-                        </div>
-                    </div>
                     <div class="row"> <!-- w-50 (colocar para diminuir o tamanho do campo input)-->
-                        <div class="col">
-                            <label for="numero">Pat N° <b>*</b></label>
-                            {% render_field form.numero class="form-control" placeholder="     /    " id="numero" autocomplete="off"%}
-                        </div>
                         <div class="col">
                             <label for="uf">UF <b>*</b></label>
                             {% render_field form.uf class="form-control" id="uf"%}
@@ -90,9 +77,9 @@
                     <br>
                     <div class="row">
                         <div class="col">
-                            {% if form.doc.errors %} <!-- Se a validação 'unique' do atributo 'doc (CPJ / CNPJ)' retornar erro de registro já utilizado, irá abrir um alerta informando que o registro já existe-->
+                            {% if form.documento.errors %} <!-- Se a validação 'unique' do atributo 'documento (CPJ / CNPJ)' retornar erro de registro já utilizado, irá abrir um alerta informando que o registro já existe-->
                             <div class="alert alert-danger" role="alert"  style="height: 50px; width: px;">
-                                <h6>{{ form.doc.errors }}</h6>
+                                <h6>{{ form.documento.errors }}</h6>
                             </div>
                             {% endif %}
                         </div>
@@ -164,6 +151,7 @@
                     </div>
                     <br><br>
                     <button type="submit" class="btn btn-success btn-sm"><i class="bi bi-check-lg" style="font-size: 15px;"><!--Icone--></i></button>
+                    <a href="{% url 'proc-adm-list' %}" class="btn btn-danger btn-sm"><i class="bi bi-x-lg" style="font-size: 15px;"><!--Icone--></i></a>
           
                 </form>
             </div>

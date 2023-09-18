@@ -19,7 +19,7 @@ urlpatterns = [
     path('cadastrar/processo-adm/', ProcessoAdmCreate.as_view(), name='proc-adm-create'), 
 
     ###### UPDATE ######
-    path('editar/processo-adm/', ProcessoAdmUpdate.as_view(), name='proc-adm-update'),
+    path('editar/processo-adm/<int:pk>/', ProcessoAdmUpdate.as_view(), name='proc-adm-update'),
 
     ###### LIST ######
     path('listar/processo-adm/', ProcessoAdmList.as_view(), name='proc-adm-list'),
