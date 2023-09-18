@@ -77,6 +77,9 @@
 
                                             <a href="{% url 'proc-adm-delete' processo.pk %}" class="btn btn-danger btn-sm"><i class="bi bi-trash" style="font-size: 15px;"><!--Excluir Processo (usando ícone)--></i></a>
                                         </td>
+                                        <td> 
+                                            <a href="{% url 'andamento-adm-create' processo.pk %}" class="btn btn-success btn-sm" ><i class="bi bi-plus-circle" style="font-size: 15px;"><!--Novo Andamento (usando ícone)--></i></a>
+                                        </td>
                                     </tr>
 
                                     {% endfor %}
