@@ -1,0 +1,47 @@
+{% extends 'index.html' %}
+
+{% block titulo %}
+<title>Login</title>
+{% endblock %}
+
+{% block conteudo %}
+    <!-- Painel de Login principal -->
+    <section class="vh-100 gradient-custom">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                    <div class="card text-black" style="border-radius: 1rem; background-color: #0098DB;">
+                        <div class="card-body p-5 text-center">
+                            <div class="mb-md-1 mt-md-1 pb-1">
+                                <!-- <h2 class="fw-bold mb-2 ">CP-Aeg</h2> -->
+                                <!-- imagem aqui -->
+                                <!-- <p class="text-white-50 mb-5">Entre com seu usuário e senha</p> -->
+                                <div class="container ">
+                                    <form action="" method="post">
+                                
+                                        {% csrf_token %}
+
+                                        <label for="username" class="sr-only">Usuário</label>
+                                        <input type="username" id="username" name="username" class="form-control" placeholder="Nome de usuário" required autofocus>
+
+                                        <br>
+
+                                        <label for="password" class="sr-only">Senha</label>
+                                        <input  type="password" id="password" name="password" class="form-control" placeholder="Senha" required autofocus>
+
+                                        <br>
+
+                                        <button class="btn btn-outline-dark btn-lg px-5" type="submit">Login</button>
+
+                                    </form>             
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
