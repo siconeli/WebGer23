@@ -34,8 +34,8 @@
                     </div>
                     <div class="row"> <!-- w-50 (colocar para diminuir o tamanho do campo input)-->
                         <div class="col">
-                            <label for="pat">Pat N° <b>*</b></label>
-                            {% render_field form.pat class="form-control" placeholder="     /    " id="pat" autocomplete="off"%}
+                            <label for="numero">Pat N° <b>*</b></label>
+                            {% render_field form.numero class="form-control" placeholder="     /    " id="numero" autocomplete="off"%}
                         </div>
                         <div class="col">
                             <label for="uf">UF <b>*</b></label>
@@ -49,39 +49,39 @@
                     <br>
                     <div class="row">
                         <div class="col">
-                            <label for="datini">Período</label>
-                            {% render_field form.datini class="form-control" type="date" id="datini"%}
+                            <label for="data_inicial">Período</label>
+                            {% render_field form.data_inicial class="form-control" type="date" id="data_inicial"%}
                         </div>
                         <div class="col">
-                            <label for="datfin"><!--Período Final--></label>
-                            {% render_field form.datfin class="form-control" type="date" id="datfin"%}
+                            <label for="data_final"><!--Período Final--></label>
+                            {% render_field form.data_final class="form-control" type="date" id="data_final"%}
                         </div>
                         <div class="col">
-                            <label for="datdivat">D.A</label>
-                            {% render_field form.datdivat class="form-control" type="date" id="datdivat"%}
+                            <label for="data_div_ativa">D.A</label>
+                            {% render_field form.data_div_ativa class="form-control" type="date" id="data_div_ativa"%}
                         </div>
                     </div>
                     <br>
                     <div class="row">
                         <div class="col">
-                            <label for="valtrib">Valor do Tributo</label>
-                            {% render_field form.valtrib class="mask-money form-control" placeholder="R$"  id="valtrib" autocomplete="off"%}
+                            <label for="valor_atributo">Valor do Tributo</label>
+                            {% render_field form.valor_atributo class="mask-money form-control" placeholder="R$"  id="valor_atributo" autocomplete="off"%}
                         </div>
                         <div class="col">
-                            <label for="valmul">Valor da Multa</label>
-                            {% render_field form.valmul class="form-control" placeholder="R$" id="valmul" autocomplete="off"%}
+                            <label for="valor_multa">Valor da Multa</label>
+                            {% render_field form.valor_multa class="form-control" placeholder="R$" id="valor_multa" autocomplete="off"%}
                         </div>
                         <div class="col">
-                            <label for="valcred">Valor do Crédito</label>
-                            {% render_field form.valcred class="form-control" placeholder="R$" id="valcred" autocomplete="off"%}
+                            <label for="valor_credito">Valor do Crédito</label>
+                            {% render_field form.valor_credito class="form-control" placeholder="R$" id="valor_credito" autocomplete="off"%}
                         </div>
                         <div class="col">
-                            <label for="valatu">Valor do Atualizado</label>
-                            {% render_field form.valatu class="form-control" placeholder="R$" id="valatu" autocomplete="off"%}
+                            <label for="valor_atualizado">Valor do Atualizado</label>
+                            {% render_field form.valor_atualizado class="form-control" placeholder="R$" id="valor_atualizado" autocomplete="off"%}
                         </div>  
                         <div class="col">
-                            <label for="datvalatu">Data Valor Atualizado</label>
-                            {% render_field form.datvalatu class="form-control" type="date" placeholder="R$" id="datvalatu"%}
+                            <label for="data_valor_atualizado">Data Valor Atualizado</label>
+                            {% render_field form.data_valor_atualizado class="form-control" type="date" placeholder="R$" id="data_valor_atualizado"%}
                         </div> 
                     </div>    
                     <br><br>
@@ -99,23 +99,23 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <label for="nomecontribuinte">Nome / Razão Social <b>*</b></label>
-                            {% render_field form.nomecontribuinte class="form-control" id="nomecontribuinte" autocomplete="off"%}
+                            <label for="nome_contribuinte">Nome / Razão Social <b>*</b></label>
+                            {% render_field form.nome_contribuinte class="form-control" id="nome_contribuinte" autocomplete="off"%}
                         </div> 
                         <div class="col">
-                            <label for="pessoa">Tipo de Pessoa <b>*</b></label>
-                            {% render_field form.pessoa class="form-control" id="pessoa" autocomplete="off"%}
+                            <label for="tipo_pessoa">Tipo de Pessoa <b>*</b></label>
+                            {% render_field form.tipo_pessoa class="form-control" id="tipo_pessoa" autocomplete="off"%}
                         </div> 
                         <div class="col">
-                            <label for="doc">CPF / CNPJ <b>*</b></label>
-                            {% render_field form.doc class="form-control" id="doc" autocomplete="off"%}
+                            <label for="documento">CPF / CNPJ <b>*</b></label>
+                            {% render_field form.documento class="form-control" id="documento" autocomplete="off"%}
                         </div> 
                     </div>
                     <br>
                     <div class="row">
                         <div class="col">
-                            <label for="nomefantasia">Nome Fantasia</label>
-                            {% render_field form.nomefantasia class="form-control" id="nomefantasia" autocomplete="off"%}
+                            <label for="nome_fantasia">Nome Fantasia</label>
+                            {% render_field form.nome_fantasia class="form-control" id="nome_fantasia" autocomplete="off"%}
                         </div> 
                         <div class="col">
                             <label for="email">E-mail</label>
@@ -139,12 +139,12 @@
                     <br>
                     <div class="row">
                         <div class="col">
-                            <label for="ufcontri">UF</label>
-                            {% render_field form.ufcontri class="form-control" id="ufcontri" autocomplete="off"%}
+                            <label for="uf_contribuinte">UF</label>
+                            {% render_field form.uf_contribuinte class="form-control" id="uf_contribuinte" autocomplete="off"%}
                         </div> 
                         <div class="col">
-                            <label for="municipiocontri">Município</label>
-                            {% render_field form.municipiocontri class="form-control" id="municipiocontri" autocomplete="off"%}
+                            <label for="municipio_contribuinte">Município</label>
+                            {% render_field form.municipio_contribuinte class="form-control" id="municipio_contribuinte" autocomplete="off"%}
                         </div> 
                         <div class="col">
                             <label for="cep">CEP</label>
@@ -154,17 +154,17 @@
                     <br>
                     <div class="row">
                         <div class="col">
-                            <label for="tel">Telefone</label>
-                            {% render_field form.tel class="form-control" placeholder="( )     -    " id="tel" autocomplete="off"%}
+                            <label for="telefone">Telefone</label>
+                            {% render_field form.telefone class="form-control" placeholder="( )     -    " id="telefone" autocomplete="off"%}
                         </div> 
                         <div class="col">
-                            <label for="cel">Celular</label>
-                            {% render_field form.cel class="form-control" placeholder="( )      -    " id="cel" autocomplete="off"%}
+                            <label for="celular">Celular</label>
+                            {% render_field form.celular class="form-control" placeholder="( )      -    " id="celular" autocomplete="off"%}
                         </div> 
                     </div>
                     <br><br>
                     <button type="submit" class="btn btn-success btn-sm"><i class="bi bi-check-lg" style="font-size: 15px;"><!--Icone--></i></button>
-                    <a href="{% url 'list-proc-adm' %}" class="btn btn-danger btn-sm"><i class="bi bi-x-lg" style="font-size: 15px;"><!--Icone--></i></a>
+          
                 </form>
             </div>
         </div>
@@ -178,14 +178,14 @@
     <!-- Configuração de máscaras nos campos inputs, buscando o campo através do ID -->
     <script>
         $(document).ready(function(){
-            $("#pat").mask("00000/0000", {reverse: true});
+            $("#numero").mask("00000/0000", {reverse: true});
             $("#cep").mask('00000-000');
-            $("#tel").mask('(00) 0000-0000');
-            $("#cel").mask('(00) 00000-0000');
-            $('#valtrib').mask("000,000,000.00", {reverse: true});
-            $('#valmul').mask("000,000,000.00", {reverse: true});
-            $('#valcred').mask("000,000,000.00", {reverse: true});
-            $('#valatu').mask("000,000,000.00", {reverse: true});
+            $("#telefone").mask('(00) 0000-0000');
+            $("#celular").mask('(00) 00000-0000');
+            $('#valor_atributo').mask("000,000,000.00", {reverse: true});
+            $('#valor_multa').mask("000,000,000.00", {reverse: true});
+            $('#valor_credito').mask("000,000,000.00", {reverse: true});
+            $('#valor_atualizado').mask("000,000,000.00", {reverse: true});
 
             // Função para aplicar máscara de CPF ou CNPJ de acordo com a seleção do campo select de 'Tipo pessoa'
             function aplicarMascara(){
