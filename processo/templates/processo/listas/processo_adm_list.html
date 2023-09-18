@@ -74,6 +74,8 @@
                                         <td>{{ processo.tipo_pessoa }}</td>
                                         <td>
                                             <a href="{% url 'proc-adm-update' processo.pk %}" class="btn btn-primary btn-sm"><i class="bi bi-gear" style="font-size: 15px;"><!--Editar Processo (usando ícone)--></i></a>
+
+                                            <a href="{% url 'proc-adm-delete' processo.pk %}" class="btn btn-danger btn-sm"><i class="bi bi-trash" style="font-size: 15px;"><!--Excluir Processo (usando ícone)--></i></a>
                                         </td>
                                     </tr>
 

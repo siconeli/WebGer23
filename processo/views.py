@@ -1,6 +1,6 @@
 from .models import ProcessoAdm
 
-from django.views.generic.edit import CreateView, UpdateView # Módulo para criar, atualizar e deletar
+from django.views.generic.edit import CreateView, UpdateView, DeleteView # Módulo para criar, atualizar e deletar
 
 from django.views.generic.list import ListView # Módulo para listar
 
@@ -25,7 +25,14 @@ class ProcessoAdmUpdate(UpdateView):
     fields = ['municipio', 'uf', 'data_inicial', 'data_final', 'data_div_ativa', 'valor_atributo', 'valor_multa', 'valor_credito', 'valor_atualizado', 'data_valor_atualizado', 'nome_contribuinte', 'tipo_pessoa', 'documento', 'nome_fantasia', 'email', 'endereco', 'complemento', 'municipio_contribuinte', 'uf_contribuinte', 'cep', 'telefone', 'celular']
     success_url = reverse_lazy('proc-adm-list')
 
+###### DELETE ######
+class ProcessoAdmDelete(DeleteView):
+    model = ProcessoAdm
+    template_name = 'processo/processo_adm_delete.html'
+    success_url = reverse_lazy('proc-adm-list')
+
 ###### LIST ######
 class ProcessoAdmList(ListView):
     model = ProcessoAdm
     template_name = 'processo/listas/processo_adm_list.html'
+    
