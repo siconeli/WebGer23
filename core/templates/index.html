@@ -28,7 +28,7 @@
     {% block menu %}
       <nav class="navbar fixed-top">
         <div class="container-fluid">
-              <img src="{% static 'img/pasta.png' %}" alt="" width="60">
+              <img src="{% static 'img/pasta.png' %}" alt="" width="60"> <img src="{% static 'img/webger23.png' %}" alt="" width="150">
             <!-- <h3 id="text-menu">Controle de Processos</h3> -->
           <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -43,36 +43,35 @@
                 <li class="nav-item">
                   <a class="nav-link active" id="texto-navbar-menu" aria-current="page" href="{% url 'index' %}"><i class="bi bi-house-door-fill"><!--ícone de início--></i>  Início</a>
                 </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" id="texto-navbar-menu" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="bi bi-file-text-fill"><!--ícone de Processo--></i>  Processo
-                  </a>
-                  <ul class="dropdown-menu">
-                    <!-- Processo adm -->
-                  </ul>
-                </li>
+      
+                <!-- Autenticação de usuário -->
+                {% if user.is_authenticated %} <!--Se o usuário estiver logado(autenticado) mostrar opção 'Logout'-->
 
-                <!-- Autenticação de usuário para login/logout -->
-                {% if user.is_authenticated %} <!--Se o usuário estiver logado(autenticado) mostrar opção 'Sair'-->
-                <li class="nav-item dropdown">
+                  <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="texto-navbar-menu" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      <i class="bi bi-person-check-fill"><!--ícone de usuário--></i>   {{ user.get_full_name }}
+                      <i class="bi bi-file-text-fill"><!--ícone de Processo--></i>  Processo
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="{% url 'logout' %}"><i class="bi bi-door-closed-fill"></i> Logout</a></li> <!--logout-->
+                      <!-- Processo adm -->
                     </ul>
-                </li>
+                  </li>
 
-                {% else %} <!-- Senão opção 'Entrar' -->
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" id="texto-navbar-menu" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-person-check-fill"><!--ícone de usuário--></i>   {{ user.get_full_name }}
+                      </a>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'logout' %}"><i class="bi bi-door-closed-fill"></i> Logout</a></li> <!--logout-->
+                      </ul>
+                  </li>
 
-                <a class="nav-link active" id="texto-navbar-menu" aria-current="page" href="{% url 'login' %}"><i class="bi bi-door-open"></i> Login</a> <!--login-->
+                {% else %} <!-- Senão opção 'Login' -->
+
+                  <a class="nav-link active" id="texto-navbar-menu" aria-current="page" href="{% url 'login' %}"><i class="bi bi-door-open"></i> Login</a> <!--login-->
 
                 {% endif %}
                 <!-- Fim da autenticação -->
 
-
-
-  
               </ul>
             </div>
           </div>

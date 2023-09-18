@@ -1,5 +1,7 @@
 {% extends 'index.html' %}
 
+{% load static %}
+
 {% block titulo %}
 <title>Login</title>
 {% endblock %}
@@ -14,24 +16,24 @@
                         <div class="card-body p-5 text-center">
                             <div class="mb-md-1 mt-md-1 pb-1">
                                 <!-- <h2 class="fw-bold mb-2 ">CP-Aeg</h2> -->
-                                <!-- imagem aqui -->
-                                <!-- <p class="text-white-50 mb-5">Entre com seu usuário e senha</p> -->
+                                <img src="{% static 'img/webger23.png' %}" alt="" width="200">
                                 <div class="container ">
+                                    <!-- Formulário de Login -->
                                     <form action="" method="post">
                                 
                                         {% csrf_token %}
-
+                                        <br>
                                         <label for="username" class="sr-only">Usuário</label>
-                                        <input type="username" id="username" name="username" class="form-control" placeholder="Nome de usuário" required autofocus>
+                                        <input type="username" id="username" name="username" class="form-control" placeholder="Nome de usuário" autocomplete="off" required autofocus>
 
                                         <br>
 
                                         <label for="password" class="sr-only">Senha</label>
-                                        <input  type="password" id="password" name="password" class="form-control" placeholder="Senha" required autofocus>
+                                        <input  type="password" id="password" name="password" class="form-control" placeholder="Senha" autocomplete="off" required autofocus>
 
                                         <br>
 
-                                        <button class="btn btn-outline-dark btn-lg px-5" type="submit">Login</button>
+                                        <button class="btn btn-outline btn-lg px-5" type="submit" style="background-color: #FF914D;">Login</button>
 
                                     </form>             
                                 </div>
