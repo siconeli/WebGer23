@@ -79,9 +79,10 @@
                                         </td>
                                         <td> 
                                             <a href="{% url 'andamento-adm-create' processo.pk %}" class="btn btn-success btn-sm" ><i class="bi bi-plus-circle" style="font-size: 15px;"><!--Novo Andamento (usando ícone)--></i></a>
+
+                                            <a href="{% url 'andamento-adm-list' processo.pk %}" class="btn btn-warning btn-sm"><i class="bi bi-card-checklist" style="font-size: 15px;"><!--Listar Andamentos (usando ícone)--></i></a>
                                         </td>
                                     </tr>
-
                                     {% endfor %}
                                 </tbody>
                             </table>

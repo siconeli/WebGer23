@@ -24,6 +24,7 @@ class AndamentoAdmCreate(CreateView):
     fields = ['data_andamento', 'andamento', 'dias', 'data_prazo', 'funcionario', 'data_recebimento', 'complemento', 'arquivo_1', 'arquivo_2', 'arquivo_3']
     success_url = reverse_lazy('proc-adm-list')
 
+    # Busca a pk do processo na url e preenche o atributo 'processo_id', para vincular o processo ao andamento
     def form_valid(self, form):
         pk_processo = self.kwargs.get('pk')
 
@@ -53,4 +54,16 @@ class ProcessoAdmDelete(DeleteView):
 class ProcessoAdmList(ListView):
     model = ProcessoAdm
     template_name = 'processos/lists/processo_adm_list.html'
+
+class AndamentoAdmList(ListView):
+    model = ProcessoAdm
+    template_name = 'processos/lists/andamento_adm_list.html'
     
+    def get_queryset(self):
+    
+        pk_processo = self.kwargs.get('pk') # Pega a pk(primary key) da URL, pk do processo
+        
+        processo = ProcessoAdm.objects.get(pk=pk_processo)  # Pega o processo que possui a pk recebida (pk é a primary key do processo)
+        andamentos = processo.andamento_set.all()  # Pega todos os atributos do andamento
+    
+        return andamentos
