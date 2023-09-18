@@ -1,0 +1,208 @@
+<!-- Formulário de cadastro de Processo Administrativo-->
+
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% load widget_tweaks %} 
+
+{% block titulo %}
+    <title>Cadastrar Processo Adm</title>
+{% endblock %}
+
+{% block conteudo %} 
+    <div class="container p-5">
+        <br><br>
+        <div class="card">
+            <div class="card-header text-white" style="background-color: #0098DB;">
+                <h5 style="text-align: center;">Cadastro de Processo</h5>
+            </div>
+            <div class="card-body">
+                <form action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <h5>Processo</h5>
+                    <hr>
+                    <br>
+                    <div class="row">
+                        <div class="col">
+                            {% if form.pat.errors %} <!-- Se a validação 'unique' do atributo 'pat' retornar erro de registro já utilizado, irá abrir um alerta informando que o registro já existe-->
+                            <div class="alert alert-danger" role="alert" style="height: 50px; width: px;">
+                                <h6>{{ form.pat.errors }}</h6>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="row"> <!-- w-50 (colocar para diminuir o tamanho do campo input)-->
+                        <div class="col">
+                            <label for="pat">Pat N° <b>*</b></label>
+                            {% render_field form.pat class="form-control" placeholder="     /    " id="pat" autocomplete="off"%}
+                        </div>
+                        <div class="col">
+                            <label for="uf">UF <b>*</b></label>
+                            {% render_field form.uf class="form-control" id="uf"%}
+                        </div>
+                        <div class="col">
+                            <label for="municipio">Município <b>*</b></label>
+                            {% render_field form.municipio class="form-control" id="municipio"%}
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col">
+                            <label for="datini">Período</label>
+                            {% render_field form.datini class="form-control" type="date" id="datini"%}
+                        </div>
+                        <div class="col">
+                            <label for="datfin"><!--Período Final--></label>
+                            {% render_field form.datfin class="form-control" type="date" id="datfin"%}
+                        </div>
+                        <div class="col">
+                            <label for="datdivat">D.A</label>
+                            {% render_field form.datdivat class="form-control" type="date" id="datdivat"%}
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col">
+                            <label for="valtrib">Valor do Tributo</label>
+                            {% render_field form.valtrib class="mask-money form-control" placeholder="R$"  id="valtrib" autocomplete="off"%}
+                        </div>
+                        <div class="col">
+                            <label for="valmul">Valor da Multa</label>
+                            {% render_field form.valmul class="form-control" placeholder="R$" id="valmul" autocomplete="off"%}
+                        </div>
+                        <div class="col">
+                            <label for="valcred">Valor do Crédito</label>
+                            {% render_field form.valcred class="form-control" placeholder="R$" id="valcred" autocomplete="off"%}
+                        </div>
+                        <div class="col">
+                            <label for="valatu">Valor do Atualizado</label>
+                            {% render_field form.valatu class="form-control" placeholder="R$" id="valatu" autocomplete="off"%}
+                        </div>  
+                        <div class="col">
+                            <label for="datvalatu">Data Valor Atualizado</label>
+                            {% render_field form.datvalatu class="form-control" type="date" placeholder="R$" id="datvalatu"%}
+                        </div> 
+                    </div>    
+                    <br><br>
+                    <h5>Contribuinte</h5>
+                    <hr>
+                    <br>
+                    <div class="row">
+                        <div class="col">
+                            {% if form.doc.errors %} <!-- Se a validação 'unique' do atributo 'doc (CPJ / CNPJ)' retornar erro de registro já utilizado, irá abrir um alerta informando que o registro já existe-->
+                            <div class="alert alert-danger" role="alert"  style="height: 50px; width: px;">
+                                <h6>{{ form.doc.errors }}</h6>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="nomecontribuinte">Nome / Razão Social <b>*</b></label>
+                            {% render_field form.nomecontribuinte class="form-control" id="nomecontribuinte" autocomplete="off"%}
+                        </div> 
+                        <div class="col">
+                            <label for="pessoa">Tipo de Pessoa <b>*</b></label>
+                            {% render_field form.pessoa class="form-control" id="pessoa" autocomplete="off"%}
+                        </div> 
+                        <div class="col">
+                            <label for="doc">CPF / CNPJ <b>*</b></label>
+                            {% render_field form.doc class="form-control" id="doc" autocomplete="off"%}
+                        </div> 
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col">
+                            <label for="nomefantasia">Nome Fantasia</label>
+                            {% render_field form.nomefantasia class="form-control" id="nomefantasia" autocomplete="off"%}
+                        </div> 
+                        <div class="col">
+                            <label for="email">E-mail</label>
+                            {% render_field form.email class="form-control" placeholder="@" id="email" autocomplete="off" autocomplete="off"%}
+                        </div> 
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col">
+                            <label for="endereco">Logradouro / N° / Bairro</label>
+                            {% render_field form.endereco class="form-control" id="endereco" autocomplete="off"%}
+                        </div> 
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col">
+                            <label for="complemento">Complemento</label>
+                            {% render_field form.complemento class="form-control" id="complemento" autocomplete="off"%}
+                        </div> 
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col">
+                            <label for="ufcontri">UF</label>
+                            {% render_field form.ufcontri class="form-control" id="ufcontri" autocomplete="off"%}
+                        </div> 
+                        <div class="col">
+                            <label for="municipiocontri">Município</label>
+                            {% render_field form.municipiocontri class="form-control" id="municipiocontri" autocomplete="off"%}
+                        </div> 
+                        <div class="col">
+                            <label for="cep">CEP</label>
+                            {% render_field form.cep class="form-control" placeholder="     -   " id="cep" autocomplete="off"%}
+                        </div> 
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col">
+                            <label for="tel">Telefone</label>
+                            {% render_field form.tel class="form-control" placeholder="( )     -    " id="tel" autocomplete="off"%}
+                        </div> 
+                        <div class="col">
+                            <label for="cel">Celular</label>
+                            {% render_field form.cel class="form-control" placeholder="( )      -    " id="cel" autocomplete="off"%}
+                        </div> 
+                    </div>
+                    <br><br>
+                    <button type="submit" class="btn btn-success btn-sm"><i class="bi bi-check-lg" style="font-size: 15px;"><!--Icone--></i></button>
+                    <a href="{% url 'list-proc-adm' %}" class="btn btn-danger btn-sm"><i class="bi bi-x-lg" style="font-size: 15px;"><!--Icone--></i></a>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <!-- Importação do arquivo dentro da pasta static/js para usar máscaras nos campos input -->
+    <script src="{% static 'js/jquery.mask.min.js' %}"></script>
+
+    <!-- Configuração de máscaras nos campos inputs, buscando o campo através do ID -->
+    <script>
+        $(document).ready(function(){
+            $("#pat").mask("00000/0000", {reverse: true});
+            $("#cep").mask('00000-000');
+            $("#tel").mask('(00) 0000-0000');
+            $("#cel").mask('(00) 00000-0000');
+            $('#valtrib').mask("000,000,000.00", {reverse: true});
+            $('#valmul').mask("000,000,000.00", {reverse: true});
+            $('#valcred').mask("000,000,000.00", {reverse: true});
+            $('#valatu').mask("000,000,000.00", {reverse: true});
+
+            // Função para aplicar máscara de CPF ou CNPJ de acordo com a seleção do campo select de 'Tipo pessoa'
+            function aplicarMascara(){
+                var opcaoSelecionada = $('#pessoa').val();
+                var campoDoc = $('#doc');
+
+                if(opcaoSelecionada === 'Física'){
+                    campoDoc.mask('000.000.000-00', {reverse: true});
+                } else {
+                    campoDoc.mask('00.000.000/0000-00', {reverse: true});
+                }
+
+            }
+
+            aplicarMascara();
+            $('#pessoa').change(aplicarMascara);
+        })
+    </script>
+{% endblock %}
+
