@@ -130,3 +130,11 @@ class ArquivoAndamentoAdmList(ListView):
         # Usei o 'filter' para conseguir iterar com o objeto, resultando em um QuerySet
 
         return andamento
+    
+    # Função para iterar com os dados do andamento na lista de arquivos do andamento
+    def get_context_data(self, **kwargs):
+        andamento_pk = self.kwargs.get('pk') # Pega a PK do andamento através da URL  
+
+        context = super().get_context_data(**kwargs)
+        context['dados_andamento'] = AndamentoAdm.objects.filter(pk=andamento_pk) # Filtra os dados do andamento através da pk
+        return context
