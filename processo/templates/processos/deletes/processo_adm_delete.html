@@ -12,14 +12,16 @@
 <div class="container p-5">
     <div class="card">
         <div class="card-header text-white" style="background-color: rgba(190, 0, 0, 0.849);">
-            <h5 style="text-align: center;">Excluir Processo</h5>
+            {% for atributo in dados_processo %}
+                <h5 style="text-align: center;">Excluir Processo: {{ atributo.numero }}</h5>
+             {% endfor %}
          </div>
         <div class="card-body">
             <h6>Confirme para excluir o registro difinitivamente <i class="bi bi-exclamation-triangle-fill" style="font-size: 15px;"><!--Icone--></i></h6>
             <br>
             <form action="" method="post">
                 {% csrf_token %}
-                <p>Deseja excluir o processo: <h3>{{ object }}</h3></p>
+                <p>Tem certeza que deseja excluir o processo?</p>
                 <br>
                 <div>
                     <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-trash" style="font-size: 15px;"><!--Icone lixeira--></i></button>

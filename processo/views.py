@@ -88,6 +88,14 @@ class ProcessoAdmDelete(GroupRequiredMixin, DeleteView):
     template_name = 'processos/deletes/processo_adm_delete.html'
     success_url = reverse_lazy('proc-adm-list')
 
+    # Função para iterar com os dados do processo na view de delete processo
+    def get_context_data(self, **kwargs):
+        processo_pk = self.kwargs.get('pk') # Pega a PK do processo através da URL  
+
+        context = super().get_context_data(**kwargs)
+        context['dados_processo'] = ProcessoAdm.objects.filter(pk=processo_pk) # Filtra os dados do processo através da pk
+        return context
+
 class AndamentoAdmDelete(GroupRequiredMixin, DeleteView):
     group_required = u'consultor'
     model = AndamentoAdm
