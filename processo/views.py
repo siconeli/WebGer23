@@ -6,8 +6,11 @@ from django.views.generic.list import ListView # Módulo para list
 
 from django.urls import reverse, reverse_lazy # Módulo para reverter para a url definida após ter sucesso na execução
 
+from braces.views import GroupRequiredMixin # Mixin para controlar a permissão de criar, editar e listar dentro de grupos do django admin
+
 ###### CREATE ######
-class ProcessoAdmCreate(CreateView):
+class ProcessoAdmCreate(GroupRequiredMixin, CreateView):
+    group_required = u'consultor'
     model = ProcessoAdm
     template_name = 'processos/creates/processo_adm_create.html'
     fields = ['numero', 'municipio', 'uf', 'data_inicial', 'data_final', 'data_div_ativa', 'valor_atributo', 'valor_multa', 'valor_credito', 'valor_atualizado', 'data_valor_atualizado', 'nome_contribuinte', 'tipo_pessoa', 'documento', 'nome_fantasia', 'email', 'endereco', 'complemento', 'municipio_contribuinte', 'uf_contribuinte', 'cep', 'telefone', 'celular']
