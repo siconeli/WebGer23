@@ -1,0 +1,46 @@
+<!--Tela de confirmação de 'delete' do Andamento Administrativo-->
+
+{% extends 'index.html' %}
+{% load static %}
+
+{% block titulo %}
+    <title>Excluir Processo Adm</title>
+{% endblock %}
+
+{% block conteudo %}  
+    <div class="container p-5">
+        <br><br>
+        <div class="card">
+            <div class="card-header text-white" style="background-color: rgba(190, 0, 0, 0.849);">
+                <h5 style="text-align: center;">Excluir Andamento</h5>
+            </div>
+            <div class="card-body">
+                <h6>Confirme para excluir o registro difinitivamente <i class="bi bi-exclamation-triangle-fill" style="font-size: 15px;"><!--Icone--></i></h6>
+                <br>
+                <form action="" method="post">
+                    {% csrf_token %}
+
+                    <p>Deseja excluir o Andamento: <h3>{{ object.andamento }}</h3></p>
+
+                    <br>
+                    <div>
+                        <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-trash" style="font-size: 15px;"><!--Icone--></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br><br>
+        <button class="btn btn-secondary btn-sm" id="btnVoltar"><i class="bi bi-arrow-left" style="font-size: 15px;"><!--Icone--></i></button>
+    </div>
+
+    <!--Código CSS + JavaScript para criar botão de voltar para a página anterior-->
+    <script>
+        // Adicione um evento de clique ao botão
+        document.getElementById("btnVoltar").addEventListener("click", function() {
+            // Utilize a função window.history.back() para voltar para a página anterior
+            window.history.back();
+        });
+    </script>
+{% endblock %}
+
+

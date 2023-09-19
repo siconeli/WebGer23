@@ -45,11 +45,37 @@ class ProcessoAdmUpdate(UpdateView):
     fields = ['municipio', 'uf', 'data_inicial', 'data_final', 'data_div_ativa', 'valor_atributo', 'valor_multa', 'valor_credito', 'valor_atualizado', 'data_valor_atualizado', 'nome_contribuinte', 'tipo_pessoa', 'documento', 'nome_fantasia', 'email', 'endereco', 'complemento', 'municipio_contribuinte', 'uf_contribuinte', 'cep', 'telefone', 'celular']
     success_url = reverse_lazy('proc-adm-list')
 
+class AndamentoAdmUpdate(UpdateView):
+    model = AndamentoAdm
+    template_name = 'processos/updates/andamento_adm_update.html'
+    fields = ['data_andamento', 'andamento', 'dias', 'data_prazo', 'funcionario', 'data_recebimento', 'complemento', 'arquivo_1', 'arquivo_2', 'arquivo_3']
+
+    # Após realizar o update com sucesso, reverte para a lista de andamentos do processo
+    def get_success_url(self):
+        andamento_pk = self.kwargs.get('pk') # Pega a PK do andamento ao fazer o update através da URL
+        andamento = AndamentoAdm.objects.get(pk=andamento_pk) # Busca o andamento através da PK do andamento
+        processo_pk = andamento.processo_id # Busca a PK do processo através do andamento (processo_id é a ForeignKey entre o processo administrativo e o andamento)
+
+        return reverse('andamento-adm-list', args=[processo_pk]) # URL da lista de andamentos + pk do processo 
+
 ###### DELETE ######
 class ProcessoAdmDelete(DeleteView):
     model = ProcessoAdm
     template_name = 'processos/deletes/processo_adm_delete.html'
     success_url = reverse_lazy('proc-adm-list')
+
+class AndamentoAdmDelete(DeleteView):
+    model = AndamentoAdm
+    template_name = 'processos/deletes/andamento_adm_delete.html'
+
+    # Após realizar o delete com sucesso, reverte para a lista de andamentos do processo
+    def get_success_url(self):
+        andamento_pk = self.kwargs.get('pk') # Pega a PK do andamento ao fazer o update através da URL
+        andamento = AndamentoAdm.objects.get(pk=andamento_pk) # Busca o andamento através da PK do andamento
+        processo_pk = andamento.processo_id # Busca a PK do processo através do andamento (processo_id é a ForeignKey entre o processo administrativo e o andamento)
+
+        return reverse('andamento-adm-list', args=[processo_pk]) # URL da lista de andamentos + pk do processo
+
 
 ###### LIST ######
 class ProcessoAdmList(ListView):

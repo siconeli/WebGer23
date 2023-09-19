@@ -1,0 +1,97 @@
+<!-- Formulário de update de Andamento-->
+
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% load widget_tweaks %}  <!--# Biblioteca Widget - Muito importante - Torna possível eu criar um formulário HTML próprio sincronizado com as Class Based Views.-->
+
+{% block titulo %}
+    <title>Editar Andamento Adm</title>
+{% endblock %}
+
+{% block conteudo %}
+    <div class="container p-5">
+        <br><br>
+        <div class="card">
+            <div class="card-header text-white" style="background-color: #0098DB;">
+                <h5 style="text-align: center;">Cadastro de Andamento</h5>
+            </div>
+            <div class="card-body">
+                <form action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <br>
+                    <div class="row">
+                        <div class="col">
+                            <label for="data_andamento">Data do Andamento</label>
+                            {% render_field form.data_andamento class="form-control" id="data_andamento"%}
+                        </div>
+                        <div class="col">
+                            <label for="andamento">Tipo de Andamento</label>
+                            {% render_field form.andamento class="form-control" id="andamento"%}
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col">
+                            <label for="dias">Dias</label>
+                            {% render_field form.dias class="form-control" id="dias"%}
+                        </div>
+                        <div class="col">
+                            <label for="data_prazo">Prazo</label>
+                            {% render_field form.data_prazo class="form-control" id="data_prazo"%}
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col">
+                            <label for="funcionario">Funcionário</label>
+                            {% render_field form.funcionario class="form-control" id="funcionario"%}
+                        </div>
+                        <div class="col">
+                            <label for="data_recebimento">Confirmado o Recebimento em</label>
+                            {% render_field form.data_recebimento class="form-control" id="data_recebimento"%}
+                        </div>
+                    </div>    
+                    <br>
+                    <div class="row">
+                        <div class="col">
+                            <label for="complemento">Complemento</label>
+                            {% render_field form.complemento class="form-control" id="complemento"%}
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col">
+                            <!-- <label for="arquivo_1">Arquivo</label> -->
+                            {% render_field form.arquivo_1 class="form-control"%}
+                        </div>
+                        <div class="col">
+                            <!-- <label for="arquivo_2">Arquivo</label> -->
+                            {% render_field form.arquivo_2 class="form-control" id="arquivo_2"%}
+                        </div>
+                        <div class="col">
+                            <!-- <label for="arquivo_3">Arquivo</label> -->
+                            {% render_field form.arquivo_3 class="form-control" id="arquivo_3"%}
+                        </div> 
+                    </div>
+                    <br>
+                    <div>
+                        <button type="submit" class="btn btn-success btn-sm"><i class="bi bi-check-lg" style="font-size: 15px;"><!--Icone--></i></button>
+                    </div>
+                </form>
+                <br>
+                <button class="btn btn-danger btn-sm" id="btnVoltar"><i class="bi bi-x-lg" style="font-size: 15px;"><!--Icone--></i></button>
+            </div>
+        </div>
+    </div>
+    <!--Código CSS + JavaScript para criar botão de voltar para a página anterior-->
+    <script>
+        // Adicione um evento de clique ao botão
+        document.getElementById("btnVoltar").addEventListener("click", function() {
+            // Utilize a função window.history.back() para voltar para a página anterior
+            window.history.back();
+        });
+    </script>
+
+{% endblock %}
