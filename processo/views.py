@@ -21,7 +21,8 @@ class ProcessoAdmCreate(GroupRequiredMixin, CreateView):
         form.instance.criador_processo_adm = self.request.user
         return super().form_valid(form)  
 
-class AndamentoAdmCreate(CreateView):  
+class AndamentoAdmCreate(GroupRequiredMixin, CreateView): 
+    group_required = u'consultor' 
     model = AndamentoAdm
     template_name = 'processos/creates/andamento_adm_create.html'
     fields = ['data_andamento', 'andamento', 'dias', 'data_prazo', 'funcionario', 'data_recebimento', 'complemento', 'arquivo_1', 'arquivo_2', 'arquivo_3']
@@ -42,13 +43,15 @@ class AndamentoAdmCreate(CreateView):
         return reverse('andamento-adm-list', args=[processo_pk])
 
 ###### UPDATE ######
-class ProcessoAdmUpdate(UpdateView):
+class ProcessoAdmUpdate(GroupRequiredMixin, UpdateView):
+    group_required = u'consultor'
     model = ProcessoAdm
     template_name = 'processos/updates/processo_adm_update.html'
     fields = ['municipio', 'uf', 'data_inicial', 'data_final', 'data_div_ativa', 'valor_atributo', 'valor_multa', 'valor_credito', 'valor_atualizado', 'data_valor_atualizado', 'nome_contribuinte', 'tipo_pessoa', 'documento', 'nome_fantasia', 'email', 'endereco', 'complemento', 'municipio_contribuinte', 'uf_contribuinte', 'cep', 'telefone', 'celular']
     success_url = reverse_lazy('proc-adm-list')
 
-class AndamentoAdmUpdate(UpdateView):
+class AndamentoAdmUpdate(GroupRequiredMixin, UpdateView):
+    group_required = u'consultor'
     model = AndamentoAdm
     template_name = 'processos/updates/andamento_adm_update.html'
     fields = ['data_andamento', 'andamento', 'dias', 'data_prazo', 'funcionario', 'data_recebimento', 'complemento', 'arquivo_1', 'arquivo_2', 'arquivo_3']
@@ -62,12 +65,14 @@ class AndamentoAdmUpdate(UpdateView):
         return reverse('andamento-adm-list', args=[processo_pk]) # URL da lista de andamentos + pk do processo 
 
 ###### DELETE ######
-class ProcessoAdmDelete(DeleteView):
+class ProcessoAdmDelete(GroupRequiredMixin, DeleteView):
+    group_required = u'consultor'
     model = ProcessoAdm
     template_name = 'processos/deletes/processo_adm_delete.html'
     success_url = reverse_lazy('proc-adm-list')
 
-class AndamentoAdmDelete(DeleteView):
+class AndamentoAdmDelete(GroupRequiredMixin, DeleteView):
+    group_required = u'consultor'
     model = AndamentoAdm
     template_name = 'processos/deletes/andamento_adm_delete.html'
 

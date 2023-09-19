@@ -26,8 +26,8 @@
                                 <th>Data do Andamento</th>
                                 <th>Tipo</th>
                                 <th>Prazo</th>
-                                <th>Cadastrado</th>
-                                <th>Usuário</th>
+                                <th>Criado por</th>
+                                <th>Criado em</th>
                                 <th>Abrir/Excluir</th> 
                                 <th>Arquivo</th>
                             </tr>
@@ -45,8 +45,8 @@
                                 <td>{{ andamento.data_prazo }}</td>
                                 {% endif%}
                                 <!-- <td>{{ user.get_full_name }}</td> -->
-                                <td>{{ andamento.data_criacao }}</td>
                                 <td>{{ andamento.criador_andamento_adm.get_full_name }}</td>
+                                <td>{{ andamento.data_criacao }}</td>
                                 <td>
                                     <a href="{% url 'andamento-adm-update' andamento.pk %}" class="btn btn-primary btn-sm"><i class="bi bi-gear" style="font-size: 15px;"><!--Editar Andamento (usando ícone)--></i></a>
 

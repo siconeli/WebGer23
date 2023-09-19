@@ -58,9 +58,10 @@
                                         <th>Processo</th>
                                         <th>Município</th>
                                         <th>Contribuinte</th>
-                                        <th>CPF/CNPJ</th>
                                         <th>Tipo de Pessoa</th>
-                                        <th>Usuário</th>
+                                        <th>CPF/CNPJ</th>
+                                        <th>Criado por</th>
+                                        <th>Criado em</th>
                                         <th>Abrir/Excluir</th>        
                                         <th>Andamento</th>
                                     </tr>
@@ -71,9 +72,10 @@
                                         <td>{{ processo.numero }}</td>
                                         <td>{{ processo.municipio }}</td>
                                         <td>{{ processo.nome_contribuinte }}</td>
-                                        <td>{{ processo.documento }}</td>
                                         <td>{{ processo.tipo_pessoa }}</td>
+                                        <td>{{ processo.documento }}</td>
                                         <td>{{ processo.criador_processo_adm.get_full_name }}</td>
+                                        <td>{{ processo.data_criacao }}</td>
                                         <td>
                                             <a href="{% url 'proc-adm-update' processo.pk %}" class="btn btn-primary btn-sm"><i class="bi bi-gear" style="font-size: 15px;"><!--Editar Processo (usando ícone)--></i></a>
 
