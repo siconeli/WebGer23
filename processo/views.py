@@ -42,7 +42,15 @@ class AndamentoAdmCreate(GroupRequiredMixin, CreateView):
         processo_pk = self.kwargs.get('pk') # Pega a PK do processo através da URL       
 
         return reverse('andamento-adm-list', args=[processo_pk])
+    
+    # Pega o contexto e inseri os dados desejados, para mostrar na tela de create andamento, os dados do processo referente ao andamento
+    def get_context_data(self, **kwargs):
+        processo_pk = self.kwargs.get('pk') # Pega a PK do processo através da URL  
 
+        context = super().get_context_data(**kwargs)
+        context['processos'] = ProcessoAdm.objects.filter(pk=processo_pk) # Filtra os dados do processo através da pk
+        return context
+    
 ###### UPDATE ######
 class ProcessoAdmUpdate(GroupRequiredMixin, UpdateView):
     group_required = u'consultor'
