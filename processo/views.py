@@ -29,6 +29,7 @@ class AndamentoAdmCreate(CreateView):
         pk_processo = self.kwargs.get('pk')
 
         form.instance.processo_id = pk_processo
+        form.instance.criador_andamento_adm = self.request.user # Função para preencher o atributo 'criador_andamento_adm' com o ID do usuário logado antes do formulário ser salvo.
         return super().form_valid(form) 
     
     # Após realizar o create do andamento com sucesso, reverte para a lista de andamentos do processo 
@@ -60,10 +61,9 @@ class AndamentoAdmList(ListView):
     template_name = 'processos/lists/andamento_adm_list.html'
     
     def get_queryset(self):
-    
         pk_processo = self.kwargs.get('pk') # Pega a pk(primary key) da URL, pk do processo
         
         processo = ProcessoAdm.objects.get(pk=pk_processo)  # Pega o processo que possui a pk recebida (pk é a primary key do processo)
-        andamentos = processo.andamento_set.all()  # Pega todos os atributos do andamento
+        andamentos = processo.andamentoadm_set.all()  # Pega todos os atributos do andamento
     
         return andamentos

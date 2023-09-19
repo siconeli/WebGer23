@@ -23,12 +23,11 @@
                         <thead>
                             <tr class="table-secondary">
                                 <th>Processo</th>
-                                <!-- <th>Ordem</th> -->
                                 <th>Data do Andamento</th>
                                 <th>Tipo</th>
                                 <th>Prazo</th>
-                                <th>Usuário</th>
                                 <th>Cadastrado</th>
+                                <th>Usuário</th>
                                 <th>Abrir/Excluir</th> 
                                 <th>Arquivo</th>
                             </tr>
@@ -38,7 +37,6 @@
                             {% for andamento in object_list %}
                             <tr>
                                 <td>{{ andamento.processo }}</td>
-                                <!-- <td>{{ andamento.id }}</td> -->
                                 <td>{{ andamento.data_andamento }}</td>
                                 <td>{{ andamento.andamento }}</td>
                                 {% if andamento.data_prazo == Null %}
@@ -46,14 +44,15 @@
                                 {% else %}
                                 <td>{{ andamento.data_prazo }}</td>
                                 {% endif%}
-                                <td>{{ user.get_full_name }}</td>
+                                <!-- <td>{{ user.get_full_name }}</td> -->
                                 <td>{{ andamento.data_criacao }}</td>
+                                <td>{{ andamento.criador_andamento_adm.get_full_name }}</td>
                             </tr>
                             {% endfor %}
+
                         </tbody>
                     </table>
-                    
-  
+                    <a href="{% url 'proc-adm-list' %}" class="btn btn-secondary btn-sm"><i class="bi bi-arrow-left" style="font-size: 15px;"><!--Icone--></i></a>
                 </div>           
             </div>
         </div>
