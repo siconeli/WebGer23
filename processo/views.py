@@ -33,10 +33,10 @@ class AndamentoAdmCreate(CreateView):
         return super().form_valid(form) 
     
     # Após realizar o create do andamento com sucesso, reverte para a lista de andamentos do processo 
-    # def get_success_url(self):
-    #     processo_pk = self.kwargs.get('pk') # Pega a PK do processo através da URL       
+    def get_success_url(self):
+        processo_pk = self.kwargs.get('pk') # Pega a PK do processo através da URL       
 
-    #     return reverse('proc-adm-list', args=[processo_pk])
+        return reverse('andamento-adm-list', args=[processo_pk])
 
 ###### UPDATE ######
 class ProcessoAdmUpdate(UpdateView):
