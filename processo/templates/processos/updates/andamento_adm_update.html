@@ -33,32 +33,21 @@
                     <br>
                     <div class="row">
                         <div class="col">
-                            <label for="dias">Dias</label>
-                            {% render_field form.dias class="form-control" id="dias"%}
-                        </div>
-                        <div class="col">
                             <label for="data_prazo">Prazo</label>
                             {% render_field form.data_prazo class="form-control" id="data_prazo"%}
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col">
-                            <label for="funcionario">Funcionário</label>
-                            {% render_field form.funcionario class="form-control" id="funcionario"%}
                         </div>
                         <div class="col">
                             <label for="data_recebimento">Confirmado o Recebimento em</label>
                             {% render_field form.data_recebimento class="form-control" id="data_recebimento"%}
                         </div>
-                    </div>    
+                    </div>
                     <br>
                     <div class="row">
                         <div class="col">
                             <label for="complemento">Complemento</label>
                             {% render_field form.complemento class="form-control" id="complemento"%}
                         </div>
-                    </div>
+                    </div>    
                     <br>
                     <div class="row">
                         <div class="col">
@@ -77,16 +66,6 @@
                     <br><br>
                     <div>
                         <button type="submit" class="btn btn-success btn-sm"><i class="bi bi-check-lg" style="font-size: 15px;"><!--Icone--></i></button>
-                        <button class="btn btn-danger btn-sm" id="btnVoltar"><i class="bi bi-x-lg" style="font-size: 15px;"><!--Icone--></i></button>
-
-                        <!--Código CSS + JavaScript para criar botão de voltar para a página anterior-->
-                        <script>
-                            // Adicione um evento de clique ao botão
-                            document.getElementById("btnVoltar").addEventListener("click", function() {
-                                // Utilize a função window.history.back() para voltar para a página anterior
-                                window.history.back();
-                            });
-                        </script>
                     </div>
                 </form>
             </div>

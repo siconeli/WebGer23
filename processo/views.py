@@ -25,7 +25,7 @@ class AndamentoAdmCreate(GroupRequiredMixin, CreateView):
     group_required = u'consultor' 
     model = AndamentoAdm
     template_name = 'processos/creates/andamento_adm_create.html'
-    fields = ['data_andamento', 'andamento', 'dias', 'data_prazo', 'funcionario', 'data_recebimento', 'complemento', 'arquivo_1', 'arquivo_2', 'arquivo_3']
+    fields = ['data_andamento', 'andamento', 'data_prazo', 'data_recebimento', 'complemento', 'arquivo_1', 'arquivo_2', 'arquivo_3']
     success_url = reverse_lazy('proc-adm-list')
 
     # Busca a pk do processo na url e preenche o atributo 'processo_id', para vincular o processo ao andamento
@@ -34,6 +34,7 @@ class AndamentoAdmCreate(GroupRequiredMixin, CreateView):
 
         form.instance.processo_id = pk_processo
         form.instance.criador_andamento_adm = self.request.user # Função para preencher o atributo 'criador_andamento_adm' com o ID do usuário logado antes do formulário ser salvo.
+        form.instance.funcionario = self.request.user.get_full_name()
         return super().form_valid(form) 
     
     # Após realizar o create do andamento com sucesso, reverte para a lista de andamentos do processo 
@@ -54,7 +55,7 @@ class AndamentoAdmUpdate(GroupRequiredMixin, UpdateView):
     group_required = u'consultor'
     model = AndamentoAdm
     template_name = 'processos/updates/andamento_adm_update.html'
-    fields = ['data_andamento', 'andamento', 'dias', 'data_prazo', 'funcionario', 'data_recebimento', 'complemento', 'arquivo_1', 'arquivo_2', 'arquivo_3']
+    fields = ['data_andamento', 'andamento', 'data_prazo', 'data_recebimento', 'complemento', 'arquivo_1', 'arquivo_2', 'arquivo_3']
 
     # Após realizar o update com sucesso, reverte para a lista de andamentos do processo
     def get_success_url(self):

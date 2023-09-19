@@ -62,7 +62,6 @@ class AndamentoAdm(Base):
     processo = models.ForeignKey(ProcessoAdm, on_delete=models.CASCADE) # Relacionamento 'One to Many (um para muitos)'
     data_andamento = models.DateField(verbose_name='Data do Andamento')
     andamento = models.CharField(max_length=100, choices=andamentos, verbose_name='Andamento')
-    dias = models.IntegerField(blank=True, null=True)
     data_prazo = models.DateField(blank=True, null=True)
     funcionario = models.CharField(max_length=50, blank=True, null=True)
     data_recebimento = models.DateField(blank=True, null=True)
