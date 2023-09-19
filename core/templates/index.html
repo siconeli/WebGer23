@@ -93,7 +93,10 @@
 
 
     {% block rodape %}
-    <!-- vazio -->
+      <div class="rodape">
+        WebGer23 | Versão 1.0.0 | Data: {% now 'd/m/Y' %} | Usuário: {{ user.get_full_name }}
+        
+      </div>
     {% endblock %}
 
 

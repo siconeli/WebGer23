@@ -34,3 +34,13 @@ body {
     background: url('../img/fundo.png');
     background-size: cover;
 }
+
+
+.rodape {
+    background-color: #0098DB; /* Cor de fundo da barra */
+    color: #fff; /* Cor do texto na barra */
+    padding: 2px; /* Espaçamento interno para o conteúdo da barra */
+    text-align: left; /* Alinhamento do texto ao centro */
+    font-size: 12px; /* Tamanho da letra do texto */
+    position: relative;
+}
