@@ -43,12 +43,12 @@ class AndamentoAdmCreate(GroupRequiredMixin, CreateView):
 
         return reverse('andamento-adm-list', args=[processo_pk])
     
-    # Pega o contexto e inseri os dados desejados, para mostrar na tela de create andamento, os dados do processo referente ao andamento
+    # Função para iterar com os dados do processo na view de create andamento
     def get_context_data(self, **kwargs):
         processo_pk = self.kwargs.get('pk') # Pega a PK do processo através da URL  
 
         context = super().get_context_data(**kwargs)
-        context['processos'] = ProcessoAdm.objects.filter(pk=processo_pk) # Filtra os dados do processo através da pk
+        context['dados_processo'] = ProcessoAdm.objects.filter(pk=processo_pk) # Filtra os dados do processo através da pk
         return context
     
 ###### UPDATE ######
@@ -109,6 +109,14 @@ class AndamentoAdmList(ListView):
         andamentos = processo.andamentoadm_set.all()  # Pega todos os atributos do andamento
     
         return andamentos
+    
+    # Função para iterar com os dados do processo na lista de andamentos
+    def get_context_data(self, **kwargs):
+        processo_pk = self.kwargs.get('pk') # Pega a PK do processo através da URL  
+
+        context = super().get_context_data(**kwargs)
+        context['dados_processo'] = ProcessoAdm.objects.filter(pk=processo_pk) # Filtra os dados do processo através da pk
+        return context
 
 class ArquivoAndamentoAdmList(ListView):
     model = AndamentoAdm
