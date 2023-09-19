@@ -12,7 +12,6 @@
 
 {% block conteudo %}
 <div class="container p-5">
-    <br><br>
     <div class="card">
         <div class="card-header text-white" style="background-color: #0098DB;">
             <h5 style="text-align: center;">Cadastrar Andamento</h5>
@@ -75,17 +74,18 @@
                         {% render_field form.arquivo_3 class="form-control" id="arquivo_3"%}
                     </div> 
                 </div>
-                <br>
+                <br><br>
                 <div>
                     <button type="submit" class="btn btn-success btn-sm"><i class="bi bi-check-lg" style="font-size: 15px;"><!--Icone--></i></button>
+                    <a href="{% url 'proc-adm-list' %}" class="btn btn-danger btn-sm"><i class="bi bi-x-lg" style="font-size: 15px;"><!--Icone--></i></a>
                 </div>
             </form>
-            <br>
-            <button class="btn btn-danger btn-sm" id="btnVoltar"><i class="bi bi-x-lg" style="font-size: 15px;"><!--Icone--></i></button>
         </div>
     </div>
 </div>
 <br><br><br><br>
+
+{% block scripts %}
 <!--Código CSS + JavaScript para criar botão de voltar para a página anterior-->
 <script>
     // Adicione um evento de clique ao botão
@@ -94,5 +94,7 @@
         window.history.back();
     });
 </script>
+
+{% endblock%}
 
 {% endblock %}
