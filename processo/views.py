@@ -59,6 +59,14 @@ class ProcessoAdmUpdate(GroupRequiredMixin, UpdateView):
     fields = ['municipio', 'uf', 'data_inicial', 'data_final', 'data_div_ativa', 'valor_atributo', 'valor_multa', 'valor_credito', 'valor_atualizado', 'data_valor_atualizado', 'nome_contribuinte', 'tipo_pessoa', 'documento', 'nome_fantasia', 'email', 'endereco', 'complemento', 'municipio_contribuinte', 'uf_contribuinte', 'cep', 'telefone', 'celular']
     success_url = reverse_lazy('proc-adm-list')
 
+    # Função para iterar com os dados do processo na view de update processo
+    def get_context_data(self, **kwargs):
+        processo_pk = self.kwargs.get('pk') # Pega a PK do processo através da URL  
+
+        context = super().get_context_data(**kwargs)
+        context['dados_processo'] = ProcessoAdm.objects.filter(pk=processo_pk) # Filtra os dados do processo através da pk
+        return context
+
 class AndamentoAdmUpdate(GroupRequiredMixin, UpdateView):
     group_required = u'consultor'
     model = AndamentoAdm
