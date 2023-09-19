@@ -52,6 +52,9 @@
 
                                     <a href="{% url 'andamento-adm-delete' andamento.pk %}" class="btn btn-danger btn-sm"><i class="bi bi-trash" style="font-size: 15px;"><!--Excluir Andamento (usando ícone)--></i></a>
                                 </td>
+                                <td>
+                                    <a href="{% url 'arquivo-andamento-adm-list' andamento.pk %}" class="btn btn-warning btn-sm"><i class="bi bi-folder-check" style="font-size: 15px;"><!--Listar Arquivos do andamento (usando ícone)--></i></a>
+                                </td>
 
                             </tr>
                             {% endfor %}
@@ -84,8 +87,8 @@
                 "language": {
                     "decimal": "",
                     "emptyTable": "Nenhum andamento registrado",
-                    "info": "Mostrando de _START_ até _END_ de _TOTAL_ andamentos",
-                    "infoEmpty": "Mostrando de 0 até 0 de 0 andamentos",
+                    "info": "Andamentos Registrados: _TOTAL_",
+                    "infoEmpty": "Andamentos Registrados: 0",
                     "infoFiltered": "(Filtrado de _MAX_ andamentos no total)",
                     "infoPostFix": "",
                     "thousands": ",",

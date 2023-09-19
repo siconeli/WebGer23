@@ -1,10 +1,10 @@
 from .models import ProcessoAdm, AndamentoAdm
 
-from django.views.generic.edit import CreateView, UpdateView, DeleteView # Módulo para criar, atualizar e deletar
+from django.views.generic.edit import CreateView, UpdateView, DeleteView # Módulo para create, update e delete
 
-from django.views.generic.list import ListView # Módulo para listar
+from django.views.generic.list import ListView # Módulo para list
 
-from django.urls import reverse, reverse_lazy
+from django.urls import reverse, reverse_lazy # Módulo para reverter para a url definida após ter sucesso na execução
 
 ###### CREATE ######
 class ProcessoAdmCreate(CreateView):
@@ -76,7 +76,6 @@ class AndamentoAdmDelete(DeleteView):
 
         return reverse('andamento-adm-list', args=[processo_pk]) # URL da lista de andamentos + pk do processo
 
-
 ###### LIST ######
 class ProcessoAdmList(ListView):
     model = ProcessoAdm
@@ -93,3 +92,16 @@ class AndamentoAdmList(ListView):
         andamentos = processo.andamentoadm_set.all()  # Pega todos os atributos do andamento
     
         return andamentos
+
+class ArquivoAndamentoAdmList(ListView):
+    model = AndamentoAdm
+    template_name = 'processos/lists/arquivo_andamento_adm_list.html'
+
+    def get_queryset(self):
+    
+        andamento_pk = self.kwargs.get('pk') # Pega a pk(primary key) da URL
+        
+        andamento = AndamentoAdm.objects.filter(pk=andamento_pk)  # Pega o andamento que possui a pk recebida (pk é a primary key do andamento)
+        # Usei o 'filter' para conseguir iterar com o objeto, resultando em um QuerySet
+
+        return andamento
