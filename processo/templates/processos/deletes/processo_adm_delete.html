@@ -12,11 +12,14 @@
 <div class="container p-5">
     <div class="card">
         <div class="card-header text-white" style="background-color: rgba(190, 0, 0, 0.849);">
-            {% for atributo in dados_processo %}
-                <h5 style="text-align: center;">Excluir Processo: {{ atributo.numero }}</h5>
-             {% endfor %}
+                <h5 style="text-align: center;">Excluir Processo</h5>
          </div>
         <div class="card-body">
+            {% for atributo in dados_processo %}
+                <h5>Processo: {{ atributo.numero }}</h5>
+            {% endfor %}
+            <hr>
+            <br>
             <h6>Confirme para excluir o registro difinitivamente <i class="bi bi-exclamation-triangle-fill" style="font-size: 15px;"><!--Icone--></i></h6>
             <br>
             <form action="" method="post">
