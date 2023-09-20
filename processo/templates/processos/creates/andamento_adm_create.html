@@ -116,12 +116,16 @@
             }else if(situacao.val() === 'Sem Pagamento'){ 
                 $("#valor_pago").hide();
                 pago.val("");
-            } 
+            }else if(situacao.val() === ""){
+                situacao.val("Sem Pagamento"); 
+                $("#valor_pago").hide();
+                pago.val("");
+            }
         }else {
             $("#situacao_pagamento").hide();
             $("#valor_pago").hide();
 
-            // Limpa o campo "valor_pago" quando ele deixa de ser mostrado
+            // Limpa o valor inserido no campo "valor_pago" quando ele deixa de ser mostrado
             pago.val("");
         }
     }
