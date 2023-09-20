@@ -29,19 +29,19 @@
                         <label for="data_andamento">Data do Andamento</label>
                         {% render_field form.data_andamento class="form-control" type="date" id="data_andamento"%}
                     </div>
-                    <div class="col">
+                    <div class="col" >
                         <label for="andamento">Tipo de Andamento</label>
-                        {% render_field form.andamento class="andamento" id="andamento"%}
+                        {% render_field form.andamento class="andamento form-control" id="andamento"%}
                     </div>
                     <!-- O campo a baixo só ira aparecer para o usuário se no campo anterior, o valor 'Encerrado' for selecionado -->
                     <div class="col" style="display: none;" id="situacao_pagamento"> <!--style="display: none;" Deixa o campo invizível-->
                         <label for="situacao_pagamento">Situação do Pagamento</label>
-                        {% render_field form.situacao_pagamento class="situacao" id="situacao_pagamento"%}
+                        {% render_field form.situacao_pagamento class="form-control" id="sit"%}
                     </div>
                     <!-- O campo a baixo só ira aparecer para o usuário se no campo anterior, o valor 'Com Pagamento' for selecionado -->
                     <div class="col" style="display: none;" id="valor_pago">
                         <label for="valor_pago">Total do Valor Pago</label>
-                        {% render_field form.valor_pago class="pago" id="valor_pago"%}
+                        {% render_field form.valor_pago class="form-control" id="pag"%}
                     </div>
                 </div>
                 <br>
@@ -101,14 +101,14 @@
 <!-- Importação do Jquery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<!-- Função em Java Script para mostrar ou esconder campo de acordo com a opção do select selecionada -->
+<!-- Função em Java Script para mostrar/ocultar campos com base nas seleções -->
 <script>
     $(document).ready(function() {
     // Função para mostrar/ocultar campos com base nas seleções
         function toggleFields() {
             var andamento = $(".andamento");
-            var situacao = $(".situacao");
-            var pago = $(".pago");
+            var situacao = $("#sit");
+            var pago = $("#pag");
 
             if (andamento.val() === "Encerrado") {
                 $("#situacao_pagamento").show();
