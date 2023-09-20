@@ -26,12 +26,20 @@
                     <br>
                     <div class="row">
                         <div class="col">
-                            <label for="data_andamento">Data do Andamento</label>
+                            <label for="data_andamento">Data do Andamento <b>*</b></label>
                             {% render_field form.data_andamento class="form-control" id="data_andamento"%}
                         </div>
                         <div class="col">
-                            <label for="andamento">Tipo de Andamento</label>
-                            {% render_field form.andamento class="form-control" id="andamento"%}
+                            <label for="andamento">Tipo de Andamento <b>*</b></label>
+                            {% render_field form.andamento class="andamento form-control" id="andamento"%}
+                        </div>
+                        <div class="col"  id="situacao_pagamento"> <!--style="display: none;" Deixa o campo invizível-->
+                            <label for="situacao_pagamento">Situação do Pagamento <b>*</b></label>
+                            {% render_field form.situacao_pagamento class="form-control" id="sit"%}
+                        </div>
+                        <div class="col" style="display: none;" id="valor_pago">
+                            <label for="valor_pago">Total do Valor Pago <b>*</b></label>
+                            {% render_field form.valor_pago class="form-control" id="pag"%}
                         </div>
                     </div>
                     <br>
@@ -44,14 +52,11 @@
                             <label for="data_recebimento">Confirmado o Recebimento em</label>
                             {% render_field form.data_recebimento class="form-control" id="data_recebimento"%}
                         </div>
-                    </div>
-                    <br>
-                    <div class="row">
                         <div class="col">
                             <label for="complemento">Complemento</label>
                             {% render_field form.complemento class="form-control" id="complemento"%}
                         </div>
-                    </div>    
+                    </div>   
                     <br>
                     <div class="row">
                         <div class="col">
@@ -75,4 +80,53 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block scripts %}
+<!-- Importação do Jquery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Função em Java Script para mostrar/ocultar campos com base se o campo está vazio ou não -->
+<script>
+    $(document).ready(function() {
+    // Função para mostrar/ocultar campos com base nas seleções
+    function toggleFields() {
+        var andamento = $(".andamento");
+        var situacao = $("#sit");
+        var pago = $("#pag");
+
+        if (andamento.val() === "Encerrado") {
+            $("#situacao_pagamento").show();
+            if (situacao.val() === 'Com Pagamento') {
+                $("#valor_pago").show();
+                
+            }else if(situacao.val() === 'Sem Pagamento'){ 
+                $("#valor_pago").hide();
+            } 
+        }else {
+            $("#situacao_pagamento").hide();
+            $("#valor_pago").hide();
+        }
+
+    }
+
+        // Chame a função ao carregar a página
+        toggleFields();        
+
+        // Adicione ouvintes de eventos para atualizar os campos quando as seleções mudarem
+        $("#andamento, #situacao_pagamento").on("change", toggleFields);
+    });
+</script>
+
+<!-- Importação do arquivo dentro da pasta static/js para usar máscaras nos campos input -->
+<script src="{% static 'js/jquery.mask.min.js' %}"></script>
+
+<!-- Aplicação de máscara de valor no campo input do atributo 'valor_pago' que possui o id = 'pag' -->
+<script>
+    $(document).ready(function(){
+        $('#pag').mask("000,000,000.00", {reverse: true});
+
+    })
+</script>
+
 {% endblock %}

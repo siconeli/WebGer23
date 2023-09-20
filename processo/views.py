@@ -71,7 +71,7 @@ class AndamentoAdmUpdate(GroupRequiredMixin, UpdateView):
     group_required = u'consultor'
     model = AndamentoAdm
     template_name = 'processos/updates/andamento_adm_update.html'
-    fields = ['data_andamento', 'andamento', 'data_prazo', 'data_recebimento', 'complemento', 'arquivo_1', 'arquivo_2', 'arquivo_3']
+    fields = ['data_andamento', 'andamento', 'situacao_pagamento','valor_pago', 'data_prazo', 'data_recebimento', 'complemento', 'arquivo_1', 'arquivo_2', 'arquivo_3']
 
     # Após realizar o update com sucesso, reverte para a lista de andamentos do processo
     def get_success_url(self):
