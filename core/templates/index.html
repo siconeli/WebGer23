@@ -36,6 +36,28 @@
           <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
             <img src="{% static 'img/pasta.png' %}" alt="" width="40">
+              <!-- Autenticação de usuário -->
+              {% if user.is_authenticated %} <!--Se o usuário estiver logado(autenticado) mostrar opção 'Logout'--> 
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" id="texto-navbar-menu" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-person-check-fill"><!--ícone de usuário--></i> {{ user.get_full_name }}
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{% url 'logout' %}"><i class="bi bi-door-closed-fill"></i> Logout</a></li> <!--logout-->
+                  </ul>
+                </li>
+
+              {% else %} <!-- Senão opção 'Login' -->
+
+              <a class="nav-link active" id="texto-navbar-menu" aria-current="page" href="{% url 'login' %}"><i class="bi bi-door-open"></i> Login</a> <!--login-->
+
+              {% endif %}
+              <!-- Fim da autenticação -->
+
+
+
+
+
               <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
