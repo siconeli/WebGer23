@@ -37,7 +37,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh; /* Garante que o corpo ocupa a altura mínima da viewport */
-    position: relative;
+    position: relative; /* Define uma posição relativa para que o rodapé fique posicionado corretamente */
 }
 
 .rodape {
@@ -46,6 +46,8 @@ body {
     padding: 3px; /* Espaçamento interno para o conteúdo da barra */
     text-align: left; /* Alinhamento do texto ao centro */
     font-size: 12px; /* Tamanho da letra do texto */
+
+    /* Estilo de posição fixa */
     position: absolute;
     bottom: 0;
     width: 100%;
