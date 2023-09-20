@@ -44,9 +44,6 @@
                             <label for="municipio">Município <b>*</b></label>
                             {% render_field form.municipio class="form-control" id="municipio"%}
                         </div>
-                    </div>
-                    <br>
-                    <div class="row">
                         <div class="col">
                             <label for="data_inicial">Período</label>
                             {% render_field form.data_inicial class="form-control" type="date" id="data_inicial"%}
@@ -109,16 +106,9 @@
                             <label for="documento">CPF / CNPJ <b>*</b></label>
                             {% render_field form.documento class="form-control" id="documento" autocomplete="off"%}
                         </div> 
-                    </div>
-                    <br>
-                    <div class="row">
                         <div class="col">
                             <label for="nome_fantasia">Nome Fantasia</label>
                             {% render_field form.nome_fantasia class="form-control" id="nome_fantasia" autocomplete="off"%}
-                        </div> 
-                        <div class="col">
-                            <label for="email">E-mail</label>
-                            {% render_field form.email class="form-control" placeholder="@" id="email" autocomplete="off" autocomplete="off"%}
                         </div> 
                     </div>
                     <br>
@@ -127,9 +117,6 @@
                             <label for="endereco">Logradouro / N° / Bairro <b>*</b></label>
                             {% render_field form.endereco class="form-control" id="endereco" autocomplete="off"%}
                         </div> 
-                    </div>
-                    <br>
-                    <div class="row">
                         <div class="col">
                             <label for="complemento">Complemento</label>
                             {% render_field form.complemento class="form-control" id="complemento" autocomplete="off"%}
@@ -149,9 +136,10 @@
                             <label for="cep">CEP</label>
                             {% render_field form.cep class="form-control" placeholder="     -   " id="cep" autocomplete="off"%}
                         </div> 
-                    </div>
-                    <br>
-                    <div class="row">
+                        <div class="col">
+                            <label for="email">E-mail</label>
+                            {% render_field form.email class="form-control" placeholder="@" id="email" autocomplete="off" autocomplete="off"%}
+                        </div> 
                         <div class="col">
                             <label for="celular">Celular</label>
                             {% render_field form.celular class="form-control" placeholder="( )      -    " id="celular" autocomplete="off"%}

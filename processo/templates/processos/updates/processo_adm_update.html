@@ -24,6 +24,15 @@
                     {% endfor %}
                     <hr>
                     <br>
+                    <div class="row">
+                        <div class="col">
+                            {% if form.numero.errors %} <!-- Se a validação 'unique' do atributo 'numero' retornar erro de registro já utilizado, irá abrir um alerta informando que o registro já existe-->
+                            <div class="alert alert-danger" role="alert" style="height: 50px; width: px;">
+                                <h6>{{ form.numero.errors }}</h6>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
                     <div class="row"> <!-- w-50 (colocar para diminuir o tamanho do campo input)-->
                         <div class="col">
                             <label for="uf">UF <b>*</b></label>
@@ -33,20 +42,17 @@
                             <label for="municipio">Município <b>*</b></label>
                             {% render_field form.municipio class="form-control" id="municipio"%}
                         </div>
-                    </div>
-                    <br>
-                    <div class="row">
                         <div class="col">
                             <label for="data_inicial">Período</label>
-                            {% render_field form.data_inicial class="form-control" type="date" id="data_inicial"%}
+                            {% render_field form.data_inicial class="form-control" id="data_inicial"%}
                         </div>
                         <div class="col">
                             <label for="data_final"><!--Período Final--></label>
-                            {% render_field form.data_final class="form-control" type="date" id="data_final"%}
+                            {% render_field form.data_final class="form-control" id="data_final"%}
                         </div>
                         <div class="col">
                             <label for="data_div_ativa">D.A</label>
-                            {% render_field form.data_div_ativa class="form-control" type="date" id="data_div_ativa"%}
+                            {% render_field form.data_div_ativa class="form-control" id="data_div_ativa"%}
                         </div>
                     </div>
                     <br>
@@ -69,7 +75,7 @@
                         </div>  
                         <div class="col">
                             <label for="data_valor_atualizado">Data Valor Atualizado</label>
-                            {% render_field form.data_valor_atualizado class="form-control" type="date" placeholder="R$" id="data_valor_atualizado"%}
+                            {% render_field form.data_valor_atualizado class="form-control" placeholder="R$" id="data_valor_atualizado"%}
                         </div> 
                     </div>    
                     <br><br>
@@ -98,16 +104,9 @@
                             <label for="documento">CPF / CNPJ <b>*</b></label>
                             {% render_field form.documento class="form-control" id="documento" autocomplete="off"%}
                         </div> 
-                    </div>
-                    <br>
-                    <div class="row">
                         <div class="col">
                             <label for="nome_fantasia">Nome Fantasia</label>
                             {% render_field form.nome_fantasia class="form-control" id="nome_fantasia" autocomplete="off"%}
-                        </div> 
-                        <div class="col">
-                            <label for="email">E-mail</label>
-                            {% render_field form.email class="form-control" placeholder="@" id="email" autocomplete="off" autocomplete="off"%}
                         </div> 
                     </div>
                     <br>
@@ -116,9 +115,6 @@
                             <label for="endereco">Logradouro / N° / Bairro <b>*</b></label>
                             {% render_field form.endereco class="form-control" id="endereco" autocomplete="off"%}
                         </div> 
-                    </div>
-                    <br>
-                    <div class="row">
                         <div class="col">
                             <label for="complemento">Complemento</label>
                             {% render_field form.complemento class="form-control" id="complemento" autocomplete="off"%}
@@ -138,9 +134,10 @@
                             <label for="cep">CEP</label>
                             {% render_field form.cep class="form-control" placeholder="     -   " id="cep" autocomplete="off"%}
                         </div> 
-                    </div>
-                    <br>
-                    <div class="row">
+                        <div class="col">
+                            <label for="email">E-mail</label>
+                            {% render_field form.email class="form-control" placeholder="@" id="email" autocomplete="off" autocomplete="off"%}
+                        </div> 
                         <div class="col">
                             <label for="celular">Celular</label>
                             {% render_field form.celular class="form-control" placeholder="( )      -    " id="celular" autocomplete="off"%}
@@ -151,7 +148,8 @@
                         </div> 
                     </div>
                     <br><br>
-                    <button type="submit" class="btn btn-success btn-sm"><i class="bi bi-check-lg" style="font-size: 15px;"><!--Icone--></i></button>         
+                    <button type="submit" class="btn btn-success btn-sm"><i class="bi bi-check-lg" style="font-size: 15px;"><!--Icone--></i></button>
+                    <a href="{% url 'proc-adm-list' %}" class="btn btn-danger btn-sm"><i class="bi bi-x-lg" style="font-size: 15px;"><!--Icone--></i></a>          
                 </form>
             </div>
         </div>
