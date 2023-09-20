@@ -113,13 +113,21 @@
             if (situacao.val() === 'Com Pagamento') {
                 $("#valor_pago").show();
                 
+                // Para tornar o campo 'valor_pago' obrigatório se o select 'situacao_pagamento' for igual a 'Com Pagamento'
+                pago.prop('required', true);
+
             }else if(situacao.val() === 'Sem Pagamento'){ 
                 $("#valor_pago").hide();
                 pago.val("");
+                
+                // Para tornar o campo 'valor_pago' não obrigatório se o select 'situacao_pagamento' for igual a 'Sem Pagamento'
+                pago.prop('required', false);
+
             }else if(situacao.val() === ""){
                 situacao.val("Sem Pagamento"); 
                 $("#valor_pago").hide();
                 pago.val("");
+                pago.prop('required', false);
             }
         }else {
             $("#situacao_pagamento").hide();

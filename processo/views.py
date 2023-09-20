@@ -50,7 +50,7 @@ class AndamentoAdmCreate(GroupRequiredMixin, CreateView):
         context = super().get_context_data(**kwargs)
         context['dados_processo'] = ProcessoAdm.objects.filter(pk=processo_pk) # Filtra os dados do processo através da pk
         return context
-    
+        
 ###### UPDATE ######
 class ProcessoAdmUpdate(GroupRequiredMixin, UpdateView):
     group_required = u'consultor'
