@@ -14,11 +14,13 @@
 <div class="container p-5">
     <div class="card">
         <div class="card-header text-white" style="background-color: #0098DB;">
-            {% for atributo in dados_processo %}
-                <h5 style="text-align: center;">Cadastrar Andamento do Processo: {{ atributo.numero }}</h5>
-            {% endfor %}
+                <h5 style="text-align: center;">Cadastrar Andamento</h5>
          </div>
         <div class="card-body">
+            {% for atributo in dados_processo %}
+                <h5>Processo: {{ atributo.numero }}</h5>
+            {% endfor %}
+            <hr>
             <form action="" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <br>
