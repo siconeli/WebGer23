@@ -59,15 +59,15 @@ class AndamentoAdm(Base):
     )
 
     situacao = (
-        ('Com Pagamento', 'Com Pagamento'), ('Sem Pagamento', 'Sem Pagamento'),
+        ('Sem Pagamento', 'Sem Pagamento'), ('Com Pagamento', 'Com Pagamento'),
     )
 
     criador_andamento_adm = models.ForeignKey(get_user_model(), verbose_name='Usuário Criador', on_delete=models.CASCADE)
     processo = models.ForeignKey(ProcessoAdm, on_delete=models.CASCADE) # Relacionamento 'One to Many' (um para muitos)
     data_andamento = models.DateField(verbose_name='Data do Andamento')
     andamento = models.CharField(max_length=100, choices=andamentos, verbose_name='Andamento') # Utiliza choices(escolhas) para selecionar o andamento
-    situacao_pagamento = models.CharField(max_length=100, choices=situacao, verbose_name='Situação do Pagamento') 
-    total_valor_pago = models.CharField(max_length=14, blank=True, null=True)
+    situacao_pagamento = models.CharField(max_length=100, choices=situacao, blank=True, null=True) 
+    valor_pago = models.CharField(max_length=14, blank=True, null=True)
     data_prazo = models.DateField(blank=True, null=True)
     funcionario = models.CharField(max_length=50, blank=True, null=True)
     data_recebimento = models.DateField(blank=True, null=True)

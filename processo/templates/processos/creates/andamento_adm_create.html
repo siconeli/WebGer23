@@ -31,17 +31,17 @@
                     </div>
                     <div class="col">
                         <label for="andamento">Tipo de Andamento</label>
-                        {% render_field form.andamento class="form-control" id="andamento"%}
+                        {% render_field form.andamento class="andamento" id="andamento"%}
                     </div>
                     <!-- O campo a baixo só ira aparecer para o usuário se no campo anterior, o valor 'Encerrado' for selecionado -->
                     <div class="col" style="display: none;" id="situacao_pagamento"> <!--style="display: none;" Deixa o campo invizível-->
-                        <label for="situacao_pagamento">Total do Valor Pago</label>
-                        {% render_field form.situacao_pagamento class="form-control" id="situacao_pagamento"%}
+                        <label for="situacao_pagamento">Situação do Pagamento</label>
+                        {% render_field form.situacao_pagamento class="situacao" id="situacao_pagamento"%}
                     </div>
                     <!-- O campo a baixo só ira aparecer para o usuário se no campo anterior, o valor 'Com Pagamento' for selecionado -->
-                    <div class="col" style="display: none;" id="total_valor_pago">
-                        <label for="total_valor_pago">Total do Valor Pago</label>
-                        {% render_field form.total_valor_pago class="form-control" id="total_valor_pago"%}
+                    <div class="col" style="display: none;" id="valor_pago">
+                        <label for="valor_pago">Total do Valor Pago</label>
+                        {% render_field form.valor_pago class="pago" id="valor_pago"%}
                     </div>
                 </div>
                 <br>
@@ -101,21 +101,36 @@
 <!-- Importação do Jquery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<!-- Usei java script para mostrar o campo 'situacao_pagamento' se no campo 'andamento' for selecionado a opção 'Encerrado' -->
+<!-- Função em Java Script para mostrar ou esconder campo de acordo com a opção do select selecionada -->
 <script>
     $(document).ready(function() {
-      $('#andamento').change(function() {
-        var selectedOption = $(this).val();
-        if (selectedOption === 'Encerrado') {
-          $('#situacao_pagamento').show();
-        } else {
-          $('#situacao_pagamento').hide();
+    // Função para mostrar/ocultar campos com base nas seleções
+        function toggleFields() {
+            var andamento = $(".andamento");
+            var situacao = $(".situacao");
+            var pago = $(".pago");
+
+            if (andamento.val() === "Encerrado") {
+                $("#situacao_pagamento").show();
+                if (situacao.val() === 'Com Pagamento') {
+                    $("#valor_pago").show();
+
+                }else if(situacao.val() === 'Sem Pagamento'){ 
+                    $("#valor_pago").hide();
+                } 
+            }else {
+                $("#situacao_pagamento").hide();
+                $("#valor_pago").hide();
+            }
         }
-      });
+
+        // Chame a função ao carregar a página
+        toggleFields();
+
+        // Adicione ouvintes de eventos para atualizar os campos quando as seleções mudarem
+        $("#andamento, #situacao_pagamento").on("change", toggleFields);
     });
 </script>
-
-
 
 {% endblock%}
 
