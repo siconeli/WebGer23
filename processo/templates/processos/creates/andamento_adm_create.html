@@ -33,6 +33,16 @@
                         <label for="andamento">Tipo de Andamento</label>
                         {% render_field form.andamento class="form-control" id="andamento"%}
                     </div>
+                    <!-- O campo a baixo só ira aparecer para o usuário se no campo anterior, o valor 'Encerrado' for selecionado -->
+                    <div class="col" style="display: none;" id="situacao_pagamento"> <!--style="display: none;" Deixa o campo invizível-->
+                        <label for="situacao_pagamento">Total do Valor Pago</label>
+                        {% render_field form.situacao_pagamento class="form-control" id="situacao_pagamento"%}
+                    </div>
+                    <!-- O campo a baixo só ira aparecer para o usuário se no campo anterior, o valor 'Com Pagamento' for selecionado -->
+                    <div class="col" style="display: none;" id="total_valor_pago">
+                        <label for="total_valor_pago">Total do Valor Pago</label>
+                        {% render_field form.total_valor_pago class="form-control" id="total_valor_pago"%}
+                    </div>
                 </div>
                 <br>
                 <div class="row">
@@ -87,6 +97,25 @@
         window.history.back();
     });
 </script>
+
+<!-- Importação do Jquery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Usei java script para mostrar o campo 'situacao_pagamento' se no campo 'andamento' for selecionado a opção 'Encerrado' -->
+<script>
+    $(document).ready(function() {
+      $('#andamento').change(function() {
+        var selectedOption = $(this).val();
+        if (selectedOption === 'Encerrado') {
+          $('#situacao_pagamento').show();
+        } else {
+          $('#situacao_pagamento').hide();
+        }
+      });
+    });
+</script>
+
+
 
 {% endblock%}
 

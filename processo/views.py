@@ -25,7 +25,7 @@ class AndamentoAdmCreate(GroupRequiredMixin, CreateView):
     group_required = u'consultor' 
     model = AndamentoAdm
     template_name = 'processos/creates/andamento_adm_create.html'
-    fields = ['data_andamento', 'andamento', 'data_prazo', 'data_recebimento', 'complemento', 'arquivo_1', 'arquivo_2', 'arquivo_3']
+    fields = ['data_andamento', 'andamento', 'situacao_pagamento', 'total_valor_pago', 'data_prazo', 'data_recebimento', 'complemento', 'arquivo_1', 'arquivo_2', 'arquivo_3']
     success_url = reverse_lazy('proc-adm-list')
 
     # Busca a pk do processo na url e preenche o atributo 'processo_id', para vincular o processo ao andamento
