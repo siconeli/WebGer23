@@ -12,11 +12,13 @@
 <div class="container p-5">
     <div class="card">
         <div class="card-header text-white" style="background-color: #0098DB;">
-            {% for atributo in dados_andamento %}
-                <h5 style="text-align: center;">Arquivos do Andamento: {{ atributo.andamento }}</h5>
-            {% endfor %}
+            <h5 style="text-align: center;">Lista de Arquivos</h5>
          </div>
         <div class="card-body">
+            {% for atributo in dados_andamento %}
+                <h5>Andamento: {{ atributo.andamento }}</h5>
+            {% endfor %}
+            <hr>
             <!--Tabela(lista) de Arquivos do andamento-->
             <div class="table-responsive">
                 <br>
@@ -56,6 +58,7 @@
                     </tbody>
                 </table>
             </div>
+            <br>
             <!--Código CSS + JavaScript para criar botão de voltar para a página anterior -->
             <button class="btn btn-secondary btn-sm" id="btnVoltar"><i class="bi bi-arrow-left" style="font-size: 15px;"><!--Icone--></i></button>
         </div>

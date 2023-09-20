@@ -12,13 +12,13 @@ class Base(models.Model): # Classe base, será herdada pelas outras classes
 
 class ProcessoAdm(Base):
 
-    ufs = (
-        ('MS', 'MS'), ('MT', 'MT'), ('SP', 'SP'), ('RJ', 'RJ'),
-    )
+    # ufs = (
+    #     ('MS', 'MS'), ('MT', 'MT'), ('SP', 'SP'), ('RJ', 'RJ'),
+    # )
 
-    municipios = (
-        ('Selvíria', 'Selvíria'), ('Inocência', 'Inocência'),
-    )
+    # municipios = (
+    #     ('Selvíria', 'Selvíria'), ('Inocência', 'Inocência'),
+    # )
 
     tipo_pessoas = (
         ('Física', 'Física'), ('Jurídica', 'Jurídica'),
@@ -26,8 +26,8 @@ class ProcessoAdm(Base):
 
     criador_processo_adm = models.ForeignKey(get_user_model(), verbose_name='Usuário Criador', on_delete=models.CASCADE) # Usuário que criou o processo, utilizando chave primária com o get_user_model do django, para utilizar o usuário logado automaticamente
     numero = models.CharField(unique=True, verbose_name='N°', max_length=10) # Número do processo
-    municipio = models.CharField(max_length=50, choices=municipios, verbose_name='Município') # Município
-    uf = models.CharField(max_length=2, choices=ufs) # UF 
+    municipio = models.CharField(max_length=50, verbose_name='Município') # Município
+    uf = models.CharField(max_length=2) # UF 
     data_inicial = models.DateField(blank=True, null=True) # Data Inicial do Período do processo
     data_final = models.DateField(blank=True, null=True) # Data final do Período do processo
     data_div_ativa = models.DateField(blank=True, null=True) # Data dívida ativa
@@ -44,7 +44,7 @@ class ProcessoAdm(Base):
     endereco = models.CharField(max_length=150) # Rua
     complemento = models.CharField(max_length=50, blank=True, null=True) # Complemento
     municipio_contribuinte = models.CharField(max_length=50, blank=True, null=True) # Município Contribuinte
-    uf_contribuinte = models.CharField(max_length=2, choices=ufs, verbose_name='UF', blank=True, null=True) # UF Contribuinte
+    uf_contribuinte = models.CharField(max_length=2, verbose_name='UF', blank=True, null=True) # UF Contribuinte
     cep = models.CharField(max_length=10, blank=True, null=True) # CEP
     telefone = models.CharField(max_length=20, blank=True, null=True) # Telefone
     celular = models.CharField(max_length=20, blank=True, null=True) # Celular
@@ -53,15 +53,15 @@ class ProcessoAdm(Base):
         return f'{self.numero}'
     
 class AndamentoAdm(Base):
-
+    # Choices
     andamentos = (
     ('Abertura', 'Abertura'), ('Parecer Fiscal', 'Parecer Fiscal'), ('Decisão 1ª Instância', 'Decisão 1ª Instância'), ('Suspenso Para Fiscalização Futura', 'Suspenso Para Fiscalização Futura'), ('Auto de Infração e Termo de Intimação - AITI.', 'Auto de Infração e Termo de Intimação - AITI.'), ('Termo de Intimação Fiscal - TIF.-tif.', 'Termo de Intimação Fiscal - TIF.'), ('Decisão de 2ª Instância', 'Decisão de 2ª Instância'), ('Cobrança de Documentação', 'Cobrança de Documentação'), ('Recurso Voluntário', 'Recurso Voluntário'), ('Fim do Contrato com a Assessoria', 'Fim do Contrato com a Assessoria'), ('Manifestação', 'Manifestação'), ('Recebimento do AR', 'Recebimento do AR'), ('Despacho', 'Despacho'), ('Aguardando Pagamento', 'Aguardando Pagamento'), ('Apresentação de Documentação para Análise', 'Apresentação de Documentação para Análise'), ('Aguardando AR', 'Aguardando AR'), ('Ofício', 'Ofício'), ('Revelia', 'Revelia'), ('Execução', 'Execução'), ('Confissão de Dívida (Parcelamento)', 'Confissão de Dívida (Parcelamento)'), ('Reenvio de Documento', 'Reenvio de Documento'), ('Parecer Juridico', 'Parecer Juridico'), ('Certidão', 'Certidão'), ('Encaminhado', 'Encaminhado'),
     )
 
     criador_andamento_adm = models.ForeignKey(get_user_model(), verbose_name='Usuário Criador', on_delete=models.CASCADE)
-    processo = models.ForeignKey(ProcessoAdm, on_delete=models.CASCADE) # Relacionamento 'One to Many (um para muitos)'
+    processo = models.ForeignKey(ProcessoAdm, on_delete=models.CASCADE) # Relacionamento 'One to Many' (um para muitos)
     data_andamento = models.DateField(verbose_name='Data do Andamento')
-    andamento = models.CharField(max_length=100, choices=andamentos, verbose_name='Andamento')
+    andamento = models.CharField(max_length=100, choices=andamentos, verbose_name='Andamento') # Utiliza choices(escolhas) para selecionar o andamento
     data_prazo = models.DateField(blank=True, null=True)
     funcionario = models.CharField(max_length=50, blank=True, null=True)
     data_recebimento = models.DateField(blank=True, null=True)

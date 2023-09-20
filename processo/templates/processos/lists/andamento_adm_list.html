@@ -12,7 +12,7 @@
     <div class="container p-5">
         <div class="card">
             <div class="card-header text-white" style="background-color: #0098DB;">
-                    <h5 style="text-align: center;">Andamentos</h5>
+                    <h5 style="text-align: center;">Lista de Andamentos</h5>
             </div>
             <div class="card-body">
                 {% for atributo in dados_processo %}
@@ -63,6 +63,7 @@
                             {% endfor %}
                         </tbody>
                     </table>
+                    <br>
                     <a href="{% url 'proc-adm-list' %}" class="btn btn-secondary btn-sm"><i class="bi bi-arrow-left" style="font-size: 15px;"><!--Icone--></i></a>
                 </div>           
             </div>

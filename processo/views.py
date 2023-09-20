@@ -80,6 +80,14 @@ class AndamentoAdmUpdate(GroupRequiredMixin, UpdateView):
         processo_pk = andamento.processo_id # Busca a PK do processo através do andamento (processo_id é a ForeignKey entre o processo administrativo e o andamento)
 
         return reverse('andamento-adm-list', args=[processo_pk]) # URL da lista de andamentos + pk do processo 
+    
+    # Função para iterar com os dados do andamento na view de update andamento
+    def get_context_data(self, **kwargs):
+        andamento_pk = self.kwargs.get('pk') # Pega a PK do andamento através da URL  
+
+        context = super().get_context_data(**kwargs)
+        context['dados_andamento'] = AndamentoAdm.objects.filter(pk=andamento_pk) # Filtra os dados do andamento através da pk
+        return context
 
 ###### DELETE ######
 class ProcessoAdmDelete(GroupRequiredMixin, DeleteView):
