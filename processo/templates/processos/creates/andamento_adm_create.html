@@ -35,12 +35,12 @@
                     </div>
                     <!-- O campo a baixo só ira aparecer para o usuário se no campo anterior, o valor 'Encerrado' for selecionado -->
                     <div class="col" style="display: none;" id="situacao_pagamento"> <!--style="display: none;" Deixa o campo invizível-->
-                        <label for="situacao_pagamento">Situação do Pagamento</label>
+                        <label for="situacao_pagamento">Situação do Pagamento <b>*</b></label>
                         {% render_field form.situacao_pagamento class="form-control" id="sit"%}
                     </div>
                     <!-- O campo a baixo só ira aparecer para o usuário se no campo anterior, o valor 'Com Pagamento' for selecionado -->
                     <div class="col" style="display: none;" id="valor_pago">
-                        <label for="valor_pago">Total do Valor Pago</label>
+                        <label for="valor_pago">Total do Valor Pago <b>*</b></label>
                         {% render_field form.valor_pago class="form-control" id="pag"%}
                     </div>
                 </div>
@@ -54,9 +54,6 @@
                         <label for="data_recebimento">Confirmado o Recebimento em</label>
                         {% render_field form.data_recebimento class="form-control" type="date" id="data_recebimento"%}
                     </div>
-                </div>
-                <br>
-                <div class="row">
                     <div class="col">
                         <label for="complemento">Complemento</label>
                         {% render_field form.complemento class="form-control" id="complemento"%}
@@ -89,6 +86,7 @@
 {% endblock %}
 
 {% block scripts %}
+
 <!--Código CSS + JavaScript para criar botão de voltar para a página anterior-->
 <script>
     // Adicione um evento de clique ao botão
@@ -105,33 +103,45 @@
 <script>
     $(document).ready(function() {
     // Função para mostrar/ocultar campos com base nas seleções
-        function toggleFields() {
-            var andamento = $(".andamento");
-            var situacao = $("#sit");
-            var pago = $("#pag");
-
-            if (andamento.val() === "Encerrado") {
-                $("#situacao_pagamento").show();
-                if (situacao.val() === 'Com Pagamento') {
-                    $("#valor_pago").show();
-
-                }else if(situacao.val() === 'Sem Pagamento'){ 
-                    $("#valor_pago").hide();
-                } 
+    function toggleFields() {
+        var andamento = $(".andamento");
+        var situacao = $("#sit");
+        var pago = $("#pag");
+        
+        if (andamento.val() === "Encerrado") {
+            $("#situacao_pagamento").show();
+            if (situacao.val() === 'Com Pagamento') {
+                $("#valor_pago").show();
+                
+            }else if(situacao.val() === 'Sem Pagamento'){ 
+                $("#valor_pago").hide();
+            } 
             }else {
                 $("#situacao_pagamento").hide();
                 $("#valor_pago").hide();
             }
         }
-
+        
         // Chame a função ao carregar a página
         toggleFields();
-
+        
         // Adicione ouvintes de eventos para atualizar os campos quando as seleções mudarem
         $("#andamento, #situacao_pagamento").on("change", toggleFields);
+        
     });
 </script>
 
-{% endblock%}
+<!-- Importação do arquivo dentro da pasta static/js para usar máscaras nos campos input -->
+<script src="{% static 'js/jquery.mask.min.js' %}"></script>
+
+<!-- Aplicação de máscara de valor no campo input do atributo 'valor_pago' que possui o id = 'pag' -->
+<script>
+    $(document).ready(function(){
+        $('#pag').mask("000,000,000.00", {reverse: true});
+
+    })
+</script>
+
+{% endblock %}
 
 
