@@ -1,8 +1,3 @@
-body {
-    background-color: whitesmoke;
-    margin: 0;
-}
-
 /* Corpo do Menu */
 .container-fluid {
     background-color: #0098DB;
@@ -19,7 +14,7 @@ body {
 #offcanvasNavbar {
     background-color: #0098DB;
     /* background-color: black; */
-
+    
 }
 
 /* Texto do navbar lateral do menu */
@@ -28,19 +23,30 @@ body {
 }
 
 /* Imagem tela cheia da página principal */
-#pagina-principal {
+/* #pagina-principal {
     width: 100vw;
     height: 100vh;
     background: url('../img/fundo.png');
     background-size: cover;
-}
+} */
 
+body {
+    background-color: whitesmoke;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que o corpo ocupa a altura mínima da viewport */
+    position: relative;
+}
 
 .rodape {
     background-color: #0098DB; /* Cor de fundo da barra */
     color: #fff; /* Cor do texto na barra */
-    padding: 2px; /* Espaçamento interno para o conteúdo da barra */
+    padding: 3px; /* Espaçamento interno para o conteúdo da barra */
     text-align: left; /* Alinhamento do texto ao centro */
     font-size: 12px; /* Tamanho da letra do texto */
-    position: relative;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
