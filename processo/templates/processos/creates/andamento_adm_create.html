@@ -115,10 +115,14 @@
                 
             }else if(situacao.val() === 'Sem Pagamento'){ 
                 $("#valor_pago").hide();
+                pago.val("");
             } 
         }else {
             $("#situacao_pagamento").hide();
             $("#valor_pago").hide();
+
+            // Limpa o campo "valor_pago" quando ele deixa de ser mostrado
+            pago.val("");
         }
     }
         
