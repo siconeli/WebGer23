@@ -88,6 +88,19 @@ class AndamentoAdmUpdate(GroupRequiredMixin, UpdateView):
         context = super().get_context_data(**kwargs)
         context['dados_andamento'] = AndamentoAdm.objects.filter(pk=andamento_pk) # Filtra os dados do andamento através da pk
         return context
+    
+    def get_cancelar_url(self, parametro):
+        return reverse('andamento-adm-list', args=[parametro])
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        parametro = 4
+
+        context['cancelar'] = self.get_cancelar_url(parametro)
+
+        return context
+
 
 ###### DELETE ######
 class ProcessoAdmDelete(GroupRequiredMixin, DeleteView):

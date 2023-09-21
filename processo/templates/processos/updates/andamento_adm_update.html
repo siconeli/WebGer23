@@ -76,16 +76,7 @@
                     <div>
                         <!-- <button type="submit" class="btn btn-success btn-sm"><i class="bi bi-check-lg" style="font-size: 15px;"></i></button> -->
                         <button type="submit" class="btn btn-success btn-sm">Salvar</button>
-                        <button class="btn btn-danger btn-sm" id="btnVoltar">Cancelar</button>
-
-                        <!--Código CSS + JavaScript para criar botão de voltar para a página anterior | Está aqui porque é um formulário e não aceita estando fora--> 
-                        <script>
-                            // Adicione um evento de clique ao botão
-                            document.getElementById("btnVoltar").addEventListener("click", function() {
-                                // Utilize a função window.history.back() para voltar para a página anterior
-                                window.history.back();
-                            });
-                        </script>
+                        <a href="{{ cancelar }}" class="btn btn-danger btn-sm">Cancelar</a>
                     </div>
                 </form>
             </div>
