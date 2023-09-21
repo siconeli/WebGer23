@@ -89,15 +89,19 @@ class AndamentoAdmUpdate(GroupRequiredMixin, UpdateView):
         context['dados_andamento'] = AndamentoAdm.objects.filter(pk=andamento_pk) # Filtra os dados do andamento através da pk
         return context
     
-    def get_cancelar_url(self, parametro):
-        return reverse('andamento-adm-list', args=[parametro])
-    
+    #  Função para reverter para a url 'andamento-adm-list' passando a pk do processo para conseguir voltar para a tela de lista de andamentos do processo.
+    def get_cancelar(self, processo_pk):
+        return reverse('andamento-adm-list', args=[processo_pk])
+
+    # Função para buscar a pk do processo e salvar na variável 'processo_pk', com a funcionalidade do get_context_data enviar para o Template, o contexto 'cancelar' que recebe a função 'get_cancelar' junto com a variavel 'processo_pk'.
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        parametro = 4
+        andamento_pk = self.kwargs.get('pk') # Pega a PK do andamento ao fazer o update através da URL
+        andamento = AndamentoAdm.objects.get(pk=andamento_pk) # Busca o andamento através da PK do andamento
+        processo_pk = andamento.processo_id # Busca a PK do processo através do andamento (processo_id é a ForeignKey entre o processo administrativo e o andamento)
 
-        context['cancelar'] = self.get_cancelar_url(parametro)
+        context['cancelar'] = self.get_cancelar(processo_pk)
 
         return context
 
