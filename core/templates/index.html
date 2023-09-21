@@ -38,7 +38,7 @@
               
             <!-- <img src="{% static 'img/pasta.png' %}" alt="" width="40"> -->
             <dt class="nav-item">
-              <a class="nav-link active" id="texto-inicio-navbar-menu" aria-current="page" href="{% url 'index' %}"><img src="{% static 'img/home.png' %}" width="35"> Início </a>
+              <a class="nav-link active" id="texto-inicio-navbar-menu" aria-current="page" href="{% url 'index' %}"><img src="{% static 'img/home.png' %}" width="30"> Início </a>
             </dt>
 
               <!-- Autenticação de usuário para ver a opção de menu-->
@@ -53,7 +53,7 @@
                 </dt>
               {% else %} <!-- Senão opção 'Login' -->
 
-              <a class="nav-link active" id="texto-inicio-navbar-menu" aria-current="page" href="{% url 'login' %}"><img src="{% static 'img/login.png' %}" width="37"><b> Login </b></a> <!--login-->
+              <a class="nav-link active" id="texto-inicio-navbar-menu" aria-current="page" href="{% url 'login' %}"><img src="{% static 'img/login.png' %}" width="30"><b> Login </b></a> <!--login-->
 
               {% endif %}
               <!-- Fim da autenticação -->
@@ -68,7 +68,7 @@
                 {% if user.is_authenticated %} <!--Se o usuário estiver logado(autenticado) mostrar opção 'Logout'-->
 
                   <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="texto-navbar-menu" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="{% static 'img/processo.png' %}" width="30"> Processos </a>
+                    <a class="nav-link dropdown-toggle" id="texto-navbar-menu" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="{% static 'img/processo.png' %}" width="35"> Processos </a>
                     <ul class="dropdown-menu">
                       <li><a class="dropdown-item" href="{% url 'proc-adm-list' %}"><i class="bi bi-briefcase-fill"><!--ícone de processo--></i> Processos Administrativos Tributários</a></li>
                     </ul>
