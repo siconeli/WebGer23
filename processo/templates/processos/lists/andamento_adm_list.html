@@ -51,12 +51,12 @@
                                 <td>{{ andamento.criador_andamento_adm.get_full_name }}</td>
                                 <td>{{ andamento.data_criacao }}</td>
                                 <td>
-                                    <a href="{% url 'andamento-adm-update' andamento.pk %}" class="btn btn-primary btn-sm"><i class="bi bi-gear" style="font-size: 15px;"><!--Editar Andamento (usando ícone)--></i></a>
+                                    <a href="{% url 'andamento-adm-update' andamento.pk %}"><img src="{% static 'img/editar.png' %}" width="35"></a>
 
-                                    <a href="{% url 'andamento-adm-delete' andamento.pk %}" class="btn btn-danger btn-sm"><i class="bi bi-trash" style="font-size: 15px;"><!--Excluir Andamento (usando ícone)--></i></a>
+                                    <a href="{% url 'andamento-adm-delete' andamento.pk %}"><img src="{% static 'img/excluir.png' %}" width="30"></a>
                                 </td>
                                 <td>
-                                    <a href="{% url 'arquivo-andamento-adm-list' andamento.pk %}" class="btn btn-warning btn-sm"><i class="bi bi-folder-check" style="font-size: 15px;"><!--Listar Arquivos do andamento (usando ícone)--></i></a>
+                                    <a href="{% url 'arquivo-andamento-adm-list' andamento.pk %}"><img src="{% static 'img/arquivo.png' %}" width="30"></a>
                                 </td>
 
                             </tr>

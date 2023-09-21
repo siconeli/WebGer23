@@ -34,7 +34,7 @@
                                 <tr>
                                     <td>
                                         {{ arquivo.arquivo_1.name }}
-                                        <a href="{{ arquivo.arquivo_1.url }}" class="btn btn-info btn-sm" target="_blank"><i class="bi bi-download" style="font-size: 15px;"><!--Icone de download--></i></a>
+                                        <a href="{{ arquivo.arquivo_1.url }}"><img src="{% static 'img/download.png' %}" width="30"></a>
                                     </td>
                                 </tr>
                             {% endif %}
@@ -42,7 +42,7 @@
                                 <tr>
                                     <td>
                                         {{ arquivo.arquivo_2.name }}
-                                        <a href="{{ arquivo.arquivo_2.url }}" class="btn btn-info btn-sm" target="_blank"><i class="bi bi-download" style="font-size: 15px;"><!--Icone de download--></i></a>
+                                        <a href="{{ arquivo.arquivo_2.url }}"><img src="{% static 'img/download.png' %}" width="30"></a></a>
                                     </td>
                                 </tr>
                             {% endif %}
@@ -50,7 +50,7 @@
                                 <tr>
                                     <td>
                                         {{ arquivo.arquivo_3.name }}
-                                        <a href="{{ arquivo.arquivo_3.url }}" class="btn btn-info btn-sm" target="_blank"><i class="bi bi-download" style="font-size: 15px;"><!--Icone de download--></i></a>
+                                        <a href="{{ arquivo.arquivo_3.url }}"><img src="{% static 'img/download.png' %}" width="30"></a>
                                     </td>
                                 </tr>
                             {% endif %}
