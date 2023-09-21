@@ -15,34 +15,9 @@
                 <h5 style="text-align: center;">Processos Administrativos</h5>
             </div>
             <div class="card-body">
-                <div class="row">
-                    <div class="col">
-                        <div class="card">
-                            <div class="card-header text-white" style="background-color: #0098DB;" >
-                            <h6>Cadastrar</h6>
-                            </div>
-                            <div class="card-body">
-                                <a href="{% url 'proc-adm-create' %}"><img src="{% static 'img/create-processo.png' %}" width="45"></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                    <!--Apenas para ocupar espaço e enquadrar os cards da maneira que quero  -->
-                    </div>
-                    <div class="col">
-                        <!--Apenas para ocupar espaço e enquadrar os cards da maneira que quero  -->
-                    </div>
-                    <div class="col">
-                        <!--Apenas para ocupar espaço e enquadrar os cards da maneira que quero  -->
-                    </div>
-                    <div class="col">
-                        <!--Apenas para ocupar espaço e enquadrar os cards da maneira que quero  -->
-                    </div>
-                    <div class="col">
-                        <!--Apenas para ocupar espaço e enquadrar os cards da maneira que quero  -->
-                    </div>
-                </div>
-                <br>
+                <!-- Icone de cadastrar processo -->
+                <a href="{% url 'proc-adm-create' %}"><img src="{% static 'img/create-processo.png' %}" width="45"></a>
+                <br><br>
                 <div class="card">
                     <div class="card-header text-white" style="background-color: #0098DB; text-align: center;">
                     <h6>Lista de Processos</h6>
@@ -76,7 +51,7 @@
                                         <td>{{ processo.criador_processo_adm.get_full_name }}</td>
                                         <td>{{ processo.data_criacao }}</td>
                                         <td>
-                                            <a href="{% url 'proc-adm-update' processo.pk %}" class="btn btn-primary btn-sm"><i class="bi bi-gear" style="font-size: 15px;"><!--Editar Processo (usando ícone)--></i></a>
+                                            <a href="{% url 'proc-adm-update' processo.pk %}"><img src="{% static 'img/editar.png' %}" width="35"></i></a>
 
                                             <a href="{% url 'proc-adm-delete' processo.pk %}" class="btn btn-danger btn-sm"><i class="bi bi-trash" style="font-size: 15px;"><!--Excluir Processo (usando ícone)--></i></a>
                                         </td>
