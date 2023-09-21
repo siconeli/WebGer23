@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block conteudo %} 
-    <div class="container p-5">
+    <div class="container p-4">
         <div class="card">
             <div class="card-header text-white" style="background-color: #0098DB;">
                 <h5 style="text-align: center;">Processos Administrativos</h5>
@@ -25,14 +25,14 @@
                     <div class="card-body">                 
                         <!--Tabela(lista) de Processos-->
                         <div class="table-responsive">
-                            <br>
-                            <table class="table table-hover table-light" id="tabela-listar">
+                            <!-- <br> -->
+                            <table class="table table-striped" id="tabela-listar">
                                 <thead>
                                     <tr class="table-secondary">
                                         <th>Processo</th>
                                         <th>Município</th>
                                         <th>Contribuinte</th>
-                                        <th>Tipo de Pessoa</th>
+                                        <!-- <th>Tipo de Pessoa</th> -->
                                         <th>CPF/CNPJ</th>
                                         <th>Criado por</th>
                                         <th>Criado em</th>
@@ -46,20 +46,20 @@
                                         <td>{{ processo.numero }}</td>
                                         <td>{{ processo.municipio }}</td>
                                         <td>{{ processo.nome_contribuinte }}</td>
-                                        <td>{{ processo.tipo_pessoa }}</td>
+                                        <!-- <td>{{ processo.tipo_pessoa }}</td> -->
                                         <td>{{ processo.documento }}</td>
                                         <td>{{ processo.criador_processo_adm.get_full_name }}</td>
                                         <td>{{ processo.data_criacao }}</td>
                                         <td>
-                                            <a href="{% url 'proc-adm-update' processo.pk %}"><img src="{% static 'img/editar.png' %}" width="35"></i></a>
+                                            <a href="{% url 'proc-adm-update' processo.pk %}"><img src="{% static 'img/editar.png' %}" width="30"></i></a>
 
-                                            <a href="{% url 'proc-adm-delete' processo.pk %}"><img src="{% static 'img/excluir.png' %}" width="30"></a>
+                                            <a href="{% url 'proc-adm-delete' processo.pk %}"><img src="{% static 'img/excluir.png' %}" width="25"></a>
                                         </td>
                                         <td> 
-                                            <a href="{% url 'andamento-adm-create' processo.pk %}"><img src="{% static 'img/create-andamento.png' %}" width="35"></a>
+                                            <a href="{% url 'andamento-adm-create' processo.pk %}"><img src="{% static 'img/create-andamento.png' %}" width="30"></a>
 
                                             
-                                            <a href="{% url 'andamento-adm-list' processo.pk %}"><img src="{% static 'img/listar.png' %}" width="35"></a>
+                                            <a href="{% url 'andamento-adm-list' processo.pk %}"><img src="{% static 'img/listar.png' %}" width="30"></a>
                                         </td>
                                     </tr>
                                     {% endfor %}
@@ -71,7 +71,7 @@
             </div>
         </div>   
     </div>
-{% endblock %}
+    {% endblock %}
 
 {% block scripts %}
     <!-- Importação JS da minha 'datatable' -->
