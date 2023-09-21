@@ -38,7 +38,7 @@
               
             <!-- <img src="{% static 'img/pasta.png' %}" alt="" width="40"> -->
             <dt class="nav-item">
-              <a class="nav-link active" id="texto-inicio-navbar-menu" aria-current="page" href="{% url 'index' %}"><i class="bi bi-house-door-fill"><!--ícone de início--></i> Início </a>
+              <a class="nav-link active" id="texto-inicio-navbar-menu" aria-current="page" href="{% url 'index' %}"><img src="{% static 'img/home.png' %}" width="35"> Início </a>
             </dt>
 
               <!-- Autenticação de usuário para ver a opção de menu-->
@@ -48,12 +48,12 @@
                   <a class="nav-link dropdown-toggle" id="texto-inicio-navbar-menu" role="button" data-bs-toggle="dropdown" aria-expanded="false" ><img src="{% static 'img/usuario.png' %}" width="30"> <i>{{ user.get_full_name }}</i>
                   </a>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{% url 'logout' %}"><img src="{% static 'img/logout.png' %}" width="30"> <b>Sair</b></a></li> <!--logout-->
+                    <li><a class="dropdown-item" href="{% url 'logout' %}"><img src="{% static 'img/logout.png' %}" width="30"><b>Sair</b></a></li> <!--logout-->
                   </ul>
                 </dt>
               {% else %} <!-- Senão opção 'Login' -->
 
-              <a class="nav-link active" id="texto-inicio-navbar-menu" aria-current="page" href="{% url 'login' %}"><img src="{% static 'img/login.png' %}" width="40"><b> Login </b></a> <!--login-->
+              <a class="nav-link active" id="texto-inicio-navbar-menu" aria-current="page" href="{% url 'login' %}"><img src="{% static 'img/login.png' %}" width="37"><b> Login </b></a> <!--login-->
 
               {% endif %}
               <!-- Fim da autenticação -->
