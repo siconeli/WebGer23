@@ -13,7 +13,7 @@
 {% block conteudo %} 
     <div class="container p-4">
         <div class="card">
-            <div class="card-header text-white" style="background-color: #0098DB;">
+            <div class="card-header text-white" style="background-color: #5c5c5c;">
                 <h5 style="text-align: center;">Editar Processo</h5>
             </div>
             <div class="card-body">
@@ -23,7 +23,7 @@
                         <h5>Processo: {{ atributo.numero }}</h5>
                     {% endfor %}
                     <hr>
-                    <br>
+                    <!-- <br> -->
                     <div class="row">
                         <div class="col">
                             {% if form.numero.errors %} <!-- Se a validação 'unique' do atributo 'numero' retornar erro de registro já utilizado, irá abrir um alerta informando que o registro já existe-->
@@ -81,7 +81,7 @@
                     <br><br>
                     <h5>Contribuinte</h5>
                     <hr>
-                    <br>
+                    <!-- <br> -->
                     <div class="row">
                         <div class="col">
                             {% if form.documento.errors %} <!-- Se a validação 'unique' do atributo 'documento (CPJ / CNPJ)' retornar erro de registro já utilizado, irá abrir um alerta informando que o registro já existe-->
@@ -147,9 +147,9 @@
                             {% render_field form.telefone class="form-control" placeholder="( )     -    " id="telefone" autocomplete="off"%}
                         </div> 
                     </div>
-                    <br><br>
-                    <button type="submit" class="btn btn-success btn-sm"><i class="bi bi-check-lg" style="font-size: 15px;"><!--Icone--></i></button>
-                    <a href="{% url 'proc-adm-list' %}" class="btn btn-danger btn-sm"><i class="bi bi-x-lg" style="font-size: 15px;"><!--Icone--></i></a>          
+                    <br>
+                    <button type="submit" class="btn btn-success btn-sm">Salvar</button>
+                    <a href="{% url 'proc-adm-list' %}" class="btn btn-danger btn-sm">Cancelar</a>          
                 </form>
             </div>
         </div>
