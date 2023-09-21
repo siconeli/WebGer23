@@ -72,9 +72,9 @@ class AndamentoAdm(Base):
     funcionario = models.CharField(max_length=50, blank=True, null=True)
     data_recebimento = models.DateField(blank=True, null=True)
     complemento = models.CharField(max_length=150, blank=True, null=True)
-    arquivo_1 = models.FileField(upload_to='uploads/', verbose_name='Arquivo', blank=True) 
-    arquivo_2 = models.FileField(upload_to='uploads/', verbose_name='Arquivo', blank=True)
-    arquivo_3 = models.FileField(upload_to='uploads/', verbose_name='Arquivo', blank=True)
+    arquivo_1 = models.FileField(upload_to='Arquivo/', verbose_name='Arquivo', blank=True) 
+    arquivo_2 = models.FileField(upload_to='Arquivo/', verbose_name='Arquivo', blank=True)
+    arquivo_3 = models.FileField(upload_to='Arquivo/', verbose_name='Arquivo', blank=True)
 
     def __str__(self):
         return f'Processo: {self.processo} Andamento: {self.andamento} Arquivo: {self.arquivo_1} Arquivo: {self.arquivo_2} Arquivo: {self.arquivo_3}'
