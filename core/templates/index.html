@@ -68,8 +68,7 @@
                 {% if user.is_authenticated %} <!--Se o usuário estiver logado(autenticado) mostrar opção 'Logout'-->
 
                   <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="texto-navbar-menu" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      <i class="bi bi-file-text-fill"><!--ícone de Processo--></i> Processos </a>
+                    <a class="nav-link dropdown-toggle" id="texto-navbar-menu" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="{% static 'img/processo.png' %}" width="30"> Processos </a>
                     <ul class="dropdown-menu">
                       <li><a class="dropdown-item" href="{% url 'proc-adm-list' %}"><i class="bi bi-briefcase-fill"><!--ícone de processo--></i> Processos Administrativos Tributários</a></li>
                     </ul>
