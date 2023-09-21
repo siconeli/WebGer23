@@ -19,14 +19,14 @@
                     <h5>Processo: {{ atributo.numero }}</h5>
                 {% endfor %}
                 <hr>
-                <!--Lista de andamentos-->
+                Lista de andamentos
                 <div class="table-responsive">
                     <!-- <br> -->
                     <table class="table table-striped" id="tabela-listar-andamento">
                         <thead>
                             <tr class="table-secondary">
                                 <th>Processo</th>
-                                <th>Data do Andamento</th>
+                                <th>Data</th>
                                 <th>Tipo</th>
                                 <th>Prazo</th>
                                 <th>Criado por</th>
@@ -40,30 +40,30 @@
                             {% for andamento in object_list %}
                             <tr>
                                 <td>{{ andamento.processo }}</td>
-                                <td>{{ andamento.data_andamento }}</td>
+                                <td>{{ andamento.data_andamento|date:"d/m/Y" }}</td>
                                 <td>{{ andamento.andamento }}</td>
                                 {% if andamento.data_prazo == Null %}
                                 <td><!--Campo ficará vazio pois a data do prazo não foi selecionada --></td>
                                 {% else %}
-                                <td>{{ andamento.data_prazo }}</td>
+                                <td>{{ andamento.data_prazo|date:"d/m/Y" }}</td>
                                 {% endif%}
                                 <!-- <td>{{ user.get_full_name }}</td> -->
                                 <td>{{ andamento.criador_andamento_adm.get_full_name }}</td>
-                                <td>{{ andamento.data_criacao }}</td>
+                                <td>{{ andamento.data_criacao|date:"d/m/Y" }}</td>
                                 <td>
-                                    <a href="{% url 'andamento-adm-update' andamento.pk %}"><img src="{% static 'img/editar.png' %}" width="35"></a>
+                                    <a href="{% url 'andamento-adm-update' andamento.pk %}"><img src="{% static 'img/editar.png' %}" width="30"></a>
 
-                                    <a href="{% url 'andamento-adm-delete' andamento.pk %}"><img src="{% static 'img/excluir.png' %}" width="30"></a>
+                                    <a href="{% url 'andamento-adm-delete' andamento.pk %}"><img src="{% static 'img/excluir.png' %}" width="25"></a>
                                 </td>
                                 <td>
-                                    <a href="{% url 'arquivo-andamento-adm-list' andamento.pk %}"><img src="{% static 'img/arquivo.png' %}" width="33"></a>
+                                    <a href="{% url 'arquivo-andamento-adm-list' andamento.pk %}"><img src="{% static 'img/arquivo.png' %}" width="28"></a>
                                 </td>
 
                             </tr>
                             {% endfor %}
                         </tbody>
                     </table>
-                    <br>
+                    <!-- <br> -->
                     <a href="{% url 'proc-adm-list' %}" class="btn btn-secondary btn-sm"><i class="bi bi-arrow-left" style="font-size: 15px;"><!--Icone--></i></a>
                 </div>           
             </div>

@@ -49,7 +49,7 @@
                                         <!-- <td>{{ processo.tipo_pessoa }}</td> -->
                                         <td>{{ processo.documento }}</td>
                                         <td>{{ processo.criador_processo_adm.get_full_name }}</td>
-                                        <td>{{ processo.data_criacao }}</td>
+                                        <td>{{ processo.data_criacao|date:"d/m/Y" }}</td> <!--Formatei a data para aparecer neste formato na minha Data-table -->
                                         <td>
                                             <a href="{% url 'proc-adm-update' processo.pk %}"><img src="{% static 'img/editar.png' %}" width="30"></i></a>
 
@@ -74,17 +74,13 @@
     <br>
     {% endblock %}
 
-{% block scripts %}
+    {% block scripts %}
     <!-- Importação JS da minha 'datatable' -->
     <script src="https://cdn.datatables.net/v/bs5/dt-1.13.6/datatables.min.js"></script>
 
     <script>
         // Para transformar minha lista em um datatable
         $(document).ready(function(){
-            // $('#tabela-listar').DataTable();
-        
-            // });
-
             $('#tabela-listar').DataTable({
                 responsive: true,
                 // "bSort": false,
@@ -117,6 +113,9 @@
             });
 
         });
+
     </script>
+
+
 {% endblock %} 
 
