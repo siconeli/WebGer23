@@ -93,7 +93,7 @@ class AndamentoAdmUpdate(GroupRequiredMixin, UpdateView):
     def get_cancelar(self, processo_pk):
         return reverse('andamento-adm-list', args=[processo_pk])
 
-    # Função para buscar a pk do processo e salvar na variável 'processo_pk', com a funcionalidade do get_context_data enviar para o Template, o contexto 'cancelar' que recebe a função 'get_cancelar' junto com a variavel 'processo_pk'.
+    # Função para buscar a pk do processo e salvar na variável 'processo_pk', com a funcionalidade do get_context_data envia para o Template o contexto 'cancelar' que recebe a função 'get_cancelar' junto com a variavel 'processo_pk'.
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
@@ -104,7 +104,6 @@ class AndamentoAdmUpdate(GroupRequiredMixin, UpdateView):
         context['cancelar'] = self.get_cancelar(processo_pk)
 
         return context
-
 
 ###### DELETE ######
 class ProcessoAdmDelete(GroupRequiredMixin, DeleteView):
