@@ -1,6 +1,6 @@
 /* Corpo do Menu */
 .container-fluid {
-    background-color: #0098DB;
+    background-color:  #0098DB;
     /* background-color: black; */
     /* width: ; */
     height: 70px; /* Altura da barra de menu */
@@ -12,14 +12,14 @@
 
 /* Navbar lateral do menu */
 #offcanvasNavbar {
-    background-color: #0098DB;
+    background-color: #EAEAEA;
     /* background-color: black; */
     
 }
 
 /* Texto do navbar lateral do menu */
 #texto-navbar-menu {
-    color: white;
+    color: black;
 }
 
 /* Imagem tela cheia da página principal */
@@ -31,7 +31,7 @@
 } */
 
 body {
-    background-color: whitesmoke;
+    background-color: rgb(255, 255, 255);
     margin: 0;
     padding: 0;
     display: flex;
@@ -41,8 +41,8 @@ body {
 }
 
 .rodape {
-    background-color: #0098DB; /* Cor de fundo da barra */
-    color: #fff; /* Cor do texto na barra */
+    background-color: whitesmoke; /* Cor de fundo da barra */
+    color: black; /* Cor do texto na barra */
     padding: 3px; /* Espaçamento interno para o conteúdo da barra */
     text-align: left; /* Alinhamento do texto ao centro */
     font-size: 12px; /* Tamanho da letra do texto */
