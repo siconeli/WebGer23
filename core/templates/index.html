@@ -28,7 +28,7 @@
     {% block menu %}
       <nav class="navbar"> <!--Para o menu rolar junto com a página, utilizar: class="navbar fixed-top"-->
         <div class="container-fluid">
-              <img src="{% static 'img/pasta.png' %}" alt="" width="60"> <img src="{% static 'img/webger.png' %}" alt="" width="150">
+              <img src="{% static 'img/logo.png' %}" alt="" width="60"> <img src="{% static 'img/webger.png' %}" alt="" width="150">
             <!-- <h3 id="text-menu">Controle de Processos</h3> -->
           <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" style="background-color: white;">
             <span class="navbar-toggler-icon"></span>
@@ -45,11 +45,10 @@
               {% if user.is_authenticated %} <!--Se o usuário estiver logado(autenticado) mostrar opção 'Logout'--> 
 
                 <dt class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" id="texto-inicio-navbar-menu" role="button" data-bs-toggle="dropdown" aria-expanded="false" >
-                    <i class="bi bi-person-check-fill"><!--ícone de usuário--></i> <i>{{ user.get_full_name }}</i>
+                  <a class="nav-link dropdown-toggle" id="texto-inicio-navbar-menu" role="button" data-bs-toggle="dropdown" aria-expanded="false" ><img src="{% static 'img/usuario.png' %}" width="30"> <i>{{ user.get_full_name }}</i>
                   </a>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{% url 'logout' %}"><i class="bi bi-door-closed-fill"></i> Logout</a></li> <!--logout-->
+                    <li><a class="dropdown-item" href="{% url 'logout' %}"><img src="{% static 'img/logout.png' %}" width="30"> <b>Sair</b></a></li> <!--logout-->
                   </ul>
                 </dt>
               {% else %} <!-- Senão opção 'Login' -->
