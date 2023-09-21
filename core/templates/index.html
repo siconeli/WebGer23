@@ -31,7 +31,8 @@
               <img src="{% static 'img/logo.png' %}" alt="" width="60"> <img src="{% static 'img/webger.png' %}" alt="" width="150">
             <!-- <h3 id="text-menu">Controle de Processos</h3> -->
           <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" style="background-color: white;">
-            <span class="navbar-toggler-icon"></span>
+            <!-- <span class="navbar-toggler-icon"></span> -->
+            <span><img src="{% static 'img/menu.png' %}" width="30"></span>
           </button>
           <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header" style="background-color: #0098DB;">
@@ -48,7 +49,7 @@
                   <a class="nav-link dropdown-toggle" id="texto-inicio-navbar-menu" role="button" data-bs-toggle="dropdown" aria-expanded="false" ><img src="{% static 'img/usuario.png' %}" width="30"> <i>{{ user.get_full_name }}</i>
                   </a>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{% url 'logout' %}"><img src="{% static 'img/logout.png' %}" width="30"><b>Sair</b></a></li> <!--logout-->
+                    <li><a class="dropdown-item" href="{% url 'logout' %}"><img src="{% static 'img/logout.png' %}" width="30">Sair</a></li> <!--logout-->
                   </ul>
                 </dt>
               {% else %} <!-- Senão opção 'Login' -->
