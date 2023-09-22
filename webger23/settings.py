@@ -31,6 +31,9 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'django_adminlte', # Biblioteca django-adminlte2 ( melhora o template do django admin )
+    'django_adminlte_theme', # Biblioteca django-adminlte2 ( melhora o template do django admin )
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
