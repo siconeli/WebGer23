@@ -14,6 +14,9 @@ from django.urls import reverse, reverse_lazy # Módulo para reverter para a url
 class ProcessoAdmView(TemplateView):
     template_name = 'processos/views/processo_adm_view.html'
 
+class AndamentoAdmView(TemplateView):
+    template_name ='processos/views/andamento_adm_view.html'
+
     # Função para iterar com os dados do processo
     def get_context_data(self, **kwargs):
         processo_pk = self.kwargs.get('pk') # Pega a PK do processo através da URL  
