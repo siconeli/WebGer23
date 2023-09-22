@@ -11,8 +11,16 @@ from django.urls import reverse, reverse_lazy # Módulo para reverter para a url
 #from braces.views import GroupRequiredMixin # Mixin para controlar a permissão de criar, editar e listar dentro de grupos do django admin
 
 ###### VIEW ######
-class SemPermissao(TemplateView):
-    template_name = 'processos/views/sem_permissao.html'
+class ProcessoAdmView(TemplateView):
+    template_name = 'processos/views/processo_adm_view.html'
+
+    # Função para iterar com os dados do processo
+    def get_context_data(self, **kwargs):
+        processo_pk = self.kwargs.get('pk') # Pega a PK do processo através da URL  
+
+        context = super().get_context_data(**kwargs)
+        context['dados_processo'] = ProcessoAdm.objects.filter(pk=processo_pk) # Filtra os dados do processo através da pk
+        return context
 
 ###### CREATE ######
 class ProcessoAdmCreate(CreateView):

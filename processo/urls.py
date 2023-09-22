@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import SemPermissao
+from .views import ProcessoAdmView
 
 from .views import ProcessoAdmCreate
 from .views import AndamentoAdmCreate
@@ -18,7 +18,7 @@ from .views import ArquivoAndamentoAdmList
 urlpatterns = [
 
     ###### VIEW ######
-    path('usuario/sem-permissao/', SemPermissao.as_view(), name='sem-permissao'),
+    path('visualizar/processo-adm/<int:pk>/', ProcessoAdmView.as_view(), name='proc-adm-view'),
 
     ###### CREATE ######
     path('cadastrar/processo-adm/', ProcessoAdmCreate.as_view(), name='proc-adm-create'), 
