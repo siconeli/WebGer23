@@ -4,9 +4,15 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView # Módu
 
 from django.views.generic.list import ListView # Módulo para list
 
+from django.views.generic import TemplateView
+
 from django.urls import reverse, reverse_lazy # Módulo para reverter para a url definida após ter sucesso na execução
 
 from braces.views import GroupRequiredMixin # Mixin para controlar a permissão de criar, editar e listar dentro de grupos do django admin
+
+###### VIEW ######
+class SemPermissao(TemplateView):
+    template_name = 'processos/views/sem_permissao.html'
 
 ###### CREATE ######
 class ProcessoAdmCreate(GroupRequiredMixin, CreateView):
