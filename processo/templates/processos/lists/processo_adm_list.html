@@ -36,10 +36,10 @@
                                         <th>Município</th>
                                         <th>Contribuinte</th>
                                         <th>CPF/CNPJ</th>
-                                        <th>Criado por</th>
-                                        <th>Criado em</th>
                                         {% if user.is_staff %} <!--Membro da equipe = is_staff-->
-                                            <th>Editar/Excluir</th>
+                                            <th>Criado por</th>
+                                            <th>Criado em</th>
+                                            <th>Ver/Editar</th>
                                         {% endif %}        
                                         <th>Andamento</th>
                                     </tr>
@@ -50,24 +50,26 @@
                                         <td>{{ processo.numero }}</td>
                                         <td>{{ processo.municipio }}</td>
                                         <td>{{ processo.nome_contribuinte }}</td>
-                                        <!-- <td>{{ processo.tipo_pessoa }}</td> -->
                                         <td>{{ processo.documento }}</td>
-                                        <td>{{ processo.criador_processo_adm.get_full_name }}</td>
-                                        <td>{{ processo.data_criacao|date:"d/m/Y" }}</td> <!--Formatei a data para aparecer neste formato na minha Data-table -->
-                                        
+
                                         {% if user.is_staff %} <!--Membro da equipe = is_staff-->
+                                            <td>{{ processo.criador_processo_adm.get_full_name }}</td>
+                                            <td>{{ processo.data_criacao|date:"d/m/Y" }}</td> <!--Formatei a data para aparecer neste formato na minha Data-table -->
+                                        
                                             <td>
-                                                
                                                 <a href="{% url 'proc-adm-update' processo.pk %}"><img src="{% static 'img/editar.png' %}" width="30"></i></a>
                                                 
-
+                                                {% if user.is_superuser %} <!-- Super Usuário -->
                                                 <a href="{% url 'proc-adm-delete' processo.pk %}"><img src="{% static 'img/excluir.png' %}" width="25"></a>
+                                                {% endif %}
                                             </td>
-                                        {% endif %} 
+                                        {% endif %}
+
                                         <td> 
                                             {% if user.is_staff %} <!--Membro da equipe = is_staff-->
                                                 <a href="{% url 'andamento-adm-create' processo.pk %}"><img src="{% static 'img/create-andamento.png' %}" width="30"></a>
                                             {% endif %}
+                                            
                                             
                                             <a href="{% url 'andamento-adm-list' processo.pk %}"><img src="{% static 'img/listar.png' %}" width="30"></a>
                                         </td>

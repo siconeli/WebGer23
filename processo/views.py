@@ -8,15 +8,14 @@ from django.views.generic import TemplateView
 
 from django.urls import reverse, reverse_lazy # Módulo para reverter para a url definida após ter sucesso na execução
 
-from braces.views import GroupRequiredMixin # Mixin para controlar a permissão de criar, editar e listar dentro de grupos do django admin
+#from braces.views import GroupRequiredMixin # Mixin para controlar a permissão de criar, editar e listar dentro de grupos do django admin
 
 ###### VIEW ######
 class SemPermissao(TemplateView):
     template_name = 'processos/views/sem_permissao.html'
 
 ###### CREATE ######
-class ProcessoAdmCreate(GroupRequiredMixin, CreateView):
-    group_required = u'consultor'
+class ProcessoAdmCreate(CreateView):
     model = ProcessoAdm
     template_name = 'processos/creates/processo_adm_create.html'
     fields = ['numero', 'municipio', 'uf', 'data_inicial', 'data_final', 'data_div_ativa', 'valor_atributo', 'valor_multa', 'valor_credito', 'valor_atualizado', 'data_valor_atualizado', 'nome_contribuinte', 'tipo_pessoa', 'documento', 'nome_fantasia', 'email', 'endereco', 'complemento', 'municipio_contribuinte', 'uf_contribuinte', 'cep', 'telefone', 'celular']
@@ -27,8 +26,7 @@ class ProcessoAdmCreate(GroupRequiredMixin, CreateView):
         form.instance.criador_processo_adm = self.request.user
         return super().form_valid(form)  
 
-class AndamentoAdmCreate(GroupRequiredMixin, CreateView): 
-    group_required = u'consultor' 
+class AndamentoAdmCreate(CreateView):  
     model = AndamentoAdm
     template_name = 'processos/creates/andamento_adm_create.html'
     fields = ['data_andamento', 'andamento', 'situacao_pagamento', 'valor_pago', 'data_prazo', 'data_recebimento', 'complemento', 'arquivo_1', 'arquivo_2', 'arquivo_3']
@@ -58,8 +56,7 @@ class AndamentoAdmCreate(GroupRequiredMixin, CreateView):
         return context
         
 ###### UPDATE ######
-class ProcessoAdmUpdate(GroupRequiredMixin, UpdateView):
-    group_required = u'consultor'
+class ProcessoAdmUpdate(UpdateView):
     model = ProcessoAdm
     template_name = 'processos/updates/processo_adm_update.html'
     fields = ['municipio', 'uf', 'data_inicial', 'data_final', 'data_div_ativa', 'valor_atributo', 'valor_multa', 'valor_credito', 'valor_atualizado', 'data_valor_atualizado', 'nome_contribuinte', 'tipo_pessoa', 'documento', 'nome_fantasia', 'email', 'endereco', 'complemento', 'municipio_contribuinte', 'uf_contribuinte', 'cep', 'telefone', 'celular']
@@ -73,8 +70,7 @@ class ProcessoAdmUpdate(GroupRequiredMixin, UpdateView):
         context['dados_processo'] = ProcessoAdm.objects.filter(pk=processo_pk) # Filtra os dados do processo através da pk
         return context
 
-class AndamentoAdmUpdate(GroupRequiredMixin, UpdateView):
-    group_required = u'consultor'
+class AndamentoAdmUpdate(UpdateView):
     model = AndamentoAdm
     template_name = 'processos/updates/andamento_adm_update.html'
     fields = ['data_andamento', 'andamento', 'situacao_pagamento','valor_pago', 'data_prazo', 'data_recebimento', 'complemento', 'arquivo_1', 'arquivo_2', 'arquivo_3']
@@ -106,8 +102,7 @@ class AndamentoAdmUpdate(GroupRequiredMixin, UpdateView):
         return context
 
 ###### DELETE ######
-class ProcessoAdmDelete(GroupRequiredMixin, DeleteView):
-    group_required = u'consultor'
+class ProcessoAdmDelete(DeleteView):
     model = ProcessoAdm
     template_name = 'processos/deletes/processo_adm_delete.html'
     success_url = reverse_lazy('proc-adm-list')
@@ -120,8 +115,7 @@ class ProcessoAdmDelete(GroupRequiredMixin, DeleteView):
         context['dados_processo'] = ProcessoAdm.objects.filter(pk=processo_pk) # Filtra os dados do processo através da pk
         return context
 
-class AndamentoAdmDelete(GroupRequiredMixin, DeleteView):
-    group_required = u'consultor'
+class AndamentoAdmDelete(DeleteView):
     model = AndamentoAdm
     template_name = 'processos/deletes/andamento_adm_delete.html'
 
