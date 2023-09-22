@@ -17,24 +17,14 @@
                 <h5 style="text-align: center;">Cadastrar Processo</h5>
             </div>
             <div class="card-body">
-                <form action="" method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
+                    <!-- {% csrf_token %} -->
+                {% for atributo in dados_processo %}
                     <h5>Processo</h5>
                     <hr>
-                    <!-- <br> -->
-                    <div class="row">
-                        <div class="col">
-                            {% if form.numero.errors %} <!-- Se a validação 'unique' do atributo 'numero' retornar erro de registro já utilizado, irá abrir um alerta informando que o registro já existe-->
-                            <div class="alert alert-danger" role="alert" style="height: 50px; width: px;">
-                                <h6>{{ form.numero.errors }}</h6>
-                            </div>
-                            {% endif %}
-                        </div>
-                    </div>
-                    <div class="row"> <!-- w-50 (colocar para diminuir o tamanho do campo input)-->
+                    <div class="row"> 
                         <div class="col">
                             <label for="numero">Pat N° <b>*</b></label>
-                            {% render_field form.numero class="form-control" placeholder="     /    " id="numero" autocomplete="off"%}
+                            <input type="text" value="">
                         </div>
                         <div class="col">
                             <label for="uf">UF <b>*</b></label>
@@ -154,9 +144,7 @@
                     <button type="submit" class="btn btn-success btn-sm">Salvar</button> 
                     <!-- <a href="{% url 'proc-adm-list' %}" class="btn btn-danger btn-sm"><i class="bi bi-x-lg" style="font-size: 15px;"></i></a>            -->
                     <a href="{% url 'proc-adm-list' %}" class="btn btn-danger btn-sm">Cancelar</a>           
-
-
-                </form>
+                {% endif %}
             </div>
         </div>
     </div>
