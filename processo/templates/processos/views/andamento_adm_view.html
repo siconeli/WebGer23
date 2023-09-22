@@ -19,60 +19,60 @@
             <div class="card-body">
                 {% for atributo in dados_andamento %}
                     <h5>Andamento: {{ atributo.andamento }}</h5>
-                {% endfor %}
-                <hr>
-                <div class="row">
-                        {% if atributo.data_andamento %}
-                            <div class="col">
-                                <label for="data_andamento">Data do Andamento <b>*</b></label>
-                                <input type="text" class="form-control" value="{{ atributo.data_andamento }}" readonly>
-                            </div>
-                        {% endif %}                
-                        {% if atributo.andamento %}
-                            <div class="col">
-                                <label for="andamento">Tipo de Andamento <b>*</b></label>
-                                <input type="text" class="form-control" value="{{ atributo.andamento }}" readonly>
-                            </div>
-                        {% endif %}
-                        {% if atributo.situacao_pagamento %}
-                            <div class="col">
-                                <label for="situacao_pagamento">Situação do Pagamento <b>*</b></label>
-                                <input type="text" class="form-control" value="{{ atributo.situacao_pagamento }}" readonly>
-                            </div>
-                        {% endif %}
-                        {% if atributo.valor_pago %}
-                            <div class="col">
-                                <label for="valor_pago">Total do Valor Pago <b>*</b></label>
-                                <input type="text" class="form-control" value="{{ atributo.valor_pago }}" readonly>
-                            </div>
-                        {% endif %}
-                    </div>
-                    <br>
+                    <hr>
                     <div class="row">
-                        {% if atributo.data_prazo %}
-                            <div class="col">
-                                <label for="data_prazo">Prazo</label>
-                                <input type="text" class="form-control" value="{{ atributo.data_prazo }}" readonly>
-                            </div>
-                        {% endif %}
-                        {% if atributo.data_recebimento %}
-                            <div class="col">
-                                <label for="data_recebimento">Confirmado o Recebimento em</label>
-                                <input type="text" class="form-control" value="{{ atributo.data_recebimento }}" readonly>
-                            </div>
-                        {% endif %}
-                        {% if atributo.complemento %}
-                            <div class="col">
-                                <label for="complemento">Complemento</label>
-                                <input type="text" class="form-control" value="{{ atributo.complemento }}" readonly>
-                            </div>
-                        {% endif %}
-                    </div>  
-                    <br>
-                    <div>
-                    <a href="{{ voltar }}" class="btn btn-danger btn-sm">Voltar</a>
+                            {% if atributo.data_andamento %}
+                                <div class="col">
+                                    <label for="data_andamento">Data do Andamento <b>*</b></label>
+                                    <input type="text" class="form-control" value="{{ atributo.data_andamento }}" readonly>
+                                </div>
+                            {% endif %}                
+                            {% if atributo.andamento %}
+                                <div class="col">
+                                    <label for="andamento">Tipo de Andamento <b>*</b></label>
+                                    <input type="text" class="form-control" value="{{ atributo.andamento }}" readonly>
+                                </div>
+                            {% endif %}
+                            {% if atributo.situacao_pagamento %}
+                                <div class="col">
+                                    <label for="situacao_pagamento">Situação do Pagamento <b>*</b></label>
+                                    <input type="text" class="form-control" value="{{ atributo.situacao_pagamento }}" readonly>
+                                </div>
+                            {% endif %}
+                            {% if atributo.valor_pago %}
+                                <div class="col">
+                                    <label for="valor_pago">Total do Valor Pago <b>*</b></label>
+                                    <input type="text" class="form-control" value="{{ atributo.valor_pago }}" readonly>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <br>
+                        <div class="row">
+                            {% if atributo.data_prazo %}
+                                <div class="col">
+                                    <label for="data_prazo">Prazo</label>
+                                    <input type="text" class="form-control" value="{{ atributo.data_prazo }}" readonly>
+                                </div>
+                            {% endif %}
+                            {% if atributo.data_recebimento %}
+                                <div class="col">
+                                    <label for="data_recebimento">Confirmado o Recebimento em</label>
+                                    <input type="text" class="form-control" value="{{ atributo.data_recebimento }}" readonly>
+                                </div>
+                            {% endif %}
+                            {% if atributo.complemento %}
+                                <div class="col">
+                                    <label for="complemento">Complemento</label>
+                                    <input type="text" class="form-control" value="{{ atributo.complemento }}" readonly>
+                                </div>
+                            {% endif %}
+                        </div>  
+                        <br>
+                        <div>
+                        <a href="{{ voltar }}" class="btn btn-danger btn-sm">Voltar</a>
+                        </div>
                     </div>
-                </form>
+                {% endfor %}
             </div>
         </div>
     </div>
