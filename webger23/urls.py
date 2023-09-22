@@ -24,7 +24,7 @@ from django.conf import settings
 
 from django.views.generic.base import TemplateView
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/central-usuarios/', admin.site.urls), # Admin do Django
     path('', include('core.urls')),
     path('', include('processo.urls')),
     path('contas/', include('django.contrib.auth.urls')), # Para fazer a autenticação de Login/Logout
