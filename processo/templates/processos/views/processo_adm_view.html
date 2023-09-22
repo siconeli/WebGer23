@@ -61,48 +61,65 @@
                     </div>
                     <br>
                     <div class="row">
-
+                        {% if atributo.valor_atributo %}
                             <div class="col">
                                 <label for="valor_atributo">Valor do Tributo</label>
                                 <input type="text" class="form-control" value="{{ atributo.valor_atributo }}" readonly>
                             </div>
+                        {% endif %}
+                        {% if atributo.valor_multa %}
                             <div class="col">
                                 <label for="valor_multa">Valor da Multa</label>
                                 <input type="text" class="form-control" value="{{ atributo.valor_multa }}" readonly>
                             </div>
+                        {% endif %}
+                        {% if atributo.valor_credito %}
                             <div class="col">
                                 <label for="valor_credito">Valor do Crédito</label>
                                 <input type="text" class="form-control" value="{{ atributo.valor_credito }}" readonly>
                             </div>
+                        {% endif %}
+                        {% if atributo.valor_atualizado %}
                             <div class="col">
                                 <label for="valor_atualizado">Valor do Atualizado</label>
                                 <input type="text" class="form-control" value="{{ atributo.valor_atualizado }}" readonly>
                             </div>  
+                        {% endif %}
+                        {% if atributo.data_valor_atualizado %}
                             <div class="col">
                                 <label for="data_valor_atualizado">Data Valor Atualizado</label>
                                 <input type="text" class="form-control" value="{{ atributo.data_valor_atualizado }}" readonly>
                             </div> 
+                        {% endif %}
                     </div>    
                     <br><br>
                     <h5>Contribuinte</h5>
                     <hr>
                     <div class="row">
-                        <div class="col">
-                            <label for="nome_contribuinte">Nome / Razão Social <b>*</b></label>
-                            <input type="text" class="form-control" value="{{ atributo.nome_contribuinte }}" readonly>
-                        </div> 
-                        <div class="col">
-                            <label for="tipo_pessoa">Tipo de Pessoa <b>*</b></label>
-                            <input type="text" class="form-control" value="{{ atributo.tipo_pessoa }}" readonly>
-                        </div> 
-                        <div class="col">
-                            <label for="documento">CPF / CNPJ <b>*</b></label>
-                            <input type="text" class="form-control" value="{{ atributo.documento }}" readonly>
-                        </div> 
-                        <div class="col">
-                            <label for="nome_fantasia">Nome Fantasia</label>
-                            <input type="text" class="form-control" value="{{ atributo.nome_fantasia }}" readonly>
-                        </div> 
+                        {% if atributo.nome_contribuinte %}
+                            <div class="col">
+                                <label for="nome_contribuinte">Nome / Razão Social <b>*</b></label>
+                                <input type="text" class="form-control" value="{{ atributo.nome_contribuinte }}" readonly>
+                            </div> 
+                        {% endif %}
+                        {% if atributo.tipo_pessoa %}
+                            <div class="col">
+                                <label for="tipo_pessoa">Tipo de Pessoa <b>*</b></label>
+                                <input type="text" class="form-control" value="{{ atributo.tipo_pessoa }}" readonly>
+                            </div> 
+                        {% endif %}
+                        {% if atributo.documento %}
+                            <div class="col">
+                                <label for="documento">CPF / CNPJ <b>*</b></label>
+                                <input type="text" class="form-control" value="{{ atributo.documento }}" readonly>
+                            </div> 
+                        {% endif %}
+                        {% if atributo.nome_fantasia %}
+                            <div class="col">
+                                <label for="nome_fantasia">Nome Fantasia</label>
+                                <input type="text" class="form-control" value="{{ atributo.nome_fantasia }}" readonly>
+                            </div> 
+                        {% endif %}
                     </div>
                     <br>
                     <div class="row">
