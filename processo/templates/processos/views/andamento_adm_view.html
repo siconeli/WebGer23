@@ -24,7 +24,7 @@
                             {% if atributo.data_andamento %}
                                 <div class="col">
                                     <label for="data_andamento">Data do Andamento <b>*</b></label>
-                                    <input type="text" class="form-control" value="{{ atributo.data_andamento }}" readonly>
+                                    <input type="text" class="form-control" value="{{ atributo.data_andamento|date:"d/m/Y" }}" readonly>
                                 </div>
                             {% endif %}                
                             {% if atributo.andamento %}
@@ -51,13 +51,13 @@
                             {% if atributo.data_prazo %}
                                 <div class="col">
                                     <label for="data_prazo">Prazo</label>
-                                    <input type="text" class="form-control" value="{{ atributo.data_prazo }}" readonly>
+                                    <input type="text" class="form-control" value="{{ atributo.data_prazo|date:"d/m/Y" }}" readonly>
                                 </div>
                             {% endif %}
                             {% if atributo.data_recebimento %}
                                 <div class="col">
                                     <label for="data_recebimento">Confirmado o Recebimento em</label>
-                                    <input type="text" class="form-control" value="{{ atributo.data_recebimento }}" readonly>
+                                    <input type="text" class="form-control" value="{{ atributo.data_recebimento|date:"d/m/Y" }}" readonly>
                                 </div>
                             {% endif %}
                             {% if atributo.complemento %}
@@ -69,7 +69,7 @@
                         </div>  
                         <br>
                         <div>
-                        <a href="{{ voltar }}" class="btn btn-danger btn-sm">Voltar</a>
+                        <a href="{{ voltar }}" class="btn btn-secondary btn-sm">Voltar</a>
                         </div>
                     </div>
                 {% endfor %}
