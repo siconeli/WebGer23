@@ -27,7 +27,7 @@
                     <div class="row">
                         <div class="col">
                             <label for="data_andamento">Data do Andamento <b>*</b></label>
-                            {% render_field form.data_andamento class="form-control" id="data_andamento"%}
+                            {% render_field form.data_andamento class="form-control" id="data_andamento" placeholder="  /  /    "%}
                         </div>
                         <div class="col">
                             <label for="andamento">Tipo de Andamento <b>*</b></label>
@@ -39,18 +39,18 @@
                         </div>
                         <div class="col" style="display: none;" id="valor_pago">
                             <label for="valor_pago">Total do Valor Pago <b>*</b></label>
-                            {% render_field form.valor_pago class="form-control" id="pag"%}
+                            {% render_field form.valor_pago class="form-control" id="pag"% placeholder="R$"%}
                         </div>
                     </div>
                     <br>
                     <div class="row">
                         <div class="col">
                             <label for="data_prazo">Prazo</label>
-                            {% render_field form.data_prazo class="form-control" id="data_prazo"%}
+                            {% render_field form.data_prazo class="form-control" id="data_prazo" placeholder="  /  /    "%}
                         </div>
                         <div class="col">
                             <label for="data_recebimento">Confirmado o Recebimento em</label>
-                            {% render_field form.data_recebimento class="form-control" id="data_recebimento"%}
+                            {% render_field form.data_recebimento class="form-control" id="data_recebimento" placeholder="  /  /    "%}
                         </div>
                         <div class="col">
                             <label for="complemento">Complemento</label>

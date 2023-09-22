@@ -44,15 +44,15 @@
                         </div>
                         <div class="col">
                             <label for="data_inicial">Período</label>
-                            {% render_field form.data_inicial class="form-control" id="data_inicial"%}
+                            {% render_field form.data_inicial class="form-control" id="data_inicial" placeholder="  /  /    "%}
                         </div>
                         <div class="col">
                             <label for="data_final"><!--Período Final--></label>
-                            {% render_field form.data_final class="form-control" id="data_final"%}
+                            {% render_field form.data_final class="form-control" id="data_final" placeholder="  /  /    "%}
                         </div>
                         <div class="col">
                             <label for="data_div_ativa">D.A</label>
-                            {% render_field form.data_div_ativa class="form-control" id="data_div_ativa"%}
+                            {% render_field form.data_div_ativa class="form-control" id="data_div_ativa" placeholder="  /  /    "%}
                         </div>
                     </div>
                     <br>
@@ -75,7 +75,7 @@
                         </div>  
                         <div class="col">
                             <label for="data_valor_atualizado">Data Valor Atualizado</label>
-                            {% render_field form.data_valor_atualizado class="form-control" placeholder="R$" id="data_valor_atualizado"%}
+                            {% render_field form.data_valor_atualizado class="form-control" id="data_valor_atualizado" placeholder="  /  /    "%}
                         </div> 
                     </div>    
                     <br><br>
@@ -172,6 +172,10 @@
             $('#valor_multa').mask("000,000,000.00", {reverse: true});
             $('#valor_credito').mask("000,000,000.00", {reverse: true});
             $('#valor_atualizado').mask("000,000,000.00", {reverse: true});
+            $('#data_inicial').mask("00/00/0000");
+            $('#data_final').mask("00/00/0000");
+            $('#data_div_ativa').mask("00/00/0000");
+            $('#data_valor_atualizado').mask("00/00/0000");
 
             // Função para aplicar máscara de CPF ou CNPJ de acordo com a seleção do campo select de 'Tipo pessoa'
             function aplicarMascara(){

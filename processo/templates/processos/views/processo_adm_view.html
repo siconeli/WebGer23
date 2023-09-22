@@ -54,7 +54,7 @@
                         {% if atributo.data_div_ativa %}
                             <div class="col">
                                 <label for="data_div_ativa">D.A</label>
-                                <input type="text" class="form-control" value="{{ atributo.data_div_ativa }}" readonly>
+                                <input type="text" class="form-control" value="{{ atributo.data_div_ativa|date:"d/m/Y" }}" readonly>
                             </div>
                         {% endif %}
                     </div>
@@ -87,7 +87,7 @@
                         {% if atributo.data_valor_atualizado %}
                             <div class="col">
                                 <label for="data_valor_atualizado">Data Valor Atualizado</label>
-                                <input type="text" class="form-control" value="{{ atributo.data_valor_atualizado }}" readonly>
+                                <input type="text" class="form-control" value="{{ atributo.data_valor_atualizado|date:"d/m/Y" }}" readonly>
                             </div> 
                         {% endif %}
                     </div>    
