@@ -31,7 +31,9 @@
                                 <th>Prazo</th>
                                 <th>Criado por</th>
                                 <th>Criado em</th>
-                                <th>Editar/Excluir</th> 
+                                {% if user.is_staff %} <!--Membro da equipe = is_staff-->
+                                    <th>Editar/Excluir</th> 
+                                {% endif %}
                                 <th>Arquivo</th>
                             </tr>
                         </thead>
@@ -50,11 +52,14 @@
                                 <!-- <td>{{ user.get_full_name }}</td> -->
                                 <td>{{ andamento.criador_andamento_adm.get_full_name }}</td>
                                 <td>{{ andamento.data_criacao|date:"d/m/Y" }}</td>
-                                <td>
-                                    <a href="{% url 'andamento-adm-update' andamento.pk %}"><img src="{% static 'img/editar.png' %}" width="30"></a>
+                                
+                                {% if user.is_staff %} <!--Membro da equipe = is_staff-->
+                                    <td>
+                                        <a href="{% url 'andamento-adm-update' andamento.pk %}"><img src="{% static 'img/editar.png' %}" width="30"></a>
 
-                                    <a href="{% url 'andamento-adm-delete' andamento.pk %}"><img src="{% static 'img/excluir.png' %}" width="25"></a>
-                                </td>
+                                        <a href="{% url 'andamento-adm-delete' andamento.pk %}"><img src="{% static 'img/excluir.png' %}" width="25"></a>
+                                    </td>
+                                {% endif%}
                                 <td>
                                     <a href="{% url 'arquivo-andamento-adm-list' andamento.pk %}"><img src="{% static 'img/arquivo.png' %}" width="28"></a>
                                 </td>
