@@ -123,41 +123,57 @@
                     </div>
                     <br>
                     <div class="row">
-                        <div class="col">
-                            <label for="endereco">Logradouro / N° / Bairro <b>*</b></label>
-                            <input type="text" class="form-control" value="{{ atributo.endereco }}" readonly>
-                        </div> 
-                        <div class="col">
-                            <label for="complemento">Complemento</label>
-                            <input type="text" class="form-control" value="{{ atributo.complemento }}" readonly>
-                        </div> 
+                        {% if atributo.endereco %}
+                            <div class="col">
+                                <label for="endereco">Logradouro / N° / Bairro <b>*</b></label>
+                                <input type="text" class="form-control" value="{{ atributo.endereco }}" id="endereco" readonly>
+                            </div> 
+                        {% endif %}
+                        {% if atributo.complemento %}
+                            <div class="col">
+                                <label for="complemento">Complemento</label>
+                                <input type="text" class="form-control" value="{{ atributo.complemento }}" readonly>
+                            </div> 
+                        {% endif %}
                     </div>
                     <br>
                     <div class="row">
-                        <div class="col">
-                            <label for="uf_contribuinte">UF</label>
-                            <input type="text" class="form-control" value="{{ atributo.uf_contribuinte }}" readonly>
-                        </div> 
-                        <div class="col">
-                            <label for="municipio_contribuinte">Município</label>
-                            <input type="text" class="form-control" value="{{ atributo.municipio_contribuinte }}" readonly>
-                        </div> 
-                        <div class="col">
-                            <label for="cep">CEP</label>
-                            <input type="text" class="form-control" value="{{ atributo.cep }}" readonly>
-                        </div> 
-                        <div class="col">
-                            <label for="email">E-mail</label>
-                            <input type="text" class="form-control" value="{{ atributo.email }}" readonly>
-                        </div> 
-                        <div class="col">
-                            <label for="celular">Celular</label>
-                            <input type="text" class="form-control" value="{{ atributo.celular }}" readonly>
-                        </div> 
-                        <div class="col">
-                            <label for="telefone">Telefone</label>
-                            <input type="text" class="form-control" value="{{ atributo.telefone }}" readonly>
-                        </div> 
+                        {% if atributo.uf_contribuinte %}
+                            <div class="col">
+                                <label for="uf_contribuinte">UF</label>
+                                <input type="text" class="form-control" value="{{ atributo.uf_contribuinte }}" readonly>
+                            </div> 
+                        {% endif %}
+                        {% if atributo.municipio_contribuinte %}
+                            <div class="col">
+                                <label for="municipio_contribuinte">Município</label>
+                                <input type="text" class="form-control" value="{{ atributo.municipio_contribuinte }}" readonly>
+                            </div> 
+                        {% endif %}
+                        {% if atributo.cep %}
+                            <div class="col">
+                                <label for="cep">CEP</label>
+                                <input type="text" class="form-control" value="{{ atributo.cep }}" readonly>
+                            </div> 
+                        {% endif %}
+                        {% if atributo.email %}
+                            <div class="col">
+                                <label for="email">E-mail</label>
+                                <input type="text" class="form-control" value="{{ atributo.email }}" readonly>
+                            </div> 
+                        {% endif %}
+                        {% if atributo.celular %}
+                            <div class="col">
+                                <label for="celular">Celular</label>
+                                <input type="text" class="form-control" value="{{ atributo.celular }}" readonly>
+                            </div> 
+                        {% endif %}
+                        {% if atributo.telefone %}
+                            <div class="col">
+                                <label for="telefone">Telefone</label>
+                                <input type="text" class="form-control" value="{{ atributo.telefone }}" readonly>
+                            </div> 
+                        {% endif %}
                     </div>
                     <br>         
                     <a href="{% url 'proc-adm-list' %}" class="btn btn-secondary btn-sm">Voltar</a>           
@@ -168,38 +184,5 @@
     <br><br>
 {% endblock %}
 
-{% block scripts %}
-    <!-- Importação do arquivo dentro da pasta static/js para usar máscaras nos campos input -->
-    <script src="{% static 'js/jquery.mask.min.js' %}"></script>
 
-    <!-- Configuração de máscaras nos campos inputs, buscando o campo através do ID -->
-    <script>
-        $(document).ready(function(){
-            $("#numero").mask("00000/0000", {reverse: true});
-            $("#cep").mask('00000-000');
-            $("#telefone").mask('(00) 0000-0000');
-            $("#celular").mask('(00) 00000-0000');
-            $('#valor_atributo').mask("000,000,000.00", {reverse: true});
-            $('#valor_multa').mask("000,000,000.00", {reverse: true});
-            $('#valor_credito').mask("000,000,000.00", {reverse: true});
-            $('#valor_atualizado').mask("000,000,000.00", {reverse: true});
-
-            // Função para aplicar máscara de CPF ou CNPJ de acordo com a seleção do campo select de 'Tipo pessoa'
-            function aplicarMascara(){
-                var opcaoSelecionada = $('#tipo_pessoa').val();
-                var campoDoc = $('#documento');
-
-                if(opcaoSelecionada === 'Física'){
-                    campoDoc.mask('000.000.000-00', {reverse: true});
-                } else {
-                    campoDoc.mask('00.000.000/0000-00', {reverse: true});
-                }
-
-            }
-
-            aplicarMascara();
-            $('#tipo_pessoa').change(aplicarMascara);
-        })
-    </script>
-{% endblock %}
 
