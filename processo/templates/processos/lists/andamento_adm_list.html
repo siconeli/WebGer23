@@ -43,7 +43,7 @@
                             <tr>
                                 <td>{{ andamento.processo }}</td>
                                 <td>{{ andamento.data_andamento|date:"d/m/Y" }}</td>
-                                <td>{{ andamento.andamento }}</td>
+                                <td><b>{{ andamento.andamento }}</b></td>
                                 {% if andamento.data_prazo == Null %}
                                 <td><!--Campo ficará vazio pois a data do prazo não foi selecionada --></td>
                                 {% else %}

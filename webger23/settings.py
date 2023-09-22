@@ -146,4 +146,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Configurações de autenticação padrão de login
 LOGIN_REDIRECT_URL = 'index'  # Redireciona para a url de nome 'index' após realizar o login
 LOGOUT_REDIRECT_URL = 'login' # Ao fazer o logout(sair), ira direcionar para a url de nome 'login'
-LOGIN_URL = 'login'  # Ao tentar acessar uma funcionalidade com permissão apenas para quem está em um grupo, ira direcionar para a url de nome 'login'
+LOGIN_URL = 'login'  # Ao tentar acessar uma funcionalidade com permissão apenas para quem tem permissão, ira direcionar para a url de nome 'login'
