@@ -148,3 +148,27 @@ LOGIN_REDIRECT_URL = 'index'  # Redireciona para a url de nome 'index' após rea
 LOGOUT_REDIRECT_URL = 'login' # Ao fazer o logout(sair), ira direcionar para a url de nome 'login'
 LOGIN_URL = 'login'  # Ao tentar acessar uma funcionalidade com permissão apenas para quem tem permissão, ira direcionar para a url de nome 'login'
 
+
+
+# LOGGING (registrar alterações de usuário, salvando em um arquivo .log, utilizando o módulo logging)
+import logging
+import os # Para construir o caminho para o diretório de logs
+
+LOGGING_DIR = 'logs'  # Diretório onde os arquivos de log serão armazenados
+LOGGING_LEVEL = logging.INFO  # Nível de log (por exemplo, INFO, DEBUG, etc.)
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': LOGGING_LEVEL,
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, LOGGING_DIR, 'historico.log'),
+        },
+    },
+    'root': {
+        'handlers': ['file'],
+        'level': LOGGING_LEVEL,
+    },
+}

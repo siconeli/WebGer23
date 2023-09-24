@@ -1,0 +1,915 @@
+Watching for file changes with StatReloader
+Internal Server Error: /cadastrar/processo-adm/
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.IntegrityError: NOT NULL constraint failed: processo_processoadm.criador_processo_adm_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py", line 68, in post
+    self.object = form.save()
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\forms\models.py", line 542, in save
+    self.instance.save()
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.IntegrityError: NOT NULL constraint failed: processo_processoadm.criador_processo_adm_id
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /cadastrar/processo-adm/
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.IntegrityError: NOT NULL constraint failed: processo_processoadm.criador_processo_adm_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py", line 62, in post
+    self.object = form.save()
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\forms\models.py", line 542, in save
+    self.instance.save()
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.IntegrityError: NOT NULL constraint failed: processo_processoadm.criador_processo_adm_id
+Internal Server Error: /cadastrar/processo-adm/
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.IntegrityError: NOT NULL constraint failed: processo_processoadm.criador_processo_adm_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py", line 62, in post
+    self.object = form.save()
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\forms\models.py", line 542, in save
+    self.instance.save()
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.IntegrityError: NOT NULL constraint failed: processo_processoadm.criador_processo_adm_id
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /cadastrar/processo-adm/
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.IntegrityError: NOT NULL constraint failed: processo_processoadm.criador_processo_adm_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py", line 62, in post
+    self.object = form.save()
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\forms\models.py", line 542, in save
+    self.instance.save()
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.IntegrityError: NOT NULL constraint failed: processo_processoadm.criador_processo_adm_id
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+O usu�rio thiago criou um objeto com ID 33
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+O usuario thiago criou um objeto com ID 34
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /cadastrar/processo-adm/
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py", line 63, in post
+    form.instance.criador_processo_adm = self.request.user.username
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\related_descriptors.py", line 266, in __set__
+    raise ValueError(
+ValueError: Cannot assign "'thiago'": "ProcessoAdm.criador_processo_adm" must be a "User" instance.
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /cadastrar/processo-adm/
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py", line 63, in post
+    form.instance.criador_processo_adm = self.request.user.get_full_name
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\related_descriptors.py", line 266, in __set__
+    raise ValueError(
+ValueError: Cannot assign "<bound method AbstractUser.get_full_name of <User: thiago>>": "ProcessoAdm.criador_processo_adm" must be a "User" instance.
+Internal Server Error: /cadastrar/processo-adm/
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py", line 63, in post
+    form.instance.criador_processo_adm = self.request.user
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\related_descriptors.py", line 266, in __set__
+    raise ValueError(
+ValueError: Cannot assign "<bound method AbstractUser.get_full_name of <User: thiago>>": "ProcessoAdm.criador_processo_adm" must be a "User" instance.
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+O usuario thiago criou um objeto com ID 35
+O usuario filipe criou um objeto com ID 36
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+O usuario filipe criou um processo com ID = 37
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /cadastrar/processo-adm/
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.IntegrityError: NOT NULL constraint failed: processo_processoadm.criador_processo_adm_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 184, in post
+    return super().post(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 153, in post
+    return self.form_valid(form)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 135, in form_valid
+    self.object = form.save()
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\forms\models.py", line 542, in save
+    self.instance.save()
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.IntegrityError: NOT NULL constraint failed: processo_processoadm.criador_processo_adm_id
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /cadastrar/processo-adm/
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: ProcessoAdmCreate.post() takes 1 positional argument but 2 were given
+Internal Server Error: /cadastrar/processo-adm/
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: ProcessoAdmCreate.post() takes 1 positional argument but 2 were given
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /cadastrar/processo-adm/
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.IntegrityError: NOT NULL constraint failed: processo_processoadm.criador_processo_adm_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 184, in post
+    return super().post(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 153, in post
+    return self.form_valid(form)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 135, in form_valid
+    self.object = form.save()
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\forms\models.py", line 542, in save
+    self.instance.save()
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.IntegrityError: NOT NULL constraint failed: processo_processoadm.criador_processo_adm_id
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+O usuario filipe criou um processo com ID = 38
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+Usuario = filipe Processo ID = 39 <class 'processo.models.ProcessoAdm'>
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /cadastrar/processo-adm/
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py", line 67, in post
+    logger.info(f"Usuario = {self.request.user.username} Processo ID = {self.object.id} {self.as_view}")
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\decorators.py", line 9, in __get__
+    raise AttributeError(
+AttributeError: This method is available only on the class, not on instances.
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /cadastrar/processo-adm/
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py", line 72, in post
+    return self.form_invalid(form)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 69, in form_invalid
+    return self.render_to_response(self.get_context_data(form=form))
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 75, in get_context_data
+    return super().get_context_data(**kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\detail.py", line 95, in get_context_data
+    if self.object:
+AttributeError: 'ProcessoAdmCreate' object has no attribute 'object'
+Internal Server Error: /cadastrar/processo-adm/
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py", line 72, in post
+    return self.form_invalid(form)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 69, in form_invalid
+    return self.render_to_response(self.get_context_data(form=form))
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 75, in get_context_data
+    return super().get_context_data(**kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\detail.py", line 95, in get_context_data
+    if self.object:
+AttributeError: 'ProcessoAdmCreate' object has no attribute 'object'
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /cadastrar/processo-adm/
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py", line 72, in post
+    return self.form_invalid(form)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 69, in form_invalid
+    return self.render_to_response(self.get_context_data(form=form))
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 75, in get_context_data
+    return super().get_context_data(**kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\detail.py", line 95, in get_context_data
+    if self.object:
+AttributeError: 'ProcessoAdmCreate' object has no attribute 'object'
+Internal Server Error: /cadastrar/processo-adm/
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py", line 72, in post
+    return self.form_invalid(form)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 69, in form_invalid
+    return self.render_to_response(self.get_context_data(form=form))
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 75, in get_context_data
+    return super().get_context_data(**kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\detail.py", line 95, in get_context_data
+    if self.object:
+AttributeError: 'ProcessoAdmCreate' object has no attribute 'object'
+Usuario = filipe Processo ID = 41
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+Usuario = filipe | Create | Processo ID = 42 2023-09-24 15:49:41.858213 
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+[ Create ProcessoAdm | Usuario = filipe | ProcessoAdm ID = 43 | Data = 2023-09-24 15:52:53.406420 
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+[ Create ProcessoAdm | Usuario = filipe | ProcessoAdm ID = 44 | Data = 2023-09-24 15:54:08 
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+[ Create ProcessoAdm | Usuario = filipe | ProcessoAdm ID = 45 | Data = 24-09-2023 15:54:48 
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+[ Create ProcessoAdm | Usuario = filipe | ProcessoAdm ID = 46 | Data = 24-09-2023 15:55:31 ]
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /cadastrar/processo-adm/
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py", line 77, in post
+    return self.form_invalid(form)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 69, in form_invalid
+    return self.render_to_response(self.get_context_data(form=form))
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 75, in get_context_data
+    return super().get_context_data(**kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\detail.py", line 95, in get_context_data
+    if self.object:
+AttributeError: 'ProcessoAdmCreate' object has no attribute 'object'
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /cadastrar/processo-adm/
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py", line 77, in post
+    return self.form_invalid(form)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 69, in form_invalid
+    return self.render_to_response(self.get_context_data(form=form))
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 75, in get_context_data
+    return super().get_context_data(**kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\detail.py", line 95, in get_context_data
+    if self.object:
+AttributeError: 'ProcessoAdmCreate' object has no attribute 'object'
+Internal Server Error: /cadastrar/processo-adm/
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py", line 77, in post
+    return self.form_invalid(form)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 69, in form_invalid
+    return self.render_to_response(self.get_context_data(form=form))
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 75, in get_context_data
+    return super().get_context_data(**kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\detail.py", line 95, in get_context_data
+    if self.object:
+AttributeError: 'ProcessoAdmCreate' object has no attribute 'object'
+[ Create ProcessoAdm | usuario = filipe | processo_processoadm id = 47 | Data = 24-09-2023 15:58:24 ]
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+[ Create ProcessoAdm | Usuario = 5 | ProcessoAdm ID = 48 | Data = 24-09-2023 15:59:45 ]
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+[ create ProcessoAdm | criador_processo_adm_id = 5 | processo_processoadm id = 49 | data criacao = 24-09-2023 16:02:59 ]
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+[ create processo_processoadm | criador_processo_adm_id = 5 | processo_processoadm id = 50 | data = 24-09-2023 16:05:09 ]
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /cadastrar/processo-adm/
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py", line 77, in post
+    return self.form_invalid(form)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 69, in form_invalid
+    return self.render_to_response(self.get_context_data(form=form))
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 75, in get_context_data
+    return super().get_context_data(**kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\detail.py", line 95, in get_context_data
+    if self.object:
+AttributeError: 'ProcessoAdmCreate' object has no attribute 'object'
+Internal Server Error: /cadastrar/processo-adm/
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py", line 77, in post
+    return self.form_invalid(form)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 69, in form_invalid
+    return self.render_to_response(self.get_context_data(form=form))
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 75, in get_context_data
+    return super().get_context_data(**kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\detail.py", line 95, in get_context_data
+    if self.object:
+AttributeError: 'ProcessoAdmCreate' object has no attribute 'object'
+[ create processo_processoadm | processo_processoadm id = 51 | criador_processo_adm_id = 5 | data = 24-09-2023 16:06:39 ]
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+[ create processo_processoadm | processo_processoadm id = 52 | criador_processo_adm_id = 5 (filipe) | data = 24-09-2023 16:09:10 ]
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+[ create processo_processoadm | processo_processoadm id = 53 86786/7678 | criador_processo_adm_id = 5 (filipe) | data = 24-09-2023 16:10:08 ]
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+[ create processo_processoadm | processo_processoadm id = 54 |  processo_processoadm numero = 8727/2387 | criador_processo_adm_id = 5 (filipe) | data = 24-09-2023 16:11:37 ]
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+[ create ProcessoAdm | processo_processoadm id = 55 |  processo_processoadm numero = 89578/5768 | criador_processo_adm_id = 5 (filipe) | data = 24-09-2023 16:12:29 ]
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /editar/processo-adm/21/
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py", line 137, in post
+    return self.form_invalid(form)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 69, in form_invalid
+    return self.render_to_response(self.get_context_data(form=form))
+  File "C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py", line 119, in get_context_data
+    context = super().get_context_data(**kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 75, in get_context_data
+    return super().get_context_data(**kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\detail.py", line 95, in get_context_data
+    if self.object:
+AttributeError: 'ProcessoAdmUpdate' object has no attribute 'object'
+Internal Server Error: /editar/processo-adm/21/
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py", line 137, in post
+    return self.form_invalid(form)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 69, in form_invalid
+    return self.render_to_response(self.get_context_data(form=form))
+  File "C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py", line 119, in get_context_data
+    context = super().get_context_data(**kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 75, in get_context_data
+    return super().get_context_data(**kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\detail.py", line 95, in get_context_data
+    if self.object:
+AttributeError: 'ProcessoAdmUpdate' object has no attribute 'object'
+Internal Server Error: /editar/processo-adm/21/
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py", line 137, in post
+    return self.form_invalid(form)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 69, in form_invalid
+    return self.render_to_response(self.get_context_data(form=form))
+  File "C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py", line 119, in get_context_data
+    context = super().get_context_data(**kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 75, in get_context_data
+    return super().get_context_data(**kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\detail.py", line 95, in get_context_data
+    if self.object:
+AttributeError: 'ProcessoAdmUpdate' object has no attribute 'object'
+Internal Server Error: /editar/processo-adm/21/
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py", line 137, in post
+    return self.form_invalid(form)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 69, in form_invalid
+    return self.render_to_response(self.get_context_data(form=form))
+  File "C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py", line 119, in get_context_data
+    context = super().get_context_data(**kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 75, in get_context_data
+    return super().get_context_data(**kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\detail.py", line 95, in get_context_data
+    if self.object:
+AttributeError: 'ProcessoAdmUpdate' object has no attribute 'object'
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+[ create ProcessoAdm | processo_processoadm id = 56 |  processo_processoadm numero = 44763/4575 | usuario = 4 (thiago) | data = 24-09-2023 16:22:41 ]

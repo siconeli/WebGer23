@@ -40,7 +40,7 @@
                                             <th>Criado por</th>
                                             <th>Criado em</th>
                                         {% endif %}        
-                                            <th>Ver/Editar</th>
+                                        <th>Ver/Editar</th>
                                         <th>Andamento</th>
                                     </tr>
                                 </thead>
@@ -72,7 +72,6 @@
                                             {% if user.is_staff %} <!--Membro da equipe = is_staff-->
                                                 <a href="{% url 'andamento-adm-create' processo.pk %}"><img src="{% static 'img/create-andamento.png' %}" width="30"></a>
                                             {% endif %}
-                                            
                                             
                                             <a href="{% url 'andamento-adm-list' processo.pk %}"><img src="{% static 'img/listar.png' %}" width="30"></a>
                                         </td>
