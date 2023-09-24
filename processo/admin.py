@@ -2,6 +2,6 @@ from django.contrib import admin
 
 # from .models import ProcessoAdm
 
-# @admin.register(ProcessoAdm) # Para mostrar meu modelo ProcessoAdm no Admin do Django
+# @admin.register(ProcessoAdm) # Para mostrar meu modelo ProcessoAdm no Django-Admin (o código está comentado para os dados do ProcessoAdm não aparecer no Django-Admin, pois o Django-Admin será usado apenas para o Super Usuário alterar senhas de usuário ou criar novos usuários)
 # class ProcessoAdmAdmin(admin.ModelAdmin):
 #     list_display = ('numero',)
