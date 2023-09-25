@@ -10,11 +10,9 @@ from django.views.generic import TemplateView
 
 from django.urls import reverse, reverse_lazy # Módulo para reverter para a url definida após ter sucesso na execução
 
-import logging
+import logging # Módulo para criar logs
 
-import datetime
-
-#from braces.views import GroupRequiredMixin # Mixin para controlar a permissão de criar, editar e listar dentro de grupos do django admin
+import datetime # Módulo para datas
 
 logger = logging.getLogger(__name__)
 
@@ -104,7 +102,7 @@ class AndamentoAdmCreate(CreateView):
         context = super().get_context_data(**kwargs)
         context['dados_processo'] = ProcessoAdm.objects.filter(pk=processo_pk) # Filtra os dados do processo através da pk
         return context
-        
+            
 ###### UPDATE ######
 class ProcessoAdmUpdate(UpdateView):
     model = ProcessoAdm
