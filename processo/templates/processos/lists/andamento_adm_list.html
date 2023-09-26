@@ -67,7 +67,7 @@
                                     </td>
                                 
                                 <!-- Se existir arquivo, mostra o ícone que leva para a página de arquivos, se não, fica em branco -->
-                                {% if andamento.arquivo_1 or andamento.arquivo_2 or andamento.arquivo_3%}
+                                {% if andamento.arquivo%}
                                     <td>
                                         <a href="{% url 'arquivo-andamento-adm-list' andamento.pk %}"><img src="{% static 'img/arquivo.png' %}" width="28"></a>
                                     </td>

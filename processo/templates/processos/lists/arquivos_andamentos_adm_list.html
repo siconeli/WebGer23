@@ -15,11 +15,27 @@
             <h5 style="text-align: center;">Arquivo</h5>
          </div>
         <div class="card-body">
-            {% for atributo in dados_andamento %}
+            <!-- {% for atributo in dados_andamento %}
                 <h5>Andamento: {{ atributo.andamento }}</h5>
-            {% endfor %}
+            {% endfor %} -->
             <hr>
             <!--Tabela(lista) de Arquivos do andamento-->
+            {% for andamento in object_list %}
+          
+            <tr>
+                <td>
+                    <!-- {{ andamento.processo}} -->
+                    {{ andamento.arquivo.name }} 
+                    <a href="{{ andamento.arquivo.url }}"><img src="{% static 'img/download.png' %}" width="30"></a>
+
+
+                </td>
+            </tr>
+
+            {% endfor %}
+
+
+
             <div class="table-responsive">
                 <!-- <br> -->
                 <table class="table table-striped" id="tabela-listar-arquivo">
@@ -29,15 +45,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for arquivo in object_list %}
-                            {% if arquivo.arquivo %}
-                                <tr>
-                                    <td>
-                                        {{ arquivo.arquivo.name }}
-                                        <a href="{{ arquivo.arquivo.url }}"><img src="{% static 'img/download.png' %}" width="30"></a>
-                                    </td>
-                                </tr>
-                            {% endif %}
+                        {% for andamento in andamentos %}
+          
+                            <tr>
+                                <td>
+                                    {{ andamento.arquivo.name }}
+                                    <a href="{{ andamento.arquivo.url }}"><img src="{% static 'img/download.png' %}" width="30"></a>
+                                </td>
+                            </tr>
+
                         {% endfor %}
                     </tbody>
                 </table>

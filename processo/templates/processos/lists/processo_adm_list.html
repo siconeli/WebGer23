@@ -74,6 +74,8 @@
                                             {% endif %}
                                             
                                             <a href="{% url 'andamento-adm-list' processo.pk %}"><img src="{% static 'img/listar.png' %}" width="30"></a>
+
+                                            <a href="{% url 'arquivos-andamentos-adm-list' processo.pk %}"><img src="{% static 'img/arquivo.png' %}" width="30"></a>
                                         </td>
                                     </tr>
                                     {% endfor %}

@@ -62,23 +62,12 @@
                 <br>
                 <div class="row">
                     <div class="col">
-                        <!-- <label for="arquivo_1">Arquivo</label> -->
-                        {% render_field form.arquivo_1 class="form-control" multiple%}
+                        <!-- <label for="arquivo">Arquivo</label> -->
+                        {% render_field form.arquivo class="form-control"%}
                     </div>
-                    <div class="col">
-                        <!-- <label for="arquivo_2">Arquivo</label> -->
-                        {% render_field form.arquivo_2 class="form-control" id="arquivo_2"%}
-                    </div>
-                    <div class="col">
-                        <!-- <label for="arquivo_3">Arquivo</label> -->
-                        {% render_field form.arquivo_3 class="form-control" id="arquivo_3"%}
-                    </div> 
                 </div>
                 <br>
                 <div>
-                    <!-- <button type="submit" class="btn btn-success btn-sm"><i class="bi bi-check-lg" style="font-size: 15px;"></i></button>
-                    <a href="{% url 'proc-adm-list' %}" class="btn btn-danger btn-sm"><i class="bi bi-x-lg" style="font-size: 15px;"></i></a> -->
-
                     <button type="submit" class="btn btn-success btn-sm">Salvar</button> 
                     <a href="{% url 'proc-adm-list' %}" class="btn btn-danger btn-sm">Cancelar</a>
                 </div>

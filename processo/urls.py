@@ -15,6 +15,7 @@ from .views import AndamentoAdmDelete
 from .views import ProcessoAdmList
 from .views import AndamentoAdmList
 from .views import ArquivoAndamentoAdmList
+from .views import ArquivosAndamentosAdmList
 
 urlpatterns = [
 
@@ -38,4 +39,5 @@ urlpatterns = [
     path('listar/processo-adm/', ProcessoAdmList.as_view(), name='proc-adm-list'),
     path('listar/andamento-adm/<int:pk>', AndamentoAdmList.as_view(), name='andamento-adm-list'),
     path('listar/arquivo-andamento-adm/<int:pk>/', ArquivoAndamentoAdmList.as_view(), name='arquivo-andamento-adm-list'),
+    path('listar/arquivos-andamentos-adm/<int:pk>/', ArquivosAndamentosAdmList.as_view(), name='arquivos-andamentos-adm-list'),
 ]

@@ -77,7 +77,7 @@ class ProcessoAdmCreate(CreateView):
 class AndamentoAdmCreate(CreateView):  
     model = AndamentoAdm
     template_name = 'processos/creates/andamento_adm_create.html'
-    fields = ['data_andamento', 'andamento', 'situacao_pagamento', 'valor_pago', 'data_prazo', 'data_recebimento', 'complemento', 'arquivo_1', 'arquivo_2', 'arquivo_3']
+    fields = ['data_andamento', 'andamento', 'situacao_pagamento', 'valor_pago', 'data_prazo', 'data_recebimento', 'complemento', 'arquivo']
     success_url = reverse_lazy('proc-adm-list')
 
     # Busca a pk do processo na url e preenche o atributo 'processo_id', para vincular o processo ao andamento
@@ -121,7 +121,7 @@ class ProcessoAdmUpdate(UpdateView):
 class AndamentoAdmUpdate(UpdateView):
     model = AndamentoAdm
     template_name = 'processos/updates/andamento_adm_update.html'
-    fields = ['data_andamento', 'andamento', 'situacao_pagamento','valor_pago', 'data_prazo', 'data_recebimento', 'complemento', 'arquivo_1', 'arquivo_2', 'arquivo_3']
+    fields = ['data_andamento', 'andamento', 'situacao_pagamento','valor_pago', 'data_prazo', 'data_recebimento', 'complemento', 'arquivo']
 
     # Após realizar o update com sucesso, reverte para a lista de andamentos do processo
     def get_success_url(self):
@@ -228,3 +228,14 @@ class ArquivoAndamentoAdmList(ListView):
         context = super().get_context_data(**kwargs)
         context['dados_andamento'] = AndamentoAdm.objects.filter(pk=andamento_pk) # Filtra os dados do andamento através da pk
         return context
+    
+class ArquivosAndamentosAdmList(ListView):
+    model = ProcessoAdm
+    template_name = 'processos/lists/arquivos_andamentos_adm_list.html'
+
+    # def get_queryset(self):
+    #     pk_processo = self.kwargs.get('pk') # Pega a pk(primary key) da URL, pk do processo
+        
+    #     processo = ProcessoAdm.objects.get(pk=pk_processo)  # Pega o processo que possui a pk recebida (pk é a primary key do processo)
+    #     andamento = processo.andamentoadm_set.all()  # Pega todos os atributos do andamento
+    #     return andamento
