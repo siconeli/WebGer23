@@ -75,5 +75,5 @@ class AndamentoAdm(Base):
     arquivo = models.FileField(upload_to='Arquivo/', verbose_name='Arquivo', blank=True) 
 
     def __str__(self):
-        return f'Processo: {self.processo} Andamento: {self.andamento} Arquivo: {self.arquivo_1} Arquivo: {self.arquivo_2} Arquivo: {self.arquivo_3}'
+        return f'Processo: {self.processo} Andamento: {self.andamento} Arquivo: {self.arquivo}'
 

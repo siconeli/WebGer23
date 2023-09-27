@@ -233,9 +233,14 @@ class ArquivosAndamentosAdmList(ListView):
     model = ProcessoAdm
     template_name = 'processos/lists/arquivos_andamentos_adm_list.html'
 
-    # def get_queryset(self):
-    #     pk_processo = self.kwargs.get('pk') # Pega a pk(primary key) da URL, pk do processo
-        
-    #     processo = ProcessoAdm.objects.get(pk=pk_processo)  # Pega o processo que possui a pk recebida (pk é a primary key do processo)
-    #     andamento = processo.andamentoadm_set.all()  # Pega todos os atributos do andamento
-    #     return andamento
+  
+    def get_queryset(self):
+        """
+            
+        """
+        processo_pk = self.kwargs.get('pk')
+
+        processo = ProcessoAdm.objects.get(pk=processo_pk)
+        andamentos = processo.andamentoadm_set.all()
+
+        return andamentos
