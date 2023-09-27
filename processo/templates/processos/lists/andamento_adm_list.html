@@ -69,16 +69,13 @@
                                 <!-- Se existir arquivo, mostra o ícone que leva para a página de arquivos, se não, fica em branco -->
                                 {% if andamento.arquivo%}
                                     <td>
-                                        <!-- <a href="{{ andamento.arquivo.url}}"><img src="{% static 'img/download.png' %}" width="30"></a> -->
-
-                                        <a href="{{ andamento.arquivo.url }}" target="arquivo_iframe">Abrir PDF</a>
+                                        <a href="{{ andamento.arquivo.url}}" target="arquivo_andamento">abrir</a>
                                     </td>
                                 {% else %}
                                     <td></td>
                                     {% endif%}
                                 </tr>
                                 {% endfor %}
-                                <iframe name="arquivo_iframe" width="1270" height="500"></iframe>
                             </tbody>
                             
                         </table>
@@ -86,11 +83,11 @@
                     </div>           
                 </div>
             </div>
-                    
+            
             <br><br>
             <!-- <h1>Visualizador de PDF</h1> -->
-
-            
+            <iframe name="arquivo_andamento" width="1270" height="500"></iframe>
+          
 
     </div>   
 {% endblock %}
