@@ -14,74 +14,66 @@
 
 {% block conteudo %}
     <style>
-
-
-        .div {
+        #lista {
     
             padding: 20px;
-
+            height: 1300px;
+            width: 350px;
+            background-color: rgb(255, 255, 255);
+            float: left;
         }
 
+        #frame_arquivo {
+            height: 2000px;
+            width: 350px;
+            background-color: rgb(255, 0, 0);
+
+        }
     </style>
 
-
-        <div class="div">
+    <body>
+        <div id="lista">
             <!-- Conteúdo da div -->
-            <div class="card-body">
-                <div class="box" style="width: 25%; float: left;">
-                    {% for atributo in dados_processo %}
-                        <h6>Processo: {{ atributo.numero }}</h6>
-                    {% endfor %}
-                    <hr>
-                    <div class="table-responsive">
-                        <!-- <br> -->
-                        <table class="table table-striped">
-                            <thead>
-                                <tr class="table-secondary">
-                                    <th>Andamento</th>
-                                    <th>Arquivo</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for andamento in object_list %}
-                                <tr>
-                                    <td>{{ andamento.andamento }}</td>
-                                    <!-- Se existir arquivo, mostra o ícone que leva para a página de arquivos, se não, fica em branco -->
-                                    {% if andamento.arquivo%}
-                                        <td>
-                                            <a href="{{ andamento.arquivo.url}}" target="arquivo_andamento">abrir</a>
-                                        </td>
-                                    {% else %}
-                                        <td></td>
-                                        {% endif%}
-                                    </tr>
-                                    {% endfor %}
-                                </tbody>
-                            </table>
-                            <a href="{% url 'proc-adm-list' %}" class="btn btn-secondary btn-sm"><i class="bi bi-arrow-left" style="font-size: 15px;"><!--Icone--></i></a>
-                        </div>           
-                    </div>
-                    <div>
-                        <iframe name="arquivo_andamento" width="1200" height="800"></iframe>
-                    </div>
+            {% for atributo in dados_processo %}
+                <h6>Processo: {{ atributo.numero }}</h6>
+            {% endfor %}
+            <hr>
+            <table class="table table-striped">
+                <thead>
+                    <tr class="table-secondary">
+                        <th>Andamento</th>
+                        <th>Arquivo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for andamento in object_list %}
+                    <tr>
+                        <td>{{ andamento.andamento }}</td>
+                        <!-- Se existir arquivo, mostra o ícone que leva para a página de arquivos, se não, fica em branco -->
+                        {% if andamento.arquivo%}
+                            <td>
+                                <a href="{{ andamento.arquivo.url}}" target="arquivo_andamento">abrir</a>
+                            </td>
+                        {% else %}
+                            <td></td>
+                            {% endif%}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <a href="{% url 'proc-adm-list' %}" class="btn btn-secondary btn-sm"><i class="bi bi-arrow-left" style="font-size: 15px;"><!--Icone--></i></a>
+                    </div>           
                 </div>
             </div>
+            </div>
         </div>
-        <!-- iframe aqui -->
-    </div>
-
-
-
-
-
-
-
-
-
-
-  
-
-          
+        <div id="frame_arquivo">
+            <!-- <iframe name="arquivo_andamento" width="1200" height="800"></iframe> -->
+            teste
+        </div>
+    </body>
+    
+    
 
 {% endblock %}
 
