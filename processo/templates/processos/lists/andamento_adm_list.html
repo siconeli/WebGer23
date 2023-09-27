@@ -69,7 +69,8 @@
                                 <!-- Se existir arquivo, mostra o ícone que leva para a página de arquivos, se não, fica em branco -->
                                 {% if andamento.arquivo%}
                                     <td>
-                                        <a href="{% url 'arquivo-andamento-adm-list' andamento.pk %}"><img src="{% static 'img/arquivo.png' %}" width="28"></a>
+                                        <!-- <a href="{{ andamento.arquivo.url}}"><img src="{% static 'img/download.png' %}" width="30"></a> -->
+                                        <button id="openPdfButton">Abrir PDF</button>
                                     </td>
                                 {% else %}
                                     <td></td>
@@ -78,14 +79,33 @@
                             </tr>
                             {% endfor %}
                         </tbody>
+                        
                     </table>
+                    
+                    <h1>Visualizador de PDF</h1>
+                    <div id="pdfContainer">
+                        <iframe id="pdfFrame" width="1230" height="600"></iframe>
+                    </div>
+
+                    {% for andamento in object_list %}
+                        <script>
+                            // Função para abrir o PDF ao clicar no botão
+                            document.getElementById("openPdfButton").addEventListener("click", function() {
+                                var pdfFrame = document.getElementById("pdfFrame");
+                                pdfFrame.src = "{% static 'img/HenriqueSiconeliFrancisco-26.09.2023-Aquidauana.pdf' %}"; // Substitua "seuarquivo.pdf" pelo caminho do seu arquivo PDF
+                            });
+                        </script>
+                    {% endfor %}
+
+
+
+
                     <!-- <br> -->
                     <a href="{% url 'proc-adm-list' %}" class="btn btn-secondary btn-sm"><i class="bi bi-arrow-left" style="font-size: 15px;"><!--Icone--></i></a>
                 </div>           
             </div>
         </div>
     </div>   
-    <br> 
 {% endblock %}
 
 {% block scripts %}
@@ -132,4 +152,5 @@
 
         });
     </script>
+
 {% endblock %}

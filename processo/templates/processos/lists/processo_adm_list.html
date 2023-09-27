@@ -59,7 +59,7 @@
                                         
                                             <td>
                                                 <a href="{% url 'proc-adm-view' processo.pk %}"><img src="{% static 'img/olho3.png' %}" width="30"></i></a>
-
+                                                
                                                 {% if user.is_staff %} <!--Membro da equipe = is_staff-->
                                                     <a href="{% url 'proc-adm-update' processo.pk %}"><img src="{% static 'img/editar.png' %}" width="30"></i></a>
                                                 {% endif %}
@@ -75,7 +75,6 @@
                                             
                                             <a href="{% url 'andamento-adm-list' processo.pk %}"><img src="{% static 'img/listar.png' %}" width="30"></a>
 
-                                            <a href="{% url 'arquivos-andamentos-adm-list' processo.pk %}"><img src="{% static 'img/arquivo.png' %}" width="30"></a>
                                         </td>
                                     </tr>
                                     {% endfor %}

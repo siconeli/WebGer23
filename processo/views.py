@@ -229,18 +229,3 @@ class ArquivoAndamentoAdmList(ListView):
         context['dados_andamento'] = AndamentoAdm.objects.filter(pk=andamento_pk) # Filtra os dados do andamento através da pk
         return context
     
-class ArquivosAndamentosAdmList(ListView):
-    model = ProcessoAdm
-    template_name = 'processos/lists/arquivos_andamentos_adm_list.html'
-
-  
-    def get_queryset(self):
-        """
-            
-        """
-        processo_pk = self.kwargs.get('pk')
-
-        processo = ProcessoAdm.objects.get(pk=processo_pk)
-        andamentos = processo.andamentoadm_set.all()
-
-        return andamentos
