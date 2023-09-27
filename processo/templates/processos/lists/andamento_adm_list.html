@@ -70,41 +70,28 @@
                                 {% if andamento.arquivo%}
                                     <td>
                                         <!-- <a href="{{ andamento.arquivo.url}}"><img src="{% static 'img/download.png' %}" width="30"></a> -->
-                                        <button id="openPdfButton">Abrir PDF</button>
+
+                                        <a href="{{ andamento.arquivo.url }}" target="arquivo_iframe">Abrir PDF</a>
                                     </td>
                                 {% else %}
                                     <td></td>
-                                {% endif%}
-
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                        
-                    </table>
-                    
-                    <h1>Visualizador de PDF</h1>
-                    <div id="pdfContainer">
-                        <iframe id="pdfFrame" width="1230" height="600"></iframe>
-                    </div>
-
-                    {% for andamento in object_list %}
-                        <script>
-                            // Função para abrir o PDF ao clicar no botão
-                            document.getElementById("openPdfButton").addEventListener("click", function() {
-                                var pdfFrame = document.getElementById("pdfFrame");
-                                pdfFrame.src = "{% static 'img/HenriqueSiconeliFrancisco-26.09.2023-Aquidauana.pdf' %}"; // Substitua "seuarquivo.pdf" pelo caminho do seu arquivo PDF
-                            });
-                        </script>
-                    {% endfor %}
-
-
-
-
-                    <!-- <br> -->
-                    <a href="{% url 'proc-adm-list' %}" class="btn btn-secondary btn-sm"><i class="bi bi-arrow-left" style="font-size: 15px;"><!--Icone--></i></a>
-                </div>           
+                                    {% endif%}
+                                </tr>
+                                {% endfor %}
+                                <iframe name="arquivo_iframe" width="1270" height="500"></iframe>
+                            </tbody>
+                            
+                        </table>
+                        <a href="{% url 'proc-adm-list' %}" class="btn btn-secondary btn-sm"><i class="bi bi-arrow-left" style="font-size: 15px;"><!--Icone--></i></a>
+                    </div>           
+                </div>
             </div>
-        </div>
+                    
+            <br><br>
+            <!-- <h1>Visualizador de PDF</h1> -->
+
+            
+
     </div>   
 {% endblock %}
 

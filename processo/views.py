@@ -1,5 +1,3 @@
-from django.forms.models import BaseModelForm
-from django.http import HttpResponse
 from .models import ProcessoAdm, AndamentoAdm
 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView # Módulo para create, update e delete
