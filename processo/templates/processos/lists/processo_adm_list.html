@@ -61,7 +61,7 @@
                                                 <a href="{% url 'proc-adm-view' processo.pk %}"><img src="{% static 'img/olho3.png' %}" width="30"></i></a>
                                                 
                                                 {% if user.is_staff %} <!--Membro da equipe = is_staff-->
-                                                    <a href="{% url 'proc-adm-update' processo.pk %}"><img src="{% static 'img/editar.png' %}" width="30"></i></a>
+                                                    <a href="{% url 'proc-adm-update' processo.pk %}"><img src="{% static 'img/botao-editar.png' %}" width="20"></i></a>
                                                 {% endif %}
 
                                                 {% if user.is_superuser %} <!-- Super Usuário -->
@@ -70,10 +70,10 @@
                                             </td>
                                         <td> 
                                             {% if user.is_staff %} <!--Membro da equipe = is_staff-->
-                                                <a href="{% url 'andamento-adm-create' processo.pk %}"><img src="{% static 'img/create-andamento.png' %}" width="30"></a>
+                                                <a href="{% url 'andamento-adm-create' processo.pk %}"><img src="{% static 'img/create-andamento.png' %}" width="25"></a>
                                             {% endif %}
                                             
-                                            <a href="{% url 'andamento-adm-list-update' processo.pk %}">Editar</a>
+                                            <a href="{% url 'andamento-adm-list-update' processo.pk %}"><img src="{% static 'img/botao-editar.png' %}" width="20"></a>
 
                                             <a href="{% url 'andamento-adm-list' processo.pk %}"><img src="{% static 'img/listar.png' %}" width="30"></a>
 

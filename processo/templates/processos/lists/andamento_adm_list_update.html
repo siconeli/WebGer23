@@ -32,8 +32,7 @@
                                     <th>Criado por</th>
                                     <th>Criado em</th>
                                 {% endif %}
-                                    <th>Ver/Editar</th> 
-                                <th>Arquivo</th>
+                                    <th>Ver/Editar/Deletar</th> 
                             </tr>
                         </thead>
                         <tbody>
@@ -58,24 +57,14 @@
                                         <a href="{% url 'andamento-adm-view' andamento.pk %}"><img src="{% static 'img/olho3.png' %}" width="30"></a>
 
                                         {% if user.is_staff %} <!--Membro da equipe = is_staff-->
-                                            <a href="{% url 'andamento-adm-update' andamento.pk %}"><img src="{% static 'img/editar.png' %}" width="30"></a>
+                                            <a href="{% url 'andamento-adm-update' andamento.pk %}"><img src="{% static 'img/botao-editar.png' %}" width="20"></a>
                                         {% endif%}
 
                                         {% if user.is_superuser %} <!-- Super Usuário -->
                                             <a href="{% url 'andamento-adm-delete' andamento.pk %}"><img src="{% static 'img/excluir.png' %}" width="25"></a>
                                         {% endif%}
                                     </td>
-                                
-                                <!-- Se existir arquivo, mostra o ícone que leva para a página de arquivos, se não, fica em branco -->
-                                {% if andamento.arquivo%}
-                                    <td>
-                                        <a href="{{ andamento.arquivo.url}}" target="arquivo_andamento">abrir</a>
-                                    </td>
-                                {% else %}
-                                    <td></td>
-                                    {% endif%}
-                                </tr>
-                                {% endfor %}
+                            {% endfor %}
                             </tbody>
                             
                         </table>
@@ -84,11 +73,6 @@
                 </div>
             </div>
             
-            <br><br>
-            <!-- <h1>Visualizador de PDF</h1> -->
-            <iframe name="arquivo_andamento" width="1270" height="500"></iframe>
-          
-
     </div>   
 {% endblock %}
 
