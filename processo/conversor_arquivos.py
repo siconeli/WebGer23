@@ -1,4 +1,4 @@
-import os
+import os # Módulo para trabalhar com pastas e arquivos
 
 from docx2pdf import convert # Módulo para converter .docx em pdf
 
@@ -20,14 +20,6 @@ for arquivo in lista_arquivos:
 
 
 
-
-
-
-
-
-# for arquivo in lista_arquivos:
-# convert('media/Arquivo/EU_SOU_O_CARA.docx')
-    # print(arquivo)
 
 
 

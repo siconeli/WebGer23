@@ -1,3 +1,5 @@
+from typing import Any
+from django.db import models
 from .models import ProcessoAdm, AndamentoAdm
 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView # Módulo para create, update e delete
@@ -13,6 +15,23 @@ import logging # Módulo para criar logs
 import datetime # Módulo para datas
 
 logger = logging.getLogger(__name__)
+
+
+
+import os # Módulo para trabalhar com pastas e arquivos
+
+from docx2pdf import convert # Módulo para converter .docx em pdf
+
+from time import sleep
+
+
+
+
+
+
+
+
+
 
 ###### VIEW ######
 class ProcessoAdmView(TemplateView):
@@ -100,6 +119,35 @@ class AndamentoAdmCreate(CreateView):
         context = super().get_context_data(**kwargs)
         context['dados_processo'] = ProcessoAdm.objects.filter(pk=processo_pk) # Filtra os dados do processo através da pk
         return context
+
+    
+    # CÓDIGO PARA PEGAR O NOME DO ARQUIVO QUE É SALVO NO BANCO DE DADOS AO CRIAR O OBJETO ANDAMENTO E VINCULAR O ARQUIVO, PARA CONVERTER O ARQUIVO QUE É DO FORMATO .DOCX PARA O FORMATO .PDF E EXCLUIR O ANTIGO ARQUIVO, ALTERAR O NOME DO ARQUIVO SALVO NO BANCO DE DADOS.
+    andamentos = AndamentoAdm.objects.all()
+
+    for andamento in andamentos:
+        pk_andamento = andamento.pk
+        andamento = AndamentoAdm.objects.get(pk=pk_andamento)
+        nome_arquivo = andamento.arquivo.name # Nome do arquivo em 'str'
+        print(f'Nome origial = {nome_arquivo}')
+        nome_para_conversao = nome_arquivo[8:]
+        print(f'Nome após conversão = {nome_para_conversao}')
+
+        caminho = 'media/Arquivo'
+
+        lista_arquivos = os.listdir(caminho) # Todos os arquivos dentro do caminho
+
+        for arquivo in lista_arquivos:
+            if nome_para_conversao[-5:] == '.docx':  # Se arquivo possuir formato .docx ira converter para pdf
+                convert(f'media/Arquivo/{nome_para_conversao}')
+                sleep(2)
+                os.remove(f'media/Arquivo/{nome_para_conversao}') # Remove o antigo arquivo com formato .docx   
+        
+
+
+    
+
+
+
             
 ###### UPDATE ######
 class ProcessoAdmUpdate(UpdateView):
