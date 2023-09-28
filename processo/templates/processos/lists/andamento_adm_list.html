@@ -84,39 +84,33 @@
 <body>
     <!-- LISTA LATERAL ESQUERDA -->
     <div class="container" style="display: flex; flex-direction: row; float: left;">
-        <div class="lista">
+        <div class="lista" style=" height: 720px; ">
             {% for atributo in dados_processo %}
                 <h6>Processo: {{ atributo.numero }}</h6>
             {% endfor %}
             <hr>
-              <table class="table table-striped" style="width: 250px; font-size: 14px;">
-                <!-- <tr class="table-secondary">
-                    <td>Andamento</td>
-                    <td>Arquivo</td>
-                </tr> -->
-                {% for andamento in object_list %}
-                <tr>
-                    <th>{{ andamento.andamento }}</th>
-                    {% if andamento.arquivo%}
-                        <td>
-                            <a href="{{ andamento.arquivo.url}}" target="arquivo_andamento"><img src="{% static 'img/pdf.png' %}" width="25"></a>
-                        </td>
-                    {% else %}
-                        <td></td>
-                    {% endif%}
-                    {% endfor %}
-                </tr>
-                
-                </table>
-                <a href="{% url 'proc-adm-list' %}" class="btn btn-secondary btn-sm"><i class="bi bi-arrow-left" style="font-size: 15px;"></i></a>
-                <br><br>
-
+            <table class="table table-striped" style="width: 250px; font-size: 14px;">
+            {% for andamento in object_list %}
+            <tr>
+                <th>{{ andamento.andamento }}</th>
+                {% if andamento.arquivo%}
+                    <td>
+                        <a href="{{ andamento.arquivo.url}}" target="arquivo_andamento"><img src="{% static 'img/pdf.png' %}" width="25"></a>
+                    </td>
+                {% else %}
+                    <td></td>
+                {% endif%}
+                {% endfor %}
+            </tr>
+            
+            </table>
+            <a href="{% url 'proc-adm-list' %}" class="btn btn-secondary btn-sm"><i class="bi bi-arrow-left" style="font-size: 15px;"></i></a>
         </div>
         <!-- Fim Lista Lateral -->
         
         <!-- Iframe para abrir o arquivo -->
         <div>
-            <iframe name="arquivo_andamento" frameborder="0" height="690" width="1320" style="padding: 10px;"></iframe>
+            <iframe name="arquivo_andamento" frameborder="0" height="690vh" width="1320" style="padding: 10px;"></iframe>
         </div>
         <!-- Fim do Iframe -->
     </div>
