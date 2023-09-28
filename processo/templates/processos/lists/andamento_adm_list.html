@@ -84,12 +84,12 @@
 <body>
     <!-- LISTA LATERAL ESQUERDA -->
     <div class="container" style="display: flex; flex-direction: row; float: left;">
-        <div class="lista" style=" height: 720px; ">
+        <div>
             {% for atributo in dados_processo %}
                 <h6>Processo: {{ atributo.numero }}</h6>
             {% endfor %}
             <hr>
-            <table class="table table-striped" style="width: 250px; font-size: 14px;">
+            <table class="table table-striped" style="width: 250px; font-size: 14px;"> 
             {% for andamento in object_list %}
             <tr>
                 <th>{{ andamento.andamento }}</th>
@@ -105,16 +105,16 @@
             
             </table>
             <a href="{% url 'proc-adm-list' %}" class="btn btn-secondary btn-sm"><i class="bi bi-arrow-left" style="font-size: 15px;"></i></a>
+            <br><br>
         </div>
         <!-- Fim Lista Lateral -->
         
         <!-- Iframe para abrir o arquivo -->
         <div>
-            <iframe name="arquivo_andamento" frameborder="0" height="690vh" width="1320" style="padding: 10px;"></iframe>
+            <iframe name="arquivo_andamento" frameborder="0" height="690px" width="1320px" style="padding: 10px;"></iframe>
         </div>
         <!-- Fim do Iframe -->
     </div>
-
 </body>
 
     <!-- Importações -->

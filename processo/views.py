@@ -171,7 +171,7 @@ class AndamentoAdmDelete(DeleteView):
         andamento = AndamentoAdm.objects.get(pk=andamento_pk) # Busca o andamento através da PK do andamento
         processo_pk = andamento.processo_id # Busca a PK do processo através do andamento (processo_id é a ForeignKey entre o processo administrativo e o andamento)
 
-        return reverse('andamento-adm-list', args=[processo_pk]) # URL da lista de andamentos + pk do processo
+        return reverse('andamento-adm-list-update', args=[processo_pk]) # URL da lista de andamentos + pk do processo
     
     # Função para iterar com os dados do andamento na view de delete andamento
     def get_context_data(self, **kwargs):
@@ -206,24 +206,24 @@ class AndamentoAdmList(ListView):
         context['dados_processo'] = ProcessoAdm.objects.filter(pk=processo_pk) # Filtra os dados do processo através da pk
         return context
 
-class ArquivoAndamentoAdmList(ListView):
-    model = AndamentoAdm
-    template_name = 'processos/lists/arquivo_andamento_adm_list.html'
-
+class AndamentoAdmListUpdate(ListView):
+    model = ProcessoAdm
+    template_name = 'processos/lists/andamento_adm_list_update.html'
+    
     def get_queryset(self):
-    
-        andamento_pk = self.kwargs.get('pk') # Pega a pk(primary key) da URL
+        pk_processo = self.kwargs.get('pk') # Pega a pk(primary key) da URL, pk do processo
         
-        andamento = AndamentoAdm.objects.filter(pk=andamento_pk)  # Pega o andamento que possui a pk recebida (pk é a primary key do andamento)
-        # Usei o 'filter' para conseguir iterar com o objeto, resultando em um QuerySet
-
-        return andamento
+        processo = ProcessoAdm.objects.get(pk=pk_processo)  # Pega o processo que possui a pk recebida (pk é a primary key do processo)
+        andamentos = processo.andamentoadm_set.all()  # Pega todos os atributos do andamento
     
-    # Função para iterar com os dados do andamento na lista de arquivos do andamento
+        return andamentos
+    
+    # Função para iterar com os dados do processo na lista de andamentos
     def get_context_data(self, **kwargs):
-        andamento_pk = self.kwargs.get('pk') # Pega a PK do andamento através da URL  
+        processo_pk = self.kwargs.get('pk') # Pega a PK do processo através da URL  
 
         context = super().get_context_data(**kwargs)
-        context['dados_andamento'] = AndamentoAdm.objects.filter(pk=andamento_pk) # Filtra os dados do andamento através da pk
+        context['dados_processo'] = ProcessoAdm.objects.filter(pk=processo_pk) # Filtra os dados do processo através da pk
         return context
+
     
