@@ -1,125 +1,141 @@
-<!-- Lista de andamentos do Processo Administrativo-->
+<!-- Lista de andamentos do processo com iframe para abrir o arquivo -->
 
-{% extends 'index.html' %}
+{% load static %} <!--Carregar arquivos estáticos (imagens)-->
 
-{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Andamentos</title>
 
-{% block titulo %}
-    <title>Andamentos do Processo</title>
-{% endblock %}
+    <!-- Importação Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
-
-
-
-
-{% block conteudo %}
-    <style>
-        #lista {
+    <!-- Importação do Bootstrap Icons  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     
-            padding: 20px;
-            height: 1300px;
-            width: 350px;
-            background-color: rgb(255, 255, 255);
-            float: left;
-        }
+    <!-- Importação do meu arquivo CSS próprio -->
+    <!-- <link rel="stylesheet" href="{% static 'css/estilos_.css' %}"> -->
 
-        #frame_arquivo {
-            height: 2000px;
-            width: 350px;
-            background-color: rgb(255, 0, 0);
 
-        }
-    </style>
+    <!-- Menu -->
+    <nav class="navbar"> <!--Para o menu rolar junto com a página, utilizar: class="navbar fixed-top"-->
+        <div class="container-fluid">
+             <a href="{% url 'index' %}"><img src="{% static 'img/logo.png' %}" alt="" width="60"> <img src="{% static 'img/webger.png' %}" alt="" width="150"></a>
+            <!-- <h3 id="text-menu">Controle de Processos</h3> -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" style="background-color: white;">
+            <!-- <span class="navbar-toggler-icon"></span> -->
+            <span><img src="{% static 'img/menu.png' %}" width="30"></span>
+          </button>
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header" style="background-color: #0098DB;">
+              
+            <!-- <img src="{% static 'img/pasta.png' %}" alt="" width="40"> -->
+            <dt class="nav-item">
+              <a class="nav-link active" id="texto-inicio-navbar-menu" aria-current="page" href="{% url 'index' %}"><img src="{% static 'img/home.png' %}" width="30"> Início </a>
+            </dt>
 
-    <body>
-        <div id="lista">
-            <!-- Conteúdo da div -->
-            {% for atributo in dados_processo %}
+              <!-- Autenticação de usuário para ver a opção de menu-->
+              {% if user.is_authenticated %} <!--Se o usuário estiver logado(autenticado) mostrar opção 'Logout'--> 
+
+                <dt class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" id="texto-inicio-navbar-menu" role="button" data-bs-toggle="dropdown" aria-expanded="false" ><img src="{% static 'img/usuario.png' %}" width="30"> <i>{{ user.get_full_name }}</i>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{% url 'logout' %}"><img src="{% static 'img/logout.png' %}" width="30">Sair</a></li> <!--logout-->
+                  </ul>
+                </dt>
+              {% else %} <!-- Senão opção 'Login' -->
+
+              <a class="nav-link active" id="texto-inicio-navbar-menu" aria-current="page" href="{% url 'login' %}"><img src="{% static 'img/login.png' %}" width="30"><b> Login </b></a> <!--login-->
+
+              {% endif %}
+              <!-- Fim da autenticação -->
+
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <br>
+
+                <!-- Autenticação de usuário para ver a opção de menu -->
+                {% if user.is_authenticated %}
+
+                  {% if user.is_superuser %} <!-- Se o usuário for um SuperUsuario(administrador) consegue ver a 'central de usuários' no menu-->
+                  <div>
+                    <a class="nav-link" id="texto-navbar-menu" href="{% url 'admin:index'  %}" role="button" aria-expanded="false"><img src="{% static 'img/central-usuarios.png' %}" width="30"> Central de Usuários </a>
+                  </div>
+                  {% endif %}
+
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="texto-navbar-menu" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="{% static 'img/processo.png' %}" width="30"> Processos </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="{% url 'proc-adm-list' %}"><img src="{% static 'img/tributario.png' %}" width="25"> Processos Administrativos Tributários</a></li>
+                    </ul>
+                  </li>
+
+                {% endif %}
+                <!-- Fim da autenticação -->
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav> 
+    <!-- Fim Menu -->
+
+</head>
+<body>
+    <!-- Lista Lateral -->
+    <div class="container" style="display: flex; flex-direction: row; float: left;">
+        <div class="lista" style="width: 500px; height: 1000px; background-color: rgb(217, 255, 0); padding: 10px;">
+          {% for atributo in dados_processo %}
                 <h6>Processo: {{ atributo.numero }}</h6>
             {% endfor %}
             <hr>
-            <table class="table table-striped">
-                <thead>
-                    <tr class="table-secondary">
-                        <th>Andamento</th>
-                        <th>Arquivo</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for andamento in object_list %}
-                    <tr>
-                        <td>{{ andamento.andamento }}</td>
-                        <!-- Se existir arquivo, mostra o ícone que leva para a página de arquivos, se não, fica em branco -->
-                        {% if andamento.arquivo%}
-                            <td>
-                                <a href="{{ andamento.arquivo.url}}" target="arquivo_andamento">abrir</a>
-                            </td>
-                        {% else %}
-                            <td></td>
-                            {% endif%}
-                        </tr>
-                        {% endfor %}
-                    </tbody>
+              <table>
+                <tr class="table-secondary">
+                    <th>Andamento</th>
+                    <th>Arquivo</th>
+                </tr>
+                {% for andamento in object_list %}
+                <tr>
+                    <td>{{ andamento.andamento }}</td>
+                    {% if andamento.arquivo%}
+                        <td>
+                            <a href="{{ andamento.arquivo.url}}" target="arquivo_andamento">abrir</a>
+                        </td>
+                    {% else %}
+                        <td></td>
+                    {% endif%}
+                    {% endfor %}
+                </tr>
+                
                 </table>
-                <a href="{% url 'proc-adm-list' %}" class="btn btn-secondary btn-sm"><i class="bi bi-arrow-left" style="font-size: 15px;"><!--Icone--></i></a>
-                    </div>           
-                </div>
-            </div>
-            </div>
+                <a href="{% url 'proc-adm-list' %}" class="btn btn-secondary btn-sm"><i class="bi bi-arrow-left" style="font-size: 15px;"></i></a>
+
         </div>
-        <div id="frame_arquivo">
-            <!-- <iframe name="arquivo_andamento" width="1200" height="800"></iframe> -->
-            teste
-        </div>
-    </body>
-    
-    
-
-{% endblock %}
-
-{% block scripts %}
-    <!-- Importação JS da minha 'datatable' -->
-    <script src="https://cdn.datatables.net/v/bs5/dt-1.13.6/datatables.min.js"></script>
-
-    <script>
-        // Para transformar minha lista em um datatable
-        $(document).ready(function(){
-            // $('#tabela-listar').DataTable();
+        <!-- Fim Lista Lateral -->
         
-            // });
+        <!-- Iframe para abrir o arquivo -->
+        <div>
+            <iframe name="arquivo_andamento" frameborder="0" height="770" width="1380"></iframe>
+        </div>
+        <!-- Fim do Iframe -->
+    </div>
 
-            $('#tabela-listar-andamento').DataTable({
-                responsive: true,
-                // "bSort": false,
-                "aaSorting": [],
-                "pageLength": 5,
-                "language": {
-                    "decimal": "",
-                    "emptyTable": "Nenhum andamento registrado",
-                    "info": "Andamentos Registrados: _TOTAL_",
-                    "infoEmpty": "Andamentos Registrados: 0",
-                    "infoFiltered": "",
-                    "infoPostFix": "",
-                    "thousands": ",",
-                    "lengthMenu": "Mostrar _MENU_ andamentos",
-                    "loadingRecords": "A carregar dados...",
-                    "processing": "A processar...",
-                    "search": "Buscar:",
-                    "zeroRecords": "Nenhum andamento encontrado",
-                    "paginate": {
-                        "first": "Primeiro",
-                        "last": "Último",
-                        "next": "Próximo",
-                        "previous": "Anterior"
-                    },
-                    "aria": {
-                        "sortAscending": ": ordem crescente",
-                        "sortDescending": ": ordem decrescente"
-                    }
-                }
-            });
+</body>
 
-        });
-    </script>
+    <!-- Importações -->
 
-{% endblock %}
+        <!-- Importação JS do Jquery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+        <!-- Importação JS do Bootstrap JS  -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+    <!-- Fim Importações -->
+</html> 
+
+
+
