@@ -227,3 +227,4 @@ class AndamentoAdmListUpdate(ListView):
         return context
 
     
+###### LIST ######
