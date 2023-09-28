@@ -83,7 +83,6 @@
 </head>
 <body>
     <!-- LISTA LATERAL ESQUERDA -->
-    <br>
     <div class="container" style="display: flex; flex-direction: row; float: left;">
         <div class="lista">
             {% for atributo in dados_processo %}
@@ -91,16 +90,16 @@
             {% endfor %}
             <hr>
               <table class="table table-striped" style="width: 250px; font-size: 14px;">
-                <tr class="table-secondary">
+                <!-- <tr class="table-secondary">
                     <td>Andamento</td>
                     <td>Arquivo</td>
-                </tr>
+                </tr> -->
                 {% for andamento in object_list %}
                 <tr>
                     <th>{{ andamento.andamento }}</th>
                     {% if andamento.arquivo%}
                         <td>
-                            <a href="{{ andamento.arquivo.url}}" target="arquivo_andamento">abrir</a>
+                            <a href="{{ andamento.arquivo.url}}" target="arquivo_andamento"><img src="{% static 'img/pdf.png' %}" width="25"></a>
                         </td>
                     {% else %}
                         <td></td>
@@ -116,7 +115,7 @@
         
         <!-- Iframe para abrir o arquivo -->
         <div>
-            <iframe name="arquivo_andamento" frameborder="0" height="770" width="1380"></iframe>
+            <iframe name="arquivo_andamento" frameborder="0" height="770" width="1380" style="padding: 10px;"></iframe>
         </div>
         <!-- Fim do Iframe -->
     </div>
