@@ -1,3 +1,5 @@
+/* CSS PARA O INDEX.HTML */
+
 /* Corpo do Menu */
 .container-fluid {
     background-color:  #0098DB;
@@ -57,3 +59,6 @@ body {
     bottom: 0;
     width: 100%;
 }
+
+/* FIM CSS PARA INDEX.HTML */
+
