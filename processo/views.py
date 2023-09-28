@@ -31,7 +31,7 @@ class AndamentoAdmView(TemplateView):
 
      #  Função para reverter para a url 'andamento-adm-list' passando a pk do processo para conseguir voltar para a tela de lista de andamentos do processo.
     def get_voltar(self, processo_pk):
-        return reverse('andamento-adm-list', args=[processo_pk])
+        return reverse('andamento-adm-list-update', args=[processo_pk])
 
     # Função para funcionalidade do botão 'voltar'
     # Função para buscar a pk do processo e salvar na variável 'processo_pk', com a funcionalidade do get_context_data envia para o Template o contexto 'cancelar' que recebe a função 'get_cancelar' junto com a variavel 'processo_pk'.
@@ -127,11 +127,11 @@ class AndamentoAdmUpdate(UpdateView):
         andamento = AndamentoAdm.objects.get(pk=andamento_pk) # Busca o andamento através da PK do andamento
         processo_pk = andamento.processo_id # Busca a PK do processo através do andamento (processo_id é a ForeignKey entre o processo administrativo e o andamento)
 
-        return reverse('andamento-adm-list', args=[processo_pk]) # URL da lista de andamentos + pk do processo 
+        return reverse('andamento-adm-list-update', args=[processo_pk]) # URL da lista de andamentos + pk do processo 
     
     #  Função para reverter para a url 'andamento-adm-list' passando a pk do processo para conseguir voltar para a tela de lista de andamentos do processo.
     def get_cancelar(self, processo_pk):
-        return reverse('andamento-adm-list', args=[processo_pk])
+        return reverse('andamento-adm-list-update', args=[processo_pk])
 
     # Função para funcionalidade do botão 'Cancelar'
     # Função para buscar a pk do processo e salvar na variável 'processo_pk', com a funcionalidade do get_context_data envia para o Template o contexto 'cancelar' que recebe a função 'get_cancelar' junto com a variavel 'processo_pk'.
