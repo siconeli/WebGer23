@@ -33,6 +33,7 @@
                                     <th>Criado em</th>
                                 {% endif %}
                                     <th>Ver/Editar/Deletar</th> 
+                                <th>Arquivo</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -61,9 +62,15 @@
                                         {% endif%}
 
                                         {% if user.is_superuser %} <!-- Super Usuário -->
-                                            <a href="{% url 'andamento-adm-delete' andamento.pk %}"><img src="{% static 'img/excluir.png' %}" width="25"></a>
+                                            <a href="{% url 'andamento-adm-delete' andamento.pk %}"><img src="{% static 'img/excluir.png' %}" width="20"></a>
                                         {% endif%}
                                     </td>
+                                    <td>
+                                        {% if andamento.arquivo %}
+                                            <img src="{% static 'img/verificar.png' %}" width="20">
+                                        {% endif %}
+                                    </td>
+
                             {% endfor %}
                             </tbody>
                             

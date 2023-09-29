@@ -65,7 +65,7 @@
                                                 {% endif %}
 
                                                 {% if user.is_superuser %} <!-- Super Usuário -->
-                                                    <a href="{% url 'proc-adm-delete' processo.pk %}"><img src="{% static 'img/excluir.png' %}" width="25"></a>
+                                                    <a href="{% url 'proc-adm-delete' processo.pk %}"><img src="{% static 'img/excluir.png' %}" width="20"></a>
                                                 {% endif %}
                                             </td>
                                         <td> 
@@ -75,9 +75,7 @@
                                             
                                             <a href="{% url 'andamento-adm-list-update' processo.pk %}"><img src="{% static 'img/botao-editar.png' %}" width="20"></a>
 
-                                            <a href="{% url 'andamento-adm-list' processo.pk %}"><img src="{% static 'img/listar.png' %}" width="30"></a>
-
-
+                                            <a href="{% url 'andamento-adm-list' processo.pk %}"><img src="{% static 'img/arquivo.png' %}" width="25"></a>
                                         </td>
                                     </tr>
                                     {% endfor %}
