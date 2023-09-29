@@ -73,9 +73,11 @@
                                                 <a href="{% url 'andamento-adm-create' processo.pk %}"><img src="{% static 'img/create-andamento.png' %}" width="25"></a>
                                             {% endif %}
                                             
+                                         
                                             <a href="{% url 'andamento-adm-list-update' processo.pk %}"><img src="{% static 'img/botao-editar.png' %}" width="20"></a>
 
                                             <a href="{% url 'andamento-adm-list' processo.pk %}"><img src="{% static 'img/arquivo.png' %}" width="25"></a>
+                                        
                                         </td>
                                     </tr>
                                     {% endfor %}

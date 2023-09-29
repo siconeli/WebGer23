@@ -1,6 +1,3 @@
-# from typing import Any
-# from django.db import models
-
 from .models import ProcessoAdm, AndamentoAdm
 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView # Módulo para create, update e delete
@@ -20,17 +17,6 @@ logger = logging.getLogger(__name__)
 import os # Módulo para trabalhar com pastas e arquivos
 
 from docx2pdf import convert # Módulo para converter .docx em pdf
-
-from time import sleep
-
-
-
-
-
-
-
-
-
 
 ###### VIEW ######
 class ProcessoAdmView(TemplateView):
@@ -89,21 +75,52 @@ class ProcessoAdmCreate(CreateView):
 
         else:
             return self.form_invalid(form)
-        
+                
 class AndamentoAdmCreate(CreateView):  
     model = AndamentoAdm
     template_name = 'processos/creates/andamento_adm_create.html'
     fields = ['data_andamento', 'andamento', 'situacao_pagamento', 'valor_pago', 'data_prazo', 'data_recebimento', 'complemento', 'arquivo']
     success_url = reverse_lazy('proc-adm-list')
 
-    # Busca a pk do processo na url e preenche o atributo 'processo_id', para vincular o processo ao andamento
     def form_valid(self, form):
+        """
+            A função form_valid() serve para alterar os valores do atributo ou realizar qualquer ação antes que o formulário seja salvo.
+        """
         pk_processo = self.kwargs.get('pk')
-
         form.instance.processo_id = pk_processo
-        form.instance.criador_andamento_adm = self.request.user # Função para preencher o atributo 'criador_andamento_adm' com o ID do usuário logado antes do formulário ser salvo.
+
+        # Preencher o atributo 'criador_andamento_adm' com o ID do usuário logado.
+        form.instance.criador_andamento_adm = self.request.user 
+
+        # Preencher o atributo 'funcionario' com o nome completo do usuário logado.
         form.instance.funcionario = self.request.user.get_full_name()
-        return super().form_valid(form) 
+
+        # Antes de salvar o formulário, verifica se um arquivo Word foi enviado
+        if 'arquivo' in self.request.FILES:
+            arquivo_docx = self.request.FILES['arquivo']
+            
+            if arquivo_docx.name.endswith('.docx'):
+                # Cria um arquivo temporário para a conversão
+                word_temporario = os.path.join('media/Arquivo', arquivo_docx.name)
+                with open(word_temporario, 'wb') as arquivo_temporario:
+                    for chunk in arquivo_docx.chunks():
+                        arquivo_temporario.write(chunk)
+
+                # Converte o arquivo Word para PDF
+                pdf_temporario = word_temporario.replace('.docx', '.pdf')
+                convert(word_temporario, pdf_temporario)
+
+                # Abra o arquivo PDF convertido e atualize o campo 'arquivo' no formulário
+                with open(pdf_temporario, 'rb') as pdf:
+                    form.instance.arquivo.save(pdf_temporario, pdf)
+
+                # Certifique-se de que o arquivo Word temporário seja excluído
+                os.remove(word_temporario)
+
+                # Certifique-se de que o arquivo PDF temporário seja excluído
+                os.remove(pdf_temporario)
+
+        return super().form_valid(form)
     
     # Após realizar o create do andamento com sucesso, reverte para a lista de andamentos do processo 
     def get_success_url(self):
@@ -118,39 +135,7 @@ class AndamentoAdmCreate(CreateView):
         context = super().get_context_data(**kwargs)
         context['dados_processo'] = ProcessoAdm.objects.filter(pk=processo_pk) # Filtra os dados do processo através da pk
         return context
-
-    
-    def conversorPdf():
-        """
-            Converter arquivos com formato '.docx' para formato '.pdf', remover o antigo arquivo '.docx' e atualizar o nome do arquivo na coluna do banco de dados para que busque o novo arquivo corretamente. (Ass. Siconeli)
-        """
-
-        andamentos = AndamentoAdm.objects.all()
-
-        for andamento in andamentos:
-            caminho = 'media/Arquivo'
-            lista_arquivos = os.listdir(caminho) # Todos os arquivos dentro do caminho
-            for arquivo in lista_arquivos:
-                if arquivo[-5:] == '.docx':  # Se arquivo possuir formato .docx, ira converter para pdf
-                    convert(f'media/Arquivo/{arquivo}')
-                    # sleep(2)
-                    os.remove(f'media/Arquivo/{arquivo}') # Remove o antigo arquivo com formato .docx   
-
-            nome_arquivo = andamento.arquivo.name # Nome do arquivo em 'str'
-
-            if nome_arquivo[-5:] == '.docx':
-                nome_convertido = f'{nome_arquivo[:-5]}.pdf'
-                andamento.arquivo.name = nome_convertido
-                andamento.save()
-    
-    conversorPdf()
-        
-
-    
-
-
-
-            
+       
 ###### UPDATE ######
 class ProcessoAdmUpdate(UpdateView):
     model = ProcessoAdm
