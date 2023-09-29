@@ -18,6 +18,8 @@ import os # Módulo para trabalhar com pastas e arquivos
 
 from docx2pdf import convert # Módulo para converter .docx em pdf
 
+from django.core.exceptions import ValidationError
+
 ###### VIEW ######
 class ProcessoAdmView(TemplateView):
     template_name = 'processos/views/processo_adm_view.html'
@@ -98,14 +100,14 @@ class AndamentoAdmCreate(CreateView):
         # Código para conversão do arquivo enviado, de .docx(word) para .pdf
         # Antes de salvar o formulário, verifica se um arquivo Word foi enviado
         if 'arquivo' in self.request.FILES:
-            arquivo_docx = self.request.FILES['arquivo']
-            print(arquivo_docx)
+            arquivo = self.request.FILES['arquivo']
+            # print(arquivo)
             
-            if arquivo_docx.name.endswith('.docx'):
+            if arquivo.name.endswith('.docx'): # Se o arquivo termina com '.docx'
                 # Cria um arquivo temporário para a conversão
-                word_temporario = os.path.join('media/Arquivo', arquivo_docx.name)
+                word_temporario = os.path.join('media/Arquivo', arquivo.name)
                 with open(word_temporario, 'wb') as arquivo_temporario:
-                    for chunk in arquivo_docx.chunks():
+                    for chunk in arquivo.chunks():
                         arquivo_temporario.write(chunk)
 
                 # Converte o arquivo Word para PDF

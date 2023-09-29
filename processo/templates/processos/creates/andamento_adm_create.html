@@ -21,7 +21,7 @@
                 <h5>Processo: {{ atributo.numero }}</h5>
             {% endfor %}
             <hr>
-            <form action="" method="post" enctype="multipart/form-data">
+            <form action="" method="post" enctype="multipart/form-data" id="meuFormulario">
                 {% csrf_token %}
                 <!-- <br> -->
                 <div class="row">
@@ -63,7 +63,8 @@
                 <div class="row">
                     <div class="col">
                         <!-- <label for="arquivo">Arquivo</label> -->
-                        {% render_field form.arquivo class="form-control"%}
+                        {% render_field form.arquivo id="arquivo" name="arquivo" class="form-control" 
+                        accept=".docx,.pdf"%}
                     </div>
                 </div>
                 <br>
@@ -148,6 +149,26 @@
         $('#pag').mask("000,000,000.00", {reverse: true});
 
     })
+</script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const formulario = document.getElementById('meuFormulario');
+        const arquivoInput = document.getElementById('arquivo');
+    
+        formulario.addEventListener('submit', function(event) {
+            const arquivo = arquivoInput.files[0];
+    
+            if (arquivo) {
+                const extensao = arquivo.name.split('.').pop().toLowerCase();
+                if (extensao !== 'docx' && extensao !== 'pdf') {
+                    alert('Somente arquivos .docx e .pdf são permitidos.');
+                    event.preventDefault(); // Impede o envio do formulário
+                }
+            }
+        });
+    });
 </script>
 
 {% endblock %}
