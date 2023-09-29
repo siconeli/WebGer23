@@ -125,24 +125,27 @@ class AndamentoAdmCreate(CreateView):
     andamentos = AndamentoAdm.objects.all()
 
     for andamento in andamentos:
-        pk_andamento = andamento.pk
-        andamento = AndamentoAdm.objects.get(pk=pk_andamento)
+        # pk_andamento = andamento.pk
+        # andamento = AndamentoAdm.objects.get(pk=pk_andamento)
         nome_arquivo = andamento.arquivo.name # Nome do arquivo em 'str'
-        print(f'Nome origial = {nome_arquivo}')
-        nome_para_conversao = nome_arquivo[8:]
-        print(f'Nome após conversão = {nome_para_conversao}')
+        if nome_arquivo[-5:] == '.docx':
+            nome_convertido = f'{nome_arquivo[:-5]}.pdf'
+            andamento.arquivo.name = nome_convertido
+            andamento.save()
+        print(andamento.arquivo.name)
 
-        caminho = 'media/Arquivo'
 
-        lista_arquivos = os.listdir(caminho) # Todos os arquivos dentro do caminho
+        # caminho = 'media/Arquivo'
 
-        for arquivo in lista_arquivos:
-            if nome_para_conversao[-5:] == '.docx':  # Se arquivo possuir formato .docx ira converter para pdf
-                convert(f'media/Arquivo/{nome_para_conversao}')
-                sleep(2)
-                os.remove(f'media/Arquivo/{nome_para_conversao}') # Remove o antigo arquivo com formato .docx   
+        # lista_arquivos = os.listdir(caminho) # Todos os arquivos dentro do caminho
+
+        # for arquivo in lista_arquivos:
+        #     if nome_para_conversao[-5:] == '.docx':  # Se arquivo possuir formato .docx ira converter para pdf
+        #         convert(f'media/Arquivo/{nome_para_conversao}')
+        #         sleep(2)
+        #         os.remove(f'media/Arquivo/{nome_para_conversao}') # Remove o antigo arquivo com formato .docx   
         
-
+    # FIM DO CÓDIGO
 
     
 
