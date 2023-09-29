@@ -151,26 +151,6 @@
     })
 </script>
 
-<!-- Validação de tipo de arquivo no campo input, se o arquivo não tiver extensão .docx ou .pdf, o usuário irá receber um alerta e não conseguira enviar o formulário  -->
-<!-- <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const formulario = document.getElementById('meuFormulario');
-        const arquivoInput = document.getElementById('arquivo');
-    
-        formulario.addEventListener('submit', function(event) {
-            const arquivo = arquivoInput.files[0];
-    
-            if (arquivo) {
-                const extensao = arquivo.name.split('.').pop().toLowerCase();
-                if (extensao !== 'docx' && extensao !== 'pdf') {
-                    alert('Somente arquivos .docx e .pdf são permitidos.');
-                    event.preventDefault(); // Impede o envio do formulário
-                }
-            }
-        });
-    });
-</script> -->
-
 {% endblock %}
 
 

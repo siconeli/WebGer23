@@ -101,7 +101,7 @@ class AndamentoAdmCreate(CreateView):
         # Antes de salvar o formulário, verifica se um arquivo Word foi enviado
         if 'arquivo' in self.request.FILES:
             arquivo = self.request.FILES['arquivo']
-            # print(arquivo)
+            print(arquivo)
             
             if arquivo.name.endswith('.docx'): # Se o arquivo termina com '.docx'
                 # Cria um arquivo temporário para a conversão
