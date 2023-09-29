@@ -14779,3 +14779,141 @@ Traceback (most recent call last):
 pywintypes.com_error: (-2147221008, 'CoInitialize não foi chamado.', None, None)
 C:\Users\luisf\OneDrive\Área de Trabalho\Siconeli\PARTICULAR\ProjetoCP4\WebGer23\processo\views.py changed, reloading.
 Watching for file changes with StatReloader
+Internal Server Error: /cadastrar/andamento-adm/1/
+Traceback (most recent call last):
+  File "C:\Users\luisf\OneDrive\Área de Trabalho\Siconeli\PARTICULAR\ProjetoCP4\WebGer23\env\Lib\site-packages\win32com\client\dynamic.py", line 84, in _GetGoodDispatch
+    IDispatch = pythoncom.connect(IDispatch)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pywintypes.com_error: (-2147221008, 'CoInitialize não foi chamado.', None, None)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\luisf\OneDrive\Área de Trabalho\Siconeli\PARTICULAR\ProjetoCP4\WebGer23\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisf\OneDrive\Área de Trabalho\Siconeli\PARTICULAR\ProjetoCP4\WebGer23\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisf\OneDrive\Área de Trabalho\Siconeli\PARTICULAR\ProjetoCP4\WebGer23\env\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisf\OneDrive\Área de Trabalho\Siconeli\PARTICULAR\ProjetoCP4\WebGer23\env\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisf\OneDrive\Área de Trabalho\Siconeli\PARTICULAR\ProjetoCP4\WebGer23\env\Lib\site-packages\django\views\generic\edit.py", line 184, in post
+    return super().post(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisf\OneDrive\Área de Trabalho\Siconeli\PARTICULAR\ProjetoCP4\WebGer23\env\Lib\site-packages\django\views\generic\edit.py", line 153, in post
+    return self.form_valid(form)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisf\OneDrive\Área de Trabalho\Siconeli\PARTICULAR\ProjetoCP4\WebGer23\processo\views.py", line 115, in form_valid
+    convert(word_temporario, pdf_temporario)
+  File "C:\Users\luisf\OneDrive\Área de Trabalho\Siconeli\PARTICULAR\ProjetoCP4\WebGer23\env\Lib\site-packages\docx2pdf\__init__.py", line 106, in convert
+    return windows(paths, keep_active)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisf\OneDrive\Área de Trabalho\Siconeli\PARTICULAR\ProjetoCP4\WebGer23\env\Lib\site-packages\docx2pdf\__init__.py", line 19, in windows
+    word = win32com.client.Dispatch("Word.Application")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisf\OneDrive\Área de Trabalho\Siconeli\PARTICULAR\ProjetoCP4\WebGer23\env\Lib\site-packages\win32com\client\__init__.py", line 118, in Dispatch
+    dispatch, userName = dynamic._GetGoodDispatchAndUserName(dispatch, userName, clsctx)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisf\OneDrive\Área de Trabalho\Siconeli\PARTICULAR\ProjetoCP4\WebGer23\env\Lib\site-packages\win32com\client\dynamic.py", line 104, in _GetGoodDispatchAndUserName
+    return (_GetGoodDispatch(IDispatch, clsctx), userName)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisf\OneDrive\Área de Trabalho\Siconeli\PARTICULAR\ProjetoCP4\WebGer23\env\Lib\site-packages\win32com\client\dynamic.py", line 86, in _GetGoodDispatch
+    IDispatch = pythoncom.CoCreateInstance(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pywintypes.com_error: (-2147221008, 'CoInitialize não foi chamado.', None, None)
+Internal Server Error: /cadastrar/andamento-adm/1/
+Traceback (most recent call last):
+  File "C:\Users\luisf\OneDrive\Área de Trabalho\Siconeli\PARTICULAR\ProjetoCP4\WebGer23\env\Lib\site-packages\win32com\client\dynamic.py", line 84, in _GetGoodDispatch
+    IDispatch = pythoncom.connect(IDispatch)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pywintypes.com_error: (-2147221008, 'CoInitialize não foi chamado.', None, None)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\luisf\OneDrive\Área de Trabalho\Siconeli\PARTICULAR\ProjetoCP4\WebGer23\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisf\OneDrive\Área de Trabalho\Siconeli\PARTICULAR\ProjetoCP4\WebGer23\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisf\OneDrive\Área de Trabalho\Siconeli\PARTICULAR\ProjetoCP4\WebGer23\env\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisf\OneDrive\Área de Trabalho\Siconeli\PARTICULAR\ProjetoCP4\WebGer23\env\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisf\OneDrive\Área de Trabalho\Siconeli\PARTICULAR\ProjetoCP4\WebGer23\env\Lib\site-packages\django\views\generic\edit.py", line 184, in post
+    return super().post(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisf\OneDrive\Área de Trabalho\Siconeli\PARTICULAR\ProjetoCP4\WebGer23\env\Lib\site-packages\django\views\generic\edit.py", line 153, in post
+    return self.form_valid(form)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisf\OneDrive\Área de Trabalho\Siconeli\PARTICULAR\ProjetoCP4\WebGer23\processo\views.py", line 115, in form_valid
+    convert(word_temporario, pdf_temporario)
+  File "C:\Users\luisf\OneDrive\Área de Trabalho\Siconeli\PARTICULAR\ProjetoCP4\WebGer23\env\Lib\site-packages\docx2pdf\__init__.py", line 106, in convert
+    return windows(paths, keep_active)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisf\OneDrive\Área de Trabalho\Siconeli\PARTICULAR\ProjetoCP4\WebGer23\env\Lib\site-packages\docx2pdf\__init__.py", line 19, in windows
+    word = win32com.client.Dispatch("Word.Application")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisf\OneDrive\Área de Trabalho\Siconeli\PARTICULAR\ProjetoCP4\WebGer23\env\Lib\site-packages\win32com\client\__init__.py", line 118, in Dispatch
+    dispatch, userName = dynamic._GetGoodDispatchAndUserName(dispatch, userName, clsctx)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisf\OneDrive\Área de Trabalho\Siconeli\PARTICULAR\ProjetoCP4\WebGer23\env\Lib\site-packages\win32com\client\dynamic.py", line 104, in _GetGoodDispatchAndUserName
+    return (_GetGoodDispatch(IDispatch, clsctx), userName)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisf\OneDrive\Área de Trabalho\Siconeli\PARTICULAR\ProjetoCP4\WebGer23\env\Lib\site-packages\win32com\client\dynamic.py", line 86, in _GetGoodDispatch
+    IDispatch = pythoncom.CoCreateInstance(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pywintypes.com_error: (-2147221008, 'CoInitialize não foi chamado.', None, None)
+Internal Server Error: /cadastrar/andamento-adm/1/
+Traceback (most recent call last):
+  File "C:\Users\luisf\OneDrive\Área de Trabalho\Siconeli\PARTICULAR\ProjetoCP4\WebGer23\env\Lib\site-packages\win32com\client\dynamic.py", line 84, in _GetGoodDispatch
+    IDispatch = pythoncom.connect(IDispatch)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pywintypes.com_error: (-2147221008, 'CoInitialize não foi chamado.', None, None)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\luisf\OneDrive\Área de Trabalho\Siconeli\PARTICULAR\ProjetoCP4\WebGer23\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisf\OneDrive\Área de Trabalho\Siconeli\PARTICULAR\ProjetoCP4\WebGer23\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisf\OneDrive\Área de Trabalho\Siconeli\PARTICULAR\ProjetoCP4\WebGer23\env\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisf\OneDrive\Área de Trabalho\Siconeli\PARTICULAR\ProjetoCP4\WebGer23\env\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisf\OneDrive\Área de Trabalho\Siconeli\PARTICULAR\ProjetoCP4\WebGer23\env\Lib\site-packages\django\views\generic\edit.py", line 184, in post
+    return super().post(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisf\OneDrive\Área de Trabalho\Siconeli\PARTICULAR\ProjetoCP4\WebGer23\env\Lib\site-packages\django\views\generic\edit.py", line 153, in post
+    return self.form_valid(form)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisf\OneDrive\Área de Trabalho\Siconeli\PARTICULAR\ProjetoCP4\WebGer23\processo\views.py", line 115, in form_valid
+    convert(word_temporario, pdf_temporario)
+  File "C:\Users\luisf\OneDrive\Área de Trabalho\Siconeli\PARTICULAR\ProjetoCP4\WebGer23\env\Lib\site-packages\docx2pdf\__init__.py", line 106, in convert
+    return windows(paths, keep_active)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisf\OneDrive\Área de Trabalho\Siconeli\PARTICULAR\ProjetoCP4\WebGer23\env\Lib\site-packages\docx2pdf\__init__.py", line 19, in windows
+    word = win32com.client.Dispatch("Word.Application")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisf\OneDrive\Área de Trabalho\Siconeli\PARTICULAR\ProjetoCP4\WebGer23\env\Lib\site-packages\win32com\client\__init__.py", line 118, in Dispatch
+    dispatch, userName = dynamic._GetGoodDispatchAndUserName(dispatch, userName, clsctx)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisf\OneDrive\Área de Trabalho\Siconeli\PARTICULAR\ProjetoCP4\WebGer23\env\Lib\site-packages\win32com\client\dynamic.py", line 104, in _GetGoodDispatchAndUserName
+    return (_GetGoodDispatch(IDispatch, clsctx), userName)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luisf\OneDrive\Área de Trabalho\Siconeli\PARTICULAR\ProjetoCP4\WebGer23\env\Lib\site-packages\win32com\client\dynamic.py", line 86, in _GetGoodDispatch
+    IDispatch = pythoncom.CoCreateInstance(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pywintypes.com_error: (-2147221008, 'CoInitialize não foi chamado.', None, None)
