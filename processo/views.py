@@ -95,9 +95,11 @@ class AndamentoAdmCreate(CreateView):
         # Preencher o atributo 'funcionario' com o nome completo do usuário logado.
         form.instance.funcionario = self.request.user.get_full_name()
 
+        # Código para conversão do arquivo enviado, de .docx(word) para .pdf
         # Antes de salvar o formulário, verifica se um arquivo Word foi enviado
         if 'arquivo' in self.request.FILES:
             arquivo_docx = self.request.FILES['arquivo']
+            print(arquivo_docx)
             
             if arquivo_docx.name.endswith('.docx'):
                 # Cria um arquivo temporário para a conversão
