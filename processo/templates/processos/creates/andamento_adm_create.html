@@ -62,9 +62,9 @@
                 <br>
                 <div class="row">
                     <div class="col">
-                        <!-- <label for="arquivo">Arquivo</label> -->
-                        {% render_field form.arquivo id="arquivo" name="arquivo" class="form-control" 
-                        accept=".docx,.pdf"%}
+                        {% render_field form.arquivo id="arquivo" name="arquivo" class="form-control" accept=".docx,.pdf"%} 
+                        <label for="arquivo">Formatos aceitos: <b>.docx(word) e .pdf</b></label>
+                        <!-- accept=".docx,.pdf" impede o usuário de selecionar qualquer outro tipo de extensão no campo do arquivo -->
                     </div>
                 </div>
                 <br>
@@ -151,8 +151,8 @@
     })
 </script>
 
-
-<script>
+<!-- Validação de tipo de arquivo no campo input, se o arquivo não tiver extensão .docx ou .pdf, o usuário irá receber um alerta e não conseguira enviar o formulário  -->
+<!-- <script>
     document.addEventListener('DOMContentLoaded', function() {
         const formulario = document.getElementById('meuFormulario');
         const arquivoInput = document.getElementById('arquivo');
@@ -169,7 +169,7 @@
             }
         });
     });
-</script>
+</script> -->
 
 {% endblock %}
 
