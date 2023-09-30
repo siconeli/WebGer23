@@ -1,4 +1,4 @@
-from .models import ProcessoAdm, AndamentoAdm
+from .models import ProcessoAdm, TipoAndamentoAdm ,AndamentoAdm
 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView # Módulo para create, update e delete
 
@@ -79,6 +79,12 @@ class ProcessoAdmCreate(CreateView):
 
         else:
             return self.form_invalid(form)
+
+class TipoAndamentoAdmCreate(CreateView):
+    model = TipoAndamentoAdm
+    template_name = 'processos/creates/tipo_andamento_adm_create.html'
+    fields = ['andamento']
+    success_url = reverse_lazy('')
 
 class AndamentoAdmCreate(CreateView):  
     model = AndamentoAdm

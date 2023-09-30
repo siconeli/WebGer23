@@ -12,14 +12,6 @@ class Base(models.Model): # Classe base, será herdada pelas outras classes
 
 class ProcessoAdm(Base):
 
-    # ufs = (
-    #     ('MS', 'MS'), ('MT', 'MT'), ('SP', 'SP'), ('RJ', 'RJ'),
-    # )
-
-    # municipios = (
-    #     ('Selvíria', 'Selvíria'), ('Inocência', 'Inocência'),
-    # )
-
     tipo_pessoas = (
         ('Física', 'Física'), ('Jurídica', 'Jurídica'),
     )
@@ -37,7 +29,7 @@ class ProcessoAdm(Base):
     valor_atualizado = models.CharField(max_length=14, blank=True, null=True) # Valor do atualizado
     data_valor_atualizado = models.DateField(blank=True, null=True) # Data valor atualizado
     nome_contribuinte = models.CharField(max_length=50)  # Nome / Razão Social
-    tipo_pessoa = models.CharField(max_length=50, choices=tipo_pessoas) # Física / Jurídica
+    tipo_pessoa = models.CharField(max_length=50, choices=tipo_pessoas) # Física / Jurídica # Utiliza choices(escolhas) para selecionar o tipo de pessoas
     documento = models.CharField(max_length=20, verbose_name='CPF/CNPJ', unique=True) # CPF / CNPJ
     nome_fantasia = models.CharField(max_length=50, blank=True, null=True) # Nome Fantasia
     email = models.EmailField(max_length=50, blank=True, null=True) # E-mail
@@ -51,13 +43,16 @@ class ProcessoAdm(Base):
 
     def __str__(self):
         return f'{self.numero}'
+
+class TipoAndamentoAdm(Base):
+    andamento = models.CharField(max_length=100, verbose_name='Andamento')
     
 class AndamentoAdm(Base):
-    # Choices
-    andamentos = (
-    ('Abertura', 'Abertura'), ('Parecer Fiscal', 'Parecer Fiscal'), ('Decisão 1ª Instância', 'Decisão 1ª Instância'), ('Suspenso Para Fiscalização Futura', 'Suspenso Para Fiscalização Futura'), ('Auto de Infração e Termo de Intimação - AITI.', 'Auto de Infração e Termo de Intimação - AITI.'), ('Termo de Intimação Fiscal - TIF.-tif.', 'Termo de Intimação Fiscal - TIF.'), ('Decisão de 2ª Instância', 'Decisão de 2ª Instância'), ('Cobrança de Documentação', 'Cobrança de Documentação'), ('Recurso Voluntário', 'Recurso Voluntário'), ('Fim do Contrato com a Assessoria', 'Fim do Contrato com a Assessoria'), ('Manifestação', 'Manifestação'), ('Recebimento do AR', 'Recebimento do AR'), ('Despacho', 'Despacho'), ('Aguardando Pagamento', 'Aguardando Pagamento'), ('Apresentação de Documentação para Análise', 'Apresentação de Documentação para Análise'), ('Aguardando AR', 'Aguardando AR'), ('Ofício', 'Ofício'), ('Revelia', 'Revelia'), ('Execução', 'Execução'), ('Confissão de Dívida (Parcelamento)', 'Confissão de Dívida (Parcelamento)'), ('Reenvio de Documento', 'Reenvio de Documento'), ('Parecer Juridico', 'Parecer Juridico'), ('Certidão', 'Certidão'), ('Encaminhado', 'Encaminhado'), ('Encerrado', 'Encerrado'),
-    )
+    # andamentos = (
+    # ('Abertura', 'Abertura'), ('Parecer Fiscal', 'Parecer Fiscal'), ('Decisão 1ª Instância', 'Decisão 1ª Instância'), ('Suspenso Para Fiscalização Futura', 'Suspenso Para Fiscalização Futura'), ('Auto de Infração e Termo de Intimação - AITI.', 'Auto de Infração e Termo de Intimação - AITI.'), ('Termo de Intimação Fiscal - TIF.-tif.', 'Termo de Intimação Fiscal - TIF.'), ('Decisão de 2ª Instância', 'Decisão de 2ª Instância'), ('Cobrança de Documentação', 'Cobrança de Documentação'), ('Recurso Voluntário', 'Recurso Voluntário'), ('Fim do Contrato com a Assessoria', 'Fim do Contrato com a Assessoria'), ('Manifestação', 'Manifestação'), ('Recebimento do AR', 'Recebimento do AR'), ('Despacho', 'Despacho'), ('Aguardando Pagamento', 'Aguardando Pagamento'), ('Apresentação de Documentação para Análise', 'Apresentação de Documentação para Análise'), ('Aguardando AR', 'Aguardando AR'), ('Ofício', 'Ofício'), ('Revelia', 'Revelia'), ('Execução', 'Execução'), ('Confissão de Dívida (Parcelamento)', 'Confissão de Dívida (Parcelamento)'), ('Reenvio de Documento', 'Reenvio de Documento'), ('Parecer Juridico', 'Parecer Juridico'), ('Certidão', 'Certidão'), ('Encaminhado', 'Encaminhado'), ('Encerrado', 'Encerrado'),
+    # )
 
+    # Choices
     situacao = (
         ('Sem Pagamento', 'Sem Pagamento'), ('Com Pagamento', 'Com Pagamento'),
     )
@@ -65,7 +60,7 @@ class AndamentoAdm(Base):
     criador_andamento_adm = models.ForeignKey(get_user_model(), verbose_name='Usuário Criador', on_delete=models.CASCADE)
     processo = models.ForeignKey(ProcessoAdm, on_delete=models.CASCADE) # Relacionamento 'One to Many' (um para muitos)
     data_andamento = models.DateField(verbose_name='Data do Andamento')
-    andamento = models.CharField(max_length=100, choices=andamentos, verbose_name='Andamento') # Utiliza choices(escolhas) para selecionar o andamento
+    andamento = models.ForeignKey(TipoAndamentoAdm, on_delete=models.CASCADE) 
     situacao_pagamento = models.CharField(max_length=100, choices=situacao, blank=True, null=True) 
     valor_pago = models.CharField(max_length=14, blank=True, null=True)
     data_prazo = models.DateField(blank=True, null=True)

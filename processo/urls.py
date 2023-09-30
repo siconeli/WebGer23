@@ -5,6 +5,7 @@ from .views import AndamentoAdmView
 
 from .views import ProcessoAdmCreate
 from .views import AndamentoAdmCreate
+from .views import TipoAndamentoAdmCreate
 
 from .views import ProcessoAdmUpdate
 from .views import AndamentoAdmUpdate
@@ -25,6 +26,7 @@ urlpatterns = [
     ###### CREATE ######
     path('cadastrar/processo-adm/', ProcessoAdmCreate.as_view(), name='proc-adm-create'), 
     path('cadastrar/andamento-adm/<int:pk>/', AndamentoAdmCreate.as_view(), name='andamento-adm-create'),
+    path('cadastrar/tipo-andamento-adm/', TipoAndamentoAdmCreate.as_view(), name='tipo-andamento-adm-create'),
 
     ###### UPDATE ######
     path('editar/processo-adm/<int:pk>/', ProcessoAdmUpdate.as_view(), name='proc-adm-update'),

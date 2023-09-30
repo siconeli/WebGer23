@@ -15177,3 +15177,75 @@ C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
 Watching for file changes with StatReloader
 Watching for file changes with StatReloader
 [ create ProcessoAdm | processo_processoadm id = 6 |  processo_processoadm numero = 11111/1111 | usuario = 1 (henrique) | data = 30-09-2023 17:15:51 ]
+C:\Users\henri\Documents\GitHub\WebGer23\processo\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\models.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /cadastrar/tipo-andamento-adm/
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: processo/tipoandamentoadm_form.html
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader

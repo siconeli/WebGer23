@@ -54,7 +54,6 @@
                                     <td>{{ andamento.data_criacao|date:"d/m/Y" }}</td>
                                 {% endif%}
                                     <td>
-
                                         <a href="{% url 'andamento-adm-view' andamento.pk %}"><img src="{% static 'img/olho3.png' %}" width="30"></a>
 
                                         {% if user.is_staff %} <!--Membro da equipe = is_staff-->
