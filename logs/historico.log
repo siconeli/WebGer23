@@ -15130,3 +15130,48 @@ C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
 Watching for file changes with StatReloader
 C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
 Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Not Found: /favicon.ico
+Internal Server Error: /cadastrar/andamento-adm/4/
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 184, in post
+    return super().post(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 153, in post
+    return self.form_valid(form)
+  File "C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py", line 118, in form_valid
+    convert(word_temporario, pdf_temporario)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\docx2pdf\__init__.py", line 106, in convert
+    return windows(paths, keep_active)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\docx2pdf\__init__.py", line 32, in windows
+    doc = word.Documents.Open(str(docx_filepath))
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\win32com\client\dynamic.py", line 638, in __getattr__
+    raise AttributeError("%s.%s" % (self._username_, attr))
+AttributeError: Word.Application.Documents
+[ create ProcessoAdm | processo_processoadm id = 5 |  processo_processoadm numero = 51615/6165 | usuario = 1 (henrique) | data = 30-09-2023 16:35:10 ]
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader

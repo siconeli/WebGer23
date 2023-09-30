@@ -69,9 +69,11 @@
                 </div>
                 <br>
                 <div>
-                    <button type="submit" class="btn btn-success btn-sm">Salvar</button> 
-                    <a href="{% url 'proc-adm-list' %}" class="btn btn-danger btn-sm">Cancelar</a>
+                    <button type="submit" class="btn btn-success btn-sm" id="submit-button">Salvar</button> 
+                    <a href="{% url 'proc-adm-list' %}" class="btn btn-danger btn-sm" id="cancel-href">Cancelar</a>
                 </div>
+                <br>
+                <div id="loading-message" style="display: none;">Carregando...</div>
             </form>
         </div>
     </div>
@@ -149,6 +151,28 @@
         $('#pag').mask("000,000,000.00", {reverse: true});
 
     })
+</script>
+
+<!-- Código Js para bloquear os botões de salvar e cancelar e inserir mensagem de 'carregando...', após clicar no botão enviar para fazer o submit do formulário, para que o usuário não tente fazer o envio mais de uma vez enquanto acontece o envio ou a conversão de arquivo word para pdf -->
+<script>
+    document.querySelector('form').addEventListener('submit', function() {
+        var submitButton = document.querySelector('#submit-button');
+        var loadingMessage = document.querySelector('#loading-message');
+
+        // Desativa o botão de envio
+        submitButton.disabled = true;
+
+        document.getElementById("cancel-href").removeAttribute("href");
+
+        // Exibe a mensagem de carregamento
+        loadingMessage.style.display = 'block';
+
+        // Você também pode adicionar um atraso simulado aqui para mostrar a mensagem
+        // de carregamento por alguns segundos antes de continuar com o envio real.
+        // setTimeout(function() {
+        //     this.submit();
+        // }, 2000); // Simula um atraso de 2 segundos
+    });
 </script>
 
 {% endblock %}
