@@ -46,6 +46,9 @@ class ProcessoAdm(Base):
 
 class TipoAndamentoAdm(Base):
     andamento = models.CharField(max_length=100, verbose_name='Andamento')
+
+    def __str__(self):
+        return f'{self.andamento}'
     
 class AndamentoAdm(Base):
     # andamentos = (
