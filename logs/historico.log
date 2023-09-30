@@ -14917,3 +14917,216 @@ Traceback (most recent call last):
     IDispatch = pythoncom.CoCreateInstance(
                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 pywintypes.com_error: (-2147221008, 'CoInitialize não foi chamado.', None, None)
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+[ create ProcessoAdm | processo_processoadm id = 2 |  processo_processoadm numero = 00000/0002 | usuario = 1 (henrique) | data = 30-09-2023 13:07:39 ]
+Internal Server Error: /cadastrar/andamento-adm/2/
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\win32com\client\dynamic.py", line 84, in _GetGoodDispatch
+    IDispatch = pythoncom.connect(IDispatch)
+pywintypes.com_error: (-2147221008, 'CoInitialize não foi chamado.', None, None)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 184, in post
+    return super().post(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 153, in post
+    return self.form_valid(form)
+  File "C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py", line 115, in form_valid
+    convert(word_temporario, pdf_temporario)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\docx2pdf\__init__.py", line 106, in convert
+    return windows(paths, keep_active)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\docx2pdf\__init__.py", line 19, in windows
+    word = win32com.client.Dispatch("Word.Application")
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\win32com\client\__init__.py", line 118, in Dispatch
+    dispatch, userName = dynamic._GetGoodDispatchAndUserName(dispatch, userName, clsctx)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\win32com\client\dynamic.py", line 104, in _GetGoodDispatchAndUserName
+    return (_GetGoodDispatch(IDispatch, clsctx), userName)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\win32com\client\dynamic.py", line 86, in _GetGoodDispatch
+    IDispatch = pythoncom.CoCreateInstance(
+pywintypes.com_error: (-2147221008, 'CoInitialize não foi chamado.', None, None)
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /cadastrar/andamento-adm/2/
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\win32com\client\dynamic.py", line 84, in _GetGoodDispatch
+    IDispatch = pythoncom.connect(IDispatch)
+pywintypes.com_error: (-2147221008, 'CoInitialize não foi chamado.', None, None)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 184, in post
+    return super().post(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 153, in post
+    return self.form_valid(form)
+  File "C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py", line 119, in form_valid
+    convert(word_temporario, pdf_temporario)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\docx2pdf\__init__.py", line 106, in convert
+    return windows(paths, keep_active)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\docx2pdf\__init__.py", line 19, in windows
+    word = win32com.client.Dispatch("Word.Application")
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\win32com\client\__init__.py", line 118, in Dispatch
+    dispatch, userName = dynamic._GetGoodDispatchAndUserName(dispatch, userName, clsctx)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\win32com\client\dynamic.py", line 104, in _GetGoodDispatchAndUserName
+    return (_GetGoodDispatch(IDispatch, clsctx), userName)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\win32com\client\dynamic.py", line 86, in _GetGoodDispatch
+    IDispatch = pythoncom.CoCreateInstance(
+pywintypes.com_error: (-2147221008, 'CoInitialize não foi chamado.', None, None)
+Watching for file changes with StatReloader
+Internal Server Error: /cadastrar/andamento-adm/1/
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\win32com\client\dynamic.py", line 84, in _GetGoodDispatch
+    IDispatch = pythoncom.connect(IDispatch)
+pywintypes.com_error: (-2147221008, 'CoInitialize não foi chamado.', None, None)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 184, in post
+    return super().post(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 153, in post
+    return self.form_valid(form)
+  File "C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py", line 119, in form_valid
+    convert(word_temporario, pdf_temporario)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\docx2pdf\__init__.py", line 106, in convert
+    return windows(paths, keep_active)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\docx2pdf\__init__.py", line 19, in windows
+    word = win32com.client.Dispatch("Word.Application")
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\win32com\client\__init__.py", line 118, in Dispatch
+    dispatch, userName = dynamic._GetGoodDispatchAndUserName(dispatch, userName, clsctx)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\win32com\client\dynamic.py", line 104, in _GetGoodDispatchAndUserName
+    return (_GetGoodDispatch(IDispatch, clsctx), userName)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\win32com\client\dynamic.py", line 86, in _GetGoodDispatch
+    IDispatch = pythoncom.CoCreateInstance(
+pywintypes.com_error: (-2147221008, 'CoInitialize não foi chamado.', None, None)
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Internal Server Error: /cadastrar/andamento-adm/2/
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\win32com\client\dynamic.py", line 84, in _GetGoodDispatch
+    IDispatch = pythoncom.connect(IDispatch)
+pywintypes.com_error: (-2147221008, 'CoInitialize não foi chamado.', None, None)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 184, in post
+    return super().post(request, *args, **kwargs)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 153, in post
+    return self.form_valid(form)
+  File "C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py", line 118, in form_valid
+    convert(word_temporario, pdf_temporario)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\docx2pdf\__init__.py", line 106, in convert
+    return windows(paths, keep_active)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\docx2pdf\__init__.py", line 19, in windows
+    word = win32com.client.Dispatch("Word.Application")
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\win32com\client\__init__.py", line 118, in Dispatch
+    dispatch, userName = dynamic._GetGoodDispatchAndUserName(dispatch, userName, clsctx)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\win32com\client\dynamic.py", line 104, in _GetGoodDispatchAndUserName
+    return (_GetGoodDispatch(IDispatch, clsctx), userName)
+  File "C:\Users\henri\AppData\Local\Programs\Python\Python310\lib\site-packages\win32com\client\dynamic.py", line 86, in _GetGoodDispatch
+    IDispatch = pythoncom.CoCreateInstance(
+pywintypes.com_error: (-2147221008, 'CoInitialize não foi chamado.', None, None)
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+[ create ProcessoAdm | processo_processoadm id = 3 |  processo_processoadm numero = 13135/1351 | usuario = 1 (henrique) | data = 30-09-2023 13:44:11 ]
+[ create ProcessoAdm | processo_processoadm id = 4 |  processo_processoadm numero = 6/5425 | usuario = 1 (henrique) | data = 30-09-2023 13:45:43 ]
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\henri\Documents\GitHub\WebGer23\processo\views.py changed, reloading.
+Watching for file changes with StatReloader

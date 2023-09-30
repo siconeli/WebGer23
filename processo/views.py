@@ -20,6 +20,8 @@ from docx2pdf import convert # Módulo para converter .docx em pdf
 
 from django.core.exceptions import ValidationError
 
+import pythoncom
+
 ###### VIEW ######
 class ProcessoAdmView(TemplateView):
     template_name = 'processos/views/processo_adm_view.html'
@@ -77,7 +79,7 @@ class ProcessoAdmCreate(CreateView):
 
         else:
             return self.form_invalid(form)
-                
+
 class AndamentoAdmCreate(CreateView):  
     model = AndamentoAdm
     template_name = 'processos/creates/andamento_adm_create.html'
@@ -97,6 +99,7 @@ class AndamentoAdmCreate(CreateView):
         # Preencher o atributo 'funcionario' com o nome completo do usuário logado.
         form.instance.funcionario = self.request.user.get_full_name()
 
+        pythoncom.CoInitialize() # Para não ocorrer o erro "Exception Value:(-2147221008, 'CoInitialize não foi chamado.', None, None)"    
         # Código para conversão do arquivo enviado, de .docx(word) para .pdf
         # Antes de salvar o formulário, verifica se um arquivo Word foi enviado
         if 'arquivo' in self.request.FILES:
@@ -123,6 +126,8 @@ class AndamentoAdmCreate(CreateView):
 
                 # Certifique-se de que o arquivo PDF temporário seja excluído
                 os.remove(pdf_temporario)
+                
+                pythoncom.CoUninitialize() # Para não ocorrer o erro "Exception Value:(-2147221008, 'CoInitialize não foi chamado.', None, None)"
 
         return super().form_valid(form)
     
@@ -139,7 +144,8 @@ class AndamentoAdmCreate(CreateView):
         context = super().get_context_data(**kwargs)
         context['dados_processo'] = ProcessoAdm.objects.filter(pk=processo_pk) # Filtra os dados do processo através da pk
         return context
-       
+    
+
 ###### UPDATE ######
 class ProcessoAdmUpdate(UpdateView):
     model = ProcessoAdm
@@ -266,4 +272,4 @@ class AndamentoAdmListUpdate(ListView):
         return context
 
     
-###### CONVERSOR DE .DOCX PARA PDF ######
+
