@@ -67,7 +67,7 @@
                                     </td>
                                     <td>
                                         {% if andamento.arquivo %}
-                                            <img src="{% static 'img/verificar.png' %}" width="20">
+                                            <a href="{{ andamento.arquivo.url }}"><img src="{% static 'img/verificar.png' %}" width="20"></a>
                                         {% endif %}
                                     </td>
 
