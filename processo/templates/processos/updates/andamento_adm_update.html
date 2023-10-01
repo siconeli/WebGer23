@@ -60,8 +60,9 @@
                     <br>
                     <div class="row">
                         <div class="col">
-                            <!-- <label for="arquivo">Arquivo</label> -->
-                            {% render_field form.arquivo class="form-control"%}
+                            {% render_field form.arquivo id="arquivo" name="arquivo" class="form-control" accept=".docx,.pdf"%} 
+                            <label for="arquivo">Formatos aceitos: <b>.docx e .pdf</b></label>
+                        <!-- accept=".docx,.pdf" impede o usuário de selecionar qualquer outro tipo de extensão no campo do arquivo -->
                         </div>
                     </div>
                     <br>
@@ -71,7 +72,7 @@
                         <a href="{{ cancelar }}" class="btn btn-danger btn-sm" id="cancel-href">Cancelar</a>
                     </div>
                     <br>
-                    <div id="loading-message" style="display: none;">Carregando...</div>
+                    <div id="loading-message" style="display: none;"><img src="{% static 'img/loading2.png'%}" width="20"> Salvando</div>
                 </form>
             </div>
         </div>
