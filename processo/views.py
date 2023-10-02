@@ -1,4 +1,4 @@
-from .models import ProcessoAdm, TipoAndamentoAdm ,AndamentoAdm
+from .models import ProcessoAdm, AndamentoAdm
 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView # Módulo para create, update e delete
 
@@ -80,12 +80,6 @@ class ProcessoAdmCreate(CreateView):
         else:
             return self.form_invalid(form)
 
-class TipoAndamentoAdmCreate(CreateView):
-    model = TipoAndamentoAdm
-    template_name = 'processos/creates/tipo_andamento_adm_create.html'
-    fields = ['andamento']
-    success_url = reverse_lazy('')
-
 class AndamentoAdmCreate(CreateView):  
     model = AndamentoAdm
     template_name = 'processos/creates/andamento_adm_create.html'
@@ -133,7 +127,7 @@ class AndamentoAdmCreate(CreateView):
                 # Certifique-se de que o arquivo PDF temporário seja excluído
                 os.remove(pdf_temporario)
                 
-                pythoncom.CoUninitialize() # Para não ocorrer o erro "Exception Value:(-2147221008, 'CoInitialize não foi chamado.', None, None)" quando utilizado códigos para converter arquivos
+        pythoncom.CoUninitialize() # Para não ocorrer o erro "Exception Value:(-2147221008, 'CoInitialize não foi chamado.', None, None)" quando utilizado códigos para converter arquivos
 
         return super().form_valid(form)
     
