@@ -48,7 +48,7 @@ class TipoAndamentoAdm(Base):
     andamento = models.CharField(max_length=100, verbose_name='Tipo de Andamento')
 
     def __str__(self):
-        return f'{self.andamento}'
+        return self.andamento
     
 class AndamentoAdm(Base):
     # andamentos = (
@@ -63,7 +63,7 @@ class AndamentoAdm(Base):
     criador_andamento_adm = models.ForeignKey(get_user_model(), verbose_name='Usuário Criador', on_delete=models.CASCADE)
     processo = models.ForeignKey(ProcessoAdm, on_delete=models.CASCADE) # Relacionamento 'One to Many' (um para muitos)
     data_andamento = models.DateField(verbose_name='Data do Andamento')
-    andamento = models.ForeignKey(TipoAndamentoAdm, on_delete=models.CASCADE) 
+    andamento_adm = models.ForeignKey(TipoAndamentoAdm, on_delete=models.CASCADE) 
     situacao_pagamento = models.CharField(max_length=100, choices=situacao, blank=True, null=True) 
     valor_pago = models.CharField(max_length=14, blank=True, null=True)
     data_prazo = models.DateField(blank=True, null=True)

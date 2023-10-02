@@ -30,8 +30,8 @@
                         {% render_field form.data_andamento class="form-control" type="date" id="data_andamento"%}
                     </div>
                     <div class="col" >
-                        <label for="andamento">Tipo de Andamento <b>*</b></label>
-                        {% render_field form.andamento class="andamento form-control" id="andamento"%}
+                        <label for="andamento_adm">Tipo de Andamento <b>*</b></label>
+                        {% render_field form.andamento_adm class="andamento form-control" id="andamento_adm"%}
                     </div>
                     <!-- O campo a baixo só ira aparecer para o usuário se no campo anterior, o valor 'Encerrado' for selecionado -->
                     <div class="col" style="display: none;" id="situacao_pagamento"> <!--style="display: none;" Deixa o campo invizível-->
@@ -99,11 +99,12 @@
     $(document).ready(function() {
     // Função para mostrar/ocultar campos com base nas seleções
     function toggleFields() {
-        var andamento = $(".andamento");
+        // var andamento = $(".andamento");
+        var andamento = $("#andamento_adm");
         var situacao = $("#sit");
         var pago = $("#pag");
         
-        if (andamento.val() === "Encerrado") {
+        if (andamento.val() === 'esse') {
             $("#situacao_pagamento").show();
             if (situacao.val() === 'Com Pagamento') {
                 $("#valor_pago").show();

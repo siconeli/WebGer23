@@ -98,7 +98,7 @@
             <table class="table table-striped" style="width: 250px; font-size: 14px;"> 
             {% for andamento in object_list %}
             <tr>
-                <th>{{ andamento.andamento }}</th>
+                <th>{{ andamento.andamento_adm }}</th>
                 {% if andamento.arquivo%}
                     <td>
                         <a href="{{ andamento.arquivo.url}}" target="arquivo_andamento"><img src="{% static 'img/pdf.png' %}" width="25"></a>
