@@ -70,7 +70,7 @@
 
                   {% if user.is_superuser %} <!-- Se o usuário for um SuperUsuario(administrador) consegue ver a 'central de usuários' no menu-->
                   <div>
-                    <a class="nav-link" id="texto-navbar-menu" href="{% url 'admin:index' %}" role="button" aria-expanded="false"><img src="{% static 'img/central-usuarios.png' %}" width="30"> Central Administrativa </a>
+                    <a class="nav-link" id="texto-navbar-menu" href="{% url 'admin:index' %}" role="button" aria-expanded="false"><img src="{% static 'img/adm.png' %}" width="25"> Central Administrativa </a>
                   </div>
                   {% endif %}
 

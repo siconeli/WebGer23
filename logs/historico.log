@@ -15614,3 +15614,4 @@ Traceback (most recent call last):
     raise NoReverseMatch(msg)
 django.urls.exceptions.NoReverseMatch: Reverse for 'tipo-andamento-adm-create' not found. 'tipo-andamento-adm-create' is not a valid view function or pattern name.
 [ create ProcessoAdm | processo_processoadm id = 2 |  processo_processoadm numero = 00000/0002 | usuario = 1 (henrique) | data = 02-10-2023 09:01:32 ]
+Watching for file changes with StatReloader
