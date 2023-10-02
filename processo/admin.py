@@ -8,4 +8,4 @@ from .models import TipoAndamentoAdm
 
 @admin.register(TipoAndamentoAdm)
 class TipoAndamentoAdmAdmin(admin.ModelAdmin):
-    list_display = ('tipo_andamento',)
+    list_display = ('tipo_andamento', 'ativo')

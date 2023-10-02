@@ -5,7 +5,7 @@ from django.contrib.auth import get_user_model
 class Base(models.Model): # Classe base, será herdada pelas outras classes
     data_criacao = models.DateField('data_criação', auto_now_add=True)
     data_alteracao = models.DateField('Alterado', auto_now=True)
-    # ativo = models.BooleanField('Ativo?', default=True)
+    ativo = models.BooleanField('Ativo?', default=True)
 
     class Meta:
         abstract = True
