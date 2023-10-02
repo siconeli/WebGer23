@@ -143,6 +143,7 @@ class AndamentoAdmCreate(CreateView):
 
         context = super().get_context_data(**kwargs)
         context['dados_processo'] = ProcessoAdm.objects.filter(pk=processo_pk) # Filtra os dados do processo através da pk
+        # context['tipo_andamento'] = AndamentoAdm.objects.filter(ativo=True)
         return context
     
 
