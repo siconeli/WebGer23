@@ -5,7 +5,7 @@ from django.contrib.auth import get_user_model
 class Base(models.Model): # Classe base, será herdada pelas outras classes
     data_criacao = models.DateField('data_criação', auto_now_add=True)
     data_alteracao = models.DateField('Alterado', auto_now=True)
-    ativo = models.BooleanField('Ativo?', default=True)
+    # ativo = models.BooleanField('Ativo?', default=True)
 
     class Meta:
         abstract = True
@@ -45,10 +45,10 @@ class ProcessoAdm(Base):
         return f'{self.numero}'
 
 class TipoAndamentoAdm(Base):
-    andamento = models.CharField(max_length=100, verbose_name='Tipo de Andamento')
+    tipo_andamento = models.CharField(max_length=100, verbose_name='Tipo de Andamento')
 
     def __str__(self):
-        return self.andamento
+        return self.tipo_andamento
     
 class AndamentoAdm(Base):
     # andamentos = (
@@ -63,7 +63,7 @@ class AndamentoAdm(Base):
     criador_andamento_adm = models.ForeignKey(get_user_model(), verbose_name='Usuário Criador', on_delete=models.CASCADE)
     processo = models.ForeignKey(ProcessoAdm, on_delete=models.CASCADE) # Relacionamento 'One to Many' (um para muitos)
     data_andamento = models.DateField(verbose_name='Data do Andamento')
-    andamento_adm = models.ForeignKey(TipoAndamentoAdm, on_delete=models.CASCADE) 
+    tipo_andamento = models.ForeignKey(TipoAndamentoAdm, on_delete=models.CASCADE) 
     situacao_pagamento = models.CharField(max_length=100, choices=situacao, blank=True, null=True) 
     valor_pago = models.CharField(max_length=14, blank=True, null=True)
     data_prazo = models.DateField(blank=True, null=True)
@@ -73,5 +73,5 @@ class AndamentoAdm(Base):
     arquivo = models.FileField(upload_to='Arquivo/', verbose_name='Arquivo', blank=True) 
 
     def __str__(self):
-        return f'Processo: {self.processo} Andamento: {self.andamento} Arquivo: {self.arquivo}'
+        return f'Processo: {self.processo} Andamento: {self.tipo_andamento} Arquivo: {self.arquivo}'
 

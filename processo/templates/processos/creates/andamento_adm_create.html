@@ -30,8 +30,8 @@
                         {% render_field form.data_andamento class="form-control" type="date" id="data_andamento"%}
                     </div>
                     <div class="col" >
-                        <label for="andamento_adm">Tipo de Andamento <b>*</b></label>
-                        {% render_field form.andamento_adm class="andamento form-control" id="andamento_adm"%}
+                        <label for="tipo_andamento">Tipo de Andamento <b>*</b></label>
+                        {% render_field form.tipo_andamento class="andamento form-control" id="tipo_andamento"%}
                     </div>
                     <!-- O campo a baixo só ira aparecer para o usuário se no campo anterior, o valor 'Encerrado' for selecionado -->
                     <div class="col" style="display: none;" id="situacao_pagamento"> <!--style="display: none;" Deixa o campo invizível-->
@@ -63,7 +63,7 @@
                 <div class="row">
                     <div class="col">
                         {% render_field form.arquivo id="arquivo" name="arquivo" class="form-control" accept=".docx,.pdf"%} 
-                        <label for="arquivo">Formatos aceitos: <b>.docx e .pdf</b></label>
+                        <label for="arquivo">Formato: <b>.docx</b> ou <b>.pdf</b></label>
                         <!-- accept=".docx,.pdf" impede o usuário de selecionar qualquer outro tipo de extensão no campo do arquivo -->
                     </div>
                 </div>
@@ -99,12 +99,11 @@
     $(document).ready(function() {
     // Função para mostrar/ocultar campos com base nas seleções
     function toggleFields() {
-        // var andamento = $(".andamento");
-        var andamento = $("#andamento_adm");
+        var andamento = $("#tipo_andamento");
         var situacao = $("#sit");
         var pago = $("#pag");
         
-        if (andamento.val() === 'esse') {
+        if (andamento.val() === '1') {
             $("#situacao_pagamento").show();
             if (situacao.val() === 'Com Pagamento') {
                 $("#valor_pago").show();
@@ -138,7 +137,7 @@
         toggleFields();
         
         // Adicione ouvintes de eventos para atualizar os campos quando as seleções mudarem
-        $("#andamento, #situacao_pagamento").on("change", toggleFields);
+        $("#tipo_andamento, #situacao_pagamento").on("change", toggleFields);
         
     });
 </script>

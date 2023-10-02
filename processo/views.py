@@ -83,7 +83,7 @@ class ProcessoAdmCreate(CreateView):
 class AndamentoAdmCreate(CreateView):  
     model = AndamentoAdm
     template_name = 'processos/creates/andamento_adm_create.html'
-    fields = ['data_andamento', 'andamento_adm', 'situacao_pagamento', 'valor_pago', 'data_prazo', 'data_recebimento', 'complemento', 'arquivo']
+    fields = ['data_andamento', 'tipo_andamento', 'situacao_pagamento', 'valor_pago', 'data_prazo', 'data_recebimento', 'complemento', 'arquivo']
     success_url = reverse_lazy('proc-adm-list')
 
     def form_valid(self, form):
@@ -164,7 +164,7 @@ class ProcessoAdmUpdate(UpdateView):
 class AndamentoAdmUpdate(UpdateView):
     model = AndamentoAdm
     template_name = 'processos/updates/andamento_adm_update.html'
-    fields = ['data_andamento', 'andamento_adm', 'situacao_pagamento','valor_pago', 'data_prazo', 'data_recebimento', 'complemento', 'arquivo']
+    fields = ['data_andamento', 'tipo_andamento', 'situacao_pagamento','valor_pago', 'data_prazo', 'data_recebimento', 'complemento', 'arquivo']
 
     # Após realizar o update com sucesso, reverte para a lista de andamentos do processo
     def get_success_url(self):
