@@ -61,15 +61,16 @@ class ProcessoAdmCreate(CreateView):
     success_url = reverse_lazy('proc-adm-list')
 
     def form_valid(self, form):
-        form.instance.user = self.request.user
+        form.instance.usuario_criador = self.request.user 
+
         result = super().form_valid(form)
         
         # Registre a operação de criação na auditoria
         Auditoria.objects.create(
             usuario = self.request.user,
-            nome_model = ProcessoAdm,
-            id_novo_registro = self.object.id,
-            acao='Create',
+            model = ProcessoAdm,
+            id_registro = self.object.id,
+            view = ProcessoAdmCreate,
             )
         
         return result
@@ -88,7 +89,7 @@ class AndamentoAdmCreate(CreateView):
         form.instance.processo_id = pk_processo
 
         # Preencher o atributo 'criador_andamento_adm' com o ID do usuário logado.
-        form.instance.criador_andamento_adm = self.request.user 
+        form.instance.usuario_criador = self.request.user 
 
         # Preencher o atributo 'funcionario' com o nome completo do usuário logado.
         form.instance.funcionario = self.request.user.get_full_name()
@@ -123,6 +124,14 @@ class AndamentoAdmCreate(CreateView):
                 
         pythoncom.CoUninitialize() # Para não ocorrer o erro "Exception Value:(-2147221008, 'CoInitialize não foi chamado.', None, None)" quando utilizado códigos para converter arquivos
 
+        # Registre a operação de criação na auditoria
+        Auditoria.objects.create(
+            usuario = self.request.user,
+            model = AndamentoAdm,
+            id_registro = self.object.id,
+            view = AndamentoAdmCreate,
+            )
+        
         return super().form_valid(form)
     
     # Após realizar o create do andamento com sucesso, reverte para a lista de andamentos do processo 
@@ -153,6 +162,17 @@ class ProcessoAdmUpdate(UpdateView):
         context = super().get_context_data(**kwargs)
         context['dados_processo'] = ProcessoAdm.objects.filter(pk=processo_pk) # Filtra os dados do processo através da pk
         return context
+    
+    def form_valid(self, form):        
+        # Registre a operação de criação na auditoria
+        Auditoria.objects.create(
+            usuario = self.request.user,
+            model = ProcessoAdm,
+            id_registro = self.object.id,
+            view = ProcessoAdmUpdate,
+            )
+        
+        return super().form_valid(form)
     
 class AndamentoAdmUpdate(UpdateView):
     model = AndamentoAdm
@@ -218,6 +238,14 @@ class AndamentoAdmUpdate(UpdateView):
                 os.remove(pdf_temporario)
                 
                 pythoncom.CoUninitialize() # Para não ocorrer o erro "Exception Value:(-2147221008, 'CoInitialize não foi chamado.', None, None)"
+
+        # Registre a operação de criação na auditoria
+        Auditoria.objects.create(
+        usuario = self.request.user,
+        model = AndamentoAdmCreate,
+        id_registro = self.object.id,
+        view = AndamentoAdmUpdate,
+        )
 
         return super().form_valid(form)
 

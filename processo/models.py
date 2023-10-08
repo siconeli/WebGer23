@@ -5,17 +5,18 @@ from django.contrib.auth.models import User
 
 class Auditoria(models.Model):
     usuario = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    nome_model = models.CharField(max_length=255)
-    id_novo_registro = models.PositiveIntegerField()
-    acao = models.CharField(max_length=10)  # "insert", "update", "delete"
+    model = models.CharField(max_length=255)
+    id_registro = models.PositiveIntegerField()
+    view = models.CharField(max_length=10)  # "insert", "update", "delete"
     data_hora = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         ordering = ('-data_hora',)
 
 class Base(models.Model): # Classe base, será herdada pelas outras classes
-    data_criacao = models.DateField('data_criação', auto_now_add=True)
-    data_alteracao = models.DateField('Alterado', auto_now=True)
+    data_criacao = models.DateTimeField('data_criação', auto_now_add=True)
+    usuario_criador = models.ForeignKey(get_user_model(), verbose_name='Usuário Criador', on_delete=models.SET_NULL, null=True)
+    data_alteracao = models.DateTimeField('Alterado', auto_now=True)
     ativo = models.BooleanField('Ativo?', default=True)
 
     class Meta:
@@ -27,7 +28,6 @@ class ProcessoAdm(Base):
         ('Física', 'Física'), ('Jurídica', 'Jurídica'),
     )
 
-    # criador_processo_adm = models.ForeignKey(get_user_model(), verbose_name='Usuário Criador', on_delete=models.CASCADE) # Usuário que criou o processo, utilizando chave primária com o get_user_model do django, para utilizar o usuário logado automaticamente
     numero = models.CharField(unique=True, verbose_name='N°', max_length=10) # Número do processo
     municipio = models.CharField(max_length=50, verbose_name='Município') # Município
     uf = models.CharField(max_length=2) # UF 
@@ -71,7 +71,6 @@ class AndamentoAdm(Base):
         ('Sem Pagamento', 'Sem Pagamento'), ('Com Pagamento', 'Com Pagamento'),
     )
 
-    criador_andamento_adm = models.ForeignKey(get_user_model(), verbose_name='Usuário Criador', on_delete=models.CASCADE)
     processo = models.ForeignKey(ProcessoAdm, on_delete=models.CASCADE) # Relacionamento 'One to Many' (um para muitos)
     data_andamento = models.DateField(verbose_name='Data do Andamento')
     tipo_andamento = models.ForeignKey(TipoAndamentoAdm, on_delete=models.CASCADE) 
