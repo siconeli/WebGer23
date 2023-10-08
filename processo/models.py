@@ -8,10 +8,10 @@ class Auditoria(models.Model):
     nome_model = models.CharField(max_length=255)
     id_novo_registro = models.PositiveIntegerField()
     acao = models.CharField(max_length=10)  # "insert", "update", "delete"
-    data = models.DateTimeField(auto_now_add=True)
+    data_hora = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        ordering = ('-data',)
+        ordering = ('-data_hora',)
 
 class Base(models.Model): # Classe base, será herdada pelas outras classes
     data_criacao = models.DateField('data_criação', auto_now_add=True)
