@@ -1,4 +1,4 @@
-from .models import ProcessoAdm, AndamentoAdm
+from .models import ProcessoAdm, AndamentoAdm, Auditoria
 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView # Módulo para create, update e delete
 
@@ -11,8 +11,6 @@ from django.urls import reverse, reverse_lazy # Módulo para reverter para a url
 import logging # Módulo para criar logs
 
 import datetime # Módulo para datas
-
-logger = logging.getLogger(__name__)
 
 import os # Módulo para trabalhar com pastas e arquivos
 
@@ -62,23 +60,19 @@ class ProcessoAdmCreate(CreateView):
     fields = ['numero', 'municipio', 'uf', 'data_inicial', 'data_final', 'data_div_ativa', 'valor_atributo', 'valor_multa', 'valor_credito', 'valor_atualizado', 'data_valor_atualizado', 'nome_contribuinte', 'tipo_pessoa', 'documento', 'nome_fantasia', 'email', 'endereco', 'complemento', 'municipio_contribuinte', 'uf_contribuinte', 'cep', 'telefone', 'celular']
     success_url = reverse_lazy('proc-adm-list')
 
-    # Registrar utilizando o logging, quando um usuario criar um processo administrativo
-    def post(self, request, *args, **kwargs):
-        form = self.get_form()
-        if form.is_valid():
-
-            form.instance.criador_processo_adm = self.request.user # Preencher o atributo 'criador_processo_adm' com o ID do usuário logado antes do formulário ser salvo.
-
-            self.object = form.save()
-
-            data_atual = datetime.datetime.now()
-
-            logger.info(f"[ create ProcessoAdm | processo_processoadm id = {self.object.id} |  processo_processoadm numero = {self.object.numero} | usuario = {self.request.user.id} ({self.request.user}) | data = {data_atual.strftime('%d-%m-%Y %H:%M:%S')} ]")
-
-            return self.form_valid(form)
-
-        else:
-            return self.form_invalid(form)
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        result = super().form_valid(form)
+        
+        # Registre a operação de criação na auditoria
+        Auditoria.objects.create(
+            usuario = self.request.user,
+            nome_model = ProcessoAdm,
+            id_novo_registro = self.object.id,
+            acao='Create',
+            )
+        
+        return result
 
 class AndamentoAdmCreate(CreateView):  
     model = AndamentoAdm
@@ -145,7 +139,6 @@ class AndamentoAdmCreate(CreateView):
         context['dados_processo'] = ProcessoAdm.objects.filter(pk=processo_pk) # Filtra os dados do processo através da pk
         return context
     
-
 ###### UPDATE ######
 class ProcessoAdmUpdate(UpdateView):
     model = ProcessoAdm
@@ -240,7 +233,7 @@ class ProcessoAdmDelete(DeleteView):
 
         context = super().get_context_data(**kwargs)
         context['dados_processo'] = ProcessoAdm.objects.filter(pk=processo_pk) # Filtra os dados do processo através da pk
-        return context
+        return context  
 
 class AndamentoAdmDelete(DeleteView):
     model = AndamentoAdm
