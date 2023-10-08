@@ -285,6 +285,17 @@ class AndamentoAdmDelete(DeleteView):
     model = AndamentoAdm
     template_name = 'processos/deletes/andamento_adm_delete.html'
 
+    def form_valid(self, form):        
+        # Registre a operação de criação na auditoria
+        Auditoria.objects.create(
+            usuario = self.request.user,
+            model = AndamentoAdm,
+            id_registro = self.object.id,
+            view = AndamentoAdmDelete,
+            )
+        
+        return super().form_valid(form)
+
     # Após realizar o delete com sucesso, reverte para a lista de andamentos do processo
     def get_success_url(self):
         andamento_pk = self.kwargs.get('pk') # Pega a PK do andamento ao fazer o update através da URL
