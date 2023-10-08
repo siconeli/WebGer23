@@ -32,6 +32,23 @@ class ProcessoAdmView(TemplateView):
         context['dados_processo'] = ProcessoAdm.objects.filter(pk=processo_pk) # Filtra os dados do processo através da pk
         return context
     
+    def form_valid(self, form):
+        form.instance.usuario_criador = self.request.user 
+
+        result = super().form_valid(form)
+        
+        # Registre a operação de criação na auditoria
+        Auditoria.objects.create(
+            usuario = self.request.user,
+            model = ProcessoAdm,
+            id_registro = self.object.id,
+            view = ProcessoAdmCreate,
+            )
+        
+        return result
+    
+    
+    
 class AndamentoAdmView(TemplateView):
     template_name ='processos/views/andamento_adm_view.html'
 
