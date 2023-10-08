@@ -32,23 +32,6 @@ class ProcessoAdmView(TemplateView):
         context['dados_processo'] = ProcessoAdm.objects.filter(pk=processo_pk) # Filtra os dados do processo através da pk
         return context
     
-    def form_valid(self, form):
-        form.instance.usuario_criador = self.request.user 
-
-        result = super().form_valid(form)
-        
-        # Registre a operação de criação na auditoria
-        Auditoria.objects.create(
-            usuario = self.request.user,
-            model = ProcessoAdm,
-            id_registro = self.object.id,
-            view = ProcessoAdmCreate,
-            )
-        
-        return result
-    
-    
-    
 class AndamentoAdmView(TemplateView):
     template_name ='processos/views/andamento_adm_view.html'
 
@@ -141,7 +124,17 @@ class AndamentoAdmCreate(CreateView):
                 
         pythoncom.CoUninitialize() # Para não ocorrer o erro "Exception Value:(-2147221008, 'CoInitialize não foi chamado.', None, None)" quando utilizado códigos para converter arquivos
       
-        return super().form_valid(form)
+        result = super().form_valid(form)
+        
+        # Registre a operação de criação na auditoria
+        Auditoria.objects.create(
+            usuario = self.request.user,
+            model = AndamentoAdm,
+            id_registro = self.object.id,
+            view = AndamentoAdmCreate,
+            )
+        
+        return result
     
     # Após realizar o create do andamento com sucesso, reverte para a lista de andamentos do processo 
     def get_success_url(self):
@@ -172,7 +165,9 @@ class ProcessoAdmUpdate(UpdateView):
         context['dados_processo'] = ProcessoAdm.objects.filter(pk=processo_pk) # Filtra os dados do processo através da pk
         return context
     
+
     def form_valid(self, form):        
+        result = super().form_valid(form)
         # Registre a operação de criação na auditoria
         Auditoria.objects.create(
             usuario = self.request.user,
@@ -181,7 +176,7 @@ class ProcessoAdmUpdate(UpdateView):
             view = ProcessoAdmUpdate,
             )
         
-        return super().form_valid(form)
+        return result
     
 class AndamentoAdmUpdate(UpdateView):
     model = AndamentoAdm
@@ -248,15 +243,17 @@ class AndamentoAdmUpdate(UpdateView):
                 
                 pythoncom.CoUninitialize() # Para não ocorrer o erro "Exception Value:(-2147221008, 'CoInitialize não foi chamado.', None, None)"
 
-        # Registre a operação de criação na auditoria
-        Auditoria.objects.create(
-        usuario = self.request.user,
-        model = AndamentoAdmCreate,
-        id_registro = self.object.id,
-        view = AndamentoAdmUpdate,
-        )
+        result = super().form_valid(form)
 
-        return super().form_valid(form)
+        # Registre a operação de update na auditoria
+        Auditoria.objects.create(
+            usuario = self.request.user,
+            model = AndamentoAdm,
+            id_registro = self.object.id,
+            view = AndamentoAdmUpdate,
+            )
+        
+        return result
 
 ###### DELETE ######
 class ProcessoAdmDelete(DeleteView):
@@ -264,13 +261,25 @@ class ProcessoAdmDelete(DeleteView):
     template_name = 'processos/deletes/processo_adm_delete.html'
     success_url = reverse_lazy('proc-adm-list')
 
+    def form_valid(self, form):        
+        # Registre a operação de criação na auditoria
+        Auditoria.objects.create(
+            usuario = self.request.user,
+            model = ProcessoAdm,
+            id_registro = self.object.id,
+            view = ProcessoAdmDelete,
+            )
+        
+        return super().form_valid(form)
+    
     # Função para iterar com os dados do processo na view de delete processo
     def get_context_data(self, **kwargs):
         processo_pk = self.kwargs.get('pk') # Pega a PK do processo através da URL  
 
         context = super().get_context_data(**kwargs)
         context['dados_processo'] = ProcessoAdm.objects.filter(pk=processo_pk) # Filtra os dados do processo através da pk
-        return context  
+        return context 
+
 
 class AndamentoAdmDelete(DeleteView):
     model = AndamentoAdm
