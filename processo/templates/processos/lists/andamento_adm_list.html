@@ -136,5 +136,12 @@
     <!-- Fim Importações -->
 </html> 
 
-
-
+<!-- Função para selecionar todos os checkbox dos itens da lista -->
+<script>
+  document.getElementById('selecionar-todos').addEventListener('click', function() {
+      var checkboxes = document.querySelectorAll('#selecionar');
+      for (var i = 0; i < checkboxes.length; i++) {
+          checkboxes[i].checked = true;
+      }
+  });
+</script>
