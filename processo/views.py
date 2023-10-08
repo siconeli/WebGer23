@@ -123,15 +123,7 @@ class AndamentoAdmCreate(CreateView):
                 os.remove(pdf_temporario)
                 
         pythoncom.CoUninitialize() # Para não ocorrer o erro "Exception Value:(-2147221008, 'CoInitialize não foi chamado.', None, None)" quando utilizado códigos para converter arquivos
-
-        # Registre a operação de criação na auditoria
-        Auditoria.objects.create(
-            usuario = self.request.user,
-            model = AndamentoAdm,
-            id_registro = self.object.id,
-            view = AndamentoAdmCreate,
-            )
-        
+      
         return super().form_valid(form)
     
     # Após realizar o create do andamento com sucesso, reverte para a lista de andamentos do processo 
