@@ -69,7 +69,7 @@ class ProcessoAdmCreate(CreateView):
         Auditoria.objects.create(
             usuario = self.request.user,
             model = ProcessoAdm,
-            id_registro = self.object.id,
+            objeto_id = self.object.id,
             view = ProcessoAdmCreate,
             )
         
@@ -130,7 +130,7 @@ class AndamentoAdmCreate(CreateView):
         Auditoria.objects.create(
             usuario = self.request.user,
             model = AndamentoAdm,
-            id_registro = self.object.id,
+            objeto_id = self.object.id,
             view = AndamentoAdmCreate,
             )
         
@@ -173,8 +173,6 @@ class ProcessoAdmUpdate(UpdateView):
         objeto_atualizado = form.instance
 
         campos_alterados = []
-
-        valores_alterados = []
         
         if objeto_original.municipio != objeto_atualizado.municipio:
             # campos_alterados.append('municipio')
@@ -248,7 +246,7 @@ class ProcessoAdmUpdate(UpdateView):
             Auditoria.objects.create(
                 usuario = self.request.user,
                 model = ProcessoAdm,
-                id_registro = self.object.id,
+                objeto_id = self.object.id,
                 view = ProcessoAdmUpdate,
                 campos_alterados = campos_alterados,              
             )
@@ -356,7 +354,7 @@ class AndamentoAdmUpdate(UpdateView):
             Auditoria.objects.create(
                 usuario = self.request.user,
                 model = AndamentoAdm,
-                id_registro = self.object.id,
+                objeto_id = self.object.id,
                 view = AndamentoAdmUpdate,
                 campos_alterados = campos_alterados,
                 )
@@ -374,7 +372,7 @@ class ProcessoAdmDelete(DeleteView):
         Auditoria.objects.create(
             usuario = self.request.user,
             model = ProcessoAdm,
-            id_registro = self.object.id,
+            objeto_id = self.object.id,
             view = ProcessoAdmDelete,
             )
         
@@ -398,7 +396,7 @@ class AndamentoAdmDelete(DeleteView):
         Auditoria.objects.create(
             usuario = self.request.user,
             model = AndamentoAdm,
-            id_registro = self.object.id,
+            objeto_id = self.object.id,
             view = AndamentoAdmDelete,
             )
         

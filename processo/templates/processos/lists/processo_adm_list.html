@@ -53,7 +53,7 @@
                                         <td>{{ processo.documento }}</td>
 
                                         {% if user.is_staff %} <!--Membro da equipe = is_staff-->
-                                            <td>{{ processo.criador_processo_adm.get_full_name }}</td>
+                                            <td>{{ processo.usuario_criador.get_full_name }}</td>
                                             <td>{{ processo.data_criacao|date:"d/m/Y" }}</td> <!--Formatei a data para aparecer neste formato na minha Data-table -->
                                         {% endif %}
                                         

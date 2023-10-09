@@ -3,10 +3,10 @@ from django.db import models
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
 
-class Auditoria(models.Model):
+class Auditoria(models.Model): #Logs de Create, Update, Delete
     usuario = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     model = models.CharField(max_length=255)
-    id_registro = models.PositiveIntegerField()
+    objeto_id = models.PositiveIntegerField()
     view = models.CharField(max_length=10)  # "insert", "update", "delete"
     data_hora = models.DateTimeField(auto_now_add=True)
     campos_alterados = models.CharField(max_length=255, blank=True, null=True)
