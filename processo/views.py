@@ -169,47 +169,68 @@ class ProcessoAdmUpdate(UpdateView):
     def form_valid(self, form):      
 
         objeto_original = self.get_object()
+        objeto_atualizado = form.instance
 
-        municipio_atualizado = form.cleaned_data['municipio']
-        uf_atualizado = form.cleaned_data['uf']
-        data_inicial_atualizado = form.cleaned_data['data_inicial']
-        data_final_atualizado = form.cleaned_data['data_final']
-        data_div_ativa_atualizado = form.cleaned_data['data_div_ativa']
-        valor_atributo_atualizado = form.cleaned_data['valor_atributo']
-        valor_multa_atualizado = form.cleaned_data['valor_multa']
-        valor_credito_atualizado = form.cleaned_data['valor_credito']
-        valor_atualizado_atualizado = form.cleaned_data['valor_atualizado']
-        data_valor_atualizado_atualizado = form.cleaned_data['data_valor_atualizado']
-        nome_contribuinte_atualizado = form.cleaned_data['nome_contribuinte']
-        tipo_pessoa_atualizado = form.cleaned_data['tipo_pessoa']
-        documento_atualizado = form.cleaned_data['documento']
-        nome_fantasia_atualizado = form.cleaned_data['nome_fantasia']
-        email_atualizado = form.cleaned_data['email']
-        endereco_atualizado = form.cleaned_data['endereco']
-        complemento_atualizado = form.cleaned_data['complemento']
-        municipio_contribuinte_atualizado = form.cleaned_data['municipio']
-        uf_contribuinte_atualizado = form.cleaned_data['uf_contribuinte']
-        cep_atualizado = form.cleaned_data['cep']
-        telefone_atualizado = form.cleaned_data['telefone']
-        celular_atualizado = form.cleaned_data['celular']
-
-        result = super().form_valid(form)
+        campos_alterados = []
         
-        if objeto_original != municipio_atualizado or objeto_original != uf_atualizado:
-            # Registre a operação de criação na auditoria
+        if objeto_original.municipio != objeto_atualizado.municipio:
+            campos_alterados.append('municipio')
+        if objeto_original.uf != objeto_atualizado.uf:
+            campos_alterados.append('uf')
+        if objeto_original.data_inicial != objeto_atualizado.data_inicial:
+            campos_alterados.append('data_inicial')
+        if objeto_original.data_final != objeto_atualizado.data_final:
+            campos_alterados.append('data_final')
+        if objeto_original.data_div_ativa != objeto_atualizado.data_div_ativa:
+            campos_alterados.append('data_div_ativa')
+        if objeto_original.valor_atributo != objeto_atualizado.valor_atributo:
+            campos_alterados.append('valor_atributo')
+        if objeto_original.valor_multa != objeto_atualizado.valor_multa:
+            campos_alterados.append('valor_multa')
+        if objeto_original.valor_credito != objeto_atualizado.valor_credito:
+            campos_alterados.append('valor_credito')
+        if objeto_original.valor_atualizado != objeto_atualizado.valor_atualizado:
+            campos_alterados.append('valor_atualizado')
+        if objeto_original.data_valor_atualizado != objeto_atualizado.data_valor_atualizado:
+            campos_alterados.append('data_valor_atualizado')
+        if objeto_original.nome_contribuinte != objeto_atualizado.nome_contribuinte:
+            campos_alterados.append('nome_contribuinte')
+        if objeto_original.tipo_pessoa != objeto_atualizado.tipo_pessoa:
+            campos_alterados.append('tipo_pessoa')
+        if objeto_original.documento != objeto_atualizado.documento:
+            campos_alterados.append('documento')
+        if objeto_original.nome_fantasia != objeto_atualizado.nome_fantasia:
+            campos_alterados.append('nome_fantasia')
+        if objeto_original.email != objeto_atualizado.email:
+            campos_alterados.append('email')
+        if objeto_original.endereco != objeto_atualizado.endereco:
+            campos_alterados.append('endereco')
+        if objeto_original.complemento != objeto_atualizado.complemento:
+            campos_alterados.append('complemento')
+        if objeto_original.municipio_contribuinte != objeto_atualizado.municipio_contribuinte:
+            campos_alterados.append('municipio_contribuinte')
+        if objeto_original.uf_contribuinte != objeto_atualizado.uf_contribuinte:
+            campos_alterados.append('uf_contribuinte')
+        if objeto_original.cep != objeto_atualizado.cep:
+            campos_alterados.append('cep')
+        if objeto_original.telefone != objeto_atualizado.telefone:
+            campos_alterados.append('telefone')
+        if objeto_original.celular != objeto_atualizado.celular:
+            campos_alterados.append('celular')
+                
+        if campos_alterados:
+            # Registra a operação de alteração na auditoria
             Auditoria.objects.create(
                 usuario = self.request.user,
                 model = ProcessoAdm,
                 id_registro = self.object.id,
                 view = ProcessoAdmUpdate,
-                # alteracoes = f'Muni: {municipio_atualizado} uf: {uf_atualizado}',
+                alteracoes = campos_alterados,
             )
-        
-            return result
 
-        else:
-            return result
+        return super().form_valid(form)
 
+            
 
 
 class AndamentoAdmUpdate(UpdateView):
