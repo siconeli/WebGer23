@@ -64,7 +64,7 @@ class ProcessoAdmCreate(CreateView):
         form.instance.usuario_criador = self.request.user 
 
         result = super().form_valid(form)
-        
+  
         # Registre a operação de criação na auditoria
         Auditoria.objects.create(
             usuario = self.request.user,
@@ -166,18 +166,52 @@ class ProcessoAdmUpdate(UpdateView):
         return context
     
 
-    def form_valid(self, form):        
+    def form_valid(self, form):      
+
+        objeto_original = self.get_object()
+
+        municipio_atualizado = form.cleaned_data['municipio']
+        uf_atualizado = form.cleaned_data['uf']
+        data_inicial_atualizado = form.cleaned_data['data_inicial']
+        data_final_atualizado = form.cleaned_data['data_final']
+        data_div_ativa_atualizado = form.cleaned_data['data_div_ativa']
+        valor_atributo_atualizado = form.cleaned_data['valor_atributo']
+        valor_multa_atualizado = form.cleaned_data['valor_multa']
+        valor_credito_atualizado = form.cleaned_data['valor_credito']
+        valor_atualizado_atualizado = form.cleaned_data['valor_atualizado']
+        data_valor_atualizado_atualizado = form.cleaned_data['data_valor_atualizado']
+        nome_contribuinte_atualizado = form.cleaned_data['nome_contribuinte']
+        tipo_pessoa_atualizado = form.cleaned_data['tipo_pessoa']
+        documento_atualizado = form.cleaned_data['documento']
+        nome_fantasia_atualizado = form.cleaned_data['nome_fantasia']
+        email_atualizado = form.cleaned_data['email']
+        endereco_atualizado = form.cleaned_data['endereco']
+        complemento_atualizado = form.cleaned_data['complemento']
+        municipio_contribuinte_atualizado = form.cleaned_data['municipio']
+        uf_contribuinte_atualizado = form.cleaned_data['uf_contribuinte']
+        cep_atualizado = form.cleaned_data['cep']
+        telefone_atualizado = form.cleaned_data['telefone']
+        celular_atualizado = form.cleaned_data['celular']
+
         result = super().form_valid(form)
-        # Registre a operação de criação na auditoria
-        Auditoria.objects.create(
-            usuario = self.request.user,
-            model = ProcessoAdm,
-            id_registro = self.object.id,
-            view = ProcessoAdmUpdate,
+        
+        if objeto_original != municipio_atualizado or objeto_original != uf_atualizado:
+            # Registre a operação de criação na auditoria
+            Auditoria.objects.create(
+                usuario = self.request.user,
+                model = ProcessoAdm,
+                id_registro = self.object.id,
+                view = ProcessoAdmUpdate,
+                # alteracoes = f'Muni: {municipio_atualizado} uf: {uf_atualizado}',
             )
         
-        return result
-    
+            return result
+
+        else:
+            return result
+
+
+
 class AndamentoAdmUpdate(UpdateView):
     model = AndamentoAdm
     template_name = 'processos/updates/andamento_adm_update.html'
