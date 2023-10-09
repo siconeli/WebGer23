@@ -173,9 +173,12 @@ class ProcessoAdmUpdate(UpdateView):
         objeto_atualizado = form.instance
 
         campos_alterados = []
+
+        valores_alterados = []
         
         if objeto_original.municipio != objeto_atualizado.municipio:
-            campos_alterados.append('municipio')
+            # campos_alterados.append('municipio')
+            campos_alterados.append(f'Campo: municipio | Valor.old: {objeto_original.municipio} Valor.new: {objeto_atualizado.municipio}')
 
         if objeto_original.uf != objeto_atualizado.uf:
             campos_alterados.append('uf')
@@ -240,9 +243,8 @@ class ProcessoAdmUpdate(UpdateView):
         if objeto_original.celular != objeto_atualizado.celular:
             campos_alterados.append('celular')
 
-        for p in campos_alterados:
-            print(p.p)
-            
+        print(valores_alterados)
+
 
         if campos_alterados:
             # Registra a operação de alteração na auditoria
