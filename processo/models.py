@@ -18,7 +18,7 @@ class Base(models.Model): # Classe base, será herdada pelas outras classes
     data_criacao = models.DateTimeField('data_criação', auto_now_add=True)
     usuario_criador = models.ForeignKey(get_user_model(), verbose_name='Usuário Criador', on_delete=models.SET_NULL, null=True)
     data_alteracao = models.DateTimeField('Alterado', auto_now=True)
-    ativo = models.BooleanField('Ativo?', default=True)
+    ativo = models.BooleanField('Ativo', default=True)
 
     class Meta:
         abstract = True
