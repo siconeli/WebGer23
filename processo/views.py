@@ -328,28 +328,28 @@ class AndamentoAdmUpdate(UpdateView):
         campos_alterados = []
 
         if objeto_original.data_andamento != objeto_atualizado.data_andamento:
-            campos_alterados.append('data_andamento')
+            campos_alterados.append(f'| Campo: data_andamento ; Valor Antigo: {objeto_original.data_andamento} ; Valor Novo: {objeto_atualizado.data_andamento} |')
 
         if objeto_original.tipo_andamento != objeto_atualizado.tipo_andamento:
-            campos_alterados.append('tipo_andamento')
+            campos_alterados.append(f'| Campo: tipo_andamento ; Valor Antigo: {objeto_original.tipo_andamento} ; Valor Novo: {objeto_atualizado.tipo_andamento} |')
 
         if objeto_original.situacao_pagamento != objeto_atualizado.situacao_pagamento:
-            campos_alterados.append('situacao_pagamento')
+            campos_alterados.append(f'| Campo: situacao_pagamento ; Valor Antigo: {objeto_original.situacao_pagamento} ; Valor Novo: {objeto_atualizado.situacao_pagamento} |')
 
         if objeto_original.valor_pago != objeto_atualizado.valor_pago:
-            campos_alterados.append('valor_pago')
+            campos_alterados.append(f'| Campo: valor_pago ; Valor Antigo: {objeto_original.valor_pago} ; Valor Novo: {objeto_atualizado.valor_pago} |')
 
         if objeto_original.data_prazo != objeto_atualizado.data_prazo:
-            campos_alterados.append('data_prazo')
+            campos_alterados.append(f'| Campo: data_prazo ; Valor Antigo: {objeto_original.data_prazo} ; Valor Novo: {objeto_atualizado.data_prazo} |')
 
         if objeto_original.data_recebimento != objeto_atualizado.data_recebimento:
-            campos_alterados.append('data_recebimento')
+            campos_alterados.append(f'| Campo: data_recebimento ; Valor Antigo: {objeto_original.data_recebimento} ; Valor Novo: {objeto_atualizado.data_recebimento} |')
         
         if objeto_original.complemento != objeto_atualizado.complemento:
-            campos_alterados.append('complemento')
+            campos_alterados.append(f'| Campo: complemento ; Valor Antigo: {objeto_original.complemento} ; Valor Novo: {objeto_atualizado.complemento} |')
 
         if objeto_original.arquivo != objeto_atualizado.arquivo:
-            campos_alterados.append('arquivo')
+            campos_alterados.append(f'| Campo: arquivo ; Valor Antigo: {objeto_original.arquivo} ; Valor Novo: {objeto_atualizado.arquivo} |')
         
         if campos_alterados:
             # Registra a operação de update na auditoria
