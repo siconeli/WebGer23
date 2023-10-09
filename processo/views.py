@@ -178,73 +178,70 @@ class ProcessoAdmUpdate(UpdateView):
         
         if objeto_original.municipio != objeto_atualizado.municipio:
             # campos_alterados.append('municipio')
-            campos_alterados.append(f'Campo: municipio | Valor.old: {objeto_original.municipio} Valor.new: {objeto_atualizado.municipio}')
+            campos_alterados.append(f'| Campo: municipio ; Valor Antigo: {objeto_original.municipio} ; Valor Novo: {objeto_atualizado.municipio} |')
 
         if objeto_original.uf != objeto_atualizado.uf:
-            campos_alterados.append('uf')
+            campos_alterados.append(f'| Campo: uf ; Valor Antigo: {objeto_original.uf} ; Valor Novo: {objeto_atualizado.uf} |')
 
         if objeto_original.data_inicial != objeto_atualizado.data_inicial:
-            campos_alterados.append('data_inicial')
+            campos_alterados.append(f'| Campo: data_inicial ; Valor Antigo: {objeto_original.data_inicial} ; Valor Novo: {objeto_atualizado.data_inicial} |')
 
         if objeto_original.data_final != objeto_atualizado.data_final:
-            campos_alterados.append('data_final')
+            campos_alterados.append(f'| Campo: data_final ; Valor Antigo: {objeto_original.data_final} ; Valor Novo: {objeto_atualizado.data_final} |')
 
         if objeto_original.data_div_ativa != objeto_atualizado.data_div_ativa:
-            campos_alterados.append('data_div_ativa')
+            campos_alterados.append(f'| Campo: data_div_ativa ; Valor Antigo: {objeto_original.data_div_ativa} ; Valor Novo: {objeto_atualizado.data_div_ativa} |')
 
         if objeto_original.valor_atributo != objeto_atualizado.valor_atributo:
-            campos_alterados.append('valor_atributo')
+            campos_alterados.append(f'| Campo: valor_atributo ; Valor Antigo: {objeto_original.valor_atributo} ; Valor Novo: {objeto_atualizado.valor_atributo} |')
 
         if objeto_original.valor_multa != objeto_atualizado.valor_multa:
-            campos_alterados.append('valor_multa')
+            campos_alterados.append(f'| Campo: valor_multa ; Valor Antigo: {objeto_original.valor_multa} ; Valor Novo: {objeto_atualizado.valor_multa} |')
 
         if objeto_original.valor_credito != objeto_atualizado.valor_credito:
-            campos_alterados.append('valor_credito')
+            campos_alterados.append(f'| Campo: valor_credito ; Valor Antigo: {objeto_original.valor_credito} ; Valor Novo: {objeto_atualizado.valor_credito} |')
 
         if objeto_original.valor_atualizado != objeto_atualizado.valor_atualizado:
-            campos_alterados.append('valor_atualizado')
+            campos_alterados.append(f'| Campo: valor_atualizado ; Valor Antigo: {objeto_original.valor_atualizado} ; Valor Novo: {objeto_atualizado.valor_atualizado} |')
 
         if objeto_original.data_valor_atualizado != objeto_atualizado.data_valor_atualizado:
-            campos_alterados.append('data_valor_atualizado')
+            campos_alterados.append(f'| Campo: data_valor_atualizado ; Valor Antigo: {objeto_original.data_valor_atualizado} ; Valor Novo: {objeto_atualizado.data_valor_atualizado} |')
 
         if objeto_original.nome_contribuinte != objeto_atualizado.nome_contribuinte:
-            campos_alterados.append('nome_contribuinte')
+            campos_alterados.append(f'| Campo: nome_contribuinte ; Valor Antigo: {objeto_original.nome_contribuinte} ; Valor Novo: {objeto_atualizado.nome_contribuinte} |')
 
         if objeto_original.tipo_pessoa != objeto_atualizado.tipo_pessoa:
-            campos_alterados.append('tipo_pessoa')
+            campos_alterados.append(f'| Campo: tipo_pessoa ; Valor Antigo: {objeto_original.tipo_pessoa} ; Valor Novo: {objeto_atualizado.tipo_pessoa} |')
 
         if objeto_original.documento != objeto_atualizado.documento:
-            campos_alterados.append('documento')
+            campos_alterados.append(f'| Campo: documento ; Valor Antigo: {objeto_original.documento} ; Valor Novo: {objeto_atualizado.documento} |')
 
         if objeto_original.nome_fantasia != objeto_atualizado.nome_fantasia:
-            campos_alterados.append('nome_fantasia')
+            campos_alterados.append(f'| Campo: nome_fantasia ; Valor Antigo: {objeto_original.nome_fantasia} ; Valor Novo: {objeto_atualizado.nome_fantasia} |')
 
         if objeto_original.email != objeto_atualizado.email:
-            campos_alterados.append('email')
+            campos_alterados.append(f'| Campo: email ; Valor Antigo: {objeto_original.email} ; Valor Novo: {objeto_atualizado.email} |')
 
         if objeto_original.endereco != objeto_atualizado.endereco:
-            campos_alterados.append('endereco')
+            campos_alterados.append(f'| Campo: endereco ; Valor Antigo: {objeto_original.endereco} ; Valor Novo: {objeto_atualizado.endereco} |')
 
         if objeto_original.complemento != objeto_atualizado.complemento:
-            campos_alterados.append('complemento')
+            campos_alterados.append(f'| Campo: complemento ; Valor Antigo: {objeto_original.complemento} ; Valor Novo: {objeto_atualizado.complemento} |')
 
         if objeto_original.municipio_contribuinte != objeto_atualizado.municipio_contribuinte:
-            campos_alterados.append('municipio_contribuinte')
+            campos_alterados.append(f'| Campo: municipio_contribuinte ; Valor Antigo: {objeto_original.municipio_contribuinte} ; Valor Novo: {objeto_atualizado.municipio_contribuinte} |')
             
         if objeto_original.uf_contribuinte != objeto_atualizado.uf_contribuinte:
-            campos_alterados.append('uf_contribuinte')
+            campos_alterados.append(f'| Campo: uf_contribuinte ; Valor Antigo: {objeto_original.uf_contribuinte} ; Valor Novo: {objeto_atualizado.uf_contribuinte} |')
 
         if objeto_original.cep != objeto_atualizado.cep:
-            campos_alterados.append('cep')
+            campos_alterados.append(f'| Campo: cep ; Valor Antigo: {objeto_original.cep} ; Valor Novo: {objeto_atualizado.cep} |')
 
         if objeto_original.telefone != objeto_atualizado.telefone:
-            campos_alterados.append('telefone')
+            campos_alterados.append(f'| Campo: telefone ; Valor Antigo: {objeto_original.telefone} ; Valor Novo: {objeto_atualizado.telefone} |')
 
         if objeto_original.celular != objeto_atualizado.celular:
-            campos_alterados.append('celular')
-
-        print(valores_alterados)
-
+            campos_alterados.append(f'| Campo: celular ; Valor Antigo: {objeto_original.celular} ; Valor Novo: {objeto_atualizado.celular} |')
 
         if campos_alterados:
             # Registra a operação de alteração na auditoria
