@@ -239,7 +239,11 @@ class ProcessoAdmUpdate(UpdateView):
 
         if objeto_original.celular != objeto_atualizado.celular:
             campos_alterados.append('celular')
-                
+
+        for p in campos_alterados:
+            print(p.p)
+            
+
         if campos_alterados:
             # Registra a operação de alteração na auditoria
             Auditoria.objects.create(
@@ -247,7 +251,7 @@ class ProcessoAdmUpdate(UpdateView):
                 model = ProcessoAdm,
                 id_registro = self.object.id,
                 view = ProcessoAdmUpdate,
-                campos_alterados = campos_alterados,
+                campos_alterados = campos_alterados,              
             )
 
         return super().form_valid(form)
