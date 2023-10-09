@@ -9,6 +9,7 @@ class Auditoria(models.Model):
     id_registro = models.PositiveIntegerField()
     view = models.CharField(max_length=10)  # "insert", "update", "delete"
     data_hora = models.DateTimeField(auto_now_add=True)
+    alteracoes = models.CharField(max_length=255, blank=True, null=True)
 
     class Meta:
         ordering = ('-data_hora',)
