@@ -165,9 +165,10 @@ class ProcessoAdmUpdate(UpdateView):
         context['dados_processo'] = ProcessoAdm.objects.filter(pk=processo_pk) # Filtra os dados do processo através da pk
         return context
     
-
-    def form_valid(self, form):      
-
+    def form_valid(self, form):  
+        """
+            O código a seguir, verifica se algum dos campos do ProcessoAdm foi alterado durante o update, se ocorreu a alteração, será criado um objeto no modelo Auditoria com os dados de registro e os campos alterados
+        """    
         objeto_original = self.get_object()
         objeto_atualizado = form.instance
 
@@ -175,46 +176,67 @@ class ProcessoAdmUpdate(UpdateView):
         
         if objeto_original.municipio != objeto_atualizado.municipio:
             campos_alterados.append('municipio')
+
         if objeto_original.uf != objeto_atualizado.uf:
             campos_alterados.append('uf')
+
         if objeto_original.data_inicial != objeto_atualizado.data_inicial:
             campos_alterados.append('data_inicial')
+
         if objeto_original.data_final != objeto_atualizado.data_final:
             campos_alterados.append('data_final')
+
         if objeto_original.data_div_ativa != objeto_atualizado.data_div_ativa:
             campos_alterados.append('data_div_ativa')
+
         if objeto_original.valor_atributo != objeto_atualizado.valor_atributo:
             campos_alterados.append('valor_atributo')
+
         if objeto_original.valor_multa != objeto_atualizado.valor_multa:
             campos_alterados.append('valor_multa')
+
         if objeto_original.valor_credito != objeto_atualizado.valor_credito:
             campos_alterados.append('valor_credito')
+
         if objeto_original.valor_atualizado != objeto_atualizado.valor_atualizado:
             campos_alterados.append('valor_atualizado')
+
         if objeto_original.data_valor_atualizado != objeto_atualizado.data_valor_atualizado:
             campos_alterados.append('data_valor_atualizado')
+
         if objeto_original.nome_contribuinte != objeto_atualizado.nome_contribuinte:
             campos_alterados.append('nome_contribuinte')
+
         if objeto_original.tipo_pessoa != objeto_atualizado.tipo_pessoa:
             campos_alterados.append('tipo_pessoa')
+
         if objeto_original.documento != objeto_atualizado.documento:
             campos_alterados.append('documento')
+
         if objeto_original.nome_fantasia != objeto_atualizado.nome_fantasia:
             campos_alterados.append('nome_fantasia')
+
         if objeto_original.email != objeto_atualizado.email:
             campos_alterados.append('email')
+
         if objeto_original.endereco != objeto_atualizado.endereco:
             campos_alterados.append('endereco')
+
         if objeto_original.complemento != objeto_atualizado.complemento:
             campos_alterados.append('complemento')
+
         if objeto_original.municipio_contribuinte != objeto_atualizado.municipio_contribuinte:
             campos_alterados.append('municipio_contribuinte')
+            
         if objeto_original.uf_contribuinte != objeto_atualizado.uf_contribuinte:
             campos_alterados.append('uf_contribuinte')
+
         if objeto_original.cep != objeto_atualizado.cep:
             campos_alterados.append('cep')
+
         if objeto_original.telefone != objeto_atualizado.telefone:
             campos_alterados.append('telefone')
+
         if objeto_original.celular != objeto_atualizado.celular:
             campos_alterados.append('celular')
                 
@@ -229,9 +251,6 @@ class ProcessoAdmUpdate(UpdateView):
             )
 
         return super().form_valid(form)
-
-            
-
 
 class AndamentoAdmUpdate(UpdateView):
     model = AndamentoAdm
@@ -268,6 +287,9 @@ class AndamentoAdmUpdate(UpdateView):
         """
             A função form_valid() serve para alterar os valores do atributo ou realizar qualquer ação antes que o formulário seja salvo.
         """
+        objeto_original = self.get_object()
+        objeto_atualizado = form.instance
+
         pythoncom.CoInitialize() # Para não ocorrer o erro  "Exception Value:(-2147221008, 'CoInitialize não foi chamado.', None, None)" quando utilizado código para converter arquivos
         # Código para conversão do arquivo enviado, de .docx(word) para .pdf
         # Antes de salvar o formulário, verifica se um arquivo Word foi enviado
@@ -298,17 +320,45 @@ class AndamentoAdmUpdate(UpdateView):
                 
                 pythoncom.CoUninitialize() # Para não ocorrer o erro "Exception Value:(-2147221008, 'CoInitialize não foi chamado.', None, None)"
 
-        result = super().form_valid(form)
+        # result = super().form_valid(form)
 
-        # Registre a operação de update na auditoria
-        Auditoria.objects.create(
-            usuario = self.request.user,
-            model = AndamentoAdm,
-            id_registro = self.object.id,
-            view = AndamentoAdmUpdate,
-            )
+        campos_alterados = []
+
+        if objeto_original.data_andamento != objeto_atualizado.data_andamento:
+            campos_alterados.append('data_andamento')
+
+        if objeto_original.tipo_andamento != objeto_atualizado.tipo_andamento:
+            campos_alterados.append('tipo_andamento')
+
+        if objeto_original.situacao_pagamento != objeto_atualizado.situacao_pagamento:
+            campos_alterados.append('situacao_pagamento')
+
+        if objeto_original.valor_pago != objeto_atualizado.valor_pago:
+            campos_alterados.append('valor_pago')
+
+        if objeto_original.data_prazo != objeto_atualizado.data_prazo:
+            campos_alterados.append('data_prazo')
+
+        if objeto_original.data_recebimento != objeto_atualizado.data_recebimento:
+            campos_alterados.append('data_recebimento')
         
-        return result
+        if objeto_original.complemento != objeto_atualizado.complemento:
+            campos_alterados.append('complemento')
+
+        if objeto_original.arquivo != objeto_atualizado.arquivo:
+            campos_alterados.append('arquivo')
+        
+        if campos_alterados:
+            # Registra a operação de update na auditoria
+            Auditoria.objects.create(
+                usuario = self.request.user,
+                model = AndamentoAdm,
+                id_registro = self.object.id,
+                view = AndamentoAdmUpdate,
+                campos_alterados = campos_alterados,
+                )
+            
+        return super().form_valid(form)
 
 ###### DELETE ######
 class ProcessoAdmDelete(DeleteView):

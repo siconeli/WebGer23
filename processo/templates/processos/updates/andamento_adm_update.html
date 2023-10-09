@@ -83,7 +83,7 @@
 <!-- Importação do Jquery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<!-- Função em Java Script para mostrar/ocultar campos com base se o campo está vazio ou não -->
+<!-- Função em Java Script para mostrar/ocultar campos com base nas seleções -->
 <script>
     $(document).ready(function() {
     // Função para mostrar/ocultar campos com base nas seleções
@@ -91,38 +91,43 @@
         var andamento = $("#tipo_andamento");
         var situacao = $("#sit");
         var pago = $("#pag");
-
-        if (andamento.val() === '1') {
+        
+        if (andamento.val() === '1') { // '1' = 'Encerrado'
             $("#situacao_pagamento").show();
             if (situacao.val() === 'Com Pagamento') {
                 $("#valor_pago").show();
-
+                
                 // Para tornar o campo 'valor_pago' obrigatório se o select 'situacao_pagamento' for igual a 'Com Pagamento'
                 pago.prop('required', true);
 
             }else if(situacao.val() === 'Sem Pagamento'){ 
                 $("#valor_pago").hide();
-
+                pago.val("");
+                
                 // Para tornar o campo 'valor_pago' não obrigatório se o select 'situacao_pagamento' for igual a 'Sem Pagamento'
                 pago.prop('required', false);
 
             }else if(situacao.val() === ""){
                 situacao.val("Sem Pagamento"); 
-                $("#valor_pago").hide(); 
+                $("#valor_pago").hide();
+                pago.val("");
                 pago.prop('required', false);
             }
         }else {
             $("#situacao_pagamento").hide();
             $("#valor_pago").hide();
+
+            // Limpa o valor inserido no campo "valor_pago" quando ele deixa de ser mostrado
+            pago.val("");
         }
-
     }
-
+        
         // Chame a função ao carregar a página
-        toggleFields();        
-
+        toggleFields();
+        
         // Adicione ouvintes de eventos para atualizar os campos quando as seleções mudarem
-        $("#andamento, #situacao_pagamento").on("change", toggleFields);
+        $("#tipo_andamento, #situacao_pagamento").on("change", toggleFields);
+        
     });
 </script>
 
