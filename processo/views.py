@@ -225,7 +225,7 @@ class ProcessoAdmUpdate(UpdateView):
                 model = ProcessoAdm,
                 id_registro = self.object.id,
                 view = ProcessoAdmUpdate,
-                alteracoes = campos_alterados,
+                campos_alterados = campos_alterados,
             )
 
         return super().form_valid(form)
