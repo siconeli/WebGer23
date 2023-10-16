@@ -8,8 +8,6 @@ from django.views.generic import TemplateView
 
 from django.urls import reverse, reverse_lazy # Módulo para reverter para a url definida após ter sucesso na execução
 
-import logging # Módulo para criar logs
-
 import datetime # Módulo para datas
 
 import os # Módulo para trabalhar com pastas e arquivos
@@ -19,6 +17,10 @@ from docx2pdf import convert # Módulo para converter .docx em pdf
 from django.core.exceptions import ValidationError
 
 import pythoncom
+
+from django.http import HttpResponse
+
+from PyPDF2 import PdfFileReader, PdfFileWriter
 
 ###### VIEW ######
 class ProcessoAdmView(TemplateView):
@@ -442,6 +444,28 @@ class AndamentoAdmList(ListView):
         context = super().get_context_data(**kwargs)
         context['dados_processo'] = ProcessoAdm.objects.filter(pk=processo_pk) # Filtra os dados do processo através da pk
         return context
+    
+    # def post(self, request):
+    #     selected_files = request.POST.getlist('pdf_checkbox')
+    #     merged_pdf = PdfFileWriter()
+
+    #     pdf_directory = 'media/Arquivo'
+
+    #     for pdf_file in selected_files:
+    #         pdf_path = os.path.join(pdf_directory, pdf_file)
+    #         pdf = PdfFileReader(pdf_path)
+    #         for page_num in range(pdf.getNumPages()):
+    #             page = pdf.getPage(page_num)
+    #             merged_pdf.addPage(page)
+
+    #     # Crie uma resposta HTTP com o PDF mesclado
+    #     response = HttpResponse(content_type='application/pdf')
+    #     response['Content-Disposition'] = 'attachment; filename="merged.pdf"'
+
+    #     # Adicione o conteúdo do PDF mesclado à resposta
+    #     merged_pdf.write(response)
+
+    #     return response
 
 class AndamentoAdmListUpdate(ListView):
     model = ProcessoAdm

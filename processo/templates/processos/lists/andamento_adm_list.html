@@ -96,22 +96,28 @@
             {% endfor %}
             <hr>
             <table class="table table-striped" style="width: 250px; font-size: 14px;"> 
-            {% for andamento in object_list %}
-            <tr>
-                <th>{{ andamento.tipo_andamento }}</th>
-                {% if andamento.arquivo%}
-                    <td>
-                        <a href="{{ andamento.arquivo.url}}" target="arquivo_andamento"><img src="{% static 'img/pdf.png' %}" width="25"></a>
-                    </td>
-                    <td><input type="checkbox" id="selecionar"></td>
-                {% else %}
-                    <td></td>
-                    <td></td>
-                {% endif%}
+
+              <form method="post" action="">
+                {% csrf_token %}
+                {% for andamento in object_list %}
+                  <tr>
+                    <th>{{ andamento.tipo_andamento }}</th>
+                    {% if andamento.arquivo%}
+                        <td>
+                            <a href="{{ andamento.arquivo.url}}" target="arquivo_andamento"><img src="{% static 'img/pdf.png' %}" width="25"></a>
+                        </td>
+                        <td><input type="checkbox" name="pdf_checkbox" id="selecionar"></td>
+                    {% else %}
+                        <td></td>
+                        <td></td>
+                    {% endif%}
+                  </tr>
                 {% endfor %}
-            </tr>
+                <button type="submit" class="btn btn-secondary btn-sm">Mesclar PDFs</button>
+              </form>
             </table>
-            <button id="selecionar-todos" class="btn btn-secondary btn-sm">Selecionar Todos</button>
+
+            <!-- <button id="selecionar-todos" class="btn btn-secondary btn-sm">Selecionar Todos</button> -->
             <a href="{% url 'proc-adm-list' %}" class="btn btn-secondary btn-sm">Voltar</a>
             <br><br>
         </div>
