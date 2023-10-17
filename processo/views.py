@@ -56,14 +56,22 @@ class AndamentoAdmView(TemplateView):
         return context
     
 class MesclarPDFsView(View):
+    """
+        Realiza a mesclagem dos arquivos pdf com o campo checkbox selecionado, disponibilizando o download do arquivo mesclado direto no navegador, sem alterar os arquivos originais.
+
+        Através de um formulário post, pega os pdfs com o checkbox selecionado através do name do checkbox.
+
+        Através do id passado no value do checkbox, pega o atributo arquivo e realiza um append para o PdfMerger, realiza a mesclagem e disponibiliza o arquivo através do HttpResponse.
+
+    """
     def post(self, request):
         pdf_selecionados = request.POST.getlist('pdf_selecionados')
 
-        # Crie um objeto PdfFileMerger para mesclar os arquivos PDF
+        # Crie um objeto PdfMerger para mesclar os arquivos PDF
         merger = PdfMerger()
 
-        for registro_id in pdf_selecionados:
-            registro = AndamentoAdm.objects.get(id=registro_id)
+        for pdf_id in pdf_selecionados:
+            registro = AndamentoAdm.objects.get(id=pdf_id)
             merger.append(registro.arquivo.path)
 
         # Crie uma resposta para download do PDF mesclado
