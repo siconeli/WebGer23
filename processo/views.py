@@ -14,13 +14,14 @@ import os # Módulo para trabalhar com pastas e arquivos
 
 from docx2pdf import convert # Módulo para converter .docx em pdf
 
+from PyPDF2 import PdfMerger # Módulo para mesclar pdf
+
 from django.core.exceptions import ValidationError
 
 import pythoncom
 
 from django.http import HttpResponse
 
-from PyPDF2 import PdfFileReader, PdfMerger
 
 ###### VIEW ######
 class ProcessoAdmView(TemplateView):
@@ -59,7 +60,7 @@ class MesclarPDFsView(View):
     """
         Realiza a mesclagem dos arquivos pdf com o campo checkbox selecionado, disponibilizando o download do arquivo mesclado direto no navegador, sem alterar os arquivos originais.
 
-        Através de um formulário post, pega os pdfs com o checkbox selecionado através do name do checkbox.
+        Através de um formulário post enviado por um botão submit, pega os pdfs com o checkbox selecionado através do name do checkbox.
 
         Através do id passado no value do checkbox, pega o atributo arquivo e realiza um append para o PdfMerger, realiza a mesclagem e disponibiliza o arquivo através do HttpResponse.
 
@@ -83,7 +84,6 @@ class MesclarPDFsView(View):
         merger.close()
 
         return response
-
 
 ###### CREATE ######
 class ProcessoAdmCreate(CreateView):

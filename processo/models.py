@@ -82,7 +82,6 @@ class AndamentoAdm(Base):
     data_recebimento = models.DateField(blank=True, null=True)
     complemento = models.CharField(max_length=150, blank=True, null=True)
     arquivo = models.FileField(upload_to='Arquivo/', verbose_name='Arquivo', blank=True) 
-    checkbox = models.BooleanField(default=False)
 
     def __str__(self):
         return f'Processo: {self.processo} Andamento: {self.tipo_andamento} Arquivo: {self.arquivo}'

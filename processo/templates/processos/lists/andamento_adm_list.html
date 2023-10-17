@@ -106,7 +106,7 @@
                         <td>
                             <a href="{{ andamento.arquivo.url}}" target="arquivo_andamento"><img src="{% static 'img/pdf.png' %}" width="25"></a>
                         </td>
-                        <td><input type="checkbox" name="pdf_selecionados" value="{{ andamento.id }}"></td>
+                        <td><input type="checkbox" name="pdf_selecionados" value="{{ andamento.id }}" id="selecionar"></td>
                     {% else %}
                         <td></td>
                         <td></td>
@@ -117,7 +117,7 @@
               </form>
             </table>
 
-            <!-- <button id="selecionar-todos" class="btn btn-secondary btn-sm">Selecionar Todos</button> -->
+            <button id="selecionar-todos" class="btn btn-secondary btn-sm">Selecionar Todos</button>
             <a href="{% url 'proc-adm-list' %}" class="btn btn-secondary btn-sm">Voltar</a>
             <br><br>
         </div>

@@ -2,6 +2,7 @@ from django.urls import path
 
 from .views import ProcessoAdmView
 from .views import AndamentoAdmView
+from .views import MesclarPDFsView
 
 from .views import ProcessoAdmCreate
 from .views import AndamentoAdmCreate
@@ -15,8 +16,6 @@ from .views import AndamentoAdmDelete
 from .views import ProcessoAdmList
 from .views import AndamentoAdmList
 from .views import AndamentoAdmListUpdate
-
-from .views import MesclarPDFsView
 
 urlpatterns = [
 
