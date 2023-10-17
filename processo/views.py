@@ -460,16 +460,21 @@ class ProcessoAdmList(ListView):
     template_name = 'processos/lists/processo_adm_list.html'
 
     def get_context_data(self, **kwargs):
-        # pk_processo = self.kwargs.get('pk')
+        """
+            
+        """
+        processos = ProcessoAdm.objects.all()
 
-        processo = ProcessoAdm.objects.get(pk=3)
+        for processo in processos:
 
-        andamentos = processo.andamentoadm_set.all()
+            processos_id = ProcessoAdm.objects.get(pk=processo.id)
 
-        context = super().get_context_data(**kwargs)
-        context['dados_andamento'] = andamentos
+            andamentos = processos_id.andamentoadm_set.all()
+
+            context = super().get_context_data(**kwargs)
+            context['dados_andamento'] = andamentos
         
-        return context
+            return context
 
 class AndamentoAdmList(ListView):
     model = ProcessoAdm
