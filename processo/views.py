@@ -4,7 +4,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView # Módu
 
 from django.views.generic.list import ListView # Módulo para list
 
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, View
 
 from django.urls import reverse, reverse_lazy # Módulo para reverter para a url definida após ter sucesso na execução
 
@@ -20,7 +20,7 @@ import pythoncom
 
 from django.http import HttpResponse
 
-from PyPDF2 import PdfFileReader, PdfFileWriter
+from PyPDF2 import PdfFileReader, PdfMerger
 
 ###### VIEW ######
 class ProcessoAdmView(TemplateView):
@@ -54,6 +54,28 @@ class AndamentoAdmView(TemplateView):
         context['dados_andamento'] = AndamentoAdm.objects.filter(pk=andamento_pk) # Filtra os dados do andamento através da pk, para conseguir iterar com os dados do andamento
 
         return context
+    
+class MesclarPDFsView(View):
+    def post(self, request):
+        pdf_selecionados = request.POST.getlist('pdf_selecionados')
+
+        # Crie um objeto PdfFileMerger para mesclar os arquivos PDF
+        merger = PdfMerger()
+
+        for registro_id in pdf_selecionados:
+            registro = AndamentoAdm.objects.get(id=registro_id)
+            merger.append(registro.arquivo.path)
+
+        # Crie uma resposta para download do PDF mesclado
+        response = HttpResponse(content_type='application/pdf')
+        response['Content-Disposition'] = 'attachment; filename="pdf_mesclado.pdf"'
+
+        # Mescle os PDFs e envie a resposta
+        merger.write(response)
+        merger.close()
+
+        return response
+
 
 ###### CREATE ######
 class ProcessoAdmCreate(CreateView):
@@ -444,28 +466,6 @@ class AndamentoAdmList(ListView):
         context = super().get_context_data(**kwargs)
         context['dados_processo'] = ProcessoAdm.objects.filter(pk=processo_pk) # Filtra os dados do processo através da pk
         return context
-    
-    # def post(self, request):
-    #     selected_files = request.POST.getlist('pdf_checkbox')
-    #     merged_pdf = PdfFileWriter()
-
-    #     pdf_directory = 'media/Arquivo'
-
-    #     for pdf_file in selected_files:
-    #         pdf_path = os.path.join(pdf_directory, pdf_file)
-    #         pdf = PdfFileReader(pdf_path)
-    #         for page_num in range(pdf.getNumPages()):
-    #             page = pdf.getPage(page_num)
-    #             merged_pdf.addPage(page)
-
-    #     # Crie uma resposta HTTP com o PDF mesclado
-    #     response = HttpResponse(content_type='application/pdf')
-    #     response['Content-Disposition'] = 'attachment; filename="merged.pdf"'
-
-    #     # Adicione o conteúdo do PDF mesclado à resposta
-    #     merged_pdf.write(response)
-
-    #     return response
 
 class AndamentoAdmListUpdate(ListView):
     model = ProcessoAdm

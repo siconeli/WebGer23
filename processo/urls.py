@@ -16,11 +16,14 @@ from .views import ProcessoAdmList
 from .views import AndamentoAdmList
 from .views import AndamentoAdmListUpdate
 
+from .views import MesclarPDFsView
+
 urlpatterns = [
 
     ###### VIEW ######
     path('visualizar/processo-adm/<int:pk>/', ProcessoAdmView.as_view(), name='proc-adm-view'),
     path('visualizar/andamento-adm/<int:pk>/', AndamentoAdmView.as_view(), name='andamento-adm-view'),
+    path('mesclar_pdf/', MesclarPDFsView.as_view(), name='mesclar_pdf'),
 
     ###### CREATE ######
     path('cadastrar/processo-adm/', ProcessoAdmCreate.as_view(), name='proc-adm-create'), 

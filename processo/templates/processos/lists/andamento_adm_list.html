@@ -97,7 +97,7 @@
             <hr>
             <table class="table table-striped" style="width: 250px; font-size: 14px;"> 
 
-              <form method="post" action="">
+              <form method="post" action="{% url 'mesclar_pdf' %}">
                 {% csrf_token %}
                 {% for andamento in object_list %}
                   <tr>
@@ -106,7 +106,7 @@
                         <td>
                             <a href="{{ andamento.arquivo.url}}" target="arquivo_andamento"><img src="{% static 'img/pdf.png' %}" width="25"></a>
                         </td>
-                        <td><input type="checkbox" name="pdf_checkbox" id="selecionar"></td>
+                        <td><input type="checkbox" name="pdf_selecionados" value="{{ andamento.id }}"></td>
                     {% else %}
                         <td></td>
                         <td></td>
