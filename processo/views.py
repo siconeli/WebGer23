@@ -127,7 +127,11 @@ class AndamentoAdmCreate(CreateView):
         form.instance.funcionario = self.request.user.get_full_name()
 
         pythoncom.CoInitialize() # Para não ocorrer o erro  "Exception Value:(-2147221008, 'CoInitialize não foi chamado.', None, None)" quando utilizado código para converter arquivos
+
+        """
         # Código para conversão do arquivo enviado, de .docx(word) para .pdf
+        
+        """
         # Antes de salvar o formulário, verifica se um arquivo Word foi enviado
         if 'arquivo' in self.request.FILES:
             arquivo = self.request.FILES['arquivo']
@@ -454,6 +458,18 @@ class AndamentoAdmDelete(DeleteView):
 class ProcessoAdmList(ListView):
     model = ProcessoAdm
     template_name = 'processos/lists/processo_adm_list.html'
+
+    def get_context_data(self, **kwargs):
+        # pk_processo = self.kwargs.get('pk')
+
+        processo = ProcessoAdm.objects.get(pk=3)
+
+        andamentos = processo.andamentoadm_set.all()
+
+        context = super().get_context_data(**kwargs)
+        context['dados_andamento'] = andamentos
+        
+        return context
 
 class AndamentoAdmList(ListView):
     model = ProcessoAdm

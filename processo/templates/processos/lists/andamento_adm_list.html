@@ -158,6 +158,13 @@ $(document).ready(function() {
     // Desative o botão Mesclar PDFs
     $("#mesclar").prop("disabled", true);
 
+    $("#selecionar-todos").prop("disabled", true);
+
+    // Se a quantidade de checkbox for maior que 1, liberado o botão 'selecionar todos'
+    if ($(":checkbox").length > 1) {
+      $("#selecionar-todos").prop("disabled", false)
+    };
+  
     // Botão "Selecionar Todos"
     $("#selecionar-todos").click(function() {
         $(":checkbox").prop("checked", true); // Marcar todos os checkboxes
@@ -167,11 +174,12 @@ $(document).ready(function() {
     // Adicione um evento de clique para cada checkbox
     $(":checkbox").click(function() {
         // Verifique se algum checkbox está marcado
-        if ($(":checkbox:checked").length > 0) {
+        if ($(":checkbox:checked").length > 1) {
             $("#mesclar").prop("disabled", false); // Ativar o botão "Mesclar PDFs Selecionados"
         } else {
             $("#mesclar").prop("disabled", true); // Desativar o botão "Mesclar PDFs Selecionados"
         }
     });
+
 });
 </script>
