@@ -113,7 +113,7 @@
                     {% endif%}
                   </tr>
                 {% endfor %}
-                <button type="submit" class="btn btn-secondary btn-sm">Mesclar PDFs</button>
+                <button type="submit" class="btn btn-secondary btn-sm" id="mesclar">Mesclar PDFs</button>
               </form>
             </table>
 
@@ -150,4 +150,28 @@
           checkboxes[i].checked = true;
       }
   });
+</script>
+
+
+<script>
+$(document).ready(function() {
+    // Desative o botão Mesclar PDFs
+    $("#mesclar").prop("disabled", true);
+
+    // Botão "Selecionar Todos"
+    $("#selecionar-todos").click(function() {
+        $(":checkbox").prop("checked", true); // Marcar todos os checkboxes
+        $("#mesclar").prop("disabled", false); // Ativar o botão "Mesclar PDFs Selecionados"
+    });
+
+    // Adicione um evento de clique para cada checkbox
+    $(":checkbox").click(function() {
+        // Verifique se algum checkbox está marcado
+        if ($(":checkbox:checked").length > 0) {
+            $("#mesclar").prop("disabled", false); // Ativar o botão "Mesclar PDFs Selecionados"
+        } else {
+            $("#mesclar").prop("disabled", true); // Desativar o botão "Mesclar PDFs Selecionados"
+        }
+    });
+});
 </script>
