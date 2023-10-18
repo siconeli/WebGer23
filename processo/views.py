@@ -172,7 +172,7 @@ class AndamentoAdmCreate(CreateView):
             view = AndamentoAdmCreate,
             acao = 'create',
             andamento = self.object.tipo_andamento,
-            processo = self.object.numero,
+            processo = self.object.processo,
             )
         
         return result
