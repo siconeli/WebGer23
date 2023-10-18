@@ -420,17 +420,13 @@ class ProcessoAdmDelete(DeleteView):
 
     def form_valid(self, form):        
 
-        objeto = self.get_object()
-
-        processo_excluido = f'Número processo excluído: {objeto.numero}'
-
         # Registre a operação de criação na auditoria
         Auditoria.objects.create(
             usuario = self.request.user,
-            model = ProcessoAdm,
             objeto_id = self.object.id,
-            objeto_excluido = processo_excluido,
             view = ProcessoAdmDelete,
+            acao = 'delete',
+            processo = self.object.numero
             )
         
         return super().form_valid(form)
@@ -448,12 +444,18 @@ class AndamentoAdmDelete(DeleteView):
     model = AndamentoAdm
     template_name = 'processos/deletes/andamento_adm_delete.html'
 
-    def form_valid(self, form):        
+    def form_valid(self, form):    
+
+        objeto = self.get_object()
+
+        andamento_excluido = f'Andamento: "{objeto.tipo_andamento}" Excluído do Processo: {objeto.processo}'
+
         # Registre a operação de criação na auditoria
         Auditoria.objects.create(
             usuario = self.request.user,
             model = AndamentoAdm,
             objeto_id = self.object.id,
+            objeto_excluido = andamento_excluido,
             view = AndamentoAdmDelete,
             )
         
