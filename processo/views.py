@@ -187,6 +187,13 @@ class AndamentoAdmCreate(CreateView):
 
         return context
     
+    # O método get_form é usado para ajustar o queryset do campo tipo_andamento antes de exibir o formulário. Ele define o queryset para exibir apenas registros de TipoAndamento onde ativo=True.
+    def get_form(self, form_class=None):
+        form = super().get_form(form_class)
+        form.fields['tipo_andamento'].queryset = TipoAndamentoAdm.objects.filter(ativo=True)
+
+        return form
+    
 ###### UPDATE ######
 class ProcessoAdmUpdate(UpdateView):
     model = ProcessoAdm
@@ -397,6 +404,13 @@ class AndamentoAdmUpdate(UpdateView):
                 )
             
         return super().form_valid(form)
+    
+    # O método get_form é usado para ajustar o queryset do campo tipo_andamento antes de exibir o formulário. Ele define o queryset para exibir apenas registros de TipoAndamento onde ativo=True.
+    def get_form(self, form_class=None):
+        form = super().get_form(form_class)
+        form.fields['tipo_andamento'].queryset = TipoAndamentoAdm.objects.filter(ativo=True)
+
+        return form
 
 ###### DELETE ######
 class ProcessoAdmDelete(DeleteView):
