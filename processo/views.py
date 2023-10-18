@@ -474,6 +474,10 @@ class ProcessoAdmList(ListView):
     model = ProcessoAdm
     template_name = 'processos/lists/processo_adm_list.html'
 
+    # Listar Apenas Processos Ativos
+    def get_queryset(self):
+        return ProcessoAdm.objects.filter(ativo=True)
+
 class AndamentoAdmList(ListView):
     model = ProcessoAdm
     template_name = 'processos/lists/andamento_adm_list.html'
