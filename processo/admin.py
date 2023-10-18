@@ -9,3 +9,9 @@ from .models import TipoAndamentoAdm
 @admin.register(TipoAndamentoAdm)
 class TipoAndamentoAdmAdmin(admin.ModelAdmin):
     list_display = ('tipo_andamento', 'ativo')
+    exclude = ['usuario_criador', ]
+
+    # Preenche o atributo usuario_criador com o usuário logado.
+    def save_model(self, request, obj, form, change):
+        obj.usuario_criador = request.user
+        super().save_model(request, obj, form, change)
