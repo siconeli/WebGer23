@@ -222,9 +222,11 @@ class ProcessoAdmUpdate(UpdateView):
         objeto_atualizado = form.instance
 
         campos_alterados = []
+
+        if objeto_original.ativo != objeto_atualizado.ativo:
+            campos_alterados.append(f'| Campo: ativo ; Valor Antigo: {objeto_original.ativo} ; Valor Novo: {objeto_atualizado.ativo} |')
         
         if objeto_original.municipio != objeto_atualizado.municipio:
-            # campos_alterados.append('municipio')
             campos_alterados.append(f'| Campo: municipio ; Valor Antigo: {objeto_original.municipio} ; Valor Novo: {objeto_atualizado.municipio} |')
 
         if objeto_original.uf != objeto_atualizado.uf:
