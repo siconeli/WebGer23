@@ -101,7 +101,10 @@ class ProcessoAdmCreate(CreateView):
         Auditoria.objects.create(
             usuario = self.request.user,
             objeto_id = self.object.id,
+            tipo_objeto = 'processo administrativo',
             view = ProcessoAdmCreate,
+            acao = 'create',
+            processo = self.object.numero,
             )
         
         return result
