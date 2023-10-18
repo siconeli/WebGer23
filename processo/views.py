@@ -100,7 +100,6 @@ class ProcessoAdmCreate(CreateView):
         # Registre a operação de criação na auditoria
         Auditoria.objects.create(
             usuario = self.request.user,
-            model = ProcessoAdm,
             objeto_id = self.object.id,
             view = ProcessoAdmCreate,
             )
@@ -165,7 +164,6 @@ class AndamentoAdmCreate(CreateView):
         # Registre a operação de criação na auditoria
         Auditoria.objects.create(
             usuario = self.request.user,
-            model = AndamentoAdm,
             objeto_id = self.object.id,
             view = AndamentoAdmCreate,
             )
@@ -289,7 +287,6 @@ class ProcessoAdmUpdate(UpdateView):
             # Registra a operação de alteração na auditoria
             Auditoria.objects.create(
                 usuario = self.request.user,
-                model = ProcessoAdm,
                 objeto_id = self.object.id,
                 view = ProcessoAdmUpdate,
                 campos_alterados = campos_alterados,              
@@ -397,9 +394,12 @@ class AndamentoAdmUpdate(UpdateView):
             # Registra a operação de update na auditoria
             Auditoria.objects.create(
                 usuario = self.request.user,
-                model = AndamentoAdm,
                 objeto_id = self.object.id,
+                tipo_objeto = 'andamento administrativo',
                 view = AndamentoAdmUpdate,
+                acao = 'update',
+                andamento = self.object.tipo_andamento,
+                processo = self.object.processo,
                 campos_alterados = campos_alterados,
                 )
             
@@ -424,9 +424,10 @@ class ProcessoAdmDelete(DeleteView):
         Auditoria.objects.create(
             usuario = self.request.user,
             objeto_id = self.object.id,
+            tipo_objeto = 'processo administrativo',
             view = ProcessoAdmDelete,
             acao = 'delete',
-            processo = self.object.numero
+            processo = self.object.numero,
             )
         
         return super().form_valid(form)
@@ -446,17 +447,15 @@ class AndamentoAdmDelete(DeleteView):
 
     def form_valid(self, form):    
 
-        objeto = self.get_object()
-
-        andamento_excluido = f'Andamento: "{objeto.tipo_andamento}" Excluído do Processo: {objeto.processo}'
-
         # Registre a operação de criação na auditoria
         Auditoria.objects.create(
             usuario = self.request.user,
-            model = AndamentoAdm,
             objeto_id = self.object.id,
-            objeto_excluido = andamento_excluido,
+            tipo_objeto = 'andamento administrativo',
             view = AndamentoAdmDelete,
+            acao = 'delete',
+            andamento = self.object.tipo_andamento,
+            processo = self.object.processo,
             )
         
         return super().form_valid(form)
