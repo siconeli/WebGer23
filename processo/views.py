@@ -113,6 +113,11 @@ class AndamentoAdmCreate(CreateView):
     fields = ['data_andamento', 'tipo_andamento', 'situacao_pagamento', 'valor_pago', 'data_prazo', 'data_recebimento', 'complemento', 'arquivo']
     success_url = reverse_lazy('proc-adm-list')
 
+    def lista_registros_ativos(request):
+        registros_ativos = AndamentoAdm.objects.filter(ativo=True)
+        
+        return registros_ativos
+
     def form_valid(self, form):
         """
             A função form_valid() serve para alterar os valores do atributo ou realizar qualquer ação antes que o formulário seja salvo.
