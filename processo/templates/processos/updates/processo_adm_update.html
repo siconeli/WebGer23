@@ -24,7 +24,7 @@
                         {% if user.is_superuser %}
                             <div class="col">
                                 <label for="ativo">Ativo</label>
-                                <input type="checkbox" name="ativo" {% if object.ativo %} checked {% endif %}>
+                                <input type="checkbox" name="ativo" {% if object.ativo %} checked {% endif %}> <!--Se o objeto estiver ativo, o checkbox estará selecionado 'checked'-->
                             </div>
                         {% endif %}
                     {% endfor %}
