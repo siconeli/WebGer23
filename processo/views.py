@@ -419,11 +419,17 @@ class ProcessoAdmDelete(DeleteView):
     success_url = reverse_lazy('proc-adm-list')
 
     def form_valid(self, form):        
+
+        objeto = self.get_object()
+
+        processo_excluido = f'Número processo excluído: {objeto.numero}'
+
         # Registre a operação de criação na auditoria
         Auditoria.objects.create(
             usuario = self.request.user,
             model = ProcessoAdm,
             objeto_id = self.object.id,
+            objeto_excluido = processo_excluido,
             view = ProcessoAdmDelete,
             )
         

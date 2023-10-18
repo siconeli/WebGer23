@@ -7,6 +7,7 @@ class Auditoria(models.Model): #Logs de Create, Update, Delete
     usuario = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     model = models.CharField(max_length=255)
     objeto_id = models.PositiveIntegerField()
+    objeto_excluido= models.CharField(max_length=255, blank=True, null=True)
     view = models.CharField(max_length=10)  # "insert", "update", "delete"
     data_hora = models.DateTimeField(auto_now_add=True)
     campos_alterados = models.CharField(max_length=255, blank=True, null=True)
