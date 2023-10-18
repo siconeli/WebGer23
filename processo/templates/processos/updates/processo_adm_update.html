@@ -25,14 +25,14 @@
                     <hr>
                     <!-- <br> -->
                     <div class="row">
-                        <div class="col">
-                            {% if form.numero.errors %} <!-- Se a validação 'unique' do atributo 'numero' retornar erro de registro já utilizado, irá abrir um alerta informando que o registro já existe-->
-                            <div class="alert alert-danger" role="alert" style="height: 50px; width: px;">
-                                <h6>{{ form.numero.errors }}</h6>
+                        {% if user.is_superuser %}
+                            <div class="col">
+                                <label for="ativo">Ativo</label>
+                                <input type="checkbox" name="ativo" {% if object.ativo %} checked {% endif %}>
                             </div>
-                            {% endif %}
-                        </div>
+                        {% endif %}
                     </div>
+                    <br>
                     <div class="row"> <!-- w-50 (colocar para diminuir o tamanho do campo input)-->
                         <div class="col">
                             <label for="uf">UF <b>*</b></label>
