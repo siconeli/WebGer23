@@ -187,10 +187,6 @@ class AndamentoAdmCreate(CreateView):
 
         return context
     
-    def get_queryset(self):
-        ativos = TipoAndamentoAdm.objects.filter(ativo=True) 
-        return ativos
-    
 ###### UPDATE ######
 class ProcessoAdmUpdate(UpdateView):
     model = ProcessoAdm
@@ -472,8 +468,8 @@ class AndamentoAdmList(ListView):
         pk_processo = self.kwargs.get('pk') # Pega a pk(primary key) da URL, pk do processo
         
         processo = ProcessoAdm.objects.get(pk=pk_processo)  # Pega o processo que possui a pk recebida (pk é a primary key do processo)
-        andamentos = processo.andamentoadm_set.all()  # Pega todos os atributos do andamento
-    
+        andamentos = processo.andamentoadm_set.filter(ativo=True)  # Pega todos os atributos do andamento, somente de andamentos ativos
+
         return andamentos
     
     # Função para iterar com os dados do processo na lista de andamentos
@@ -492,7 +488,7 @@ class AndamentoAdmListUpdate(ListView):
         pk_processo = self.kwargs.get('pk') # Pega a pk(primary key) da URL, pk do processo
         
         processo = ProcessoAdm.objects.get(pk=pk_processo)  # Pega o processo que possui a pk recebida (pk é a primary key do processo)
-        andamentos = processo.andamentoadm_set.all()  # Pega todos os atributos do andamento
+        andamentos = processo.andamentoadm_set.filter(ativo=True)  # Pega todos os atributos do andamento, somente de andamentos ativos
     
         return andamentos
     
