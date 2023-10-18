@@ -165,7 +165,11 @@ class AndamentoAdmCreate(CreateView):
         Auditoria.objects.create(
             usuario = self.request.user,
             objeto_id = self.object.id,
+            tipo_objeto = 'andamento administrativo',
             view = AndamentoAdmCreate,
+            acao = 'create',
+            andamento = self.object.tipo_andamento,
+            processo = self.object.numero,
             )
         
         return result
@@ -288,7 +292,10 @@ class ProcessoAdmUpdate(UpdateView):
             Auditoria.objects.create(
                 usuario = self.request.user,
                 objeto_id = self.object.id,
+                tipo_objeto = 'processo administrativo',
                 view = ProcessoAdmUpdate,
+                acao = 'update',
+                processo = self.object.numero,
                 campos_alterados = campos_alterados,              
             )
 
