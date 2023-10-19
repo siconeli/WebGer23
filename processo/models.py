@@ -6,9 +6,9 @@ from django.contrib.auth.models import User
 class Auditoria(models.Model): #Logs de Create, Update, Delete
     usuario = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     objeto_id = models.PositiveIntegerField()
-    tipo_objeto = models.CharField(max_length=100) # processo administrativo, processo judiciario, andamento
-    view = models.CharField(max_length=10)  # "create", "update", "delete"
-    acao = models.CharField(max_length=100) # "create", "update", "delete"
+    tipo_objeto = models.CharField(max_length=255) # processo administrativo, processo judiciario, andamento
+    view = models.CharField(max_length=255)  # "create", "update", "delete"
+    acao = models.CharField(max_length=255) # "create", "update", "delete"
     processo = models.CharField(max_length=255, blank=True, null=True)
     andamento = models.CharField(max_length=255, blank=True, null=True)
     campos_alterados = models.CharField(max_length=255, blank=True, null=True)

@@ -83,9 +83,9 @@ WSGI_APPLICATION = 'webger23.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'webger23',
-        'USER': 'desenvolvedor',
-        'PASSWORD': 'aeg1207',
+        'NAME': 'processos',
+        'USER': 'siconeli',
+        'PASSWORD': 'Clodomir753$',
         'HOST': 'localhost', # verificar isso
         'PORT': '3306',
     }
