@@ -27,10 +27,10 @@
                                     <input type="text" class="form-control" value="{{ atributo.data_andamento|date:"d/m/Y" }}" readonly>
                                 </div>
                             {% endif %}                
-                            {% if atributo.andamento %}
+                            {% if atributo.tipo_andamento %}
                                 <div class="col">
-                                    <label for="andamento">Tipo de Andamento <b>*</b></label>
-                                    <input type="text" class="form-control" value="{{ atributo.andamento }}" readonly>
+                                    <label for="tipo_andamento">Tipo de Andamento <b>*</b></label>
+                                    <input type="text" class="form-control" value="{{ atributo.tipo_andamento }}" readonly>
                                 </div>
                             {% endif %}
                             {% if atributo.situacao_pagamento %}

@@ -22,7 +22,6 @@ import pythoncom
 
 from django.http import HttpResponse
 
-
 ###### VIEW ######
 class ProcessoAdmView(TemplateView):
     template_name = 'processos/views/processo_adm_view.html'
@@ -150,7 +149,7 @@ class AndamentoAdmCreate(CreateView):
                 pdf_temporario = word_temporario.replace('.docx', '.pdf')
                 convert(word_temporario, pdf_temporario)
 
-                # Abra o arquivo PDF convertido e atualize o campo 'arquivo' no formulário
+                # Abri o arquivo PDF convertido e atualize o campo 'arquivo' no formulário
                 with open(pdf_temporario, 'rb') as pdf:
                     form.instance.arquivo.save(pdf_temporario, pdf)
 
