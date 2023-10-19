@@ -82,8 +82,12 @@ WSGI_APPLICATION = 'webger23.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'webger23',
+        'USER': 'desenvolvedor',
+        'PASSWORD': 'aeg1207',
+        'HOST': 'localhost', # verificar isso
+        'PORT': '3306',
     }
 }
 
@@ -112,7 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'America/Campo_Grande'
+TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
