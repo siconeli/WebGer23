@@ -96,21 +96,25 @@ class ProcessoAdmCreate(CreateView):
     success_url = reverse_lazy('proc-adm-list')
 
     def form_valid(self, form):
-        form.instance.usuario_criador = self.request.user 
+        try:
+            form.instance.usuario_criador = self.request.user 
 
-        result = super().form_valid(form)
-  
-        # Registre a operação de criação na auditoria
-        Auditoria.objects.create(
-            usuario = self.request.user,
-            objeto_id = self.object.id,
-            tipo_objeto = 'processo administrativo',
-            view = ProcessoAdmCreate,
-            acao = 'create',
-            processo = self.object.numero,
-            )
+            result = super().form_valid(form)
+    
+            # Registre a operação de criação na auditoria do banco de dados
+            Auditoria.objects.create(
+                usuario = self.request.user,
+                objeto_id = self.object.id,
+                tipo_objeto = 'processo administrativo',
+                view = ProcessoAdmCreate,
+                acao = 'create',
+                processo = self.object.numero,
+                )
+                        
+            return result
         
-        return result
+        except Exception as erro:
+            logger.error(f'Erro ao criar objeto - View: ProcessoAdmCreate - Erro: {str(erro.__class__)}')
 
 class AndamentoAdmCreate(CreateView):  
     model = AndamentoAdm

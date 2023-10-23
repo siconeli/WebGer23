@@ -1,0 +1,8 @@
+Level: INFO | Data: 2023-10-23 17:41:43,212 | Modulo: signals | Aviso: Usuario: "henrique", realizou "Logout" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-23 17:43:36,604 | Modulo: signals | Aviso: Usuario: "henrique", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-23 17:44:10,381 | Modulo: signals | Aviso: Usuario: "henrique", realizou "Logout" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-23 17:44:16,089 | Modulo: signals | Aviso: Usuario: "teste", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-23 17:46:25,690 | Modulo: signals | Aviso: Usuario: "henrique", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-23 17:48:55,546 | Modulo: signals | Aviso: Usuario: "henrique", realizou "Logout" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-23 17:52:27,471 | Modulo: signals | Aviso: Usuario: "None", realizou "Logout" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-23 17:52:40,231 | Modulo: signals | Aviso: Usuario: "henrique", realizou "Login" a partir do endereco IP: 127.0.0.1

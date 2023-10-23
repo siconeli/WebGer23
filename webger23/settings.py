@@ -154,30 +154,31 @@ LOGOUT_REDIRECT_URL = 'login' # Ao fazer o logout(sair), ira direcionar para a u
 LOGIN_URL = 'login'  # Ao tentar acessar uma funcionalidade com permissão apenas para quem tem permissão, ira direcionar para a url de nome 'login'
 
 
-# LOGGING
+# LOGGING ------------------------------
 import os
 
 LOGGING = {
     'version': 1,
     'loggers':{
-        'auditoria_erros':{ # Nome do Logger
-            'handlers':['file', ], # Lista de nome dos handlers
-            'level':'WARNING'
+        'auditoria_erros':{ # Nome do Logger.
+            'handlers':['file', ], # Lista de nome dos handlers.
+            'level':'INFO'
         }
     },
     'handlers':{
-        'file':{
-            'level':'WARNING',
-            'class':'logging.FileHandler', # Tipo de handler "Arquivo"
-            'filename': os.path.join(BASE_DIR, 'logs/logs.log'),
+        'file':{ # handler citado na lista de handlers.
+            'level':'INFO',
+            'class':'logging.FileHandler', # Tipo de handler "Arquivo".
+            'filename': os.path.join(BASE_DIR, 'logs/processo.log'), # Ira salvar a mensagem de log no arquivo 'processo.log' dentro da pasta 'logs'.
             'formatter':'simpleRe',
         },
     },
-    'formatters':{
-        'simpleRe':{
-            'format':'{levelname} {asctime} {module} {message}',
+    'formatters':{ 
+        'simpleRe':{ # formatter citado no hadler 'file'
+            'format':'Level: {levelname} | Data: {asctime} | Modulo: {module} | Aviso: {message}',
             'style':'{',
 
         }
     }
 }
+# -------------------------------------
