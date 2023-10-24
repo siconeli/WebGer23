@@ -182,3 +182,14 @@ LOGGING = {
     }
 }
 # -------------------------------------
+
+# Recursos extras de Segurança do Django - Inseridos manualmente.
+SECURE_HSTS_SECONDS = True
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_BROWSER_XSS_FILTER = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_HTTPONLY = True
+X_FRAME_OPTIONS = 'DENY'
+# SECURE_SSL_REDIRECT = True  # Utilizar somente com o sistema em produção, pois permite que o sistema utilize apenas HTTPS, aumentando a segurança de criptografia.

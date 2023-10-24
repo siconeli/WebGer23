@@ -22,7 +22,7 @@ import pythoncom
 
 from django.http import HttpResponse
 
-import logging # Módulo para funcionamento de logs
+import logging # Módulo para registro de logs
 
 logger = logging.getLogger('auditoria_erros') # 'logger' recebe o logger configurado no settings.
 

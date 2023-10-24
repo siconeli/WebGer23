@@ -7,3 +7,23 @@ Level: INFO | Data: 2023-10-24 14:33:27,017 | Modulo: signals | Aviso: Usuario -
 Level: INFO | Data: 2023-10-24 14:36:48,946 | Modulo: signals | Aviso: Usuario - "henrique", realizou "Login" a partir do endereco IP: 127.0.0.1
 Level: INFO | Data: 2023-10-24 14:43:03,255 | Modulo: signals | Aviso: Usuario - "henrique", realizou "Login" a partir do endereco IP: 127.0.0.1
 Level: INFO | Data: 2023-10-24 14:47:02,882 | Modulo: signals | Aviso: Usuario - "henrique", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-24 14:56:05,304 | Modulo: signals | Aviso: Usuario - "henrique", realizou "Logout" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-24 14:56:17,836 | Modulo: signals | Aviso: Usuario - "henrique", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-24 15:00:14,497 | Modulo: signals | Aviso: Usuario - "henrique", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-24 15:07:24,720 | Modulo: signals | Aviso: Usuario - "henrique", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-24 15:07:40,252 | Modulo: signals | Aviso: Usuario - "henrique", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-24 15:08:39,217 | Modulo: signals | Aviso: Usuario - "henrique", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: ERROR | Data: 2023-10-24 15:11:22,034 | Modulo: views | Aviso: Erro ao deletar objeto - View: ProcessoAdmDelete - Erro: Cannot assign "<SimpleLazyObject: <django.contrib.auth.models.AnonymousUser object at 0x00000211063020D0>>": "Auditoria.usuario" must be a "User" instance.
+Level: INFO | Data: 2023-10-24 15:11:35,797 | Modulo: signals | Aviso: Usuario - "henrique", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-24 15:17:01,283 | Modulo: signals | Aviso: Usuario - "henrique", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-24 15:17:05,887 | Modulo: signals | Aviso: Usuario - "henrique", realizou "Logout" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-24 15:19:14,664 | Modulo: signals | Aviso: Usuario - "henrique", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-24 15:28:37,641 | Modulo: signals | Aviso: Usuario - "henrique", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: ERROR | Data: 2023-10-24 15:45:53,826 | Modulo: views | Aviso: Erro ao deletar objeto - View: ProcessoAdmDelete - Erro: Cannot assign "<SimpleLazyObject: <django.contrib.auth.models.AnonymousUser object at 0x000001D88FB9AF90>>": "Auditoria.usuario" must be a "User" instance.
+Level: INFO | Data: 2023-10-24 15:47:58,578 | Modulo: signals | Aviso: Usuario - "henrique", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-24 15:52:25,103 | Modulo: signals | Aviso: Usuario - "henrique", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-24 16:08:14,540 | Modulo: signals | Aviso: Usuario - "henrique", realizou "Logout" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-24 16:16:33,852 | Modulo: signals | Aviso: Usuario - "henrique", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-24 16:17:04,138 | Modulo: signals | Aviso: Usuario - "henrique", realizou "Logout" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-24 16:28:21,760 | Modulo: signals | Aviso: Usuario - "henrique", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-24 16:48:45,731 | Modulo: signals | Aviso: Usuario - "henrique", realizou "Login" a partir do endereco IP: 127.0.0.1
