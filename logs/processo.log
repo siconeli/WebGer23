@@ -6,3 +6,18 @@ Level: INFO | Data: 2023-10-23 17:46:25,690 | Modulo: signals | Aviso: Usuario: 
 Level: INFO | Data: 2023-10-23 17:48:55,546 | Modulo: signals | Aviso: Usuario: "henrique", realizou "Logout" a partir do endereco IP: 127.0.0.1
 Level: INFO | Data: 2023-10-23 17:52:27,471 | Modulo: signals | Aviso: Usuario: "None", realizou "Logout" a partir do endereco IP: 127.0.0.1
 Level: INFO | Data: 2023-10-23 17:52:40,231 | Modulo: signals | Aviso: Usuario: "henrique", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-24 07:37:57,858 | Modulo: signals | Aviso: Usuario: "henrique", realizou "Logout" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-24 07:40:21,282 | Modulo: signals | Aviso: Usuario: "henrique", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-24 11:22:28,641 | Modulo: signals | Aviso: Usuario: "henrique", realizou "Logout" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-24 13:05:30,378 | Modulo: views | Aviso: Masclagem de PDF realizada.
+Level: INFO | Data: 2023-10-24 13:07:55,528 | Modulo: views | Aviso: Masclagem de PDF realizada.
+Level: INFO | Data: 2023-10-24 13:16:04,726 | Modulo: views | Aviso: Masclagem de PDF realizada.
+Level: INFO | Data: 2023-10-24 13:18:46,481 | Modulo: views | Aviso: Masclagem de PDF realizada.
+Level: INFO | Data: 2023-10-24 13:26:57,207 | Modulo: views | Aviso: Andamentoadm criado com sucesso.
+Level: INFO | Data: 2023-10-24 13:35:44,091 | Modulo: signals | Aviso: Usuario: "henrique", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: ERROR | Data: 2023-10-24 13:36:01,550 | Modulo: views | Aviso: Erro ao mesclar PDF - View: MesclarPDFsView - Erro: <class 'NameError'>
+Level: ERROR | Data: 2023-10-24 13:37:00,944 | Modulo: views | Aviso: Erro ao mesclar PDF - View: MesclarPDFsView - Erro: name 'merger' is not defined
+Level: ERROR | Data: 2023-10-24 13:40:15,445 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: (1048, "Column 'processo_id' cannot be null")
+Level: INFO | Data: 2023-10-24 13:45:59,021 | Modulo: views | Aviso: Processo editado com sucesso
+Level: INFO | Data: 2023-10-24 13:48:02,533 | Modulo: views | Aviso: andamento editado com sucesso.!
+Level: INFO | Data: 2023-10-24 13:49:37,692 | Modulo: views | Aviso: Processo deletado!
