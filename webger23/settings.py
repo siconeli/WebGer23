@@ -14,7 +14,7 @@ from pathlib import Path
 
 import os
 
-import dj_database_url # Módulo usado na configuração da conexão do banco de dados no deploy
+# import dj_database_url # Módulo usado na configuração da conexão do banco de dados no deploy
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,11 +24,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'django-insecure-l^j*v2e&&e@@21#+kd@5xdj7v#!e7-iwt%x(78e0=)7_2p+!%5' # Utiliza em modo de Desenvolvimento
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = 'django-insecure-l^j*v2e&&e@@21#+kd@5xdj7v#!e7-iwt%x(78e0=)7_2p+!%5' # Utiliza em modo de Desenvolvimento
+
+# Utiliza em modo de produção
+# SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -83,19 +85,24 @@ WSGI_APPLICATION = 'webger23.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    # Utiliza o código comentado a baixo, em modo de Desenvolvimento.
-    # 'default': {  
-    #     'ENGINE': 'django.db.backends.mysql', # No desenvolvimento utilizei o MYSQL Worchbench
-    #     'NAME': 'processos',
-    #     'USER': 'siconeli',
-    #     'PASSWORD': 'Clodomir753$',
-    #     'HOST': 'localhost',
-    #     'PORT': '3306',
-    # }
-    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'), conn_max_age=600),
 
-}
+# Utiliza em modo de Desenvolvimento.
+# DATABASES = {
+#     'default': {  
+#         'ENGINE': 'django.db.backends.mysql', # No desenvolvimento utilizei o MYSQL Worchbench
+#         'NAME': 'processos',
+#         'USER': 'siconeli',
+#         'PASSWORD': 'Clodomir753$',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
+#     }
+# }
+
+# Utiliza em modo de produção
+# DATABASES = {
+#     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'), conn_max_age=600),
+
+# }
 
 
 # Password validation
@@ -126,8 +133,8 @@ TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
-# USE_TZ = True # Utilizado em modo de Desenvolvimento
-USE_TZ = False
+USE_TZ = True # Utilizado em modo de Desenvolvimento
+# USE_TZ = False # Utiliza em modo de produção
 
 
 # Static files (CSS, JavaScript, Images)
@@ -135,7 +142,7 @@ USE_TZ = False
 
 # Configuração dos arquivos estáticos: css, js, imagens
 STATIC_URL = '/static/' # Usado durante o desenvolvimento
-STATIC_ROOT = str(BASE_DIR / 'staticfiles') # Usado durante a produção
+# STATIC_ROOT = str(BASE_DIR / 'staticfiles') # Usado durante a produção
 
 #================================================================================================================
 # Arquivos de Media (Para salvar os arquivos em endereço local, na mesma máquina do código) (USAR DURANTE O DESENVOLVIMENTO)
