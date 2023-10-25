@@ -14,7 +14,7 @@ from pathlib import Path
 
 import os
 
-import dj_database_url
+import dj_database_url # Módulo usado na configuração da conexão do banco de dados no deploy
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -42,10 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'core', # Aplicação core
     'processo', # Aplicação Processo
-
     'django_cleanup.apps.CleanupConfig', # Excluir arquivos da pasta de uploads após editar o registro e adicionar um novo arquivo.
     'widget_tweaks', # Biblioteca Widget - Muito importante - Torna possível eu criar um formulário HTML próprio sincronizado com as Class Based Views.
 ]
@@ -86,9 +84,9 @@ WSGI_APPLICATION = 'webger23.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    # Utiliza o código comentado a baixo, em modo de Desenvolvimento
+    # Utiliza o código comentado a baixo, em modo de Desenvolvimento.
     # 'default': {  
-    #     'ENGINE': 'django.db.backends.mysql',
+    #     'ENGINE': 'django.db.backends.mysql', # No desenvolvimento utilizei o MYSQL Worchbench
     #     'NAME': 'processos',
     #     'USER': 'siconeli',
     #     'PASSWORD': 'Clodomir753$',
@@ -128,7 +126,8 @@ TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
-USE_TZ = True
+# USE_TZ = True # Utilizado em modo de Desenvolvimento
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
@@ -136,7 +135,7 @@ USE_TZ = True
 
 # Configuração dos arquivos estáticos: css, js, imagens
 STATIC_URL = '/static/' # Usado durante o desenvolvimento
-# STATIC_ROOT = str(BASE_DIR / 'staticfiles') # Usado durante a produção
+STATIC_ROOT = str(BASE_DIR / 'staticfiles') # Usado durante a produção
 
 #================================================================================================================
 # Arquivos de Media (Para salvar os arquivos em endereço local, na mesma máquina do código) (USAR DURANTE O DESENVOLVIMENTO)
