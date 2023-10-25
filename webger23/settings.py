@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 
 import os
+
 import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -23,10 +24,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-l^j*v2e&&e@@21#+kd@5xdj7v#!e7-iwt%x(78e0=)7_2p+!%5'
+# SECRET_KEY = 'django-insecure-l^j*v2e&&e@@21#+kd@5xdj7v#!e7-iwt%x(78e0=)7_2p+!%5' # Utiliza em modo de Desenvolvimento
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -84,14 +86,17 @@ WSGI_APPLICATION = 'webger23.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'processos',
-        'USER': 'siconeli',
-        'PASSWORD': 'Clodomir753$',
-        'HOST': 'localhost', # verificar isso
-        'PORT': '3306',
-    }
+    # Utiliza o código comentado a baixo, em modo de Desenvolvimento
+    # 'default': {  
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'processos',
+    #     'USER': 'siconeli',
+    #     'PASSWORD': 'Clodomir753$',
+    #     'HOST': 'localhost',
+    #     'PORT': '3306',
+    # }
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'), conn_max_age=600),
+
 }
 
 
