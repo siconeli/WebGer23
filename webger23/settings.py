@@ -82,28 +82,26 @@ TEMPLATES = [
 WSGI_APPLICATION = 'webger23.wsgi.application'
 
 
-# Database
+# Database - Documentação de configuração padrão para cada tipo de banco de dados
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# Utiliza em modo de Desenvolvimento - PostgreSQL pgAdmin4
+DATABASES = {
+    'default': {  
+        'ENGINE': 'django.db.backends.postgresql', 
+        'NAME': 'processos',
+        'USER': 'postgres',
+        'PASSWORD': 'Clodomir753$',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
 
-# Utiliza em modo de Desenvolvimento.
-# DATABASES = {
-#     'default': {  
-#         'ENGINE': 'django.db.backends.mysql', # No desenvolvimento utilizei o MYSQL Worchbench
-#         'NAME': 'processos',
-#         'USER': 'siconeli',
-#         'PASSWORD': 'Clodomir753$',
-#         'HOST': 'localhost',
-#         'PORT': '3306',
-#     }
-# }
-
-# Utiliza em modo de produção
+# Utiliza em modo de Produção
 # DATABASES = {
 #     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'), conn_max_age=600),
 
 # }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -146,12 +144,12 @@ STATIC_URL = '/static/' # Usado durante o desenvolvimento
 
 #================================================================================================================
 # Arquivos de Media (Para salvar os arquivos em endereço local, na mesma máquina do código) (USAR DURANTE O DESENVOLVIMENTO)
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = str(BASE_DIR / 'media') #cria a pasta 'media' para onde irão todos os arquivos enviados
+MEDIA_URL = '/media/'
+MEDIA_ROOT = str(BASE_DIR / 'media') #cria a pasta 'media' para onde irão todos os arquivos enviados
 
 # Arquivos de Media (Para salvar os arquivos em um servidor externo, acessado via IP) (USAR DURANTE A PRODUÇÃO)
-MEDIA_URL = '/media/' # Busca o arquivo na pasta media dentro do Servidor, quando é realizado um download.
-MEDIA_ROOT = ('//10.0.0.3/webger23/') # Encaminha o arquivo para o Servidor, quando é realizado um upload.
+# MEDIA_URL = '/media/' # Busca o arquivo na pasta media dentro do Servidor, quando é realizado um download.
+# MEDIA_ROOT = ('//10.0.0.3/webger23/') # Encaminha o arquivo para o Servidor, quando é realizado um upload.
 # Servidor utilizado: MyCloud EX2 Ultra
 #================================================================================================================
 
