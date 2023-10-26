@@ -59,7 +59,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    # 'django.middleware.clickjacking.XFrameOptionsMiddleware', # IMPORTANTE - Comentei essa linha para que eu consigo abrir arquivos PDF em um iframe através do google chrome, pois o XframeOptions por segurança não permite, ao colocar o sistema em produção irei descomentar a linha para que a segurança se reestabeleça.
+    'django.middleware.clickjacking.XFrameOptionsMiddleware', # IMPORTANTE - Comentei essa linha para que eu consigo abrir arquivos PDF em um iframe através do google chrome, pois o XframeOptions por segurança não permite, ao colocar o sistema em produção irei descomentar a linha para que a segurança se reestabeleça.
 
 ]
 
@@ -141,7 +141,7 @@ USE_TZ = False # Utilizado em modo de produção
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 # Configuração dos arquivos estáticos: css, js, imagens
-# STATIC_URL = '/static/' # Usado durante o desenvolvimento
+STATIC_URL = '/static/' # Usado durante o desenvolvimento
 STATIC_ROOT = str(BASE_DIR / 'staticfiles') # Usado durante a produção
 
 #================================================================================================================
@@ -206,4 +206,4 @@ SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 CSRF_COOKIE_HTTPONLY = True
 X_FRAME_OPTIONS = 'DENY'
-# SECURE_SSL_REDIRECT = True  # Utilizar somente com o sistema em produção, pois permite que o sistema utilize apenas HTTPS, aumentando a segurança de criptografia.
+SECURE_SSL_REDIRECT = True  # Utilizar somente com o sistema em produção, pois permite que o sistema utilize apenas HTTPS, aumentando a segurança de criptografia.
