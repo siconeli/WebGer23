@@ -17,13 +17,13 @@ class Auditoria(models.Model): #Logs de Create, Update, Delete
     class Meta:
         ordering = ('-data_hora',)
 
-class Base(models.Model): # Classe base, será herdada pelas outras classes
+class Base(models.Model): # Classe base, será herdada pelas outras classes - HERANÇA
     data_criacao = models.DateTimeField('data_criação', auto_now_add=True)
     usuario_criador = models.ForeignKey(get_user_model(), verbose_name='Usuário Criador', on_delete=models.SET_NULL, null=True)
     data_alteracao = models.DateTimeField('Alterado', auto_now=True)
     ativo = models.BooleanField('Ativo', default=True) # Ativo: 1 (True), Inativo: 0 (False)
 
-    class Meta:
+    class Meta:  # Classe abstrata, não será instânciada.
         abstract = True
 
 class ProcessoAdm(Base):
