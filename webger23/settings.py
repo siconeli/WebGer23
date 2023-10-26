@@ -206,4 +206,4 @@ SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 CSRF_COOKIE_HTTPONLY = True
 X_FRAME_OPTIONS = 'DENY'
-SECURE_SSL_REDIRECT = True  # Utilizar somente com o sistema em produção, pois permite que o sistema utilize apenas HTTPS, aumentando a segurança de criptografia.
+
