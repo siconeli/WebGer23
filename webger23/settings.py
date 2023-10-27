@@ -59,7 +59,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware', # IMPORTANTE - Comentei essa linha para que eu consigo abrir arquivos PDF em um iframe através do google chrome, pois o XframeOptions por segurança não permite, ao colocar o sistema em produção irei descomentar a linha para que a segurança se reestabeleça.
+    # 'django.middleware.clickjacking.XFrameOptionsMiddleware', # IMPORTANTE - Comentei essa linha para que eu consigo abrir arquivos PDF em um iframe através do google chrome, pois o XframeOptions por segurança não permite, ao colocar o sistema em produção irei descomentar a linha para que a segurança se reestabeleça.
 
 ]
 
@@ -146,12 +146,12 @@ STATIC_URL = '/static/' # Usado durante o desenvolvimento
 
 #================================================================================================================
 # Arquivos de Media (Para salvar os arquivos em endereço local, na mesma máquina do código) (USAR DURANTE O DESENVOLVIMENTO)
-MEDIA_URL = '/media/'
-MEDIA_ROOT = str(BASE_DIR / 'media') #cria a pasta 'media' para onde irão todos os arquivos enviados
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = str(BASE_DIR / 'media') #cria a pasta 'media' para onde irão todos os arquivos enviados
 
 # Arquivos de Media (Para salvar os arquivos em um servidor externo, acessado via IP) (USAR DURANTE A PRODUÇÃO)
-# MEDIA_URL = '/media/' # Busca o arquivo na pasta media dentro do Servidor, quando é realizado um download.
-# MEDIA_ROOT = ('//10.0.0.3/webger23/') # Encaminha o arquivo para o Servidor, quando é realizado um upload.
+MEDIA_URL = '/media/' # Busca o arquivo na pasta media dentro do Servidor, quando é realizado um download.
+MEDIA_ROOT = ('//10.0.0.3/webger23/') # Encaminha o arquivo para o Servidor, quando é realizado um upload.
 # Servidor utilizado: MyCloud EX2 Ultra
 #================================================================================================================
 
