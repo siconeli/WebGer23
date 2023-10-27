@@ -338,7 +338,7 @@ class ProcessoAdmUpdate(UpdateView):
     
 class ProcessoAdmArquivadoUpdate(UpdateView):
     model = ProcessoAdm
-    template_name = 'processos/updates/processo_adm_update.html'
+    template_name = 'processos/updates/processo_adm_arquivado_update.html'
     fields = ['ativo', 'municipio', 'uf', 'data_inicial', 'data_final', 'data_div_ativa', 'valor_atributo', 'valor_multa', 'valor_credito', 'valor_atualizado', 'data_valor_atualizado', 'nome_contribuinte', 'tipo_pessoa', 'documento', 'nome_fantasia', 'email', 'endereco', 'complemento', 'municipio_contribuinte', 'uf_contribuinte', 'cep', 'telefone', 'celular']
     success_url = reverse_lazy('proc-adm-arquivado-list')
 

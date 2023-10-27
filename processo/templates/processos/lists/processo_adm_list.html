@@ -15,16 +15,40 @@
                 <h5 style="text-align: center;">Processos Administrativos</h5>
             </div>
             <div class="card-body">
-                {% if user.is_staff %} <!--Membro da equipe = is_staff-->
-                    <h6>Novo Processo</h6>
-                    <!-- Icone de cadastrar processo -->
-                    <a href="{% url 'proc-adm-create' %}"><img src="{% static 'img/create-processo.png' %}" width="50"></a>
-                    <br><br>
-                {% endif %}
-                {% if user.is_staff %}
-                    <h6>Arquivados</h6>
-                    <a href="{% url 'proc-adm-arquivado-list' %}">Abrir</a>
-                {% endif %}
+                <div class="row">
+                    <div class="col">
+                        {% if user.is_staff %} <!--Membro da equipe = is_staff-->
+                            <h6>Novo Processo</h6>
+                            <!-- Icone de cadastrar processo -->
+                            <a href="{% url 'proc-adm-create' %}"><img src="{% static 'img/create-processo.png' %}" width="45"></a>
+                            <br><br>
+                        {% endif %}
+                    </div>
+                    <div class="col">
+                        {% if user.is_staff %}
+                            <h6>Arquivados</h6>
+                            <a href="{% url 'proc-adm-arquivado-list' %}"><img src="{% static 'img/arquivado2.png' %}" width="35"></a>
+                        {% endif %}
+                    </div>
+                    <div class="col">
+                        <!-- Usado para ocupar espaço -->
+                    </div>
+                    <div class="col">
+                         <!-- Usado para ocupar espaço -->
+                    </div>
+                    <div class="col">
+                         <!-- Usado para ocupar espaço -->
+                    </div>
+                    <div class="col">
+                         <!-- Usado para ocupar espaço -->
+                    </div>
+                    <div class="col">
+                         <!-- Usado para ocupar espaço -->
+                    </div>
+                    <div class="col">
+                         <!-- Usado para ocupar espaço -->
+                    </div>
+                </div>
                 <div class="card">
                     <div class="card-header text-white" style="background-color: #5c5c5c;; text-align: center;">
                     <h6>Lista de Processos</h6>
