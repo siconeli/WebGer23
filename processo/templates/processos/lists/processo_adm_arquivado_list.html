@@ -47,20 +47,21 @@
                                     {% endif %}
                                     
                                         <td>
-                                            <a href="{% url 'proc-adm-view' processo.pk %}"><img src="{% static 'img/olho3.png' %}" width="30"></i></a>
+                                            <a href="{% url 'proc-adm-arquivado-view' processo.pk %}"><img src="{% static 'img/olho3.png' %}" width="30"></i></a>
                                             
-                                            {% if user.is_staff %} <!--Membro da equipe = is_staff-->
-                                                <a href="{% url 'proc-adm-update' processo.pk %}"><img src="{% static 'img/botao-editar.png' %}" width="20"></i></a>
+                                            {% if user.is_superuser %} <!--Membro da equipe = is_staff-->
+                                                <a href="{% url 'proc-adm-arquivado-update' processo.pk %}"><img src="{% static 'img/botao-editar.png' %}" width="20"></i></a>
                                             {% endif %}
 
                                             {% if user.is_superuser %} <!-- Super Usuário -->
-                                                <a href="{% url 'proc-adm-delete' processo.pk %}"><img src="{% static 'img/excluir.png' %}" width="20"></a>
+                                                <a href="{% url 'proc-adm-arquivado-delete' processo.pk %}"><img src="{% static 'img/excluir.png' %}" width="20"></a>
                                             {% endif %}
                                         </td>
                                 </tr>
                                 {% endfor %}
                             </tbody>
                         </table>
+                        <a href="{% url 'proc-adm-list' %}" class="btn btn-secondary btn-sm">Voltar</a>
                     </div>
                 </div>
             </div>
@@ -84,9 +85,9 @@
                 "pageLength": 5,
                 "language": {
                     "decimal": "",
-                    "emptyTable": "Nenhum processo registrado",
-                    "info": "Processos Registrados: _TOTAL_ ",
-                    "infoEmpty": "Processos Registrados: 0",
+                    "emptyTable": "Nenhum processo arquivado",
+                    "info": "Processos Arquivados: _TOTAL_ ",
+                    "infoEmpty": "Processos Arquivados: 0",
                     "infoFiltered": "",
                     "infoPostFix": "",
                     "thousands": ",",

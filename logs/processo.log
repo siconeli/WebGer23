@@ -46,3 +46,13 @@ Level: INFO | Data: 2023-10-27 14:04:44,352 | Modulo: signals | Aviso: Usuario -
 Level: INFO | Data: 2023-10-27 14:12:58,398 | Modulo: signals | Aviso: Usuario - "consultor", realizou "Login" a partir do endereco IP: 127.0.0.1
 Level: INFO | Data: 2023-10-27 14:15:14,694 | Modulo: signals | Aviso: Usuario - "consultor", realizou "Logout" a partir do endereco IP: 127.0.0.1
 Level: INFO | Data: 2023-10-27 14:15:17,501 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-27 14:20:28,086 | Modulo: signals | Aviso: Usuario - "admin", realizou "Logout" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-27 14:20:30,484 | Modulo: signals | Aviso: Usuario - "consultor", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-27 14:21:46,388 | Modulo: signals | Aviso: Usuario - "consultor", realizou "Logout" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-27 14:21:50,374 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-27 14:42:58,638 | Modulo: signals | Aviso: Usuario - "consultor", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-27 14:44:09,654 | Modulo: signals | Aviso: Usuario - "consultor", realizou "Logout" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-27 14:44:28,539 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-27 15:17:02,911 | Modulo: signals | Aviso: Usuario - "admin", realizou "Logout" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-27 15:23:43,946 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-27 15:42:35,090 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
