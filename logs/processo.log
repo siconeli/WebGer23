@@ -62,3 +62,4 @@ Level: INFO | Data: 2023-10-27 15:56:18,708 | Modulo: signals | Aviso: Usuario -
 Level: INFO | Data: 2023-10-27 16:10:11,703 | Modulo: signals | Aviso: Usuario - "consultor", realizou "Logout" a partir do endereco IP: 127.0.0.1
 Level: INFO | Data: 2023-10-27 16:10:15,571 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
 Level: INFO | Data: 2023-10-27 16:21:31,815 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-27 16:46:54,560 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
