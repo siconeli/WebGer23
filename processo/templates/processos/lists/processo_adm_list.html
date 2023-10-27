@@ -21,6 +21,10 @@
                     <a href="{% url 'proc-adm-create' %}"><img src="{% static 'img/create-processo.png' %}" width="50"></a>
                     <br><br>
                 {% endif %}
+                {% if user.is_staff %}
+                    <h6>Arquivados</h6>
+                    <a href="{% url 'proc-adm-arquivado-list' %}">Abrir</a>
+                {% endif %}
                 <div class="card">
                     <div class="card-header text-white" style="background-color: #5c5c5c;; text-align: center;">
                     <h6>Lista de Processos</h6>

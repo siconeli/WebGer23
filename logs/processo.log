@@ -35,3 +35,14 @@ Level: INFO | Data: 2023-10-25 17:23:31,793 | Modulo: signals | Aviso: Usuario -
 Level: INFO | Data: 2023-10-26 10:58:36,163 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
 Level: INFO | Data: 2023-10-27 10:08:54,645 | Modulo: signals | Aviso: Usuario - "admin", realizou "Logout" a partir do endereco IP: 127.0.0.1
 Level: INFO | Data: 2023-10-27 10:09:07,000 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-27 14:03:36,706 | Modulo: signals | Aviso: Usuario - "admin", realizou "Logout" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-27 14:03:39,333 | Modulo: signals | Aviso: Usuario - "teste", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-27 14:03:48,579 | Modulo: signals | Aviso: Usuario - "teste", realizou "Logout" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-27 14:03:51,494 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-27 14:04:28,565 | Modulo: signals | Aviso: Usuario - "admin", realizou "Logout" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-27 14:04:31,909 | Modulo: signals | Aviso: Usuario - "consultor", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-27 14:04:41,632 | Modulo: signals | Aviso: Usuario - "consultor", realizou "Logout" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-27 14:04:44,352 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-27 14:12:58,398 | Modulo: signals | Aviso: Usuario - "consultor", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-27 14:15:14,694 | Modulo: signals | Aviso: Usuario - "consultor", realizou "Logout" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-10-27 14:15:17,501 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1

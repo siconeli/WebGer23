@@ -1,116 +1,100 @@
-<!-- Lista de andamentos do Processo Administrativo-->
+<!--Lista de Processos Administrativos-->
 
 {% extends 'index.html' %}
 
 {% load static %}
 
 {% block titulo %}
-    <title>Andamentos do Processo</title>
+    <title>Processo Administrativo</title>
 {% endblock %}
 
-{% block conteudo %}  
+{% block conteudo %} 
     <div class="container p-4">
-        <div class="card">
-            <div class="card-header text-white" style="background-color: #5c5c5c;">
-                    <h5 style="text-align: center;">Lista de Andamentos</h5>
-            </div>
-            <div class="card-body">
-                {% for atributo in dados_processo %}
-                    <h5>Processo: {{ atributo.numero }}</h5>
-                {% endfor %}
-                <hr>
-                <div class="table-responsive">
-                    <!-- <br> -->
-                    <table class="table table-striped" id="tabela-listar-andamento">
-                        <thead>
-                            <tr class="table-secondary">
-                                <th>Processo</th>
-                                <th>Data</th>
-                                <th>Tipo</th>
-                                <th>Prazo</th>
-                                {% if user.is_staff %} <!--Membro da equipe = is_staff-->
-                                    <th>Criado por</th>
-                                    <th>Criado em</th>
-                                {% endif %}
+        <div class="card-body">
+            <div class="card">
+                <div class="card-header text-white" style="background-color: #5c5c5c;; text-align: center;">
+                <h6>Lista de Processos Arquivados</h6>
+                </div>
+                <div class="card-body">                 
+                    <!--Tabela(lista) de Processos-->
+                    <div class="table-responsive">
+                        <!-- <br> -->
+                        <table class="table table-striped" id="tabela-listar">
+                            <thead>
+                                <tr class="table-secondary">
+                                    <th>Processo</th>
+                                    <th>Município</th>
+                                    <th>Contribuinte</th>
+                                    <th>CPF/CNPJ</th>
+                                    {% if user.is_staff %} <!--Membro da equipe = is_staff-->
+                                        <th>Criado por</th>
+                                        <th>Criado em</th>
+                                    {% endif %}        
                                     <th>Ver/Editar/Deletar</th> 
-                                <th>Arquivo</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for processo in object_list %}
+                                <tr>
+                                    <td><b>{{ processo.numero }}</b></td>
+                                    <td>{{ processo.municipio }}</td>
+                                    <td>{{ processo.nome_contribuinte }}</td>
+                                    <td>{{ processo.documento }}</td>
 
-                            {% for andamento in object_list %}
-                            <tr>
-                                <td>{{ andamento.processo }}</td>
-                                <td>{{ andamento.data_andamento|date:"d/m/Y" }}</td>
-                                <td><b>{{ andamento.tipo_andamento }}</b></td>
-                                {% if andamento.data_prazo == Null %}
-                                <td><!--Campo ficará vazio pois a data do prazo não foi selecionada --></td>
-                                {% else %}
-                                <td>{{ andamento.data_prazo|date:"d/m/Y" }}</td>
-                                {% endif%}
-                                <!-- <td>{{ user.get_full_name }}</td> -->
-                                {% if user.is_staff %} <!--Membro da equipe = is_staff-->
-                                    <td>{{ andamento.usuario_criador.get_full_name }}</td>
-                                    <td>{{ andamento.data_criacao|date:"d/m/Y" }}</td>
-                                {% endif%}
-                                    <td>
-                                        <a href="{% url 'andamento-adm-view' andamento.pk %}"><img src="{% static 'img/olho3.png' %}" width="30"></a>
+                                    {% if user.is_staff %} <!--Membro da equipe = is_staff-->
+                                        <td>{{ processo.usuario_criador.get_full_name }}</td>
+                                        <td>{{ processo.data_criacao|date:"d/m/Y" }}</td> <!--Formatei a data para aparecer neste formato na minha Data-table -->
+                                    {% endif %}
+                                    
+                                        <td>
+                                            <a href="{% url 'proc-adm-view' processo.pk %}"><img src="{% static 'img/olho3.png' %}" width="30"></i></a>
+                                            
+                                            {% if user.is_staff %} <!--Membro da equipe = is_staff-->
+                                                <a href="{% url 'proc-adm-update' processo.pk %}"><img src="{% static 'img/botao-editar.png' %}" width="20"></i></a>
+                                            {% endif %}
 
-                                        {% if user.is_staff %} <!--Membro da equipe = is_staff-->
-                                            <a href="{% url 'andamento-adm-update' andamento.pk %}"><img src="{% static 'img/botao-editar.png' %}" width="20"></a>
-                                        {% endif%}
-
-                                        {% if user.is_superuser %} <!-- Super Usuário -->
-                                            <a href="{% url 'andamento-adm-delete' andamento.pk %}"><img src="{% static 'img/excluir.png' %}" width="20"></a>
-                                        {% endif%}
-                                    </td>
-                                    <td>
-                                        {% if andamento.arquivo %}
-                                            <a href="{{ andamento.arquivo.url }}" target="blank"><img src="{% static 'img/verificar.png' %}" width="20"></a>
-                                        {% endif %}
-                                    </td>
-
-                            {% endfor %}
+                                            {% if user.is_superuser %} <!-- Super Usuário -->
+                                                <a href="{% url 'proc-adm-delete' processo.pk %}"><img src="{% static 'img/excluir.png' %}" width="20"></a>
+                                            {% endif %}
+                                        </td>
+                                </tr>
+                                {% endfor %}
                             </tbody>
-                            
                         </table>
-                        <a href="{% url 'proc-adm-list' %}" class="btn btn-secondary btn-sm">Voltar</a>
-                    </div>           
+                    </div>
                 </div>
             </div>
-            
-    </div>   
-{% endblock %}
+        </div>
+   
+    </div>
+    <br>
+    {% endblock %}
 
-{% block scripts %}
+    {% block scripts %}
     <!-- Importação JS da minha 'datatable' -->
     <script src="https://cdn.datatables.net/v/bs5/dt-1.13.6/datatables.min.js"></script>
 
     <script>
         // Para transformar minha lista em um datatable
         $(document).ready(function(){
-            // $('#tabela-listar').DataTable();
-        
-            // });
-
-            $('#tabela-listar-andamento').DataTable({
+            $('#tabela-listar').DataTable({
                 responsive: true,
                 // "bSort": false,
                 "aaSorting": [],
                 "pageLength": 5,
                 "language": {
                     "decimal": "",
-                    "emptyTable": "Nenhum andamento registrado",
-                    "info": "Andamentos Registrados: _TOTAL_",
-                    "infoEmpty": "Andamentos Registrados: 0",
+                    "emptyTable": "Nenhum processo registrado",
+                    "info": "Processos Registrados: _TOTAL_ ",
+                    "infoEmpty": "Processos Registrados: 0",
                     "infoFiltered": "",
                     "infoPostFix": "",
                     "thousands": ",",
-                    "lengthMenu": "Mostrar _MENU_ andamentos",
+                    "lengthMenu": "Mostrar _MENU_ processos",
                     "loadingRecords": "A carregar dados...",
                     "processing": "A processar...",
                     "search": "Buscar:",
-                    "zeroRecords": "Nenhum andamento encontrado",
+                    "zeroRecords": "Nenhum processo encontrado",
                     "paginate": {
                         "first": "Primeiro",
                         "last": "Último",
@@ -125,6 +109,9 @@
             });
 
         });
+
     </script>
 
-{% endblock %}
+
+{% endblock %} 
+

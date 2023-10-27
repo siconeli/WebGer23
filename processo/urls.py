@@ -16,6 +16,7 @@ from .views import AndamentoAdmDelete
 from .views import ProcessoAdmList
 from .views import AndamentoAdmList
 from .views import AndamentoAdmListUpdate
+from .views import ProcessoAdmArquivadoList
 
 from django.contrib.auth.views import LogoutView
 
@@ -42,5 +43,6 @@ urlpatterns = [
     path('listar/processo-adm/', ProcessoAdmList.as_view(), name='proc-adm-list'),
     path('listar/andamento-adm/<int:pk>', AndamentoAdmList.as_view(), name='andamento-adm-list'),
     path('listar/andamento-adm-editar/<int:pk>', AndamentoAdmListUpdate.as_view(), name='andamento-adm-list-update'),
+    path('listar/processo-adm-arquivado/', ProcessoAdmArquivadoList.as_view(), name='proc-adm-arquivado-list'),
 
 ]
