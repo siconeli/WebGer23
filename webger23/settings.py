@@ -32,7 +32,7 @@ SECRET_KEY = 'django-insecure-l^j*v2e&&e@@21#+kd@5xdj7v#!e7-iwt%x(78e0=)7_2p+!%5
 # SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -87,17 +87,24 @@ WSGI_APPLICATION = 'webger23.wsgi.application'
 # Database - Documentação de configuração padrão para cada tipo de banco de dados
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# Utiliza em modo de Desenvolvimento - PostgreSQL pgAdmin4
 DATABASES = {
-    'default': {  
-        'ENGINE': 'django.db.backends.postgresql', 
-        'NAME': 'processos',
-        'USER': 'postgres',
-        'PASSWORD': 'Clodomir753$',
-        'HOST': 'localhost',
-        'PORT': '5432',
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# Utiliza em modo de Desenvolvimento - PostgreSQL pgAdmin4
+# DATABASES = {
+#     'default': {  
+#         'ENGINE': 'django.db.backends.postgresql', 
+#         'NAME': 'processos',
+#         'USER': 'postgres',
+#         'PASSWORD': 'Clodomir753$',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
 
 # Utiliza em modo de Produção
 # DATABASES = {
@@ -141,8 +148,8 @@ USE_TZ = True # Utilizado em modo de Desenvolvimento
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 # Configuração dos arquivos estáticos: css, js, imagens
-STATIC_URL = '/static/' # Usado durante o desenvolvimento
-# STATIC_ROOT = str(BASE_DIR / 'staticfiles') # Usado durante a produção
+# STATIC_URL = '/static/' # Usado durante o desenvolvimento
+STATIC_ROOT = str(BASE_DIR / 'staticfiles') # Usado durante a produção
 
 #================================================================================================================
 # Arquivos de Media (Para salvar os arquivos em endereço local, na mesma máquina do código) (USAR DURANTE O DESENVOLVIMENTO)

@@ -18,7 +18,7 @@ from PyPDF2 import PdfMerger # Módulo para mesclar pdf
 
 from django.core.exceptions import ValidationError
 
-import pythoncom
+# import pythoncom USADO PARA RELAÇÃO DE API COM O WINDOWS, COMENTEI APENAS PARA REALIZAR O DEPLOY.
 
 from django.http import HttpResponse
 
@@ -680,6 +680,7 @@ class ProcessoAdmArquivadoList(ListView):
     model = ProcessoAdm
     template_name = 'processos/lists/processo_adm_arquivado_list.html'
 
+    # Listar Apenas Processos Inativos
     def get_queryset(self):
         return ProcessoAdm.objects.filter(ativo=False)
 

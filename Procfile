@@ -1,1 +1,0 @@
-web: gunicorn webger23.wsgi --log-file -
