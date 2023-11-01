@@ -14,6 +14,8 @@ from pathlib import Path
 
 import os
 
+import dj_database_url
+
 # import dj_database_url # Módulo utilizado para conexão do banco de dados com o projeto em Produção no Railway
 
 # import dj_database_url # Módulo usado na configuração da conexão do banco de dados no deploy
@@ -26,16 +28,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-l^j*v2e&&e@@21#+kd@5xdj7v#!e7-iwt%x(78e0=)7_2p+!%5' # Utiliza em modo de Desenvolvimento
+# Utiliza em modo de Desenvolvimento
+# SECRET_KEY = 'django-insecure-l^j*v2e&&e@@21#+kd@5xdj7v#!e7-iwt%x(78e0=)7_2p+!%5' 
 
 # Utiliza em modo de produção
-# SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://webgerteste.fly.dev']
 
+# Configuração de origens confiáveis, para funcionamento do CSRF_TOKEN
+CSRF_TRUSTED_ORIGINS = ['https://webgerteste.fly.dev']
 
 # Application definition
 
@@ -87,12 +92,24 @@ WSGI_APPLICATION = 'webger23.wsgi.application'
 # Database - Documentação de configuração padrão para cada tipo de banco de dados
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# Utilizado em modo de Desenvolvimento - Para utilizar o banco nativo do django SQLite3
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': os.getenv('DB_NAME'),
+#         'USER': os.getenv('DB_USER'),
+#         'PASSWORD': os.getenv('DB_PASSWORD'),
+#         'HOST': os.getenv('DB_HOST'),
+#         'PORT': os.getenv('DB_PORT'),
+#     }
+# }
 
 # Utiliza em modo de Desenvolvimento - PostgreSQL pgAdmin4
 # DATABASES = {
@@ -140,15 +157,15 @@ TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
-USE_TZ = True # Utilizado em modo de Desenvolvimento
-# USE_TZ = False # Utilizado em modo de produção
+# USE_TZ = True # Utilizado em modo de Desenvolvimento
+USE_TZ = False # Utilizado em modo de produção
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 # Configuração dos arquivos estáticos: css, js, imagens
-# STATIC_URL = '/static/' # Usado durante o desenvolvimento
+STATIC_URL = '/static/' # Usado durante o desenvolvimento
 STATIC_ROOT = str(BASE_DIR / 'staticfiles') # Usado durante a produção
 
 #================================================================================================================
@@ -205,12 +222,12 @@ LOGGING = {
 # -------------------------------------
 
 # Recursos extras de Segurança do Django - Inseridos manualmente.
-SECURE_HSTS_SECONDS = True
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_CONTENT_TYPE_NOSNIFF = True
-SECURE_BROWSER_XSS_FILTER = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-CSRF_COOKIE_HTTPONLY = True
-X_FRAME_OPTIONS = 'DENY'
+# SECURE_HSTS_SECONDS = True
+# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+# SECURE_CONTENT_TYPE_NOSNIFF = True
+# SECURE_BROWSER_XSS_FILTER = True
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
+# CSRF_COOKIE_HTTPONLY = True
+# X_FRAME_OPTIONS = 'DENY'
 

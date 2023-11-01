@@ -66,3 +66,5 @@ Level: INFO | Data: 2023-10-27 16:46:54,560 | Modulo: signals | Aviso: Usuario -
 Level: INFO | Data: 2023-10-30 17:27:47,521 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
 Level: INFO | Data: 2023-10-31 09:26:30,641 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
 Level: ERROR | Data: 2023-10-31 09:28:17,602 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: name 'pythoncom' is not defined
+Level: INFO | Data: 2023-10-31 15:40:15,417 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: ERROR | Data: 2023-10-31 15:40:32,437 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: name 'pythoncom' is not defined
