@@ -18,7 +18,7 @@ from PyPDF2 import PdfMerger # Módulo para mesclar pdf
 
 from django.core.exceptions import ValidationError
 
-# import pythoncom USADO PARA RELAÇÃO DE API COM O WINDOWS, COMENTEI APENAS PARA REALIZAR O DEPLOY.
+# import pythoncom
 
 from django.http import HttpResponse
 
@@ -151,7 +151,7 @@ class AndamentoAdmCreate(CreateView):
             # Preencher o atributo 'funcionario' com o nome completo do usuário logado.
             form.instance.funcionario = self.request.user.get_full_name()
 
-            pythoncom.CoInitialize() # Para não ocorrer o erro  "Exception Value:(-2147221008, 'CoInitialize não foi chamado.', None, None)" quando utilizado código para converter arquivos
+            # pythoncom.CoInitialize() # Para não ocorrer o erro  "Exception Value:(-2147221008, 'CoInitialize não foi chamado.', None, None)" quando utilizado código para converter arquivos
 
             """
             # Código para conversão do arquivo enviado, de .docx(word) para .pdf
@@ -183,7 +183,7 @@ class AndamentoAdmCreate(CreateView):
                     # Certifique-se de que o arquivo PDF temporário seja excluído
                     os.remove(pdf_temporario)
                     
-            pythoncom.CoUninitialize() # Para não ocorrer o erro "Exception Value:(-2147221008, 'CoInitialize não foi chamado.', None, None)" quando utilizado códigos para converter arquivos
+            # pythoncom.CoUninitialize() # Para não ocorrer o erro "Exception Value:(-2147221008, 'CoInitialize não foi chamado.', None, None)" quando utilizado códigos para converter arquivos
         
             result = super().form_valid(form)
             
@@ -485,7 +485,7 @@ class AndamentoAdmUpdate(UpdateView):
             objeto_original = self.get_object()
             objeto_atualizado = form.instance
 
-            pythoncom.CoInitialize() # Para não ocorrer o erro  "Exception Value:(-2147221008, 'CoInitialize não foi chamado.', None, None)" quando utilizado código para converter arquivos
+            # pythoncom.CoInitialize() # Para não ocorrer o erro  "Exception Value:(-2147221008, 'CoInitialize não foi chamado.', None, None)" quando utilizado código para converter arquivos
             # Código para conversão do arquivo enviado, de .docx(word) para .pdf
             # Antes de salvar o formulário, verifica se um arquivo Word foi enviado
             if 'arquivo' in self.request.FILES:
@@ -513,7 +513,7 @@ class AndamentoAdmUpdate(UpdateView):
                     # Certifique-se de que o arquivo PDF temporário seja excluído
                     os.remove(pdf_temporario)
                     
-                    pythoncom.CoUninitialize() # Para não ocorrer o erro "Exception Value:(-2147221008, 'CoInitialize não foi chamado.', None, None)"
+                    # pythoncom.CoUninitialize() # Para não ocorrer o erro "Exception Value:(-2147221008, 'CoInitialize não foi chamado.', None, None)"
 
             # result = super().form_valid(form)
 
