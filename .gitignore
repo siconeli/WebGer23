@@ -4,3 +4,4 @@ dmypy.json
 
 .pyre/
 tmp
+.env
