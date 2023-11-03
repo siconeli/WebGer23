@@ -92,22 +92,23 @@ WSGI_APPLICATION = 'webger23.wsgi.application'
 # Database - Documentação de configuração padrão para cada tipo de banco de dados
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# Utilizado em modo de Desenvolvimento - Para utilizar o banco nativo do django SQLite3
+# Utiliza em modo de Desenvolvimento - PostgreSQL pgAdmin4
+DATABASES = {
+    'default': {  
+        'ENGINE': 'django.db.backends.postgresql', 
+        'NAME': 'webgerteste-db',
+        'USER': 'postgres',
+        'PASSWORD': 'MOukJ6zk89Wv4fI',
+        'HOST': 'https://webgerteste-db.fly.dev',
+        'PORT': '5433',
+    }
+}
+
+# Utilizado em modo de Desenvolvimento - Para utilizar o banco nativo do django - SQLite3
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
 #         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': os.getenv('DB_NAME'),
-#         'USER': os.getenv('DB_USER'),
-#         'PASSWORD': os.getenv('DB_PASSWORD'),
-#         'HOST': os.getenv('DB_HOST'),
-#         'PORT': os.getenv('DB_PORT'),
 #     }
 # }
 
