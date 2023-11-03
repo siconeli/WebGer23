@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for webgerteste on 2023-11-02T09:35:33-04:00
+# fly.toml app configuration file generated for webger23 on 2023-11-03T02:03:04-04:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "webgerteste"
+app = "webger23"
 primary_region = "gru"
 console_command = "/code/manage.py shell"
 

@@ -12,13 +12,14 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 
-import os
+import dj_database_url # Módulo usado na configuração da conexão do banco de dados no deploy
 
-import dj_database_url
+import os # Módulo para utilizar funcionalidades relacionadas ao sistema operacional, como manipulação de arquivos, variáveis de ambiente e muitas outras operações relacionadas ao sistema
 
-# import dj_database_url # Módulo utilizado para conexão do banco de dados com o projeto em Produção no Railway
+from dotenv import load_dotenv # Módulo para importação do arquivo .env onde estão as configurações das variáveis de ambiente.
 
-# import dj_database_url # Módulo usado na configuração da conexão do banco de dados no deploy
+load_dotenv() # Chamada do dotenv
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -35,7 +36,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ.get('DEBUG') =='True'
 
 ALLOWED_HOSTS = ['https://webgerteste.fly.dev']
 
@@ -51,6 +52,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'whitenoise.runserver_nostatic', # whitenoise para modo de desenvolvimento
     'core', # Aplicação core
     'processo', # Aplicação Processo
     'django_cleanup.apps.CleanupConfig', # Excluir arquivos da pasta de uploads após editar o registro e adicionar um novo arquivo.
@@ -59,6 +61,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', # whitenoise para modo de produção
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -88,21 +91,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'webger23.wsgi.application'
 
+from decouple import config
 
 # Database - Documentação de configuração padrão para cada tipo de banco de dados
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
-# Utiliza em modo de Desenvolvimento - PostgreSQL pgAdmin4
-DATABASES = {
-    'default': {  
-        'ENGINE': 'django.db.backends.postgresql', 
-        'NAME': 'webgerteste-db',
-        'USER': 'postgres',
-        'PASSWORD': 'MOukJ6zk89Wv4fI',
-        'HOST': 'https://webgerteste-db.fly.dev',
-        'PORT': '5433',
-    }
-}
 
 # Utilizado em modo de Desenvolvimento - Para utilizar o banco nativo do django - SQLite3
 # DATABASES = {
@@ -125,10 +117,11 @@ DATABASES = {
 # }
 
 # Utiliza em modo de Produção
-# DATABASES = {
-#     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'), conn_max_age=600),
-
-# }
+DATABASES = {
+    'default': dj_database_url.config(
+        default='sqlite:///' + os.path.join('db.sqlite3')
+    )
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -166,13 +159,22 @@ USE_TZ = False # Utilizado em modo de produção
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 # Configuração dos arquivos estáticos: css, js, imagens
-STATIC_URL = '/static/' # Usado durante o desenvolvimento
-STATIC_ROOT = str(BASE_DIR / 'staticfiles') # Usado durante a produção
+# STATIC_URL = '/static/' # Usado durante o desenvolvimento
+# STATIC_ROOT = str(BASE_DIR / 'staticfiles') # Usado durante a produção
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' # withenoise
+
+STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'webger23/static')
+]
 
 #================================================================================================================
 # Arquivos de Media (Para salvar os arquivos em endereço local, na mesma máquina do código) (USAR DURANTE O DESENVOLVIMENTO)
 MEDIA_URL = '/media/'
-MEDIA_ROOT = str(BASE_DIR / 'media') #cria a pasta 'media' para onde irão todos os arquivos enviados
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_ROOT = str(BASE_DIR / 'media') #cria a pasta 'media' para onde irão todos os arquivos enviados
 
 # Arquivos de Media (Para salvar os arquivos em um servidor externo, acessado via IP) (USAR DURANTE A PRODUÇÃO)
 # MEDIA_URL = '/media/' # Busca o arquivo na pasta media dentro do Servidor, quando é realizado um download.
