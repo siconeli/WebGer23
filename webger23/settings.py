@@ -38,10 +38,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG') =='True'
 
-ALLOWED_HOSTS = ['https://webgerteste.fly.dev']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'webger23.fly.dev']
 
 # Configuração de origens confiáveis, para funcionamento do CSRF_TOKEN
-CSRF_TRUSTED_ORIGINS = ['https://webgerteste.fly.dev']
+CSRF_TRUSTED_ORIGINS = ['https://webger23.fly.dev']
 
 # Application definition
 
