@@ -68,3 +68,11 @@ Level: INFO | Data: 2023-10-31 09:26:30,641 | Modulo: signals | Aviso: Usuario -
 Level: ERROR | Data: 2023-10-31 09:28:17,602 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: name 'pythoncom' is not defined
 Level: INFO | Data: 2023-10-31 15:40:15,417 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
 Level: ERROR | Data: 2023-10-31 15:40:32,437 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: name 'pythoncom' is not defined
+Level: INFO | Data: 2023-11-07 17:05:06,713 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-11-07 17:06:33,080 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-11-07 17:09:32,899 | Modulo: signals | Aviso: Usuario - "admin", realizou "Logout" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-11-07 17:10:16,397 | Modulo: signals | Aviso: Usuario - "poliana", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-11-07 17:20:18,738 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-11-07 17:30:28,559 | Modulo: signals | Aviso: Usuario - "admin", realizou "Logout" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-11-07 17:33:08,517 | Modulo: signals | Aviso: Usuario - "poliana", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-11-07 17:52:15,939 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
