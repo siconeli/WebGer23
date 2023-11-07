@@ -16,9 +16,9 @@ import dj_database_url # Módulo usado na configuração da conexão do banco de
 
 import os # Módulo para utilizar funcionalidades relacionadas ao sistema operacional, como manipulação de arquivos, variáveis de ambiente e muitas outras operações relacionadas ao sistema
 
-from dotenv import load_dotenv # Módulo para importação do arquivo .env onde estão as configurações das variáveis de ambiente.
+# from dotenv import load_dotenv # Módulo para importação do arquivo .env onde estão as configurações das variáveis de ambiente.
 
-load_dotenv() # Chamada do dotenv
+# load_dotenv() # Chamada do dotenv
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -30,18 +30,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # Utiliza em modo de Desenvolvimento
-# SECRET_KEY = 'django-insecure-l^j*v2e&&e@@21#+kd@5xdj7v#!e7-iwt%x(78e0=)7_2p+!%5' 
+SECRET_KEY = 'django-insecure-l^j*v2e&&e@@21#+kd@5xdj7v#!e7-iwt%x(78e0=)7_2p+!%5' 
 
-# Utiliza em modo de produção
-SECRET_KEY = os.environ.get('SECRET_KEY')
+# Utiliza em modo de produção do Deploy Fly.io
+# SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG') =='True'
+# DEBUG = os.environ.get('DEBUG') =='True' Usado no deployda Fly.io
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'webger23.fly.dev']
 
 # Configuração de origens confiáveis, para funcionamento do CSRF_TOKEN
-CSRF_TRUSTED_ORIGINS = ['https://webger23.fly.dev']
+# CSRF_TRUSTED_ORIGINS = ['https://webger23.fly.dev']
 
 # Application definition
 
@@ -91,7 +92,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'webger23.wsgi.application'
 
-from decouple import config
+# from decouple import config
 
 # Database - Documentação de configuração padrão para cada tipo de banco de dados
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
@@ -105,23 +106,23 @@ from decouple import config
 # }
 
 # Utiliza em modo de Desenvolvimento - PostgreSQL pgAdmin4
-# DATABASES = {
-#     'default': {  
-#         'ENGINE': 'django.db.backends.postgresql', 
-#         'NAME': 'processos',
-#         'USER': 'postgres',
-#         'PASSWORD': 'Clodomir753$',
-#         'HOST': 'localhost',
-#         'PORT': '5432',
-#     }
-# }
-
-# Utiliza em modo de Produção
 DATABASES = {
-    'default': dj_database_url.config(
-        default='sqlite:///' + os.path.join('db.sqlite3')
-    )
+    'default': {  
+        'ENGINE': 'django.db.backends.postgresql', 
+        'NAME': 'processos',
+        'USER': 'postgres',
+        'PASSWORD': 'Clodomir753$',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
 }
+
+# Utiliza em modo de Produção do Deploy Fly.io
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default='sqlite:///' + os.path.join('db.sqlite3')
+#     )
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -151,24 +152,26 @@ TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
-# USE_TZ = True # Utilizado em modo de Desenvolvimento
-USE_TZ = False # Utilizado em modo de produção
+USE_TZ = True # Utilizado em modo de Desenvolvimento
+# USE_TZ = False # Utilizado em modo de produção
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 # Configuração dos arquivos estáticos: css, js, imagens
-# STATIC_URL = '/static/' # Usado durante o desenvolvimento
+STATIC_URL = '/static/' # Usado durante o desenvolvimento
 # STATIC_ROOT = str(BASE_DIR / 'staticfiles') # Usado durante a produção
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' # withenoise
+# Usado durante o deploy do Fly.io =============================================================================
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' # withenoise
 
-STATIC_URL = 'static/'
+# STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'webger23/static')
-]
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'webger23/static')
+# ]
+# ==============================================================================================================
 
 #================================================================================================================
 # Arquivos de Media (Para salvar os arquivos em endereço local, na mesma máquina do código) (USAR DURANTE O DESENVOLVIMENTO)
