@@ -76,3 +76,9 @@ Level: INFO | Data: 2023-11-07 17:20:18,738 | Modulo: signals | Aviso: Usuario -
 Level: INFO | Data: 2023-11-07 17:30:28,559 | Modulo: signals | Aviso: Usuario - "admin", realizou "Logout" a partir do endereco IP: 127.0.0.1
 Level: INFO | Data: 2023-11-07 17:33:08,517 | Modulo: signals | Aviso: Usuario - "poliana", realizou "Login" a partir do endereco IP: 127.0.0.1
 Level: INFO | Data: 2023-11-07 17:52:15,939 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-11-07 21:27:35,446 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-11-07 21:30:37,679 | Modulo: signals | Aviso: Usuario - "admin", realizou "Logout" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-11-07 21:30:40,970 | Modulo: signals | Aviso: Usuario - "poliana", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-11-07 21:31:08,143 | Modulo: signals | Aviso: Usuario - "poliana", realizou "Logout" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-11-07 21:31:11,480 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-11-08 07:35:21,013 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1

@@ -175,13 +175,13 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 #================================================================================================================
 # Arquivos de Media (Para salvar os arquivos em endereço local, na mesma máquina do código) (USAR DURANTE O DESENVOLVIMENTO)
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-# MEDIA_ROOT = str(BASE_DIR / 'media') #cria a pasta 'media' para onde irão todos os arquivos enviados
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 # Arquivos de Media (Para salvar os arquivos em um servidor externo, acessado via IP) (USAR DURANTE A PRODUÇÃO)
-# MEDIA_URL = '/media/' # Busca o arquivo na pasta media dentro do Servidor, quando é realizado um download.
-# MEDIA_ROOT = ('//10.0.0.3/webger23/') # Encaminha o arquivo para o Servidor, quando é realizado um upload.
+MEDIA_URL = '/media/' # Busca o arquivo na pasta media dentro do Servidor, quando é realizado um download.
+MEDIA_ROOT = ('//10.0.0.3/webger23/') # Encaminha o arquivo para o Servidor, quando é realizado um upload.
 # Servidor utilizado: MyCloud EX2 Ultra
 #================================================================================================================
 
@@ -228,12 +228,12 @@ LOGGING = {
 # -------------------------------------
 
 # Recursos extras de Segurança do Django - Inseridos manualmente.
-# SECURE_HSTS_SECONDS = True
-# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-# SECURE_CONTENT_TYPE_NOSNIFF = True
-# SECURE_BROWSER_XSS_FILTER = True
-# SESSION_COOKIE_SECURE = True
-# CSRF_COOKIE_SECURE = True
-# CSRF_COOKIE_HTTPONLY = True
-# X_FRAME_OPTIONS = 'DENY'
+SECURE_HSTS_SECONDS = True
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_BROWSER_XSS_FILTER = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_HTTPONLY = True
+X_FRAME_OPTIONS = 'DENY'
 
