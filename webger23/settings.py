@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 
+import dj_database_url # Módulo usado na configuração da conexão do banco de dados no deploy
 
 import os # Módulo para utilizar funcionalidades relacionadas ao sistema operacional, como manipulação de arquivos, variáveis de ambiente e muitas outras operações relacionadas ao sistema
 
@@ -36,12 +37,12 @@ SECRET_KEY = 'django-insecure-l^j*v2e&&e@@21#+kd@5xdj7v#!e7-iwt%x(78e0=)7_2p+!%5
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = os.environ.get('DEBUG') =='True' Usado no deployda Fly.io
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '7296-191-222-170-47.ngrok-free.app']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'a78a-191-222-170-47.ngrok-free.app']
 
 # Configuração de origens confiáveis, para funcionamento do CSRF_TOKEN
-CSRF_TRUSTED_ORIGINS = ['https://7296-191-222-170-47.ngrok-free.app']
+CSRF_TRUSTED_ORIGINS = ['https://a78a-191-222-170-47.ngrok-free.app']
 
 # Application definition
 
@@ -104,7 +105,7 @@ WSGI_APPLICATION = 'webger23.wsgi.application'
 #     }
 # }
 
-# PostgreSQL pgAdmin4
+# Utiliza em modo de Desenvolvimento - PostgreSQL pgAdmin4
 DATABASES = {
     'default': {  
         'ENGINE': 'django.db.backends.postgresql', 
@@ -115,6 +116,13 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+
+# Utiliza em modo de Produção do Deploy Fly.io
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default='sqlite:///' + os.path.join('db.sqlite3')
+#     )
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -144,22 +152,26 @@ TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
-# USE_TZ = True # Utilizado em modo de Desenvolvimento
-USE_TZ = False # Utilizado em modo de produção
+USE_TZ = True # Utilizado em modo de Desenvolvimento
+# USE_TZ = False # Utilizado em modo de produção
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 # Configuração dos arquivos estáticos: css, js, imagens
-# STATIC_URL = '/static/' # Usado durante o desenvolvimento
-STATIC_ROOT = str(BASE_DIR / 'staticfiles') # Usado durante a produção
+STATIC_URL = '/static/' # Usado durante o desenvolvimento
+# STATIC_ROOT = str(BASE_DIR / 'staticfiles') # Usado durante a produção
 
 # Usado durante o deploy do Fly.io =============================================================================
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' # withenoise
 
-STATIC_URL = 'static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'webger23/static')
+# ]
+# ==============================================================================================================
 
 #================================================================================================================
 # Arquivos de Media (Para salvar os arquivos em endereço local, na mesma máquina do código) (USAR DURANTE O DESENVOLVIMENTO)
