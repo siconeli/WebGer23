@@ -103,7 +103,7 @@
         var situacao = $("#sit");
         var pago = $("#pag");
         
-        if (andamento.val() === '4') { // '1' = 'Encerrado'
+        if (andamento.val() === '2') { // '1' = 'Encerrado'
             $("#situacao_pagamento").show();
             if (situacao.val() === 'Com Pagamento') {
                 $("#valor_pago").show();
@@ -131,7 +131,10 @@
             // Limpa o valor inserido no campo "valor_pago" quando ele deixa de ser mostrado
             pago.val("");
         }
-    }
+
+        if (andamento.val() === '3') { // '1' = 'Encaminhado'
+            $("#situacao_pagamento").show();
+        }
         
         // Chame a função ao carregar a página
         toggleFields();

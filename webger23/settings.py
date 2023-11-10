@@ -98,24 +98,24 @@ WSGI_APPLICATION = 'webger23.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 # Utilizado em modo de Desenvolvimento - Para utilizar o banco nativo do django - SQLite3
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-# Utiliza em modo de Desenvolvimento - PostgreSQL pgAdmin4
 DATABASES = {
-    'default': {  
-        'ENGINE': 'django.db.backends.postgresql', 
-        'NAME': 'processos',
-        'USER': 'postgres',
-        'PASSWORD': 'Clodomir753$',
-        'HOST': 'localhost',
-        'PORT': '5432',
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# Utiliza em modo de Desenvolvimento - PostgreSQL pgAdmin4
+# DATABASES = {
+#     'default': {  
+#         'ENGINE': 'django.db.backends.postgresql', 
+#         'NAME': 'processos',
+#         'USER': 'postgres',
+#         'PASSWORD': 'Clodomir753$',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
 
 # Utiliza em modo de Produção do Deploy Fly.io
 # DATABASES = {
